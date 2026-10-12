@@ -18,8 +18,6 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: '24'
-      - run: npm install --no-audit --no-fund
+      - run: npm ci --no-audit --no-fund
       - run: npm run smoke
       - run: npm run build
-      - name: Bootstrap dependency lock
-        run: node -e "console.log('CHISHUI_LOCK_BASE64=' + require('node:fs').readFileSync('package-lock.json').toString('base64'))"

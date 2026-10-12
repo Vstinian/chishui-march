@@ -9,7 +9,7 @@
 ```bash
 git clone https://github.com/Vstinian/chishui-march.git
 cd chishui-march
-npm install
+npm ci
 npm run dev
 ```
 
