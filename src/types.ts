@@ -1,17 +1,5 @@
 export type ActId = 'act01' | 'act02' | 'act03' | 'act04' | 'act05';
 
-export interface InteractionOption {
-  id: string;
-  label: string;
-  feedback: string;
-}
-
-export interface Interaction {
-  kind: 'choice' | 'reveal';
-  prompt: string;
-  options: InteractionOption[];
-}
-
 export interface ActAssets {
   scene: string | null;
   character: string | null;
@@ -22,11 +10,24 @@ export interface Act {
   title: string;
   subtitle: string;
   story: string[];
-  interaction: Interaction;
+  interaction: MiniGame;
   assets: ActAssets;
   sourceIds: string[];
   nextAct: ActId | null;
+  dialogue: DialogueLine[];
 }
+
+export type CharacterId = 'qingshan' | 'laolei' | 'xiaoman' | 'ahu' | 'instructor';
+export interface Character { name: string; role: string; portrait: string | null; }
+export interface DialogueLine { speaker: CharacterId; text: string; scene: string; }
+export interface MiniGame {
+  kind: 'bridge' | 'fog' | 'climb' | 'rescue' | 'crossing';
+  title: string;
+  instruction: string;
+  source: string;
+  afterLine: number;
+}
+export interface GameProgress { steps: number; selected: string | null; feedback: string; }
 
 export interface SourceCard {
   id: string;

@@ -108,6 +108,50 @@ main:focus { outline: none; }
 .citation span { font-size: 11px; font-weight: 700; color: #844e3c; }
 .citation p { margin: 6px 0 0; font-size: 13px; }
 .source-warning { font-size: 12px; color: #9a513e; }
+.recap-screen { flex: 1; padding: clamp(28px, 5vw, 70px) clamp(20px, 4vw, 56px) 64px; background: radial-gradient(circle at 85% 8%, #334b3d 0, transparent 32%), #192923; }
+.recap-shell { max-width: 1380px; margin: auto; }
+.recap-intro { max-width: 810px; margin-bottom: 35px; }
+.recap-intro h1 { margin: 13px 0 15px; font-family: "Noto Serif SC", "SimSun", serif; font-size: clamp(42px, 6vw, 76px); letter-spacing: .08em; line-height: 1.2; }
+.recap-intro p { max-width: 690px; color: #d3dbce; line-height: 1.9; font-size: 16px; }
+.recap-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(350px, .8fr); gap: clamp(24px, 3vw, 46px); align-items: start; }
+.recap-map-frame { border: 8px solid #263b32; box-shadow: 0 24px 55px #07130f99, 0 0 0 1px #8d9279; background: #d8cfb6; }
+.recap-map-scroll-hint { display: none; }
+.recap-map { display: block; width: 100%; height: auto; }
+.recap-terrain path { fill: none; stroke: #68765e; stroke-width: 1.2; stroke-opacity: .43; }
+.recap-river-bank { fill: none; stroke: #a9b0a1; stroke-width: 55; stroke-opacity: .5; }
+.recap-river { fill: none; stroke: #557b76; stroke-width: 29; stroke-opacity: .72; stroke-linecap: round; }
+.recap-map-region { fill: #344b3a; font: 700 19px "Noto Serif SC", "SimSun", serif; letter-spacing: 4px; }
+.recap-map-river-label { fill: #32534f; font: 700 17px "Noto Serif SC", "SimSun", serif; writing-mode: vertical-rl; letter-spacing: 5px; }
+.recap-map-route { fill: none; stroke: #8d614d; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 7 10; opacity: .43; transition: opacity .2s, stroke-width .2s; }
+.recap-map-route.is-active { stroke: #b74e37; stroke-width: 9; stroke-dasharray: none; opacity: 1; }
+.recap-map-marker circle { fill: #c8bea2; stroke: #79594c; stroke-width: 2; }
+.recap-map-marker text { fill: #4f3d32; font: 700 15px system-ui, sans-serif; }
+.recap-map-marker.is-active circle { fill: #b74e37; stroke: #f1e6ce; stroke-width: 3; }
+.recap-map-marker.is-active text { fill: #fff8e8; }
+.recap-map-caption { fill: #6d6857; font: 13px "Noto Sans SC", "Microsoft YaHei", sans-serif; letter-spacing: 1px; }
+.recap-notes { border-top: 1px solid #70816e; padding-top: 15px; }
+.recap-notes-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; color: #aeb9a9; font-size: 11px; letter-spacing: .12em; margin-bottom: 16px; }
+.recap-step-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.recap-step { display: flex; align-items: center; gap: 13px; min-height: 58px; padding: 11px 13px; border: 1px solid #657766; color: #e8e3d6; background: #263b32; text-align: left; }
+.recap-step:hover { border-color: #c5ad8c; background: #354b3d; }
+.recap-step.is-active { border-color: #d48d73; background: #4b3b32; }
+.recap-step span { color: #d49a7d; font-size: 12px; }
+.recap-step strong { font-size: 14px; font-weight: 600; }
+.recap-detail { min-height: 358px; padding: 22px 0 8px; }
+.recap-detail-meta { display: flex; flex-wrap: wrap; gap: 9px 20px; color: #d59b80; font-size: 12px; letter-spacing: .07em; }
+.recap-detail h2 { margin: 13px 0 23px; font-family: "Noto Serif SC", "SimSun", serif; font-size: clamp(29px, 3vw, 40px); letter-spacing: .07em; }
+.recap-perspective { padding: 0 0 0 17px; border-left: 2px solid #789084; margin: 0 0 21px; }
+.recap-perspective.full { border-color: #c7654e; }
+.recap-perspective span { color: #a9bbae; font-size: 12px; font-weight: 700; letter-spacing: .16em; }
+.recap-perspective.full span { color: #de9e80; }
+.recap-perspective p { margin: 8px 0 0; color: #e9e7d9; font-size: 15px; line-height: 1.8; }
+.recap-bottom { display: flex; justify-content: space-between; align-items: center; gap: 22px; border-top: 1px solid var(--line); margin-top: 22px; padding-top: 20px; }
+.recap-bottom p { max-width: 600px; margin: 0; color: #b6c4b5; font-size: 12px; line-height: 1.7; }
+.recap-actions { display: flex; gap: 11px; flex-shrink: 0; }
+.recap-actions .primary-button, .recap-actions .secondary-button { min-height: 44px; gap: 17px; }
+.recap-source { margin: 19px 0 0; color: #9eac9d; font-size: 11px; line-height: 1.7; }
+.recap-source a { color: #dcb199; text-underline-offset: 3px; }
+.recap-source a:hover { color: #fff0d5; }
 .ending-screen { display: grid; place-items: center; padding: 50px 24px; background: radial-gradient(circle at 75% 25%, #405847, transparent 35%), #1d3029; }
 .ending-card { width: min(760px, 100%); border: 1px solid #839080; padding: clamp(28px, 6vw, 64px); background: #1b2b27; box-shadow: 20px 20px 0 #13241e; }
 .ending-card h1 { font-size: clamp(44px, 7vw, 77px); }
@@ -116,6 +160,8 @@ main:focus { outline: none; }
 
 @media (max-width: 850px) {
   .act-layout { grid-template-columns: 1fr; }
+  .recap-layout { grid-template-columns: 1fr; }
+  .recap-detail { min-height: auto; }
   .scene-panel { min-height: 390px; position: relative; top: 0; }
   .home-content { margin: 50px 30px; }
 }
@@ -144,6 +190,18 @@ main:focus { outline: none; }
   .panel-heading h3 { margin-top: 7px; }
   .act-actions { flex-direction: column-reverse; }
   .act-actions button { width: 100%; }
+  .recap-screen { padding: 27px 16px 42px; }
+  .recap-intro { margin-bottom: 24px; }
+  .recap-intro p { font-size: 14px; }
+  .recap-map-frame { border-width: 5px; overflow-x: auto; }
+  .recap-map { min-width: 680px; }
+  .recap-map-scroll-hint { display: block; position: sticky; left: 0; z-index: 1; width: max-content; padding: 7px 9px; background: #263b32; color: #eee4cc; font-size: 11px; }
+  .recap-step-list { grid-template-columns: 1fr 1fr; }
+  .recap-step { min-height: 55px; gap: 8px; padding: 8px; }
+  .recap-step strong { font-size: 12px; }
+  .recap-bottom { align-items: stretch; flex-direction: column; }
+  .recap-actions { display: grid; grid-template-columns: 1fr 1fr; }
+  .recap-actions .primary-button, .recap-actions .secondary-button { justify-content: center; padding: 9px; font-size: 12px; }
   .site-footer { padding: 9px 16px; font-size: 10px; }
 }
 
