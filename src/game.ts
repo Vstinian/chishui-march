@@ -25,25 +25,25 @@ export function playGame(act: Act, previous: GameProgress, value: string): GameP
   if (p.steps >= gameTarget(act)) return p;
   if (act.interaction.kind === 'bridge') {
     if (value === 'plank') { p.selected = 'plank'; p.feedback = '门板抬稳了。点击标亮的桥位，把它放下。'; }
-    else if (value === `slot-${p.steps}` && p.selected === 'plank') { p.steps++; p.selected = null; p.feedback = '门板落稳了，下一处缺口就在前面。'; }
+    else if (value === `slot-${p.steps}` && p.selected === 'plank') { p.steps++; p.selected = null; p.feedback = act.interaction.success[p.steps - 1]; }
     else p.feedback = '先取门板，再依次铺到标亮的桥位。';
   } else if (act.interaction.kind === 'fog') {
     const cell = Number(value); const current = fogPath[p.steps];
     const adjacent = Number.isInteger(cell) && cell >= 0 && cell < 16 && Math.abs(Math.floor(cell / 4) - Math.floor(current / 4)) + Math.abs(cell % 4 - current % 4) === 1;
-    if (adjacent && cell === fogPath[p.steps + 1]) { p.steps++; p.feedback = '脚下是实地，前方的脚步更近了一点。'; }
+    if (adjacent && cell === fogPath[p.steps + 1]) { p.steps++; p.feedback = act.interaction.success[(p.steps - 1) % 3]; }
     else p.feedback = adjacent ? '这边泥深。退回刚才的实地，再试另一个方向。' : '看不清那么远，先探身边相邻的一格。';
   } else if (act.interaction.kind === 'climb') {
-    if (value === climbCues[p.steps]) { p.steps++; p.feedback = '稳住了。看清下一道口令，再行动。'; }
-    else p.feedback = '先停在掩体后，按当前口令再试一次。';
+    if (value === climbCues[p.steps]) { p.steps++; p.feedback = act.interaction.success[value === 'cover' ? 0 : value === 'climb' ? 1 : 2]; }
+    else if (Object.hasOwn(cueLabels, value)) { p.steps = Math.max(0, p.steps - 1); p.feedback = '口令听岔了，滑下一段。看清当前口令，再来。'; }
   } else if (act.interaction.kind === 'rescue') {
     if (value === 'soldier') { p.selected = 'soldier'; p.feedback = '已经扶稳战友，点下一处掩体一起移动。'; }
-    else if (value === 'shelter' && p.selected === 'soldier') { p.steps++; p.selected = null; p.feedback = '在掩体后停稳了。重新扶好战友，准备下一段。'; }
+    else if (value === 'shelter' && p.selected === 'soldier') { p.steps++; p.selected = null; p.feedback = act.interaction.success[p.steps - 1]; }
     else p.feedback = '先点战友扶住他，再点掩体移动。';
-  } else if (value === 'step') { p.steps++; p.feedback = `第 ${p.steps} 步。脚下站稳了，再向前一步。`; }
-  if (p.steps === gameTarget(act)) p.feedback = { bridge: '浮桥接起来了。身后的队伍开始通过。', fog: '找到了队伍，老雷正在转弯处等你。', climb: '你越过了山口，也给身后的战友留出了位置。', rescue: '战友已经回到掩体。你们跟随队伍撤离。', crossing: '脚下是东岸的实地。天快亮了。' }[act.interaction.kind];
+  } else if (value === 'step') { p.steps++; p.feedback = p.steps === 1 ? act.interaction.success[0] : p.steps === 4 ? act.interaction.success[1] : `第 ${p.steps} 步。脚下站稳了，再向前一步。`; }
+  if (p.steps === gameTarget(act)) p.feedback = act.interaction.completion;
   return p;
 }
-const saveKey = 'chishui-march-story-v2';
+const saveKey = 'chishui-march-story-v3';
 export function saveGame(state: GameState): void { try { localStorage.setItem(saveKey, JSON.stringify(state)); } catch { /* 私密模式仍可继续。 */ } }
 export function loadGame(): GameState {
   const state = newGame();

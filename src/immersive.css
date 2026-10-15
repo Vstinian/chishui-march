@@ -61,19 +61,15 @@ button:focus-visible, a:focus-visible { outline: 3px solid #ca9460; outline-offs
   .home-paper .paper-landscape { height: 50px; }
 }
 .intro-screen { height: 100dvh; min-height: 540px; position: relative; overflow: hidden; background: #1d1617; isolation: isolate; }
-.intro-paper { position: absolute; width: min(800px, 86vw); left: 50%; top: 50%; transform-origin: center; animation: paper-unfold 18s both; }
-.intro-shot, .intro-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: radial-gradient(ellipse at 64% 25%, #cda977, #6a3434 40%, #211a20 88%); animation: into-landscape 18s both; overflow: hidden; }
+.intro-paper { position: absolute; width: min(800px, 86vw); left: 50%; top: 50%; transform-origin: center; animation: paper-unfold var(--intro-duration) both; }
+.intro-shot, .intro-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: radial-gradient(ellipse at 64% 25%, #cda977, #6a3434 40%, #211a20 88%); animation: into-landscape var(--intro-duration) both; overflow: hidden; }
 .intro-shot > span { position: absolute; bottom: 13%; left: 0; width: 100%; text-align: center; font-size: 12px; color: #dac5a8; letter-spacing: .1em; padding: 0 20px; }
-.intro-darkness { position: absolute; inset: 0; background: #130f10; animation: fade-night 18s both; }
-.intro-words { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 30px; animation: intro-letter 18s both; }
+.intro-darkness { position: absolute; inset: 0; background: #130f10; animation: fade-night var(--intro-duration) both; }
+.intro-words { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 30px; animation: intro-letter var(--intro-duration) both; }
 .intro-words > span { font-size: 12px; letter-spacing: .4em; color: #b79b76; }
 .intro-words h1 { font: 400 clamp(25px, 3.5vw, 48px)/1.8 'SimSun', serif; letter-spacing: .13em; margin: 26px 0 16px; }
 .intro-words p { font-size: 14px; letter-spacing: .12em; color: #cbb89a; }
 .intro-controls { position: absolute; z-index: 4; right: 4vw; top: 24px; display: flex; gap: 10px; }
-@keyframes paper-unfold { 0% { transform: translate(-50%, -50%) perspective(1000px) rotateX(50deg) scaleX(.07) scaleY(.6); filter: grayscale(1); opacity: 0; } 7% { opacity: 1; } 24%, 34% { transform: translate(-50%, -50%) perspective(1000px) rotateX(0) scale(1); filter: grayscale(1); opacity: 1; } 58% { transform: translate(-50%, -50%) scale(3.5); filter: grayscale(0); opacity: 0; } 100% { transform: translate(-50%, -50%) scale(3.5); opacity: 0; } }
-@keyframes into-landscape { 0%, 30% { opacity: 0; filter: grayscale(1); transform: scale(1); } 48% { opacity: 1; filter: grayscale(1); } 67%, 100% { opacity: 1; filter: grayscale(0); transform: scale(1.1); } }
-@keyframes fade-night { 0%, 62% { opacity: 0; } 78%, 100% { opacity: .96; } }
-@keyframes intro-letter { 0%, 76% { opacity: 0; transform: translateY(14px); } 96%, 100% { opacity: 1; transform: translateY(0); } }
 .stage { min-height: max(620px, calc(100dvh - 72px)); position: relative; isolation: isolate; display: flex; align-items: flex-end; padding: 185px 7vw 34px; overflow: hidden; background: #352729; }
 .scene-background { position: absolute; inset: 0; z-index: -3; background: radial-gradient(ellipse at 66% 12%, #bda383 0, #78524a 36%, #30232a 85%); }
 .scene-background::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, #24191e40, transparent 40%, #1b151ce0 100%); }
@@ -173,4 +169,62 @@ button:focus-visible, a:focus-visible { outline: 3px solid #ca9460; outline-offs
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .intro-paper, .intro-shot, .intro-video { opacity: 0; }.intro-darkness { opacity: 1; }.intro-words { opacity: 1; }
+}
+
+/* 集合版：左右站位与对白使用同一个流式容器，长文本不会盖住人物面部。 */
+.story-stage { width: min(1080px, 100%); margin: 0 auto; }
+.portrait-stage { height: clamp(255px, 38vh, 390px); position: relative; margin-bottom: -36px; }
+.portrait-stage .portrait { width: min(34%, 300px); height: 100%; bottom: 0; z-index: 0; animation: none; }
+.portrait-stage .portrait-left { left: 5%; right: auto; }
+.portrait-stage .portrait-right { right: 5%; left: auto; }
+.portrait.is-listening { filter: brightness(.6) saturate(.65); }
+.portrait.is-speaking { filter: brightness(1.08); }
+.portrait-stage .portrait-caption { right: 0; top: 46%; }
+.portrait-stage .figure { width: 100%; height: 100%; transform: none; }
+.portrait-stage .figure-head { width: 26.5%; height: 23%; top: 7.3%; left: 35.5%; }
+.portrait-stage .figure-cap { width: 34%; height: 10.2%; top: 3.3%; left: 31.3%; border-bottom-width: 6px; }
+.portrait-stage .figure-cap::after { top: 8%; left: 42%; font-size: clamp(10px, 1.3vw, 17px); }
+.portrait-stage .figure-body { inset: 26.4% 8.7% 0; }
+.portrait-stage .figure-strap { width: 4.8%; height: 50%; top: 26.2%; left: 48.4%; }
+.portrait-stage .portrait-laolei .figure { transform: scaleX(1.08); }
+.portrait-stage .portrait-xiaoman .figure { transform: scale(.87); }
+.portrait-stage .portrait-ahu .figure-cap { height: 6%; top: 5%; }
+.portrait-wounded .figure { opacity: .7; }
+.story-stage .dialogue-box { position: relative; z-index: 1; }
+.intro-caption { position: absolute; left: 10%; right: 10%; bottom: 9%; text-align: center; color: #f3e4ca; font: 16px/2 'SimSun', serif; text-shadow: 0 2px 8px #000; padding: 8px 16px; background: #1d1617b3; }
+.intro-caption-first { animation: intro-first-caption var(--intro-duration) both; }
+.intro-caption-second { animation: intro-second-caption var(--intro-duration) both; }
+.intro-monologue { width: min(740px, 100%); margin: 22px auto; }
+.intro-monologue p { font: 400 clamp(19px, 2.2vw, 30px)/1.95 'SimSun', serif; letter-spacing: .08em; margin: 12px 0; }
+.intro-words { pointer-events: none; }
+.intro-words button { pointer-events: auto; }
+.intro-screen.is-ready .intro-paper, .intro-screen.is-ready .intro-shot, .intro-screen.is-ready .intro-video, .intro-screen.is-ready .intro-caption { animation: none; opacity: 0; }
+.intro-screen.is-ready .intro-darkness { animation: none; opacity: .96; }
+.intro-screen.is-ready .intro-words { animation: none; opacity: 1; transform: none; }
+@keyframes intro-first-caption { 0%, 17% { opacity: 1; } 20%, 100% { opacity: 0; } }
+@keyframes intro-second-caption { 0%, 20% { opacity: 0; } 22%, 37% { opacity: 1; } 40%, 100% { opacity: 0; } }
+@keyframes paper-unfold { 0% { transform: translate(-50%, -50%) perspective(1000px) rotateX(50deg) scaleX(.07) scaleY(.6); filter: grayscale(1); opacity: 0; } 5% { opacity: 1; } 20% { transform: translate(-50%, -50%) scale(1); filter: grayscale(1); opacity: 1; } 40%, 100% { transform: translate(-50%, -50%) scale(3.5); opacity: 0; } }
+@keyframes into-landscape { 0%, 20% { opacity: 0; filter: grayscale(1); transform: scale(1); } 40% { opacity: 1; filter: grayscale(1); } 65%, 100% { opacity: 1; filter: grayscale(0); transform: scale(1.1); } }
+@keyframes fade-night { 0%, 65% { opacity: 0; } 75%, 100% { opacity: .96; } }
+@keyframes intro-letter { 0%, 74% { opacity: 0; transform: translateY(12px); } 80%, 100% { opacity: 1; transform: translateY(0); } }
+.ending-letter { border-top: 1px solid #a58161; margin-top: 35px; padding-top: 24px; }
+.ending-letter h2 { font: 600 21px/1.7 'SimSun', serif; }
+.ending-letter small { color: #815342; }
+.ending-letter p { font: 16px/2 'SimSun', serif; }
+@media (max-width: 700px) {
+  .portrait-stage { height: 235px; margin-bottom: -26px; }
+  .portrait-stage .portrait { width: 44%; }
+  .portrait-stage .portrait-left { left: 1%; }
+  .portrait-stage .portrait-right { right: 1%; }
+  .portrait-stage .portrait-caption { right: -1px; top: 38%; }
+  .dialogue-heading { gap: 8px; }
+  .dialogue-heading strong { font-size: 21px; }
+  .intro-caption { left: 5%; right: 5%; font-size: 13px; }
+  .intro-monologue p { font-size: 19px; }
+  .intro-words { padding: 76px 24px 24px; }
+  .intro-words > span { font-size: 10px; }
+  .ending-letter h2 { font-size: 19px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .intro-caption { opacity: 0; }
 }
