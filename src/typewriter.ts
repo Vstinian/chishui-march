@@ -3,12 +3,13 @@ export class Typewriter {
   private key = '';
   private characters: string[] = [];
   private visible = 0;
+  private delays: readonly number[] = [];
   private timer: ReturnType<typeof setTimeout> | undefined;
   private paint: (visible: string, remaining: string) => void = () => {};
 
   get typing(): boolean { return this.visible < this.characters.length; }
 
-  bind(key: string, text: string, paint: (visible: string, remaining: string) => void, instant = false): void {
+  bind(key: string, text: string, paint: (visible: string, remaining: string) => void, instant = false, delays: readonly number[] = []): void {
     this.pause();
     if (key !== this.key) {
       this.key = key;
@@ -16,6 +17,7 @@ export class Typewriter {
       this.visible = 0;
     }
     this.paint = paint;
+    this.delays = delays;
     if (instant) this.visible = this.characters.length;
     this.draw();
     this.schedule();
@@ -32,7 +34,7 @@ export class Typewriter {
   pause(): void { clearTimeout(this.timer); this.timer = undefined; }
 
   reset(): void {
-    this.pause(); this.key = ''; this.characters = []; this.visible = 0;
+    this.pause(); this.key = ''; this.characters = []; this.visible = 0; this.delays = [];
     this.paint = () => {};
   }
 
@@ -42,6 +44,6 @@ export class Typewriter {
 
   private schedule(): void {
     if (!this.typing) return;
-    this.timer = setTimeout(() => { this.visible++; this.draw(); this.schedule(); }, 36);
+    this.timer = setTimeout(() => { this.visible++; this.draw(); this.schedule(); }, this.visible ? this.delays[this.visible - 1] ?? 36 : 36);
   }
 }
