@@ -23,16 +23,15 @@ function renderCast(act: Act, cursor: number, line: DialogueLine): string {
   return `<div class="portrait-stage">${renderPortrait('qingshan', line.speaker === 'qingshan', line.speaker === 'qingshan' ? line.expression : 'neutral')}${partner ? renderPortrait(partner.speaker, line.speaker === partner.speaker, partner.expression) : ''}</div>`;
 }
 
-export function renderAct(act: Act, index: number, state: GameState): string {
+export function renderAct(act: Act, state: GameState): string {
   const cursor = state.cursors[act.id] ?? 0;
   const game = inGame(state, act);
   const line = act.dialogue[game ? Math.max(0, cursor - 1) : cursor]; const character = characters[line.speaker];
   const background = scenes[line.sceneId] ?? act.assets.scene;
   return `<main id="main-content" class="stage act-${act.id} ${game ? 'is-game' : ''} ${line.narration ? 'is-narration' : ''}" data-line-id="${line.id}" data-scene-id="${line.sceneId}" tabindex="-1">
     <div class="scene-background" aria-hidden="true">${background ? `<img src="${escapeHtml(background)}" alt="" />` : '<div class="mountain far"></div><div class="mountain near"></div><div class="scene-river"></div>'}</div>
-    <div class="scene-heading"><span class="eyebrow">第 ${index + 1} 幕 / 五幕行军</span><h1>${escapeHtml(act.title)}</h1><p>${escapeHtml(line.scene)}</p></div>
-    ${background ? '' : '<span class="scene-placeholder">场景动态影像 · 待替换</span>'}
+    <h1 class="sr-only">${escapeHtml(act.title)} · ${escapeHtml(line.scene)}</h1>
     ${game ? renderInteraction(act, state.games[act.id] ?? freshProgress()) : `<div class="story-stage">${renderCast(act, cursor, line)}
-    <section class="dialogue-box" aria-label="${line.narration ? '内心独白' : '人物对话'}"><div class="dialogue-heading"><div><strong>${character.name}${line.narration ? ' · 独白' : ''}</strong><span>${character.role}</span></div><span class="dialogue-count">${String(cursor + 1).padStart(2, '0')} / ${act.dialogue.length}</span></div><p class="dialogue-text" aria-live="polite">${escapeHtml(line.text)}</p><div class="dialogue-actions"><button class="text-button" data-action="source" data-source="${act.sourceIds[0]}">史料札记 ↗</button><button class="text-button next-line" data-action="advance" aria-keyshortcuts="Space Enter">${cursor === act.dialogue.length - 1 ? act.nextAct ? '完成本幕 · 继续行军' : '完成五幕 · 回望全局' : '继续'} <span aria-hidden="true">▸</span></button></div></section></div>`}
+    <section class="dialogue-box" role="button" tabindex="0" data-action="dialogue" aria-keyshortcuts="Space Enter" aria-label="显示完整对白" aria-describedby="dialogue-accessible dialogue-help"><div class="dialogue-heading"><div><strong>${character.name}${line.narration ? ' · 独白' : ''}</strong><span>${character.role}</span></div></div><p class="dialogue-text" aria-hidden="true"><span class="dialogue-revealed"></span><span class="dialogue-pending">${escapeHtml(line.text)}</span></p><span id="dialogue-accessible" class="sr-only">${escapeHtml(line.text)}</span><span id="dialogue-help" class="sr-only">点击或按空格、回车：文字出现时补全，文字完整时进入下一段。</span></section></div>`}
   </main>`;
 }
