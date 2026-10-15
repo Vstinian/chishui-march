@@ -44,4 +44,6 @@ export interface SourceCard {
   summary: string;
   citation: string | null;
   status: 'pending' | 'verified';
+  links?: { title: string; url: string; checked: boolean }[];
+  reviewLabel?: string;
 }

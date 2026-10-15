@@ -1,0 +1,7 @@
+import type { Act, SourceCard } from '../types';
+import { escapeHtml } from '../utils/html';
+
+export function renderActEnd(act: Act, sources: SourceCard[]): string {
+  const paragraphs = (text: string) => text.split(/\n+/).filter(Boolean).map(p => `<p>${escapeHtml(p)}</p>`).join('');
+  return `<main id="main-content" class="act-end-screen" tabindex="-1"><article class="act-end-card paper-panel"><span class="eyebrow">本幕结束 · 史料札记</span><h1>${escapeHtml(act.title)}</h1>${sources.map(source => `<section class="act-source"><h2>${escapeHtml(source.title)}</h2><span class="source-status">${escapeHtml(source.reviewLabel ?? (source.status === 'verified' ? '已核实' : '待核实'))}</span>${paragraphs(source.summary)}<div class="citation"><h3>网页出处</h3><ul class="source-links">${(source.links ?? []).filter(link => /^https?:\/\//.test(link.url)).map(link => `<li><a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.title)} <span aria-hidden="true">↗</span></a>${link.checked ? '' : '<small>原文档提供，本次未能读取网页</small>'}</li>`).join('')}</ul><h3>书籍线索</h3>${paragraphs(source.citation ?? '正式出版物页码待补充。')}<small>以上书名、版本与页码来自团队文档，尚待对照原书复核。</small></div></section>`).join('')}<p class="act-end-note">人物与对白为文学虚构，历史事件说明与角色经历分别呈现。</p><button class="primary-button" data-action="act-next">${act.nextAct ? '继续行军' : '展开全局复盘'} <span aria-hidden="true">→</span></button></article></main>`;
+}
