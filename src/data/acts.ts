@@ -1,7 +1,7 @@
 import type { Act, SourceCard } from '../types';
 import { script } from './script';
 
-// afterLine 指向互动完成后的第一句，正文按 PDF 顺序播放。
+// afterLine 由段落 ID 定位互动结束后的第一句，新增及重排正文不会挤错游戏位置。
 export const acts: Act[] = [
   {
     "id": "act01",
@@ -19,7 +19,7 @@ export const acts: Act[] = [
       ],
       "completion": "桥搭好了，三万人从这门板上过去。",
       "source": "S1 · 集合版互动",
-      "afterLine": 25
+      "afterLine": script.filter(line => line.id.startsWith('A01-')).findIndex(line => line.id === 'A01-D027')
     },
     "dialogue": script.filter(line => line.id.startsWith('A01-')),
     "story": [],
@@ -48,7 +48,7 @@ export const acts: Act[] = [
       ],
       "completion": "雾里摸出一条路，你跟上了队伍。",
       "source": "S3 · 集合版互动",
-      "afterLine": 19
+      "afterLine": script.filter(line => line.id.startsWith('A02-')).findIndex(line => line.id === 'A02-D020')
     },
     "dialogue": script.filter(line => line.id.startsWith('A02-')),
     "story": [],
@@ -77,7 +77,7 @@ export const acts: Act[] = [
       ],
       "completion": "六道口令走完，红旗就在你眼前。",
       "source": "S4 · 集合版互动",
-      "afterLine": 8
+      "afterLine": script.filter(line => line.id.startsWith('A03-')).findIndex(line => line.id === 'A03-D009')
     },
     "dialogue": script.filter(line => line.id.startsWith('A03-')),
     "story": [],
@@ -106,7 +106,7 @@ export const acts: Act[] = [
       ],
       "completion": "三段拖完，战友回到了掩体后面。",
       "source": "S5 · 集合版互动",
-      "afterLine": 5
+      "afterLine": script.filter(line => line.id.startsWith('A04-')).findIndex(line => line.id === 'A04-D006')
     },
     "dialogue": script.filter(line => line.id.startsWith('A04-')),
     "story": [],
@@ -135,7 +135,7 @@ export const acts: Act[] = [
       ],
       "completion": "八步走完，你到了对岸。",
       "source": "S6 · 集合版互动",
-      "afterLine": 5
+      "afterLine": script.filter(line => line.id.startsWith('A05-')).findIndex(line => line.id === 'A05-D006')
     },
     "dialogue": script.filter(line => line.id.startsWith('A05-')),
     "story": [],

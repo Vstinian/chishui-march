@@ -25,6 +25,9 @@ export interface DialogueLine {
   text: string; performance: string; originalPosition: string;
   camera: string; sound: string; trigger: string; nextId: string;
   provenance: string; status: 'pending' | 'verified';
+  inner: boolean;
+  subtitleLines: string[];
+  longPauses: number[];
 }
 export interface MiniGame {
   kind: 'bridge' | 'fog' | 'climb' | 'rescue' | 'crossing';

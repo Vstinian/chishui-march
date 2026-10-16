@@ -1,7 +1,7 @@
 import type { DialogueLine } from '../types';
 
-// 来源：赤水行军图_集合版剧本.pdf；按正文阅读顺序保留原编号与分镜字段。
-// nextId 为原稿记录，播放顺序以数组为准；史料状态待内容组审核。
+// 集合版正文 + 修订补充稿；保留原词句。字幕断行、内心标识及新增段落见修订接入记录。
+// 播放与 nextId 均按此数组顺序；ID 后缀沿用补充稿，不代表强制插入位置。
 export const script: DialogueLine[] = [
   {
     "id": "A01-D001",
@@ -20,7 +20,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "我是邓青山，江西兴国人，十七岁。",
+      "红一军团二师六团三营九连，",
+      "普通战士一名。",
+      "我不识字，连队花名册上，",
+      "名字排在最后一页。"
+    ],
+    "longPauses": [
+      16,
+      36,
+      57
+    ],
+    "inner": false
   },
   {
     "id": "A01-D002",
@@ -39,7 +52,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "一九三四年十月，我从家里出来。",
+      "走了多少路，记不清了。",
+      "只记得草鞋一双接一双地烂，",
+      "脚上的茧，一层盖一层。"
+    ],
+    "longPauses": [
+      15,
+      26,
+      50
+    ],
+    "inner": false
   },
   {
     "id": "A01-D003",
@@ -58,7 +83,21 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "家里六口人，我是老三。",
+      "我娘送我出门那天，",
+      "把一双鞋垫塞进我怀里，",
+      "说，儿啊，垫着走，脚不疼。",
+      "那鞋垫，她纳了三个晚上。"
+    ],
+    "longPauses": [
+      11,
+      31,
+      44,
+      56
+    ],
+    "inner": false
   },
   {
     "id": "A01-D004",
@@ -77,7 +116,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "老雷，我们班长，四川人，",
+      "三十岁，身经百战。",
+      "他脸上有一道疤，不爱说话，",
+      "可全连的人都听他的，",
+      "连排长也让他三分。"
+    ],
+    "longPauses": [
+      21,
+      34,
+      53
+    ],
+    "inner": false
   },
   {
     "id": "A01-D005",
@@ -96,7 +148,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "小满，十五岁，跟我是同一个县的，",
+      "全连年纪最小。",
+      "他身子弱，一路走一路掉队。",
+      "我进连时打轻机枪副射手，",
+      "替射手背弹匣、扛枪架。"
+    ],
+    "longPauses": [
+      23,
+      36,
+      59
+    ],
+    "inner": false
   },
   {
     "id": "A01-D006",
@@ -115,7 +180,21 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "这就是我要讲的人。",
+      "没有一个是将军，",
+      "没有一个人的名字，",
+      "你会在这本书里找到。",
+      "可后来我才知道，这条路，",
+      "是他们一步步走出来的。"
+    ],
+    "longPauses": [
+      9,
+      36,
+      59
+    ],
+    "inner": false
   },
   {
     "id": "A01-D007",
@@ -134,7 +213,21 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "laolei",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "青山，醒着没？",
+      "把耳朵支起来，仔细听山下。",
+      "今晚这觉，不是让你睡的，",
+      "是让你养精力的——",
+      "眼睛闭上，耳朵别关。"
+    ],
+    "longPauses": [
+      7,
+      20,
+      41,
+      51
+    ],
+    "inner": false
   },
   {
     "id": "A01-D008",
@@ -148,12 +241,25 @@ export const script: DialogueLine[] = [
     "camera": "静止，2秒",
     "sound": "BGM低缓；环境音：风；音效：远处两声闷响",
     "trigger": "本框无交互，点击／空格进入下一框",
-    "nextId": "A01-D009",
+    "nextId": "A01-D010",
     "provenance": "虚构人物对白；虚构，不作历史引文",
     "status": "pending",
     "speaker": "xiaoman",
     "narration": false,
-    "expression": "anxious"
+    "expression": "anxious",
+    "subtitleLines": [
+      "青山哥，你听，是不是炮？",
+      "隔一会儿响一声，闷闷的。",
+      "我……我有点怕，",
+      "我一怕，这两条腿就不听使唤。"
+    ],
+    "longPauses": [
+      12,
+      24,
+      32,
+      46
+    ],
+    "inner": false
   },
   {
     "id": "A01-D010",
@@ -172,7 +278,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "laolei",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "怕就对了。不怕的人，",
+      "坟头草都长不高了。",
+      "怕，才记得把草鞋系紧，",
+      "才记得把子弹压满，",
+      "才记得跟住前头那个人。"
+    ],
+    "longPauses": [
+      19,
+      30,
+      50
+    ],
+    "inner": false
   },
   {
     "id": "A01-D011",
@@ -191,7 +310,18 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "班长，那我们这是……",
+      "真要在土城跟他们打了？",
+      "我听老兵说，土城这一仗，",
+      "躲不过去。"
+    ],
+    "longPauses": [
+      21,
+      38
+    ],
+    "inner": false
   },
   {
     "id": "A01-D012",
@@ -210,7 +340,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "laolei",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "把枪擦了。把心定住。",
+      "打不打，不是你我说了算；",
+      "打起来，能不能活着回来，",
+      "就看你脚下利不利索了。"
+    ],
+    "longPauses": [
+      10,
+      22,
+      45
+    ],
+    "inner": false
   },
   {
     "id": "A01-D013",
@@ -229,7 +371,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "后来我才明白，班长那句话，",
+      "一半是说给小满听的，",
+      "一半是说给我自己听的。",
+      "他说完，自己先咧开嘴笑了。"
+    ],
+    "longPauses": [
+      13,
+      34,
+      47
+    ],
+    "inner": false
   },
   {
     "id": "A01-D014",
@@ -248,7 +402,21 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "雾里全是人影。",
+      "我不知道哪个是敌人，",
+      "哪个是自己人。",
+      "我趴在射手旁，死死按着机枪弹匣。",
+      "老雷喊：听号声！号声在哪儿，",
+      "敌人在哪儿。"
+    ],
+    "longPauses": [
+      24,
+      40,
+      60
+    ],
+    "inner": false
   },
   {
     "id": "A01-D015",
@@ -267,7 +435,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "laolei",
     "narration": false,
-    "expression": "alert"
+    "expression": "alert",
+    "subtitleLines": [
+      "跟着我！枪口压低，别抬头！",
+      "能打就打，打不着就趴着别动，",
+      "别逞能！",
+      "谁图一时痛快，我回来收拾他！"
+    ],
+    "longPauses": [
+      13,
+      31,
+      45
+    ],
+    "inner": false
   },
   {
     "id": "A01-D016",
@@ -286,7 +466,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "射手猛地哼了一声，倒在我肩上。",
+      "我接住机枪，弹链还挂在他脖子上。",
+      "不知道打没打中，只记得枪管烫，",
+      "弹壳一颗颗跳出来，落进泥里。"
+    ],
+    "longPauses": [
+      15,
+      31,
+      46,
+      60
+    ],
+    "inner": false
   },
   {
     "id": "A01-D017",
@@ -305,7 +498,18 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "小满在我左边。他闭着眼，",
+      "嘴里一直在念他娘的名字。",
+      "念了一遍，又念一遍，",
+      "声音小得像蚊子。"
+    ],
+    "longPauses": [
+      24,
+      42
+    ],
+    "inner": false
   },
   {
     "id": "A01-D018",
@@ -324,7 +528,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": false,
-    "expression": "tense"
+    "expression": "tense",
+    "subtitleLines": [
+      "别念了！把头压下去，跟着我打！",
+      "枪不是给你壮胆压惊的，",
+      "是留着保命的，",
+      "你不省着点，命就替你还了。"
+    ],
+    "longPauses": [
+      15,
+      33,
+      46
+    ],
+    "inner": false
   },
   {
     "id": "A01-D019",
@@ -343,7 +559,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "xiaoman",
     "narration": false,
-    "expression": "anxious"
+    "expression": "anxious",
+    "subtitleLines": [
+      "（带哭腔）青山哥，我打不着！",
+      "我一扣扳机，眼睛就闭上了。",
+      "我不敢看，",
+      "不敢看人倒下去那个样子。"
+    ],
+    "longPauses": [
+      14,
+      27,
+      44
+    ],
+    "inner": false
   },
   {
     "id": "A01-D020",
@@ -362,7 +590,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "那就别看。听我的口令，",
+      "我说打，你就打。",
+      "我说停，你就趴着别动。",
+      "信我，别信你自己的眼睛。"
+    ],
+    "longPauses": [
+      19,
+      30,
+      42
+    ],
+    "inner": false
   },
   {
     "id": "A01-D021",
@@ -381,7 +621,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "号声一响，全连往山下拖。",
+      "撤退时老雷的胳膊挨了一枪，",
+      "血顺着袖子往下淌，",
+      "他一声没吭，把胳膊往怀里一抄，",
+      "催我们快走。"
+    ],
+    "longPauses": [
+      12,
+      34,
+      55
+    ],
+    "inner": false
   },
   {
     "id": "A01-D022",
@@ -400,7 +653,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "xiaoman",
     "narration": false,
-    "expression": "anxious"
+    "expression": "anxious",
+    "subtitleLines": [
+      "（喘息）青山……我腿软了，",
+      "跑不动了……",
+      "老雷胳膊还在淌血，",
+      "他反倒叫我们先走……",
+      "你别管我了，真的别管我了。"
+    ],
+    "longPauses": [
+      19,
+      38,
+      51
+    ],
+    "inner": false
   },
   {
     "id": "A01-D023",
@@ -419,7 +685,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": false,
-    "expression": "tense"
+    "expression": "tense",
+    "subtitleLines": [
+      "跑不动也得跑。抓住我的枪带，",
+      "别松手。",
+      "你松手，咱俩都得撂在这儿；",
+      "你不松，我就把你拖出去。"
+    ],
+    "longPauses": [
+      18,
+      31,
+      43
+    ],
+    "inner": false
   },
   {
     "id": "A01-D024",
@@ -438,7 +716,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "我拖着小满跑。",
+      "雨越下越大，",
+      "把脸上的血和泥一起冲进了嘴里，",
+      "又咸又腥。",
+      "那味道，我记了一辈子。"
+    ],
+    "longPauses": [
+      7,
+      33,
+      44
+    ],
+    "inner": false
   },
   {
     "id": "A01-D025",
@@ -457,7 +748,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "雨下得很大。河边全是门板，",
+      "一块压着一块。",
+      "老乡冒着雨，",
+      "把自家最后一扇门板抬来，",
+      "放下就走，连头都没回。"
+    ],
+    "longPauses": [
+      20,
+      38,
+      49
+    ],
+    "inner": false
   },
   {
     "id": "A01-D026",
@@ -476,7 +780,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "xiaoman",
     "narration": false,
-    "expression": "anxious"
+    "expression": "anxious",
+    "subtitleLines": [
+      "青山哥，你看这扇门，",
+      "上头还有春联呢。",
+      "红纸都泡白了，字也看不清了，",
+      "就剩个\"福\"字，还认得出。"
+    ],
+    "longPauses": [
+      18,
+      32,
+      45
+    ],
+    "inner": false
   },
   {
     "id": "A01-D027",
@@ -495,7 +811,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "……昨天，这还是谁家的门，",
+      "门后头还坐着一家人。",
+      "今天，它横在这儿，托着我们的脚。",
+      "门一拆，那家人晚上拿什么挡风。"
+    ],
+    "longPauses": [
+      23,
+      39,
+      54
+    ],
+    "inner": false
   },
   {
     "id": "A01-D028",
@@ -514,7 +842,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "laolei",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "看什么看。抬起走。",
+      "这门板，今天托的是三万人；",
+      "等打完仗，还得一块儿一块儿，",
+      "还回人家门框上去，一块都不能少。"
+    ],
+    "longPauses": [
+      9,
+      22,
+      52
+    ],
+    "inner": false
   },
   {
     "id": "A01-D029",
@@ -528,12 +868,25 @@ export const script: DialogueLine[] = [
     "camera": "静止，2.5秒",
     "sound": "BGM低缓；环境音：雨、河水；音效：脚步",
     "trigger": "本框无交互，点击／空格进入下一框",
-    "nextId": "→第二幕A02-D001",
+    "nextId": "A02-D001",
     "provenance": "第一人称独白；虚构人物，承载普通战士视角",
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "我把门板架在肩上。它比我想的沉。",
+      "走一步，",
+      "木板上的水就顺着脖子往下淌，",
+      "凉进骨头里。",
+      "我忽然想起我家的门，也是木头的。"
+    ],
+    "longPauses": [
+      16,
+      40,
+      56
+    ],
+    "inner": false
   },
   {
     "id": "A02-D001",
@@ -552,7 +905,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "扎西。我们在山窝里住了下来。",
+      "这是走了好几个月，",
+      "头一回能睡个整觉——",
+      "不用听号，不用睁着一只眼，",
+      "防着外面。"
+    ],
+    "longPauses": [
+      14,
+      33,
+      51
+    ],
+    "inner": false
   },
   {
     "id": "A02-D002",
@@ -571,7 +937,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "laolei",
     "narration": false,
-    "expression": "tired"
+    "expression": "tired",
+    "subtitleLines": [
+      "分粮了。一人一份炒米，",
+      "省着点吃，够两天。",
+      "谁要是路上掉队，可没人回头找你，",
+      "队伍不能为一个人停下。"
+    ],
+    "longPauses": [
+      20,
+      36,
+      47
+    ],
+    "inner": false
   },
   {
     "id": "A02-D003",
@@ -590,7 +968,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "xiaoman",
     "narration": false,
-    "expression": "smile"
+    "expression": "smile",
+    "subtitleLines": [
+      "青山哥，你闻，炒米是香的。",
+      "我娘也这样炒，锅里搁点盐，",
+      "架上柴火翻炒翻炒，",
+      "香得满屋都是，",
+      "馋得我弟弟直咽口水。"
+    ],
+    "longPauses": [
+      13,
+      35,
+      52
+    ],
+    "inner": false
   },
   {
     "id": "A02-D004",
@@ -609,7 +1000,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "我把手伸进贴身的口袋，",
+      "最底下压着一块鞋垫——",
+      "我娘纳的。",
+      "针脚歪歪扭扭，有一处还返了工，",
+      "拆过一次重来。"
+    ],
+    "longPauses": [
+      22,
+      27,
+      49
+    ],
+    "inner": false
   },
   {
     "id": "A02-D005",
@@ -628,7 +1032,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "我没舍得垫。垫了，就要磨破。",
+      "磨破了，就什么也没剩下了。",
+      "这是我家给我的最后一样东西，",
+      "也是一只脚还认得的家。"
+    ],
+    "longPauses": [
+      14,
+      27,
+      52
+    ],
+    "inner": false
   },
   {
     "id": "A02-D006",
@@ -647,7 +1063,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "instructor",
     "narration": false,
-    "expression": "serious"
+    "expression": "serious",
+    "subtitleLines": [
+      "都听好了。队伍要整编，",
+      "团变营，营变连，",
+      "人还是这些人，心还是这颗心。",
+      "别乱，也别多想，睡醒接着走。"
+    ],
+    "longPauses": [
+      19,
+      33,
+      47
+    ],
+    "inner": false
   },
   {
     "id": "A02-D007",
@@ -666,7 +1094,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "xiaoman",
     "narration": false,
-    "expression": "anxious"
+    "expression": "anxious",
+    "subtitleLines": [
+      "指导员，那我们……还回家吗？",
+      "我出来的时候，我娘正病着，",
+      "我都没来得及跟她说一声，",
+      "就跟着队伍走了。"
+    ],
+    "longPauses": [
+      14,
+      27,
+      47
+    ],
+    "inner": false
   },
   {
     "id": "A02-D008",
@@ -685,7 +1125,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "instructor",
     "narration": false,
-    "expression": "soft"
+    "expression": "soft",
+    "subtitleLines": [
+      "回。等走完了这条路，咱们一起回。",
+      "到那天，你娘要是问你去哪儿了，",
+      "你就说：打了场仗，打赢了，",
+      "就回来了。"
+    ],
+    "longPauses": [
+      16,
+      31,
+      49
+    ],
+    "inner": false
   },
   {
     "id": "A02-D009",
@@ -704,7 +1156,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "那天夜里，我第一次把鞋垫掏出来，",
+      "垫进草鞋。",
+      "走了半里，脚底下软软的，",
+      "像踩着我娘的手，一步一软。"
+    ],
+    "longPauses": [
+      21,
+      33,
+      46
+    ],
+    "inner": false
   },
   {
     "id": "A02-D010",
@@ -723,7 +1187,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "可走了半里，我又悄悄抽了出来，",
+      "重新塞回贴身的口袋。",
+      "我还是舍不得——",
+      "想留着它，",
+      "留到这条路走完的那一天。"
+    ],
+    "longPauses": [
+      25,
+      33,
+      50
+    ],
+    "inner": false
   },
   {
     "id": "A02-D011",
@@ -737,12 +1214,209 @@ export const script: DialogueLine[] = [
     "camera": "静止，2秒",
     "sound": "BGM转紧；环境音：雨；音效：无",
     "trigger": "本框无交互，点击／空格进入下一框",
-    "nextId": "A02-D012",
+    "nextId": "A02-D011a",
     "provenance": "第一人称独白；虚构人物，承载普通战士视角",
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "第二天天没亮，集合。",
+      "我以为是接着往西。",
+      "命令下来，却是两个字：向东。",
+      "那是我们刚来的方向。"
+    ],
+    "longPauses": [
+      19,
+      33,
+      43
+    ],
+    "inner": false
+  },
+  {
+    "id": "A02-D011a",
+    "shot": "S3-02",
+    "sceneId": "a02-bg02",
+    "scene": "扎西至黔北·雾中行军道",
+    "speakerLabel": "旁白·独白",
+    "text": "离开扎西后，前头传下话来：歇一个时辰。我把行李往地上一撂，一屁股坐下，鞋还没脱下来，集合的哨子，又响了。",
+    "performance": "刚坐下，又扶着枪站起来",
+    "originalPosition": "无（全屏背景）",
+    "camera": "岸边停歇处，2.5秒；半透明静态背景",
+    "sound": "BGM低缓；环境音：风、脚步",
+    "trigger": "本框无交互，点击／空格进入下一框",
+    "nextId": "A02-D011b",
+    "provenance": "修订补充稿新增；经用户确认校正渡河方向与时序；人物与对白为文学虚构",
+    "status": "pending",
+    "speaker": "qingshan",
+    "narration": true,
+    "expression": "tired",
+    "inner": false,
+    "subtitleLines": [
+      "离开扎西后，前头传下话来：",
+      "歇一个时辰。",
+      "我把行李往地上一撂，一屁股坐下，",
+      "鞋还没脱下来，集合的哨子，",
+      "又响了。"
+    ],
+    "longPauses": [
+      19,
+      35,
+      52
+    ]
+  },
+  {
+    "id": "A02-D011b",
+    "shot": "S3-02",
+    "sceneId": "a02-bg02",
+    "scene": "扎西至黔北·雾中行军道",
+    "speakerLabel": "邓青山·对话（内心）",
+    "text": "（内心）前些天才过了这条河，鞋底的水仿佛还没干透。又要走？还是……往回走？",
+    "performance": "低头看自己湿透的草鞋",
+    "originalPosition": "左侧",
+    "camera": "脚部特写，静止，2.5秒",
+    "sound": "BGM低缓；环境音：风、脚步",
+    "trigger": "本框无交互，点击／空格进入下一框",
+    "nextId": "A02-D011c",
+    "provenance": "修订补充稿新增；经用户确认校正渡河方向与时序；人物与对白为文学虚构",
+    "status": "pending",
+    "speaker": "qingshan",
+    "narration": false,
+    "expression": "tired",
+    "inner": true,
+    "subtitleLines": [
+      "（内心）前些天才过了这条河，",
+      "鞋底的水仿佛还没干透。",
+      "又要走？",
+      "还是……往回走？"
+    ],
+    "longPauses": [
+      25,
+      29,
+      37
+    ]
+  },
+  {
+    "id": "A02-D011c",
+    "shot": "S3-02",
+    "sceneId": "a02-bg02",
+    "scene": "扎西至黔北·雾中行军道",
+    "speakerLabel": "旁白·独白",
+    "text": "队伍朝东走。向东，是我们来时的方向。上回才把这条河甩在身后，如今又要回到河边去。",
+    "performance": "随队伍转身",
+    "originalPosition": "无（全屏背景）",
+    "camera": "队伍回望长镜，2.5秒；静态层缓移",
+    "sound": "BGM低缓；环境音：风、脚步",
+    "trigger": "本框无交互，点击／空格进入下一框",
+    "nextId": "A02-D011d",
+    "provenance": "修订补充稿新增；经用户确认校正渡河方向与时序；人物与对白为文学虚构",
+    "status": "pending",
+    "speaker": "qingshan",
+    "narration": true,
+    "expression": "tired",
+    "inner": false,
+    "subtitleLines": [
+      "队伍朝东走。",
+      "向东，是我们来时的方向。",
+      "上回才把这条河甩在身后，",
+      "如今又要回到河边去。"
+    ],
+    "longPauses": [
+      6,
+      18,
+      40
+    ]
+  },
+  {
+    "id": "A02-D011d",
+    "shot": "S3-02",
+    "sceneId": "a02-bg02",
+    "scene": "扎西至黔北·雾中行军道",
+    "speakerLabel": "小满·对话",
+    "text": "青山哥……咱们这是，又往回走哇？那咱们上回过河，图啥呀？",
+    "performance": "稚嫩、不解；边走边回头",
+    "originalPosition": "右侧",
+    "camera": "小满侧脸近景，2秒",
+    "sound": "BGM低缓；环境音：风、脚步",
+    "trigger": "本框无交互，点击／空格进入下一框",
+    "nextId": "A02-D011e",
+    "provenance": "修订补充稿新增；经用户确认校正渡河方向与时序；人物与对白为文学虚构",
+    "status": "pending",
+    "speaker": "xiaoman",
+    "narration": false,
+    "expression": "anxious",
+    "inner": false,
+    "subtitleLines": [
+      "青山哥……咱们这是，",
+      "又往回走哇？",
+      "那咱们上回过河，图啥呀？"
+    ],
+    "longPauses": [
+      10,
+      16,
+      28
+    ]
+  },
+  {
+    "id": "A02-D011e",
+    "shot": "S3-02",
+    "sceneId": "a02-bg02",
+    "scene": "扎西至黔北·雾中行军道",
+    "speakerLabel": "老雷·对话",
+    "text": "图啥，你问不着我，我也问不着我自己。上头的算盘，咱们拨不响。咱们只管一件事：脚别停，命别丢。",
+    "performance": "沉；不回头，加快脚步",
+    "originalPosition": "右侧",
+    "camera": "老雷背影，2秒",
+    "sound": "BGM低缓；环境音：风、脚步",
+    "trigger": "本框无交互，点击／空格进入下一框",
+    "nextId": "A02-D011f",
+    "provenance": "修订补充稿新增；经用户确认校正渡河方向与时序；人物与对白为文学虚构",
+    "status": "pending",
+    "speaker": "laolei",
+    "narration": false,
+    "expression": "tired",
+    "inner": false,
+    "subtitleLines": [
+      "图啥，你问不着我，",
+      "我也问不着我自己。",
+      "上头的算盘，咱们拨不响。",
+      "咱们只管一件事：脚别停，命别丢。"
+    ],
+    "longPauses": [
+      18,
+      30,
+      46
+    ]
+  },
+  {
+    "id": "A02-D011f",
+    "shot": "S3-02",
+    "sceneId": "a02-bg02",
+    "scene": "扎西至黔北·雾中行军道",
+    "speakerLabel": "邓青山·对话（内心）",
+    "text": "（内心）记不清这是第几回掉头了。脚还记得上回踩的坑，人却得再踩一遍。",
+    "performance": "跟着前头的人往前走",
+    "originalPosition": "左侧",
+    "camera": "第一人称跟镜，2秒；静态层",
+    "sound": "BGM低缓；环境音：风、脚步",
+    "trigger": "本框无交互，点击／空格进入下一框",
+    "nextId": "A02-D012",
+    "provenance": "修订补充稿新增；经用户确认校正渡河方向与时序；人物与对白为文学虚构",
+    "status": "pending",
+    "speaker": "qingshan",
+    "narration": false,
+    "expression": "tired",
+    "inner": true,
+    "subtitleLines": [
+      "（内心）记不清这是第几回掉头了。",
+      "脚还记得上回踩的坑，",
+      "人却得再踩一遍。"
+    ],
+    "longPauses": [
+      16,
+      26,
+      34
+    ]
   },
   {
     "id": "A02-D012",
@@ -761,7 +1435,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "班长，我们不是刚过了河吗？",
+      "怎么又要回去？",
+      "这不是把这些天走的路，",
+      "又原样走一遍吗？",
+      "我实在想不通。"
+    ],
+    "longPauses": [
+      20,
+      39,
+      46
+    ],
+    "inner": false
   },
   {
     "id": "A02-D013",
@@ -780,7 +1467,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "laolei",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "别问。上面有上面的道理，",
+      "我看不懂，你更看不懂。",
+      "你只管跟着走，把命留着，",
+      "把这条腿好好用在刀刃上。"
+    ],
+    "longPauses": [
+      23,
+      35,
+      47
+    ],
+    "inner": false
   },
   {
     "id": "A02-D014",
@@ -799,7 +1498,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "我记住了这句话，",
+      "也记住了我心里的那个问号。",
+      "它像一个疙瘩，跟着我，",
+      "走了很久很久，",
+      "一直到娄山关。"
+    ],
+    "longPauses": [
+      21,
+      39,
+      46
+    ],
+    "inner": false
   },
   {
     "id": "A02-D015",
@@ -818,7 +1530,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "xiaoman",
     "narration": false,
-    "expression": "anxious"
+    "expression": "anxious",
+    "subtitleLines": [
+      "（边走边问）指导员，",
+      "我们往东，是要打哪儿去？",
+      "是回咱们老家吗？",
+      "是回咱们江西去吗？",
+      "那可就太好了。"
+    ],
+    "longPauses": [
+      22,
+      39,
+      46
+    ],
+    "inner": false
   },
   {
     "id": "A02-D016",
@@ -837,7 +1562,18 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "instructor",
     "narration": false,
-    "expression": "serious"
+    "expression": "serious",
+    "subtitleLines": [
+      "不是老家。是往回打——回黔北。",
+      "前面有座关，叫娄山关。",
+      "那道关一过，咱们就能喘上口气了。"
+    ],
+    "longPauses": [
+      15,
+      26,
+      42
+    ],
+    "inner": false
   },
   {
     "id": "A02-D017",
@@ -856,7 +1592,18 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "路烂得不成样子。一脚踩下去，",
+      "泥没到脚脖子，拔出来要费好大劲。",
+      "前面的人一停，",
+      "后面就结结实实撞上。"
+    ],
+    "longPauses": [
+      30,
+      47
+    ],
+    "inner": false
   },
   {
     "id": "A02-D018",
@@ -875,7 +1622,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "xiaoman",
     "narration": false,
-    "expression": "anxious"
+    "expression": "anxious",
+    "subtitleLines": [
+      "青山哥……你在哪儿？",
+      "我踩进一个坑，爬不出来了。",
+      "黑灯瞎火的，什么也看不见，",
+      "我一伸手，全是凉水。"
+    ],
+    "longPauses": [
+      23,
+      36,
+      46
+    ],
+    "inner": false
   },
   {
     "id": "A02-D019",
@@ -894,7 +1653,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "别动。听我的声音，往这边摸。",
+      "我在这儿，就站在这儿，",
+      "哪儿也不去。",
+      "你别慌，一慌，就更找不着了。"
+    ],
+    "longPauses": [
+      14,
+      31,
+      45
+    ],
+    "inner": false
   },
   {
     "id": "A02-D020",
@@ -913,7 +1684,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "我把小满从泥坑里拽出来。",
+      "他手上全是泥，抓着我的胳膊，",
+      "抓得很紧，",
+      "指甲都掐进肉里去了。"
+    ],
+    "longPauses": [
+      12,
+      31,
+      41
+    ],
+    "inner": false
   },
   {
     "id": "A02-D021",
@@ -932,7 +1715,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "xiaoman",
     "narration": false,
-    "expression": "tired"
+    "expression": "tired",
+    "subtitleLines": [
+      "青山哥，我以为我把队伍丢了。",
+      "掉进坑里那会儿，四周静得很，",
+      "只有雨声，",
+      "我喊谁，谁都不应。"
+    ],
+    "longPauses": [
+      14,
+      33,
+      42
+    ],
+    "inner": false
   },
   {
     "id": "A02-D022",
@@ -951,7 +1746,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "丢不了。你听，前头有脚步声，",
+      "一声接一声，踩得整整齐齐。",
+      "跟着那声音走就行，",
+      "队伍没走远，就在前头。"
+    ],
+    "longPauses": [
+      27,
+      36,
+      47
+    ],
+    "inner": false
   },
   {
     "id": "A02-D023",
@@ -970,7 +1777,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "laolei",
     "narration": false,
-    "expression": "alert"
+    "expression": "alert",
+    "subtitleLines": [
+      "（在前头）后边的，",
+      "一个跟一个，别掉队！",
+      "前面就是大路！",
+      "都把手搭在前头人肩上，",
+      "闭着眼也能走！"
+    ],
+    "longPauses": [
+      19,
+      26,
+      44
+    ],
+    "inner": false
   },
   {
     "id": "A02-D024",
@@ -984,12 +1804,25 @@ export const script: DialogueLine[] = [
     "camera": "远景，3秒渐亮",
     "sound": "BGM回暖收束；环境音：脚步渐齐；音效：无",
     "trigger": "本框无交互，点击／空格进入下一框",
-    "nextId": "→第三幕A03-D001",
+    "nextId": "A03-D001",
     "provenance": "第一人称独白；虚构人物，承载普通战士视角",
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "雾散了一点。前头，",
+      "是一眼看不到头的队伍，",
+      "草鞋踩在泥里，",
+      "成百上千个声音压成一片。",
+      "我们跟上了。"
+    ],
+    "longPauses": [
+      20,
+      39,
+      45
+    ],
+    "inner": false
   },
   {
     "id": "A03-D001",
@@ -1008,7 +1841,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "娄山关。关侧是直上直下的崖，",
+      "中间一条公路，七拐八折。",
+      "谁占了关口，",
+      "谁就掐住了遵义的脖子，",
+      "掐住了黔北的喉咙。"
+    ],
+    "longPauses": [
+      26,
+      43,
+      52
+    ],
+    "inner": false
   },
   {
     "id": "A03-D002",
@@ -1027,7 +1873,23 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "ahu",
     "narration": false,
-    "expression": "focus"
+    "expression": "focus",
+    "subtitleLines": [
+      "我是本地苗家人，",
+      "土城那会儿跟着队伍走的。",
+      "这条山我熟，崖后有条缝，",
+      "人能侧着身子钻过去，",
+      "绕到他们头顶上。",
+      "当年我爹进山打猎，",
+      "走的就是那条路。"
+    ],
+    "longPauses": [
+      20,
+      42,
+      50,
+      67
+    ],
+    "inner": false
   },
   {
     "id": "A03-D003",
@@ -1046,7 +1908,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "你不怕吗？跟我们走，是要吃苦的。",
+      "这一路上，倒下去的人，",
+      "可比走到头的人多得多。",
+      "你才刚进队伍，还没打过仗。"
+    ],
+    "longPauses": [
+      16,
+      38,
+      51
+    ],
+    "inner": false
   },
   {
     "id": "A03-D004",
@@ -1065,7 +1939,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "ahu",
     "narration": false,
-    "expression": "focus"
+    "expression": "focus",
+    "subtitleLines": [
+      "怕。可我更怕这座山，",
+      "往后还归他们。",
+      "归了他们，我们苗家人，",
+      "又要被赶上更高的山里去，",
+      "连块能种的地都没有。"
+    ],
+    "longPauses": [
+      17,
+      40,
+      50
+    ],
+    "inner": false
   },
   {
     "id": "A03-D005",
@@ -1084,7 +1971,21 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "laolei",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "都跟上阿虎。",
+      "崖上口令传着喊——",
+      "第一声掩护，第二声攀登，",
+      "第三声伏低，第四声跟进。",
+      "听岔一声就得吃枪子。"
+    ],
+    "longPauses": [
+      6,
+      15,
+      39,
+      49
+    ],
+    "inner": false
   },
   {
     "id": "A03-D006",
@@ -1103,7 +2004,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "手脚并用往上爬。",
+      "石屑打在下巴上，火辣辣地疼。",
+      "上头的口令一句一句传下来，",
+      "像绳子上串着的结。"
+    ],
+    "longPauses": [
+      22,
+      35,
+      44
+    ],
+    "inner": false
   },
   {
     "id": "A03-D007",
@@ -1122,7 +2035,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "ahu",
     "narration": false,
-    "expression": "focus"
+    "expression": "focus",
+    "subtitleLines": [
+      "（传口令）掩护——！",
+      "把枪架起来，压住上头那个枪眼！",
+      "谁也别抬头，",
+      "头一抬，脑门上就多个窟窿！"
+    ],
+    "longPauses": [
+      25,
+      31,
+      44
+    ],
+    "inner": false
   },
   {
     "id": "A03-D008",
@@ -1141,7 +2066,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "laolei",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "（传口令）攀登——！",
+      "一个跟一个，踩住我踩过的石头！",
+      "我踩稳了，你再上；",
+      "我不动，你就在原地趴着！"
+    ],
+    "longPauses": [
+      25,
+      34,
+      46
+    ],
+    "inner": false
   },
   {
     "id": "A03-D009",
@@ -1160,7 +2097,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "我踩着老雷的脚印往上。",
+      "他踩过的石头，是稳的。",
+      "那一刻我才明白，什么叫\"跟紧\"，",
+      "什么叫把命",
+      "交在前头那个人的脚底下。"
+    ],
+    "longPauses": [
+      22,
+      38,
+      55
+    ],
+    "inner": false
   },
   {
     "id": "A03-D010",
@@ -1179,7 +2129,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "xiaoman",
     "narration": false,
-    "expression": "anxious"
+    "expression": "anxious",
+    "subtitleLines": [
+      "青山哥，我上来了！你看，",
+      "红旗，就在上头！",
+      "原来山这么高，天这么大，",
+      "我们爬了这么久，才爬到半中间。"
+    ],
+    "longPauses": [
+      20,
+      32,
+      47
+    ],
+    "inner": false
   },
   {
     "id": "A03-D011",
@@ -1198,7 +2160,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "红旗在阵中翻卷，红得刺眼。",
+      "这一路的灰和泥里，",
+      "这是我见过最红的东西，",
+      "红得像我娘过年煮的红鸡蛋，",
+      "红得像有热气。"
+    ],
+    "longPauses": [
+      13,
+      33,
+      53
+    ],
+    "inner": false
   },
   {
     "id": "A03-D012",
@@ -1217,7 +2192,18 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "laolei",
     "narration": false,
-    "expression": "alert"
+    "expression": "alert",
+    "subtitleLines": [
+      "别站着看！跟上，把敌人往下压！",
+      "还有半座山呢，站在这儿发什么呆，",
+      "一发愣，命就没了！"
+    ],
+    "longPauses": [
+      15,
+      31,
+      40
+    ],
+    "inner": false
   },
   {
     "id": "A03-D013",
@@ -1236,7 +2222,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "laolei",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "（回过头）青山，你记着——",
+      "这面旗，不是哪一个人的。",
+      "倒下去的人，都在这上头，",
+      "活着的人，得替他们往前走。"
+    ],
+    "longPauses": [
+      13,
+      25,
+      50
+    ],
+    "inner": false
   },
   {
     "id": "A03-D014",
@@ -1255,7 +2253,22 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "娄山关拿下，遵义也拿下了。",
+      "进城路上，",
+      "阿虎忽然唱起了苗家的山歌，",
+      "调子又高又亮，一路飘在队伍前头。",
+      "我听不懂词，只觉得那声音里，",
+      "有他认下的这片山。"
+    ],
+    "longPauses": [
+      13,
+      31,
+      47,
+      70
+    ],
+    "inner": false
   },
   {
     "id": "A03-D015",
@@ -1274,7 +2287,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "laolei",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "换衣裳。一人一套，还有新草鞋。",
+      "这回，脚能舒服两天。",
+      "手上脚上的口子，",
+      "也去让人裹一裹，别舍不得。"
+    ],
+    "longPauses": [
+      15,
+      25,
+      46
+    ],
+    "inner": false
   },
   {
     "id": "A03-D016",
@@ -1293,7 +2318,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "xiaoman",
     "narration": false,
-    "expression": "smile"
+    "expression": "smile",
+    "subtitleLines": [
+      "青山哥，你换上这身，像换了个人！",
+      "我差点没认出来，",
+      "还以为前头来了个新兵，",
+      "白净得跟个学生似的。"
+    ],
+    "longPauses": [
+      16,
+      35,
+      45
+    ],
+    "inner": false
   },
   {
     "id": "A03-D017",
@@ -1312,7 +2349,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "我照了照水缸。里头那个人，",
+      "干净，也陌生。",
+      "我看了好一会儿，",
+      "才认出那是我自己，",
+      "也才认出我瘦成这样。"
+    ],
+    "longPauses": [
+      20,
+      37,
+      47
+    ],
+    "inner": false
   },
   {
     "id": "A03-D018",
@@ -1331,7 +2381,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "xiaoman",
     "narration": false,
-    "expression": "smile"
+    "expression": "smile",
+    "subtitleLines": [
+      "（凑过来看水缸）像不像？",
+      "我觉得像。",
+      "要是我娘看见，准认得出你，",
+      "准说我跟了个好哥哥，",
+      "比在家里还有出息。"
+    ],
+    "longPauses": [
+      17,
+      30,
+      49
+    ],
+    "inner": false
   },
   {
     "id": "A03-D019",
@@ -1350,7 +2413,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "（沉默一会儿）……",
+      "她会认得出你就行。我可不敢回家。",
+      "我这手上，沾着血，",
+      "洗也洗不干净了，",
+      "一想起来，夜里就睡不着。"
+    ],
+    "longPauses": [
+      25,
+      42,
+      54
+    ],
+    "inner": false
   },
   {
     "id": "A03-D020",
@@ -1369,7 +2445,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "instructor",
     "narration": false,
-    "expression": "soft"
+    "expression": "soft",
+    "subtitleLines": [
+      "好好歇一晚。明天……又要走了。",
+      "水烧了，都去洗洗，",
+      "把伤口的泥洗干净。",
+      "能多吃一口，就多吃一口，别客气。"
+    ],
+    "longPauses": [
+      15,
+      33,
+      49
+    ],
+    "inner": false
   },
   {
     "id": "A03-D021",
@@ -1388,7 +2476,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "……往哪走？",
+      "我们不是刚打完大胜仗吗？",
+      "大家都以为，能歇上几天了，",
+      "脚上的泡都还没好利索，",
+      "草鞋还没换新的呢。"
+    ],
+    "longPauses": [
+      18,
+      31,
+      51
+    ],
+    "inner": false
   },
   {
     "id": "A03-D022",
@@ -1402,12 +2503,25 @@ export const script: DialogueLine[] = [
     "camera": "静止，2秒",
     "sound": "BGM沉；环境音：无；音效：无",
     "trigger": "本框无交互，点击／空格进入下一框",
-    "nextId": "→第四幕A04-D001",
+    "nextId": "A03-D023",
     "provenance": "虚构人物对白；虚构，不作历史引文",
     "status": "pending",
     "speaker": "instructor",
     "narration": false,
-    "expression": "soft"
+    "expression": "soft",
+    "subtitleLines": [
+      "到走的时候你就知道了。今晚，",
+      "先睡。",
+      "把粮袋补一补，把子弹数一数，",
+      "别到跟前再抓瞎，",
+      "那时候可来不及了。"
+    ],
+    "longPauses": [
+      17,
+      31,
+      48
+    ],
+    "inner": false
   },
   {
     "id": "A03-D023",
@@ -1421,12 +2535,25 @@ export const script: DialogueLine[] = [
     "camera": "静止，3秒渐暗",
     "sound": "BGM沉；环境音：远处人声；音效：无",
     "trigger": "本框无交互，点击／空格进入下一框",
-    "nextId": "→第四幕A04-D001",
+    "nextId": "A04-D001",
     "provenance": "第一人称独白；虚构人物，承载普通战士视角",
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "那天晚上，全城都在笑，",
+      "只有我们这些老兵，笑不太出来。",
+      "因为我们都懂：越是大胜，",
+      "追兵离得越近，",
+      "下一仗也越硬。"
+    ],
+    "longPauses": [
+      26,
+      45,
+      52
+    ],
+    "inner": false
   },
   {
     "id": "A04-D001",
@@ -1445,7 +2572,18 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "tired"
+    "expression": "tired",
+    "subtitleLines": [
+      "鲁班场。敌人在半山修了碉堡，",
+      "一个挨一个，枪眼对着我们。",
+      "我们冲上去，又被压下来，",
+      "再冲，再压。"
+    ],
+    "longPauses": [
+      27,
+      45
+    ],
+    "inner": false
   },
   {
     "id": "A04-D002",
@@ -1464,7 +2602,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "laolei",
     "narration": false,
-    "expression": "tired"
+    "expression": "tired",
+    "subtitleLines": [
+      "机枪压住那个枪眼！小满，",
+      "跟紧青山，别乱跑！",
+      "这一回，谁也别逞英雄，",
+      "谁逞英雄，我先把他按住！"
+    ],
+    "longPauses": [
+      21,
+      32,
+      44
+    ],
+    "inner": false
   },
   {
     "id": "A04-D003",
@@ -1483,7 +2633,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "ahu",
     "narration": false,
-    "expression": "alert"
+    "expression": "alert",
+    "subtitleLines": [
+      "青山哥，那边沟里有个人动不了！",
+      "我去把他拖回来！",
+      "我腿快，走山走惯了，",
+      "让我去，你们掩护我！"
+    ],
+    "longPauses": [
+      23,
+      33,
+      43
+    ],
+    "inner": false
   },
   {
     "id": "A04-D004",
@@ -1502,7 +2664,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": false,
-    "expression": "tense"
+    "expression": "tense",
+    "subtitleLines": [
+      "别去！等一会儿，",
+      "等飞机走了我跟你一块儿上！",
+      "你现在单枪匹马冲出去，",
+      "就是白搭一条命，",
+      "人救不回来，还得搭上你！"
+    ],
+    "longPauses": [
+      21,
+      40,
+      52
+    ],
+    "inner": false
   },
   {
     "id": "A04-D005",
@@ -1521,7 +2696,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "ahu",
     "narration": false,
-    "expression": "focus"
+    "expression": "focus",
+    "subtitleLines": [
+      "（等不及）等不了了！",
+      "他还在动，我看见他抬手了！",
+      "这山里的路我闭着眼都能走，",
+      "你放心，我去了就回！"
+    ],
+    "longPauses": [
+      23,
+      36,
+      46
+    ],
+    "inner": false
   },
   {
     "id": "A04-D006",
@@ -1540,7 +2727,21 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "阿虎冲进了那片硝烟。",
+      "我等了很久，",
+      "只看见烟一层接一层地翻，",
+      "再没有看见他出来。",
+      "沟里那个人，",
+      "是我和老雷一块儿拖回来的。"
+    ],
+    "longPauses": [
+      10,
+      37,
+      56
+    ],
+    "inner": false
   },
   {
     "id": "A04-D007",
@@ -1559,7 +2760,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": false,
-    "expression": "tense"
+    "expression": "tense",
+    "subtitleLines": [
+      "……你挺住。我们快拿下了，",
+      "你再撑一会儿，一会儿就好。",
+      "你听我的，别闭眼，跟我说话，",
+      "随便说两句什么都行。"
+    ],
+    "longPauses": [
+      26,
+      40,
+      50
+    ],
+    "inner": false
   },
   {
     "id": "A04-D008",
@@ -1578,7 +2791,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "wounded",
     "narration": false,
-    "expression": "tired"
+    "expression": "tired",
+    "subtitleLines": [
+      "（虚弱）好……好。拿下就好……",
+      "我叫……我姓王，江西的……",
+      "家里还有个妹妹，",
+      "等着我回去给她做嫁妆……",
+      "你记着我的名字。"
+    ],
+    "longPauses": [
+      15,
+      36,
+      56
+    ],
+    "inner": false
   },
   {
     "id": "A04-D009",
@@ -1597,7 +2823,21 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "其实我知道，我们没拿下。",
+      "打到天黑，命令来了：撤。",
+      "我没接住他的姓名，也没找到阿虎。",
+      "硝烟散了，山还是那座山，",
+      "人却少了一个。"
+    ],
+    "longPauses": [
+      12,
+      24,
+      40,
+      59
+    ],
+    "inner": false
   },
   {
     "id": "A04-D010",
@@ -1616,7 +2856,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "laolei",
     "narration": false,
-    "expression": "tired"
+    "expression": "tired",
+    "subtitleLines": [
+      "走。阿虎的事，先别想了。",
+      "这一仗填进去的人，都是江西、",
+      "湖南的娃，",
+      "一个个都是人家爹娘的心头肉，",
+      "填不起了。"
+    ],
+    "longPauses": [
+      12,
+      31,
+      50
+    ],
+    "inner": false
   },
   {
     "id": "A04-D011",
@@ -1635,7 +2888,21 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "xiaoman",
     "narration": false,
-    "expression": "anxious"
+    "expression": "anxious",
+    "subtitleLines": [
+      "（沙哑）可是我们明明……",
+      "冲上去了两次啊。",
+      "第一次，",
+      "我手指头都快摸到那堵墙了。",
+      "阿虎哥他……",
+      "他会不会还在那片烟里？"
+    ],
+    "longPauses": [
+      20,
+      37,
+      54
+    ],
+    "inner": false
   },
   {
     "id": "A04-D012",
@@ -1654,7 +2921,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "laolei",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "打仗不是看谁冲得猛。",
+      "看清了再打，打不动就走。",
+      "留着的这条命，比什么都金贵。",
+      "至于阿虎，只看他祖上积的德了。"
+    ],
+    "longPauses": [
+      10,
+      22,
+      36,
+      51
+    ],
+    "inner": false
   },
   {
     "id": "A04-D013",
@@ -1673,7 +2953,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "xiaoman",
     "narration": false,
-    "expression": "anxious"
+    "expression": "anxious",
+    "subtitleLines": [
+      "青山哥……那个姓王的人，",
+      "他后来怎么样了？他也是江西的。",
+      "咱们江西人，走到这儿，",
+      "是不是也算走到头了。"
+    ],
+    "longPauses": [
+      27,
+      38,
+      48
+    ],
+    "inner": false
   },
   {
     "id": "A04-D014",
@@ -1692,7 +2984,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "……别问了。",
+      "记住他问你那句话就行。",
+      "往后你打出的每一枪，",
+      "都记着那句\"拿下没有\"，",
+      "就算替他，也替阿虎，打了。"
+    ],
+    "longPauses": [
+      17,
+      39,
+      52
+    ],
+    "inner": false
   },
   {
     "id": "A04-D015",
@@ -1711,7 +3016,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "茅台。这一回过河，",
+      "跟头两回不一样——",
+      "大白天，红旗招展，",
+      "明晃晃地过，像是故意要给人看。",
+      "吹号，也不压着声。"
+    ],
+    "longPauses": [
+      18,
+      42,
+      51
+    ],
+    "inner": false
   },
   {
     "id": "A04-D016",
@@ -1730,7 +3048,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "xiaoman",
     "narration": false,
-    "expression": "anxious"
+    "expression": "anxious",
+    "subtitleLines": [
+      "青山哥，",
+      "前几天咱们过河都偷偷摸摸的，",
+      "今天怎么……生怕人家不知道？",
+      "天上那飞机都看着咱们呢。"
+    ],
+    "longPauses": [
+      18,
+      32,
+      44
+    ],
+    "inner": false
   },
   {
     "id": "A04-D017",
@@ -1749,7 +3079,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "laolei",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "（看了一眼天上的飞机）……",
+      "上面有上面的道理。",
+      "走你的路，把腰板挺直了，",
+      "别缩脖子，",
+      "看着就像心虚。"
+    ],
+    "longPauses": [
+      22,
+      39,
+      46
+    ],
+    "inner": false
   },
   {
     "id": "A04-D018",
@@ -1768,7 +3111,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "敌机压低，扫了一圈，又飞走了。",
+      "我们昂着头，从河这边走到河那边，",
+      "一步没乱，",
+      "连头都没回一下。"
+    ],
+    "longPauses": [
+      15,
+      36,
+      44
+    ],
+    "inner": false
   },
   {
     "id": "A04-D019",
@@ -1787,7 +3142,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "instructor",
     "narration": false,
-    "expression": "serious"
+    "expression": "serious",
+    "subtitleLines": [
+      "（上前一步）都走稳了，别慌。",
+      "让他们看。",
+      "看清楚点，看仔细点，",
+      "别白跑一趟，白费了这一路的力气。"
+    ],
+    "longPauses": [
+      19,
+      29,
+      45
+    ],
+    "inner": false
   },
   {
     "id": "A04-D020",
@@ -1795,7 +3162,7 @@ export const script: DialogueLine[] = [
     "sceneId": "a04-bg02",
     "scene": "茅台·白昼河滩",
     "speakerLabel": "邓青山·对话",
-    "text": "（心里）这一趟，我们到底是在躲，还是在等人来看？指导员那句话，我越想，越觉得里头有文章，可我不敢问。",
+    "text": "（内心）这一趟，我们到底是在躲，还是在等人来看？指导员那句话，我越想，越觉得里头有文章，可我不敢问。",
     "performance": "低头，又抬头",
     "originalPosition": "主角独白，无立绘",
     "camera": "静止，2.5秒",
@@ -1806,7 +3173,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "inner": true,
+    "subtitleLines": [
+      "（内心）这一趟，",
+      "我们到底是在躲，还是在等人来看？",
+      "指导员那句话，我越想，",
+      "越觉得里头有文章，",
+      "可我不敢问。"
+    ],
+    "longPauses": [
+      24,
+      44,
+      50
+    ]
   },
   {
     "id": "A04-D021",
@@ -1814,7 +3194,7 @@ export const script: DialogueLine[] = [
     "sceneId": "a04-bg02",
     "scene": "茅台·白昼河滩",
     "speakerLabel": "邓青山·对话",
-    "text": "（心里）我数了数身边熟脸，又少了几张。阿虎的那张脸，我一直没找着。这河过了三回，队伍却一趟比一趟轻。",
+    "text": "（内心）我数了数身边熟脸，又少了几张。阿虎的那张脸，我一直没找着。这河过了三回，队伍却一趟比一趟轻。",
     "performance": "站在河滩上，慢慢数人头",
     "originalPosition": "主角独白，无立绘",
     "camera": "静止，2秒",
@@ -1825,7 +3205,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "inner": true,
+    "subtitleLines": [
+      "（内心）我数了数身边熟脸，",
+      "又少了几张。",
+      "阿虎的那张脸，我一直没找着。",
+      "这河过了三回，",
+      "队伍却一趟比一趟轻。"
+    ],
+    "longPauses": [
+      19,
+      33,
+      50
+    ]
   },
   {
     "id": "A04-D022",
@@ -1839,12 +3232,24 @@ export const script: DialogueLine[] = [
     "camera": "静止，2.5秒",
     "sound": "BGM转悬；环境音：河水；音效：无",
     "trigger": "本框无交互，点击／空格进入下一框",
-    "nextId": "→第五幕A05-D001",
+    "nextId": "A04-D023",
     "provenance": "虚构人物对白；虚构，不作历史引文",
     "status": "pending",
     "speaker": "laolei",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "别数了。数得清的，那叫账；",
+      "数不清的，那才叫队伍。",
+      "往前走，",
+      "把眼睛看着前头那个人的后脑勺，",
+      "别回头。"
+    ],
+    "longPauses": [
+      24,
+      47
+    ],
+    "inner": false
   },
   {
     "id": "A04-D023",
@@ -1858,12 +3263,24 @@ export const script: DialogueLine[] = [
     "camera": "远景，3秒渐暗",
     "sound": "BGM转悬；环境音：河水渐远；音效：无",
     "trigger": "本框无交互，点击／空格进入下一框",
-    "nextId": "→第五幕A05-D001",
+    "nextId": "A05-D001",
     "provenance": "第一人称独白；虚构人物，承载普通战士视角",
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "我到底没有回头去找。",
+      "那天夜里我才明白，这一路上，",
+      "\"找\"是一件最奢侈的事——",
+      "你停下，就再也赶不上了。"
+    ],
+    "longPauses": [
+      10,
+      37,
+      49
+    ],
+    "inner": false
   },
   {
     "id": "A05-D001",
@@ -1882,7 +3299,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "深夜。集合。没人敲锣，",
+      "没人喊口号。",
+      "命令只有一句：别出声，过河。",
+      "连咳嗽，都得先捂着嘴再咳。"
+    ],
+    "longPauses": [
+      17,
+      31,
+      44
+    ],
+    "inner": false
   },
   {
     "id": "A05-D002",
@@ -1901,7 +3330,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "laolei",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "青山，小满。跟紧我，手搭着手。",
+      "这一回，谁也别出声，",
+      "踩空了也别喊，",
+      "喊一声，前功尽弃，",
+      "多少人的命就白送了。"
+    ],
+    "longPauses": [
+      15,
+      32,
+      51
+    ],
+    "inner": false
   },
   {
     "id": "A05-D003",
@@ -1920,7 +3362,19 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "xiaoman",
     "narration": false,
-    "expression": "tired"
+    "expression": "tired",
+    "subtitleLines": [
+      "（气声）我腿肿了，走不快。",
+      "你们别等我，我慢慢跟在后头，",
+      "跟丢了也不怪谁，",
+      "谁都别为我停下。"
+    ],
+    "longPauses": [
+      13,
+      35,
+      43
+    ],
+    "inner": false
   },
   {
     "id": "A05-D004",
@@ -1939,7 +3393,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "不等你等谁。抓着我，慢慢走，",
+      "一步是一步。",
+      "你走不动，我背你；背不动，",
+      "咱俩就地一起歇，",
+      "谁也别想甩下谁。"
+    ],
+    "longPauses": [
+      20,
+      41,
+      49
+    ],
+    "inner": false
   },
   {
     "id": "A05-D005",
@@ -1953,31 +3420,151 @@ export const script: DialogueLine[] = [
     "camera": "极暗，2秒",
     "sound": "BGM无；环境音：水声；音效：无",
     "trigger": "本框无交互，点击／空格进入下一框",
-    "nextId": "A05-D006",
+    "nextId": "A05-D009a",
     "provenance": "第一人称独白；虚构人物，承载普通战士视角",
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "这一回，没人知道要去哪。",
+      "可我心里没那么慌了。",
+      "走了这么久，我好像学会了不问，",
+      "也学会了跟着走。"
+    ],
+    "longPauses": [
+      12,
+      22,
+      45
+    ],
+    "inner": false
   },
   {
-    "id": "A05-D006",
+    "id": "A05-D009a",
     "shot": "S6-01",
     "sceneId": "a05-bg01",
-    "scene": "赤水河·深夜浮桥",
+    "scene": "西岸·深夜渡口",
     "speakerLabel": "旁白·独白",
-    "text": "我上了桥。脚底下的木板滑，踩一步晃一下。我一步一步数着走，像是数自己还有几口气，数着数着，就过了河。",
-    "performance": "——；低头盯着脚下",
-    "originalPosition": "无",
-    "camera": "第一人称，2秒",
-    "sound": "BGM无；环境音：水声；音效：木板轻响",
+    "text": "西渡才过了几天，我以为，总算能离开这条河了。可命令，又把我们带回了渡口。向东。又要渡回去。",
+    "performance": "站在西岸，脚没挪动",
+    "originalPosition": "无（全屏背景）",
+    "camera": "西岸静止，2.5秒；雾中静态层",
+    "sound": "BGM极轻；环境音：水声、木板声",
     "trigger": "本框无交互，点击／空格进入下一框",
-    "nextId": "A05-D007",
-    "provenance": "第一人称独白；虚构人物，承载普通战士视角",
+    "nextId": "A05-D009b",
+    "provenance": "修订补充稿新增；经用户确认校正渡河方向与时序；人物与对白为文学虚构",
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "tired",
+    "inner": false,
+    "subtitleLines": [
+      "西渡才过了几天，我以为，",
+      "总算能离开这条河了。",
+      "可命令，又把我们带回了渡口。",
+      "向东。",
+      "又要渡回去。"
+    ],
+    "longPauses": [
+      22,
+      36,
+      39,
+      45
+    ]
+  },
+  {
+    "id": "A05-D009b",
+    "shot": "S6-01",
+    "sceneId": "a05-bg01",
+    "scene": "西岸·深夜渡口",
+    "speakerLabel": "小满·对话",
+    "text": "青山哥，咱们……不是才过来没几天吗？怎么又要回去？这条河，它到底想让咱们走几趟啊？",
+    "performance": "疲极、近乎茫然；扶着邓青山站不稳",
+    "originalPosition": "右侧",
+    "camera": "小满仰头看邓青山，2.5秒",
+    "sound": "BGM极轻；环境音：水声、木板声",
+    "trigger": "本框无交互，点击／空格进入下一框",
+    "nextId": "A05-D009c",
+    "provenance": "修订补充稿新增；经用户确认校正渡河方向与时序；人物与对白为文学虚构",
+    "status": "pending",
+    "speaker": "xiaoman",
+    "narration": false,
+    "expression": "anxious",
+    "inner": false,
+    "subtitleLines": [
+      "青山哥，咱们……",
+      "不是才过来没几天吗？",
+      "怎么又要回去？",
+      "这条河，它到底想让咱们走几趟啊？"
+    ],
+    "longPauses": [
+      8,
+      18,
+      25,
+      41
+    ]
+  },
+  {
+    "id": "A05-D009c",
+    "shot": "S6-01",
+    "sceneId": "a05-bg01",
+    "scene": "西岸·深夜渡口",
+    "speakerLabel": "邓青山·对话（内心）",
+    "text": "（内心）我说不清。我只知道，脚比脑子先认了这条河。踩下去，就知道哪儿深哪儿浅。",
+    "performance": "看着河面，缓缓呼出一口气",
+    "originalPosition": "左侧",
+    "camera": "水面微光近景，2.5秒",
+    "sound": "BGM极轻；环境音：水声、木板声",
+    "trigger": "本框无交互，点击／空格进入下一框",
+    "nextId": "A05-D009d",
+    "provenance": "修订补充稿新增；经用户确认校正渡河方向与时序；人物与对白为文学虚构",
+    "status": "pending",
+    "speaker": "qingshan",
+    "narration": false,
+    "expression": "tired",
+    "inner": true,
+    "subtitleLines": [
+      "（内心）我说不清。",
+      "我只知道，脚比脑子先认了这条河。",
+      "踩下去，就知道哪儿深哪儿浅。"
+    ],
+    "longPauses": [
+      9,
+      25,
+      39
+    ]
+  },
+  {
+    "id": "A05-D009d",
+    "shot": "S6-01",
+    "sceneId": "a05-bg01",
+    "scene": "西岸·深夜渡口",
+    "speakerLabel": "老雷·对话",
+    "text": "（在前头，低声）别问了，都别问了。过河。问一句，耽误一步；耽误一步，丢一条命。",
+    "performance": "沙哑；把手指竖在唇边，示意噤声",
+    "originalPosition": "右侧",
+    "camera": "老雷半身，逆光剪影，2秒",
+    "sound": "BGM极轻；环境音：水声、木板声",
+    "trigger": "本框无交互，点击／空格进入下一框",
+    "nextId": "A05-D007",
+    "provenance": "修订补充稿新增；经用户确认校正渡河方向与时序；人物与对白为文学虚构",
+    "status": "pending",
+    "speaker": "laolei",
+    "narration": false,
+    "expression": "tired",
+    "inner": false,
+    "subtitleLines": [
+      "（在前头，低声）别问了，",
+      "都别问了。",
+      "过河。",
+      "问一句，耽误一步；耽误一步，",
+      "丢一条命。"
+    ],
+    "longPauses": [
+      17,
+      20,
+      39
+    ]
   },
   {
     "id": "A05-D007",
@@ -1996,7 +3583,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "xiaoman",
     "narration": false,
-    "expression": "tired"
+    "expression": "tired",
+    "subtitleLines": [
+      "青山哥……我们，",
+      "是不是又要过河了？",
+      "这条河，我怎么觉得，",
+      "走过好多回了，",
+      "闭着眼都认得它，连水声都听熟了。"
+    ],
+    "longPauses": [
+      17,
+      34,
+      50
+    ],
+    "inner": false
   },
   {
     "id": "A05-D008",
@@ -2010,12 +3610,89 @@ export const script: DialogueLine[] = [
     "camera": "静止，2.5秒",
     "sound": "BGM无；环境音：水声；音效：无",
     "trigger": "本框无交互，点击／空格进入下一框",
-    "nextId": "A05-D009",
+    "nextId": "A05-D009e",
     "provenance": "虚构人物对白；虚构，不作历史引文",
     "status": "pending",
     "speaker": "qingshan",
     "narration": false,
-    "expression": "tired"
+    "expression": "tired",
+    "subtitleLines": [
+      "……嗯。第四次了。",
+      "头一回过这条河，",
+      "我连它叫什么名字都记不住；",
+      "现在，我闭着眼，",
+      "也知道该往哪儿踩，水有多深。"
+    ],
+    "longPauses": [
+      9,
+      30,
+      52
+    ],
+    "inner": false
+  },
+  {
+    "id": "A05-D009e",
+    "shot": "S6-01",
+    "sceneId": "a05-bg01",
+    "scene": "西岸·深夜渡口",
+    "speakerLabel": "旁白·独白",
+    "text": "天亮前，我们又上了浮桥。这是第四次渡河。西岸的脚印，留在身后；这一回，我们往东岸去。",
+    "performance": "随队伍上桥，回头看一眼西岸",
+    "originalPosition": "无（全屏背景）",
+    "camera": "浮桥全景，3秒；静态层缓推",
+    "sound": "BGM极轻；环境音：水声、木板声",
+    "trigger": "本框无交互，点击／空格进入下一框",
+    "nextId": "A05-D006",
+    "provenance": "修订补充稿新增；经用户确认校正渡河方向与时序；人物与对白为文学虚构",
+    "status": "pending",
+    "speaker": "qingshan",
+    "narration": true,
+    "expression": "tired",
+    "inner": false,
+    "subtitleLines": [
+      "天亮前，我们又上了浮桥。",
+      "这是第四次渡河。",
+      "西岸的脚印，留在身后；",
+      "这一回，我们往东岸去。"
+    ],
+    "longPauses": [
+      12,
+      20,
+      31,
+      42
+    ]
+  },
+  {
+    "id": "A05-D006",
+    "shot": "S6-01",
+    "sceneId": "a05-bg01",
+    "scene": "赤水河·深夜浮桥",
+    "speakerLabel": "旁白·独白",
+    "text": "我上了桥。脚底下的木板滑，踩一步晃一下。我一步一步数着走，像是数自己还有几口气，数着数着，就过了河。",
+    "performance": "——；低头盯着脚下",
+    "originalPosition": "无",
+    "camera": "第一人称，2秒",
+    "sound": "BGM无；环境音：水声；音效：木板轻响",
+    "trigger": "本框无交互，点击／空格进入下一框",
+    "nextId": "A05-D009",
+    "provenance": "第一人称独白；虚构人物，承载普通战士视角",
+    "status": "pending",
+    "speaker": "qingshan",
+    "narration": true,
+    "expression": "neutral",
+    "subtitleLines": [
+      "我上了桥。脚底下的木板滑，",
+      "踩一步晃一下。",
+      "我一步一步数着走，",
+      "像是数自己还有几口气，",
+      "数着数着，就过了河。"
+    ],
+    "longPauses": [
+      20,
+      40,
+      50
+    ],
+    "inner": false
   },
   {
     "id": "A05-D009",
@@ -2034,7 +3711,18 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "tired"
+    "expression": "tired",
+    "subtitleLines": [
+      "上了岸。腿在抖，我扶着枪站着。",
+      "天边有一线白，细得像根线，",
+      "把黑天和黑地，慢慢地缝在了一起。"
+    ],
+    "longPauses": [
+      15,
+      28,
+      44
+    ],
+    "inner": false
   },
   {
     "id": "A05-D010",
@@ -2053,7 +3741,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "我回头。晨雾里，河西岸全是人。",
+      "密密麻麻，望不到头，",
+      "全是灰黄的一片，",
+      "一动一动地，正往渡口那边挤，",
+      "挤得河滩都黑了。"
+    ],
+    "longPauses": [
+      15,
+      33,
+      55
+    ],
+    "inner": false
   },
   {
     "id": "A05-D011",
@@ -2072,7 +3773,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "可他们，",
+      "正朝着我们昨天待过的方向去。",
+      "他们以为我们还在那边。",
+      "他们追的，是一片空荡荡的河滩，",
+      "和我们踩乱的脚印。"
+    ],
+    "longPauses": [
+      18,
+      29,
+      53
+    ],
+    "inner": false
   },
   {
     "id": "A05-D012",
@@ -2091,7 +3805,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "xiaoman",
     "narration": false,
-    "expression": "anxious"
+    "expression": "anxious",
+    "subtitleLines": [
+      "青山哥……我们，是不是……",
+      "把他们甩了？",
+      "这么多人，全都冲着那边去了，",
+      "咱们这边，一个人影也没有，",
+      "静悄悄的。"
+    ],
+    "longPauses": [
+      19,
+      33,
+      51
+    ],
+    "inner": false
   },
   {
     "id": "A05-D013",
@@ -2110,7 +3837,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "……嗯。甩了。",
+      "他们几十万人，",
+      "把我们三万人围了几个月，",
+      "到头来，还在这条河边转圈子，",
+      "连我们去哪儿都不知道。"
+    ],
+    "longPauses": [
+      7,
+      26,
+      51
+    ],
+    "inner": false
   },
   {
     "id": "A05-D014",
@@ -2129,7 +3869,18 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "laolei",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "（在前头回头）跟上。前面还有路。",
+      "别站在这儿看，看久了就走不动了，",
+      "脚一凉，腿就沉了，再想迈就难了。"
+    ],
+    "longPauses": [
+      16,
+      32,
+      48
+    ],
+    "inner": false
   },
   {
     "id": "A05-D015",
@@ -2143,12 +3894,25 @@ export const script: DialogueLine[] = [
     "camera": "远景，3秒渐亮",
     "sound": "BGM希望；环境音：风、脚步；音效：无",
     "trigger": "本框无交互，点击／空格进入下一框",
-    "nextId": "→复盘R01",
+    "nextId": "A05-D016",
     "provenance": "第一人称独白；虚构人物，承载普通战士视角",
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "我跟上去了。",
+      "那时候我不知道为什么，",
+      "很多年以后我才懂——",
+      "我们四次渡过同一条河，",
+      "把四十万人耍得团团转。"
+    ],
+    "longPauses": [
+      6,
+      27,
+      49
+    ],
+    "inner": false
   },
   {
     "id": "A05-D016",
@@ -2167,7 +3931,18 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "xiaoman",
     "narration": false,
-    "expression": "tired"
+    "expression": "tired",
+    "subtitleLines": [
+      "青山哥，那……咱们接下来，",
+      "是要往哪儿走？",
+      "我这两条腿，现在只要一迈，",
+      "就知道该往哪边去了。"
+    ],
+    "longPauses": [
+      20,
+      43
+    ],
+    "inner": false
   },
   {
     "id": "A05-D017",
@@ -2186,7 +3961,18 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": false,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "往北，往西，往我们该去的地方。",
+      "哪儿有我们的人，哪儿就是路。",
+      "你记住这个，往后就不怕走丢了。"
+    ],
+    "longPauses": [
+      15,
+      29,
+      44
+    ],
+    "inner": false
   },
   {
     "id": "A05-D018",
@@ -2205,7 +3991,20 @@ export const script: DialogueLine[] = [
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "晨光一点点爬上山脊，",
+      "把我们的影子拉得很长。",
+      "我数了数身边的人，",
+      "比出发时少了许多。",
+      "可队伍，还在往前走。"
+    ],
+    "longPauses": [
+      21,
+      39,
+      49
+    ],
+    "inner": false
   },
   {
     "id": "A05-D019",
@@ -2219,11 +4018,25 @@ export const script: DialogueLine[] = [
     "camera": "远景，3秒渐亮至白",
     "sound": "BGM希望收束；环境音：风、水声渐远；音效：无",
     "trigger": "本框无交互，点击／空格进入下一框",
-    "nextId": "→复盘R01",
+    "nextId": "RECAP",
     "provenance": "第一人称独白；虚构人物，承载普通战士视角",
     "status": "pending",
     "speaker": "qingshan",
     "narration": true,
-    "expression": "neutral"
+    "expression": "neutral",
+    "subtitleLines": [
+      "后来有人问我，",
+      "赤水河到底有什么了不起。",
+      "我说不上来。",
+      "我只记得那些夜里，",
+      "脚下是滑的木板，",
+      "前头是看不见的岸。"
+    ],
+    "longPauses": [
+      19,
+      25,
+      51
+    ],
+    "inner": false
   }
 ];

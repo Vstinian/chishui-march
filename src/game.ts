@@ -1,4 +1,6 @@
 import { acts } from './data/acts';
+import { legacyDialogueIds } from './data/legacyScript';
+import { subtitleFrames } from './subtitles';
 import type { Act, ActId, GameProgress } from './types';
 
 export type Screen = 'home' | 'intro' | 'act' | 'recap' | 'ending';
@@ -6,10 +8,11 @@ export interface GameState {
   screen: Screen; actId: ActId; completed: ActId[];
   resumeScreen: 'act' | 'recap' | 'ending';
   cursors: Partial<Record<ActId, number>>;
+  frames: Partial<Record<ActId, number>>;
   games: Partial<Record<ActId, GameProgress>>;
   acknowledged: ActId[]; introSeen: boolean;
 }
-export const newGame = (): GameState => ({ screen: 'home', resumeScreen: 'act', actId: 'act01', completed: [], cursors: {}, games: {}, acknowledged: [], introSeen: false });
+export const newGame = (): GameState => ({ screen: 'home', resumeScreen: 'act', actId: 'act01', completed: [], cursors: {}, frames: {}, games: {}, acknowledged: [], introSeen: false });
 export const freshProgress = (): GameProgress => ({ steps: 0, selected: null, feedback: '' });
 export const climbCues = ['cover', 'climb', 'duck', 'follow'];
 export const climbSegments = 6;
@@ -27,6 +30,7 @@ export const cueLabels: Record<string, string> = { cover: '掩护', climb: '攀�
 // 明确重看章节时重置本幕；解锁记录保留。普通续读不调用此函数。
 export function restartAct(state: GameState, id: ActId): void {
   state.cursors[id] = 0;
+  state.frames[id] = 0;
   delete state.games[id];
   state.acknowledged = state.acknowledged.filter(done => done !== id);
 }
@@ -65,7 +69,10 @@ export function playGame(act: Act, previous: GameProgress, value: string): GameP
   return p;
 }
 const saveKey = 'chishui-march-story-v3';
-export function saveGame(state: GameState): void { try { localStorage.setItem(saveKey, JSON.stringify({ ...state, version: 4 })); } catch { /* 私密模式仍可继续。 */ } }
+export function saveGame(state: GameState): void {
+  const bookmarks = Object.fromEntries(acts.map(act => [act.id, atActEnd(state, act) ? '@notes' : act.dialogue[state.cursors[act.id] ?? 0]?.id]));
+  try { localStorage.setItem(saveKey, JSON.stringify({ ...state, version: 5, bookmarks })); } catch { /* 私密模式仍可继续。 */ }
+}
 export function loadGame(): GameState {
   const state = newGame();
   try {
@@ -75,13 +82,18 @@ export function loadGame(): GameState {
     for (const act of acts) { if (!Array.isArray(data.completed) || !data.completed.includes(act.id)) break; state.completed.push(act.id); }
     for (const act of acts.filter(act => canOpen(state, act.id))) {
       const cursor = data.cursors?.[act.id];
-      state.cursors[act.id] = Number.isInteger(cursor) ? Math.max(0, Math.min(cursor, act.dialogue.length)) : 0;
+      const legacyIds = legacyDialogueIds[act.id];
+      const bookmark = data.version >= 5 ? data.bookmarks?.[act.id] : Number.isInteger(cursor) && cursor >= legacyIds.length ? '@notes' : legacyIds[Math.max(0, cursor ?? 0)];
+      state.cursors[act.id] = bookmark === '@notes' ? act.dialogue.length : Math.max(0, act.dialogue.findIndex(line => line.id === bookmark));
       const p = data.games?.[act.id];
       // 旧版攀登只有六步。已完成的保留通关资格，未完成的从新规则起点继续。
-      const steps = act.interaction.kind === 'climb' && data.version !== 4 ? (p?.steps === 6 ? gameTarget(act) : 0) : p?.steps;
+      const steps = act.interaction.kind === 'climb' && !(data.version >= 4) ? (p?.steps === 6 ? gameTarget(act) : 0) : p?.steps;
       state.games[act.id] = { steps: Number.isInteger(steps) ? Math.max(0, Math.min(steps, gameTarget(act))) : 0, selected: null, feedback: '' };
       if (state.games[act.id]!.steps === gameTarget(act) && Array.isArray(data.acknowledged) && data.acknowledged.includes(act.id)) state.acknowledged.push(act.id);
       if (!state.acknowledged.includes(act.id)) state.cursors[act.id] = Math.min(state.cursors[act.id]!, act.interaction.afterLine);
+      const line = act.dialogue[state.cursors[act.id]!];
+      state.frames[act.id] = data.version >= 5 && line && Number.isInteger(data.frames?.[act.id])
+        ? Math.max(0, Math.min(data.frames[act.id], subtitleFrames(line).length - 1)) : 0;
     }
     state.actId = canOpen(state, data.actId) ? data.actId : acts.find(act => !state.completed.includes(act.id))?.id ?? 'act05';
     const resume = data.resumeScreen ?? data.screen;

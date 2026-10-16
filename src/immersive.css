@@ -60,12 +60,12 @@ button:focus-visible, a:focus-visible { outline: 3px solid #ca9460; outline-offs
   .home-paper .paper-center h1 { font-size: 56px; margin: 10px 0; }
   .home-paper .paper-landscape { height: 50px; }
 }
-.intro-screen { height: 100dvh; min-height: 540px; position: relative; overflow: hidden; background: #1d1617; isolation: isolate; }
+.intro-screen { height: 100dvh; position: relative; overflow: hidden; background: #1d1617; isolation: isolate; --intro-serif: 'Noto Serif TC', 'Source Han Serif TC', 'PMingLiU', 'MingLiU', 'Songti TC', 'SimSun', serif; }
 .intro-paper { position: absolute; width: min(800px, 86vw); left: 50%; top: 50%; transform-origin: center; animation: paper-unfold var(--intro-duration) both; }
 .intro-shot, .intro-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: radial-gradient(ellipse at 64% 25%, #cda977, #6a3434 40%, #211a20 88%); animation: into-landscape var(--intro-duration) both; overflow: hidden; }
 .intro-shot > span { position: absolute; bottom: 13%; left: 0; width: 100%; text-align: center; font-size: 12px; color: #dac5a8; letter-spacing: .1em; padding: 0 20px; }
 .intro-darkness { position: absolute; inset: 0; background: #130f10; animation: fade-night var(--intro-duration) both; }
-.intro-words { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 30px; animation: intro-letter var(--intro-duration) both; }
+.intro-words { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 30px; visibility: hidden; }
 .intro-words > span { font-size: 12px; letter-spacing: .4em; color: #b79b76; }
 .intro-words h1 { font: 400 clamp(25px, 3.5vw, 48px)/1.8 'SimSun', serif; letter-spacing: .13em; margin: 26px 0 16px; }
 .intro-words p { font-size: 14px; letter-spacing: .12em; color: #cbb89a; }
@@ -194,19 +194,24 @@ button:focus-visible, a:focus-visible { outline: 3px solid #ca9460; outline-offs
 .intro-caption { position: absolute; left: 10%; right: 10%; bottom: 9%; text-align: center; color: #f3e4ca; font: 16px/2 'SimSun', serif; text-shadow: 0 2px 8px #000; padding: 8px 16px; background: #1d1617b3; }
 .intro-caption-first { animation: intro-first-caption var(--intro-duration) both; }
 .intro-caption-second { animation: intro-second-caption var(--intro-duration) both; }
-.intro-monologue { width: min(740px, 100%); margin: 22px auto; }
-.intro-monologue p { font: 400 clamp(19px, 2.2vw, 30px)/1.95 'SimSun', serif; letter-spacing: .08em; margin: 12px 0; }
+.intro-monologue { width: min(880px, 100%); margin: 26px auto 32px; }
+.intro-monologue p { font: 400 clamp(19px, 2.2vw, 30px)/2 var(--intro-serif); letter-spacing: .1em; margin: 18px 0; color: #dcc9a6; text-shadow: 0 1px 1px #0008; text-wrap: balance; opacity: 0; }
+.intro-caption { white-space: pre-line; font-family: var(--intro-serif); }
 .intro-words { pointer-events: none; }
-.intro-words button { pointer-events: auto; }
-.intro-screen.is-ready .intro-paper, .intro-screen.is-ready .intro-shot, .intro-screen.is-ready .intro-video, .intro-screen.is-ready .intro-caption { animation: none; opacity: 0; }
-.intro-screen.is-ready .intro-darkness { animation: none; opacity: .96; }
-.intro-screen.is-ready .intro-words { animation: none; opacity: 1; transform: none; }
+.intro-words button { pointer-events: auto; font-family: var(--intro-serif); letter-spacing: .2em; animation: intro-text-reveal var(--button-fade) both; }
+.intro-words button[hidden] { display: block !important; visibility: hidden; animation: none; }
+.intro-words button:disabled { pointer-events: none; }
+.intro-screen.is-reading .intro-paper, .intro-screen.is-reading .intro-shot, .intro-screen.is-reading .intro-video, .intro-screen.is-reading .intro-caption { animation: none; opacity: 0; }
+.intro-screen.is-reading .intro-darkness { animation: none; opacity: .96; }
+.intro-screen.is-reading .intro-words { visibility: visible; }
+.intro-screen.is-reading .intro-monologue p { animation: intro-text-reveal var(--line-fade) var(--line-delay) both; }
+.intro-screen.is-reading .intro-words > span { animation: intro-text-reveal var(--line-fade) both; }
+@keyframes intro-text-reveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes intro-first-caption { 0%, 17% { opacity: 1; } 20%, 100% { opacity: 0; } }
 @keyframes intro-second-caption { 0%, 20% { opacity: 0; } 22%, 37% { opacity: 1; } 40%, 100% { opacity: 0; } }
 @keyframes paper-unfold { 0% { transform: translate(-50%, -50%) perspective(1000px) rotateX(50deg) scaleX(.07) scaleY(.6); filter: grayscale(1); opacity: 0; } 5% { opacity: 1; } 20% { transform: translate(-50%, -50%) scale(1); filter: grayscale(1); opacity: 1; } 40%, 100% { transform: translate(-50%, -50%) scale(3.5); opacity: 0; } }
 @keyframes into-landscape { 0%, 20% { opacity: 0; filter: grayscale(1); transform: scale(1); } 40% { opacity: 1; filter: grayscale(1); } 65%, 100% { opacity: 1; filter: grayscale(0); transform: scale(1.1); } }
 @keyframes fade-night { 0%, 65% { opacity: 0; } 75%, 100% { opacity: .96; } }
-@keyframes intro-letter { 0%, 74% { opacity: 0; transform: translateY(12px); } 80%, 100% { opacity: 1; transform: translateY(0); } }
 .ending-letter { border-top: 1px solid #a58161; margin-top: 35px; padding-top: 24px; }
 .ending-letter h2 { font: 600 21px/1.7 'SimSun', serif; }
 .ending-letter small { color: #815342; }
@@ -220,17 +225,19 @@ button:focus-visible, a:focus-visible { outline: 3px solid #ca9460; outline-offs
   .dialogue-heading { gap: 8px; }
   .dialogue-heading strong { font-size: 21px; }
   .intro-caption { left: 5%; right: 5%; font-size: 13px; }
-  .intro-monologue p { font-size: 19px; }
+  .intro-monologue p { font-size: clamp(14px, 4vw, 19px); }
   .intro-words { padding: 76px 24px 24px; }
   .intro-words > span { font-size: 10px; }
   .ending-letter h2 { font-size: 19px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .intro-caption { opacity: 0; }
+  .intro-screen.is-reading .intro-monologue p { opacity: 1; transform: none; }
 }
 
 /* 全屏叙事：顶栏覆盖在场景之上，正文从视口顶部铺到底部。 */
 .page-shell { display: contents; }
+.page-shell[inert] { display: block; height: 100dvh; overflow: hidden; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .site-header { background: transparent; border: 0; }
 .header-immersive { position: fixed; inset: 0 0 auto; height: 76px; z-index: 40; pointer-events: none; }
@@ -249,6 +256,32 @@ button:focus-visible, a:focus-visible { outline: 3px solid #ca9460; outline-offs
 .dialogue-box:focus-visible { outline: 2px solid #d3a377; outline-offset: 5px; }
 .dialogue-text { animation: none; min-height: 70px; margin: 18px 0 0; }
 .dialogue-pending { visibility: hidden; }
+.dialogue-text { white-space: pre; font-size: clamp(15px, 1.65vw, 21px); letter-spacing: 0; line-height: 1.9; }
+.subtitle--inner .dialogue-text { opacity: .85; }
+.story-transition { position: fixed; inset: 0; z-index: 110; isolation: isolate; overflow: hidden; background: #20171a; display: grid; place-items: center; }
+.story-transition-layer { position: absolute; inset: -2%; overflow: hidden; background: linear-gradient(#34262b, #786354); z-index: -3; }
+.story-transition-layer img { width: 100%; height: 100%; object-fit: cover; }
+.story-transition-layer.is-outgoing { animation: story-dissolve-out var(--dissolve-duration) ease both; }
+.story-transition-layer.is-incoming { animation: story-dissolve-in var(--dissolve-duration) ease both; }
+.story-transition .is-incoming img { animation: story-drift 20s linear both; }
+.transition-newspaper { width: 80%; height: 80%; margin: 6% auto; padding: 7%; background: #c9c3b6; color: #302b29; font: 700 clamp(36px, 8vw, 100px)/2 'SimSun', serif; filter: grayscale(1); border: 8px double #383232; }
+.transition-newspaper span { display: block; font-size: 16px; letter-spacing: .3em; }
+.transition-archive { position: absolute; inset: 0; background: #eee2c9; }
+.transition-atmosphere { position: absolute; inset: -10%; z-index: -1; background: linear-gradient(120deg, #eee2c922, transparent 45%, #eee2c933), linear-gradient(#130d1755, #130d17dd); animation: story-drift 20s linear both; }
+.tone-camp .is-incoming { background: linear-gradient(#786350, #eee2c9); }
+.tone-camp .transition-atmosphere { background: repeating-linear-gradient(100deg, transparent 0 70px, #eee2c922 71px 72px), linear-gradient(#38231988, #160e16e0); }
+.tone-frost .is-incoming { background: linear-gradient(#34464a, #515961); }
+.tone-smoke .is-incoming { background: linear-gradient(#2b1b1b, #7d252a); }
+.tone-night .is-incoming { background: #080c12; }
+.tone-night .transition-atmosphere { background: linear-gradient(#04080a88, #04080acc); }
+.tone-paper .transition-atmosphere { background: linear-gradient(#130d17aa, #130d17dd); }
+.story-transition-words { width: min(760px, calc(100% - 40px)); text-align: center; color: #eee2c9; text-shadow: 0 2px 12px #000; }
+.story-transition-words p { font: 400 clamp(15px, 2.2vw, 26px)/2.2 'SimSun', serif; margin: 0 0 36px; outline: none; animation: story-caption 2s ease both; }
+.story-transition-words button { min-height: 44px; }
+@keyframes story-dissolve-out { to { opacity: 0; } }
+@keyframes story-dissolve-in { from { opacity: 0; } to { opacity: .88; } }
+@keyframes story-drift { to { transform: translate(1.5%, -.8%) scale(1.025); } }
+@keyframes story-caption { from { opacity: 0; } to { opacity: 1; } }
 .stage.is-game { padding: 92px 5vw 28px; overflow-y: auto; }
 .act-transition { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; background: #0d0b0c; animation: act-curtain 3.8s linear both; }
 .act-transition-copy { width: min(900px, 88vw); text-align: center; animation: act-title 3.8s ease both; }
@@ -288,7 +321,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid #ca9460; outline-offs
   .stage { height: 100dvh; min-height: 100dvh; padding: 76px 16px max(20px, env(safe-area-inset-bottom)); }
   .story-stage .portrait-stage { max-height: 43dvh; margin-bottom: -24px; }
   .story-stage .dialogue-box { padding: 21px 20px; max-height: 65%; }
-  .dialogue-text { font-size: 16px; line-height: 1.9; min-height: 110px; margin-top: 16px; }
+  .dialogue-text { font-size: clamp(14px, 3.7vw, 16px); line-height: 1.9; min-height: 90px; margin-top: 16px; }
   .stage.is-game { padding: 80px 16px 20px; }
   .act-transition-copy h1 { font-size: clamp(25px, 6.8vw, 38px); }
   .act-transition-copy p { font-size: 13px; }
@@ -303,4 +336,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid #ca9460; outline-offs
 }
 @media (prefers-reduced-motion: reduce) {
   .act-transition, .act-transition-copy { opacity: 1; transform: none; }
+  .story-transition-layer, .story-transition-layer img, .transition-atmosphere, .story-transition-words p { animation: none; }
+  .story-transition-layer.is-outgoing { opacity: 0; }
+  .story-transition-layer.is-incoming { opacity: .88; }
 }
