@@ -6,6 +6,6 @@ export function renderOpeningNewspaper(): string {
 }
 
 export function renderOpeningLandscape(): string {
-  const frames = ['ink', 'mist', 'color', 'dark'] as const;
+  const frames = ['mist', 'ink', 'color', 'dark'] as const;
   return `<div class="intro-shot intro-art-sequence" aria-hidden="true">${frames.map(frame => `<img class="intro-art-frame intro-art-${frame}" src="${escapeHtml(opening.artwork[frame])}" alt="" width="2730" height="1536" decoding="async">`).join('')}</div>`;
 }

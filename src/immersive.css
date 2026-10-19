@@ -84,9 +84,9 @@ button:focus-visible, a:focus-visible { outline: 3px solid #ca9460; outline-offs
 .intro-art-dark { animation-name: opening-dark; }
 .intro-with-art .intro-caption, .intro-with-art .intro-words { z-index: 3; }
 .intro-with-art .intro-darkness { z-index: 2; }
-@keyframes opening-paper-focus { 0%, 12% { opacity: 1; transform: scale(1); } 24%, 100% { opacity: 0; transform: scale(1.65); } }
-@keyframes opening-ink { 0%, 12% { opacity: 0; transform: scale(1); } 24%, 100% { opacity: 1; transform: scale(1.04); } }
-@keyframes opening-mist { 0%, 28% { opacity: 0; transform: scale(1.01); } 40%, 100% { opacity: 1; transform: scale(1.05); } }
+@keyframes opening-paper-focus { 0% { opacity: 1; transform: scale(1); } 12% { opacity: 1; transform: scale(1.08); } 24%, 100% { opacity: 0; transform: scale(1.2); } }
+@keyframes opening-mist { 0%, 12% { opacity: 0; transform: scale(1); } 24%, 100% { opacity: 1; transform: scale(1.04); } }
+@keyframes opening-ink { 0%, 28% { opacity: 0; transform: scale(1.01); } 40%, 100% { opacity: 1; transform: scale(1.05); } }
 @keyframes opening-color { 0%, 44% { opacity: 0; transform: scale(1.02); } 56%, 100% { opacity: 1; transform: scale(1.06); } }
 @keyframes opening-dark { 0%, 58% { opacity: 0; transform: scale(1.03); } 68%, 100% { opacity: 1; transform: scale(1.07); } }
 @media (max-width: 700px) {
