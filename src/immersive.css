@@ -70,10 +70,33 @@ button:focus-visible, a:focus-visible { outline: 3px solid #ca9460; outline-offs
 .intro-words h1 { font: 400 clamp(25px, 3.5vw, 48px)/1.8 'SimSun', serif; letter-spacing: .13em; margin: 26px 0 16px; }
 .intro-words p { font-size: 14px; letter-spacing: .12em; color: #cbb89a; }
 .intro-controls { position: absolute; z-index: 4; right: 4vw; top: 24px; display: flex; gap: 10px; }
+/* 正式开篇美术：完整报纸 → 水墨 → 雾气推进 → 上色 → 压暗。 */
+.home-paper { width: min(1040px, 88vw, calc((100dvh - 290px) * 1.77734)); min-width: 270px; transform: none; filter: none; }
+.newspaper-art { margin: 0; width: 100%; aspect-ratio: 2730 / 1536; }
+.newspaper-art > img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.intro-with-art .intro-paper { inset: 0; width: 100%; height: 100%; z-index: 1; animation: opening-paper-focus var(--intro-duration) both; }
+.intro-with-art .intro-paper .newspaper-art { height: 100%; }
+.intro-with-art .intro-art-sequence { animation: none; background: #2c211b; }
+.intro-art-frame { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 56%; animation-duration: var(--intro-duration); animation-fill-mode: both; }
+.intro-art-ink { animation-name: opening-ink; }
+.intro-art-mist { animation-name: opening-mist; }
+.intro-art-color { animation-name: opening-color; }
+.intro-art-dark { animation-name: opening-dark; }
+.intro-with-art .intro-caption, .intro-with-art .intro-words { z-index: 3; }
+.intro-with-art .intro-darkness { z-index: 2; }
+@keyframes opening-paper-focus { 0%, 12% { opacity: 1; transform: scale(1); } 24%, 100% { opacity: 0; transform: scale(1.65); } }
+@keyframes opening-ink { 0%, 12% { opacity: 0; transform: scale(1); } 24%, 100% { opacity: 1; transform: scale(1.04); } }
+@keyframes opening-mist { 0%, 28% { opacity: 0; transform: scale(1.01); } 40%, 100% { opacity: 1; transform: scale(1.05); } }
+@keyframes opening-color { 0%, 44% { opacity: 0; transform: scale(1.02); } 56%, 100% { opacity: 1; transform: scale(1.06); } }
+@keyframes opening-dark { 0%, 58% { opacity: 0; transform: scale(1.03); } 68%, 100% { opacity: 1; transform: scale(1.07); } }
+@media (max-width: 700px) {
+  .home-paper { width: 100%; min-width: 0; }
+  .intro-with-art .intro-paper .newspaper-art > img { object-fit: contain; }
+}
 .stage { min-height: max(620px, calc(100dvh - 72px)); position: relative; isolation: isolate; display: flex; align-items: flex-end; padding: 185px 7vw 34px; overflow: hidden; background: #352729; }
 .scene-background { position: absolute; inset: 0; z-index: -3; background: radial-gradient(ellipse at 66% 12%, #bda383 0, #78524a 36%, #30232a 85%); }
 .scene-background::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, #24191e40, transparent 40%, #1b151ce0 100%); }
-.scene-background > img { width: 100%; height: 100%; object-fit: cover; }
+.scene-background > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: var(--scene-position, 50% 50%); }
 .mountain { position: absolute; width: 140%; height: 64%; left: -20%; bottom: 0; clip-path: polygon(0 80%, 13% 38%, 20% 53%, 35% 15%, 45% 37%, 58% 3%, 70% 45%, 86% 15%, 100% 73%, 100% 100%, 0 100%); }
 .mountain.far { background: #4b363a; opacity: .65; transform: translateY(-16%); }
 .mountain.near { background: #2d2229; transform: scaleX(-1); opacity: .85; }
@@ -260,7 +283,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid #ca9460; outline-offs
 .subtitle--inner .dialogue-text { opacity: .85; }
 .story-transition { position: fixed; inset: 0; z-index: 110; isolation: isolate; overflow: hidden; background: #20171a; display: grid; place-items: center; }
 .story-transition-layer { position: absolute; inset: -2%; overflow: hidden; background: linear-gradient(#34262b, #786354); z-index: -3; }
-.story-transition-layer img { width: 100%; height: 100%; object-fit: cover; }
+.story-transition-layer img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: var(--scene-position, 50% 50%); }
 .story-transition-layer.is-outgoing { animation: story-dissolve-out var(--dissolve-duration) ease both; }
 .story-transition-layer.is-incoming { animation: story-dissolve-in var(--dissolve-duration) ease both; }
 .story-transition .is-incoming img { animation: story-drift 20s linear both; }

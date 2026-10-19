@@ -1,0 +1,188 @@
+{
+  "sourceArchive": "图片(1).zip",
+  "received": "2026-10-19",
+  "images": [
+    {
+      "originalFile": "图片/01青杠坡拂晓-谷底浓雾.png",
+      "source": "art-source/scenes/originals/act01-bg01.png",
+      "web": "assets/scenes/act01-bg01.webp",
+      "width": 2730,
+      "height": 1536,
+      "bytes": 4240422,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "sha256": "9174914bc43988ddf7bcac1f41b38bd485c07c86480565df36a435dd4f7bde6f",
+      "webBytes": 449882
+    },
+    {
+      "originalFile": "图片/02山脊战壕-清晨低机位.png",
+      "source": "art-source/scenes/originals/act01-bg02.png",
+      "web": "assets/scenes/act01-bg02.webp",
+      "width": 2730,
+      "height": 1536,
+      "bytes": 5252796,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "sha256": "a70d6744269b0dcce163a819a26ab75b1a03c13ba4c69369eeb8cb12af6a5527",
+      "webBytes": 566830
+    },
+    {
+      "originalFile": "图片/03雨中山道-草鞋印.png",
+      "source": "art-source/scenes/originals/act01-bg03.png",
+      "web": "assets/scenes/act01-bg03.webp",
+      "width": 2730,
+      "height": 1536,
+      "bytes": 5103744,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "sha256": "6aaf2a5f06d56638b21c922db50191fca797dc19f3d1b2ddcdf52e343d2e9e0c",
+      "webBytes": 574346
+    },
+    {
+      "originalFile": "图片/04浑溪口夜渡-火把门板.png",
+      "source": "art-source/scenes/originals/act01-bg04.png",
+      "web": "assets/scenes/act01-bg04.webp",
+      "width": 2730,
+      "height": 1536,
+      "bytes": 3989144,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "sha256": "f5a3c283447b9b1adc41cccf3eb8b84fa068561a6f8ba557ee6ff5dd716321d9",
+      "webBytes": 371674
+    },
+    {
+      "originalFile": "图片/05扎西雨营-篝火.png",
+      "source": "art-source/scenes/originals/act02-bg01.png",
+      "web": "assets/scenes/act02-bg01.webp",
+      "width": 2730,
+      "height": 1536,
+      "bytes": 4856116,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "sha256": "caf570c576cb0bf36c8be069c6892cfdbaf5af3ecec457712d2e40a342b98d33",
+      "webBytes": 520018
+    },
+    {
+      "originalFile": "图片/06浓雾行军道-队伍剪影.png",
+      "source": "art-source/scenes/originals/act02-bg02.png",
+      "web": "assets/scenes/act02-bg02.webp",
+      "width": 2730,
+      "height": 1536,
+      "bytes": 3465948,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "sha256": "38cc3d9cbd1d6c3e031666af1dc71b9182f1424a704440af37195bf4ff242b3f",
+      "webBytes": 375976
+    },
+    {
+      "originalFile": "图片/07拂晓散雾-队伍远行.png",
+      "source": "art-source/scenes/originals/act02-bg03.png",
+      "web": "assets/scenes/act02-bg03.webp",
+      "width": 2730,
+      "height": 1536,
+      "bytes": 4416772,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "sha256": "1b1ad25ac4b1125e88385fa5fb28517ed7a6b007e7f7164600a95b096225994f",
+      "webBytes": 461656
+    },
+    {
+      "originalFile": "图片/08娄山关-仰角岩壁.png",
+      "source": "art-source/scenes/originals/act03-bg01.png",
+      "web": "assets/scenes/act03-bg01.webp",
+      "width": 2730,
+      "height": 1536,
+      "bytes": 6882448,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "sha256": "8069777e0a779bc103e9f08cf4897403566ee33937acee81c07626f7b5f7a212",
+      "webBytes": 980554
+    },
+    {
+      "originalFile": "图片/09遵义城-白昼街市.png",
+      "source": "art-source/scenes/originals/act03-bg02.png",
+      "web": "assets/scenes/act03-bg02.webp",
+      "width": 2730,
+      "height": 1536,
+      "bytes": 5759192,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "sha256": "4fa3c9e63236fd0b1cb507f02e34b127852e88032eb98b109bc1e99ba121a14c",
+      "webBytes": 649958
+    },
+    {
+      "originalFile": "图片/10鲁班场-白昼战场.png",
+      "source": "art-source/scenes/originals/act04-bg01.png",
+      "web": "assets/scenes/act04-bg01.webp",
+      "width": 2730,
+      "height": 1536,
+      "bytes": 5846285,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "sha256": "a8d8d3633014615056c92764872ec4e2ec12353732bca79fcd62c26073d39aec",
+      "webBytes": 738062
+    },
+    {
+      "originalFile": "图片/11茅台镇外-赤水河滩.png",
+      "source": "art-source/scenes/originals/act04-bg02.png",
+      "web": "assets/scenes/act04-bg02.webp",
+      "width": 2730,
+      "height": 1536,
+      "bytes": 5914581,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "sha256": "14854a554e6524a15124b7ba68adc794735a5267520dab08c66472fcfebaddf1",
+      "webBytes": 683250
+    },
+    {
+      "originalFile": "图片/12深夜浮桥-墨黑水光.png",
+      "source": "art-source/scenes/originals/act05-bg01.png",
+      "web": "assets/scenes/act05-bg01.webp",
+      "width": 2730,
+      "height": 1536,
+      "bytes": 2443891,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "sha256": "88c101802d858ff80088cd888fe7aadc7560cec2319b6b6772470492134df0c4",
+      "webBytes": 172624
+    },
+    {
+      "originalFile": "图片/13赤水河畔黎明前的场景.png",
+      "source": "art-source/scenes/originals/act05-bg02.png",
+      "web": "assets/scenes/act05-bg02.webp",
+      "width": 2848,
+      "height": 1600,
+      "bytes": 2784253,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "sha256": "6d2bf9e0ee3b3d9cec3e9634d84d39f5ae501245779896f79682c3537b72e771",
+      "webBytes": 274902
+    }
+  ]
+}

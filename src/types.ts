@@ -22,7 +22,9 @@ export interface Character { name: string; role: string; portrait: string | null
 export interface DialogueLine {
   id: string; shot: string; sceneId: string; scene: string;
   speaker: CharacterId; speakerLabel: string; narration: boolean; expression: string;
-  text: string; performance: string; originalPosition: string;
+  text: string;
+  // 制作提示：旁白为画外音/环境声口径，不用于截断正文或自动驱动人物动作。
+  performance: string; originalPosition: string;
   camera: string; sound: string; trigger: string; nextId: string;
   provenance: string; status: 'pending' | 'verified';
   inner: boolean;

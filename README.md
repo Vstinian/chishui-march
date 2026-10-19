@@ -70,7 +70,9 @@ npm run smoke
 
 每幕保留 `id`、`title`、`story`、`interaction`、`assets`、`sourceIds`、`nextAct` 字段，并新增 `dialogue` 逐句剧本。`story` 是简述；页面实际展示 `dialogue` 中的 `speaker`、`text`、`scene`。`interaction.kind` 为 `bridge`、`fog`、`climb`、`rescue`、`crossing`，`afterLine` 表示读完多少句后进入游戏。五幕正式交付规格与可复制模板见 [文书组剧本交付规格](docs/文书组剧本交付规格.md)。新增历史事实时，先填可定位的 `citation`，经审核后才改为 `verified`。
 
-素材放在 `public/assets/`。逐场景背景在 `scenes` 中填 `assets/scenes/act01-bg01.webp` 这样的相对路径；角色在 `characters.*.expressions` 中按表情填透明 PNG 路径，`portrait` 为通用底图。开场影像与音轨在 `opening.video`、`opening.bgm` 填路径；当前均为 `null`，自动使用 CSS 动画、立绘剪影和合成氛围音乐。逐句镜头、环境音与音效目前保留为元数据，尚未执行全部分镜调度。交付时同步记录文件名、尺寸、版权或生成来源。
+素材放在 `public/assets/`。逐场景背景在 `scenes` 中填 `assets/scenes/act01-bg01.webp` 这样的相对路径；角色在 `characters.*.expressions` 中按表情填透明 PNG 路径，`portrait` 为通用底图。开篇报纸与四张山水帧已接入 `public/assets/opening/`，原始 PNG 保存在 `art-source/opening/`，路径配置在 `openingArtwork`；映射与动画见 [开篇美术接入说明](docs/开篇美术接入说明.md)。开场视频与音轨仍可在 `opening.video`、`opening.bgm` 填路径；当前未交付视频时使用五张美术图的 CSS 动画，其他场景继续使用立绘剪影和合成氛围音乐。逐句镜头、环境音与音效目前保留为元数据，尚未执行全部分镜调度。交付时同步记录文件名、尺寸、版权或生成来源。
+
+技术组补充说明已同步：当前 50 段旁白（原稿 46 段 + 修订稿新增 4 段）的 `performance` 使用画外音／环境声口径，完整正文仍为 128 段、249 框。录音说明见 [旁白配音交付表](docs/旁白配音交付表.md)；13 张背景的中英提示词、负面词、手机安全区与当前段落映射见 [场景背景图交付](docs/场景背景图交付.md)。正片 13 张背景已接入 `public/assets/scenes/`，`scenes` 配置路径，`sceneFraming` 配置手机取景位置；原图在 `art-source/scenes/originals/`，接入记录见 [场景美术接入说明](docs/场景美术接入说明.md)。角色立绘与正式配音仍待交付。原文转录与适配记录存放于 `art-source/scenes/technical-supplement.json`。
 
 集合版最初的互动插入位置、缺号和错误后继 ID 处理、待核文案与美术接法，见 [集合版剧本接入说明](docs/集合版剧本接入说明.md)。当前存档在原 v3 键内保存 version 5 数据，以段落 ID 和框号兼容新增、重排与刷新续读；v3、v4 的下标与旧攀登进度自动迁移。重看与续读、史料札记核对、六段攀登规则见 [本轮修改记录](docs/本轮修改记录.md)。
 

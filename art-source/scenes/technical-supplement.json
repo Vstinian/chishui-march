@@ -1,0 +1,683 @@
+{
+  "source": "赤水行军图_技术组补充说明(1).pdf",
+  "sourceSha256": "ab1de42f2c1b22202bc1ef0c3e2a442dbd1146a5bbf60329d7896263b3ab5082",
+  "sourceVersion": "技术组交付v1 / 2026-10-15",
+  "currentParagraphs": 128,
+  "originalPdfDirections": 46,
+  "adaptedAdditionalDirections": 4,
+  "assets": [
+    {
+      "slot": "A01-BG01",
+      "sceneId": "a01-bg01",
+      "label": "青杠坡 · 拂晓山谷",
+      "file": "assets/scenes/act01-bg01.webp",
+      "width": 1920,
+      "height": 1080,
+      "promptZh": "1935年黔北山区拂晓，青杠坡谷底。低垂的浓雾贴着地面流动，松林与杂木在雾里只显出层层剪影，远山轮廓极淡。天光尚未打开，整体压暗，只有东侧一抹冷灰蓝的微光。无人、无现代建筑、无电线。横构图，浅景深，雾层分三层做纵深；色调整为暗红#7D252A的极低饱和倾向，米黄#EEE2C9作为雾的亮部，深褐墨色压低暗部。电影宽银幕质感，35mm胶片颗粒，写实油画笔触混合，情绪克制、沉、静。",
+      "promptEn": "Dawn over a mountain valley in northern Guizhou, 1935. Dense low fog drifting along the valley floor, layered silhouettes of pine forest and scrub, distant ridge barely visible. Sky not yet lit; overall low key, a single cold grey-blue glow to the east. No people, no modern structures, no power lines. Horizontal composition, shallow depth of field, fog in three depth layers. Color grading: desaturated dark red (#7D252A) undertone, cream (#EEE2C9) as fog highlights, deep ink brown in shadows. Cinematic widescreen, 35mm film grain, painterly realism, restrained and somber mood.",
+      "negative": "人物, 人脸, 现代建筑, 电线杆, 文字, 水印, 高饱和, 晴天, 鲜艳绿色, 卡通, 3D渲染, HDR过曝",
+      "notes": "1920×1080；中上部留出竖屏9:16的安全区，主体信息避开左右两侧15%；不要出现可辨识的现代物件。",
+      "dialogueIds": [
+        "A01-D001",
+        "A01-D002",
+        "A01-D003",
+        "A01-D004",
+        "A01-D005",
+        "A01-D006",
+        "A01-D007",
+        "A01-D008",
+        "A01-D010",
+        "A01-D011",
+        "A01-D012",
+        "A01-D013"
+      ]
+    },
+    {
+      "slot": "A01-BG02",
+      "sceneId": "a01-bg02",
+      "label": "青杠坡 · 晨雾战壕",
+      "file": "assets/scenes/act01-bg02.webp",
+      "width": 1920,
+      "height": 1080,
+      "promptZh": "1935年黔北山脊战壕，清晨。湿泥、弹坑、被炸断的树枝横在壕沿，壕沟内壁是翻起的黄土，积水映着灰白的天。雾气未散，硝烟与雾混在一起。无人。镜头贴近地面的低机位视角，前景虚化的断枝形成画框。色调极冷，泥黄与墨褐为主，一抹暗红的破布挂在树桩上。手持摄影的轻微晃动感，粗颗粒，写实战争片质感。",
+      "promptEn": "A mountain ridge trench in northern Guizhou, 1935, early morning. Wet mud, shell craters, splintered branches across the parapet, exposed loess on the inner wall, standing water reflecting a pale grey sky. Fog not yet lifted, gunsmoke mixed into the mist. No people. Low camera angle close to the ground, out-of-focus broken branches framing the shot. Very cold palette, mud yellow and ink brown dominant, a torn dark red cloth caught on a stump. Subtle handheld shake, coarse grain, realistic war-film texture.",
+      "negative": "人物, 士兵, 尸体, 鲜血特写, 现代装备, 文字, 水印, 明亮, 高饱和, 卡通, 3D渲染",
+      "notes": "1920×1080；战壕走向沿对角线，给右侧立绘留位置；不出现可辨识的军服标识。",
+      "dialogueIds": [
+        "A01-D014",
+        "A01-D015",
+        "A01-D016",
+        "A01-D017",
+        "A01-D018",
+        "A01-D019",
+        "A01-D020"
+      ]
+    },
+    {
+      "slot": "A01-BG03",
+      "sceneId": "a01-bg03",
+      "label": "青杠坡 · 雨中山道（撤退）",
+      "file": "assets/scenes/act01-bg03.webp",
+      "width": 1920,
+      "height": 1080,
+      "promptZh": "1935年黔北雨中山道，白昼。雨幕斜织，泥浆路面被踩成沟壑，路旁是低矮的灌木和湿透的茅草。远处山道弯折上升，被雨雾吞掉一半。无人，但泥地上留着一串脚印与草鞋印。镜头位于山道中央偏低的机位，向后方退去的视角。色调灰绿泛冷，雨丝在逆光里成为亮线；整体压抑，米黄只出现在远处雾隙。写实，电影感，轻微动态模糊。",
+      "promptEn": "A rainy mountain track in northern Guizhou, 1935, daytime. Slanting rain, muddy ground churned into ruts, low shrubs and soaked thatch grass along the verge. The track bends upward in the distance, half swallowed by rain mist. No people, but a trail of footprints and straw-sandal marks in the mud. Camera low on the track, looking back down the path. Cold grey-green palette, rain streaks reading as bright lines against the light; oppressive mood, cream only in a distant break of mist. Realistic, cinematic, slight motion blur.",
+      "negative": "人物, 队伍, 现代路面, 柏油路, 汽车, 文字, 水印, 晴天, 高饱和, 卡通",
+      "notes": "1920×1080；路面居中偏下，保留向纵深延伸的引导线；雨丝密度不要盖过场景结构。",
+      "dialogueIds": [
+        "A01-D021",
+        "A01-D022",
+        "A01-D023",
+        "A01-D024"
+      ]
+    },
+    {
+      "slot": "A01-BG04",
+      "sceneId": "a01-bg04",
+      "label": "赤水河 · 浑溪口雨夜渡口",
+      "file": "assets/scenes/act01-bg04.webp",
+      "width": 1920,
+      "height": 1080,
+      "promptZh": "1935年赤水河浑溪口，夜间渡口。河面黑而宽，雨水在水面上砸出密集的白点。岸边堆着拆下来的门板、木条与绳索，门板上还留着褪色的春联残迹。几支火把插在泥里，橘红的光只照亮一小圈，其余全沉在黑暗里。无人。低机位贴近河岸，火把作为唯一强光源。色调极暗，暗红火光的暖与河水的冷黑对比；胶片颗粒明显，写实夜戏质感。",
+      "promptEn": "A river crossing on the Chishui River at Hunxikou, 1935, at night. Wide black water, dense white splashes where rain hits the surface. Piles of dismantled door planks, timber and rope on the bank, faded remnants of Spring Festival couplets still on the planks. A few torches stuck in the mud, their orange light reaching only a small radius, everything else sunk in darkness. No people. Low camera hugging the bank, torches the only strong light source. Very dark palette, warm dark-red firelight against the cold black river; pronounced film grain, realistic night-scene texture.",
+      "negative": "人物, 船只过多, 现代桥梁, 路灯, 霓虹, 文字, 水印, 明亮, 高饱和, 卡通, 3D渲染",
+      "notes": "1920×1080；火光只占画面20%以内，给暗部留呼吸；门板春联残迹要不可辨识具体字句（避免出现真实店招）。",
+      "dialogueIds": [
+        "A01-D025",
+        "A01-D026",
+        "A01-D027",
+        "A01-D028",
+        "A01-D029"
+      ]
+    },
+    {
+      "slot": "A02-BG01",
+      "sceneId": "a02-bg01",
+      "label": "云南扎西 · 雨中营地",
+      "file": "assets/scenes/act02-bg01.webp",
+      "width": 1920,
+      "height": 1080,
+      "promptZh": "1935年云南扎西，雨中宿营地。土坡上散着几顶被雨压塌一角的湿帐篷，用树枝和油布临时搭成。一小堆篝火在雨里挣扎，火苗被压得很低，橘光只照亮周围一圈湿土和踩烂的草。远处是灰蒙蒙的山影。无人。中景平视，篝火位于画面右下三分之一。色调湿冷，土黄与烟灰为主，火光带来一点暗红的暖。写实，粗颗粒，克制的温度感。",
+      "promptEn": "A rain-soaked bivouac near Zhaxi, Yunnan, 1935. A few wet canvas shelters sagging under the rain on a dirt slope, improvised from branches and tarpaulin. A small campfire struggling in the rain, flames pressed low, its orange light reaching only a ring of wet soil and trampled grass. Grey mountain shapes in the distance. No people. Medium shot at eye level, fire at the lower-right third. Damp cold palette, earth yellow and smoke grey, a touch of dark red warmth from the fire. Realistic, coarse grain, restrained warmth.",
+      "negative": "人物, 现代帐篷, 房车, 露营装备, 文字, 水印, 明亮, 高饱和, 卡通",
+      "notes": "1920×1080；帐篷形态要破旧、临时，不能像现代户外装备；火光不要照穿整个画面。",
+      "dialogueIds": [
+        "A02-D001",
+        "A02-D002",
+        "A02-D003",
+        "A02-D004",
+        "A02-D005",
+        "A02-D006",
+        "A02-D007",
+        "A02-D008",
+        "A02-D009",
+        "A02-D010"
+      ]
+    },
+    {
+      "slot": "A02-BG02",
+      "sceneId": "a02-bg02",
+      "label": "扎西至黔北 · 雾中行军道",
+      "file": "assets/scenes/act02-bg02.webp",
+      "width": 1920,
+      "height": 1080,
+      "promptZh": "1935年川滇黔交界，浓雾中的山间行军道。白雾极厚，只看得清脚前两三米的泥路，道路两侧的灌木被雾吃掉轮廓，变成灰影。路面有深深的踩踏痕与水洼。远处雾中隐约有一列行进的队伍剪影，只有模糊的人形与枪的斜线，看不清面目。第一人称略低视线的构图。色调几乎无彩，灰白与墨褐；对比度低，空气感强。写实，柔和，安静。",
+      "promptEn": "A mountain track between Zhaxi and northern Guizhou, 1935, in dense fog. Extremely thick white fog, only two or three metres of muddy path visible ahead, roadside shrubs reduced to grey silhouettes. Deep boot-churned ruts and puddles. Far off in the fog, a faint silhouette of a marching column — blurred human shapes and the diagonal lines of rifles, faces unreadable. First-person, slightly low viewpoint. Nearly colourless palette, grey-white and ink brown; low contrast, strong atmospheric depth. Realistic, soft, quiet.",
+      "negative": "清晰人脸, 前景人物, 文字, 水印, 明亮, 高饱和, 蓝紫色调, 卡通, 3D渲染",
+      "notes": "1920×1080；雾中队伍必须虚到看不清个体，避免与立绘抢视觉；留大面积空白雾区供字幕。",
+      "dialogueIds": [
+        "A02-D011",
+        "A02-D011a",
+        "A02-D011b",
+        "A02-D011c",
+        "A02-D011d",
+        "A02-D011e",
+        "A02-D011f",
+        "A02-D012",
+        "A02-D013",
+        "A02-D014",
+        "A02-D015",
+        "A02-D016",
+        "A02-D017",
+        "A02-D018",
+        "A02-D019"
+      ]
+    },
+    {
+      "slot": "A02-BG03",
+      "sceneId": "a02-bg03",
+      "label": "黔北山道 · 拂晓雾散",
+      "file": "assets/scenes/act02-bg03.webp",
+      "width": 1920,
+      "height": 1080,
+      "promptZh": "1935年黔北山道，拂晓雾正在散。雾层向上退去，露出层层叠叠的山脊与一条盘绕向前的土路。天边有极淡的暖橘色，是第一线晨光，但太阳未出。远处山路上有一列队伍向前的背影，很小，只是几个深色点。构图开阔，视线顺着山道向远方。色调从冷灰转向微暖，米黄#EEE2C9出现在天际与草尖；整体透气、有一点希望。写实，电影感，清晨空气感。",
+      "promptEn": "A mountain track in northern Guizhou, 1935, dawn fog lifting. Mist retreats upward revealing layered ridges and a dirt road winding forward. A very faint warm orange at the horizon, the first hint of sunrise, sun not yet up. Far up the road, a column of figures walking away, tiny, just a few dark specks. Wide open composition, sightline following the road into the distance. Palette shifting from cold grey to faint warmth, cream (#EEE2C9) in the sky band and grass tips; airy, a trace of hope. Realistic, cinematic, crisp morning air.",
+      "negative": "清晰人物, 文字, 水印, 高饱和, 正午强光, 蓝天白云, 卡通, 3D渲染",
+      "notes": "1920×1080；远山用空气透视分层，至少三层；天光只占上部25%，不要变成风光大片。",
+      "dialogueIds": [
+        "A02-D020",
+        "A02-D021",
+        "A02-D022",
+        "A02-D023",
+        "A02-D024"
+      ]
+    },
+    {
+      "slot": "A03-BG01",
+      "sceneId": "a03-bg01",
+      "label": "娄山关 · 晨霜崖壁",
+      "file": "assets/scenes/act03-bg01.webp",
+      "width": 1920,
+      "height": 1080,
+      "promptZh": "1935年娄山关，清晨。直上直下的灰色岩壁占据画面大半，岩面覆着一层薄霜，在冷光下泛白。一条盘山公路贴在崖脚折上去，路面窄而险。崖顶有稀疏的枯草与矮松，被风压向一侧。无人。仰角视线，强化崖壁的压迫感。色调冷灰蓝，唯一的暖色是岩缝里枯草的米黄。写实，岩理清晰，粗颗粒，凝重。",
+      "promptEn": "Loushan Pass, 1935, early morning. A sheer grey cliff face fills most of the frame, a thin layer of frost whitening the rock under cold light. A narrow switchback road clings to the base and folds upward. Sparse dry grass and stunted pines on the ridge, bent to one side by wind. No people. Low-angle view emphasising the cliff's oppressive weight. Cold grey-blue palette, the only warmth the cream of dry grass in rock crevices. Realistic, crisp rock texture, coarse grain, grave and heavy.",
+      "negative": "人物, 现代公路护栏, 车辆, 电线, 文字, 水印, 明亮, 高饱和, 卡通, 3D渲染",
+      "notes": "1920×1080；崖壁纹理是主体，不要用天空占位过多；公路要窄、无护栏。",
+      "dialogueIds": [
+        "A03-D001",
+        "A03-D002",
+        "A03-D003",
+        "A03-D004",
+        "A03-D005",
+        "A03-D006",
+        "A03-D007",
+        "A03-D008",
+        "A03-D009",
+        "A03-D010",
+        "A03-D011",
+        "A03-D012",
+        "A03-D013"
+      ]
+    },
+    {
+      "slot": "A03-BG02",
+      "sceneId": "a03-bg02",
+      "label": "遵义城 · 白日街市",
+      "file": "assets/scenes/act03-bg02.webp",
+      "width": 1920,
+      "height": 1080,
+      "promptZh": "1935年遵义城，白昼街市。木结构的旧式沿街铺面，砖墙斑驳，屋檐低矮，青石板路被踩得发亮。街上有挑担的、摆摊的、抱孩子的，人群密度中等，衣着是1930年代黔北民间样式（对襟、包头、短褂），面目模糊不强调。门前有笑脸的轮廓。无人对着镜头。平视街道纵深构图，天光柔和多云。色调转暖，土黄、砖红与米白，暗红#7D252A出现在门板与幌子上。写实，纪实摄影感，一点生活气。",
+      "promptEn": "A daytime market street in Zunyi, 1935. Old timber shopfronts, mottled brick walls, low eaves, flagstones polished by feet. People carrying shoulder poles, vendors, a woman holding a child — moderate crowd density, 1930s northern Guizhou folk dress (front-buttoned jackets, head wraps, short gowns), faces blurred and unemphasised. Suggestions of smiling faces at doorways. No one facing the camera. Eye-level composition down the street, soft overcast daylight. Warmer palette, earth yellow, brick red and off-white, dark red (#7D252A) on door panels and shop banners. Realistic documentary feel, a trace of everyday life.",
+      "negative": "现代服饰, 汽车, 广告牌, 简体招牌文字, 清晰人脸, 文字, 水印, 高饱和, 卡通",
+      "notes": "1920×1080；招牌上的字要虚化或不可辨识，避免出现具体商号；人群面部不要清晰，给立绘留出层次。",
+      "dialogueIds": [
+        "A03-D014",
+        "A03-D015",
+        "A03-D016",
+        "A03-D017",
+        "A03-D018",
+        "A03-D019",
+        "A03-D020",
+        "A03-D021",
+        "A03-D022",
+        "A03-D023"
+      ]
+    },
+    {
+      "slot": "A04-BG01",
+      "sceneId": "a04-bg01",
+      "label": "鲁班场 · 硝烟山岗",
+      "file": "assets/scenes/act04-bg01.webp",
+      "width": 1920,
+      "height": 1080,
+      "promptZh": "1935年鲁班场，白昼战场。浑圆的山岗上散布着土石碉堡与被炸塌的工事，烟尘从多处升起，把天压成灰黄。低空有一架飞机的极小剪影掠过（不作主体、不描细节）。山岗上被炮火翻起的红土裸露，几株烧焦的树干只剩黑桩。无人。远景略俯视，强调地形与我方仰攻的劣势。色调灰黄、烟褐，暗红#7D252A藏在翻起的土里。写实战争片，颗粒重，压抑。",
+      "promptEn": "The Lubanchang battlefield, 1935, daytime. Rounded hilltops studded with earth-and-stone blockhouses and collapsed fieldworks, smoke rising from several points, pressing the sky into grey-yellow. A very small silhouette of an aircraft passing low (not a subject, no detail). Exposed red earth churned up by shellfire, a few charred tree trunks reduced to black stumps. No people. Wide, slightly high viewpoint emphasising the terrain and the disadvantage of attacking uphill. Grey-yellow and smoke-brown palette, dark red (#7D252A) buried in the turned soil. Realistic war film, heavy grain, oppressive.",
+      "negative": "人物特写, 鲜血, 尸体堆积, 现代武器细节, 清晰飞机, 文字, 水印, 高饱和, 卡通, 3D渲染",
+      "notes": "1920×1080；飞机只做远处一个小剪影，绝不做主体；碉堡形态不要过于现代。",
+      "dialogueIds": [
+        "A04-D001",
+        "A04-D002",
+        "A04-D003",
+        "A04-D004",
+        "A04-D005",
+        "A04-D006",
+        "A04-D007",
+        "A04-D008",
+        "A04-D009",
+        "A04-D010",
+        "A04-D011",
+        "A04-D012",
+        "A04-D013",
+        "A04-D014"
+      ]
+    },
+    {
+      "slot": "A04-BG02",
+      "sceneId": "a04-bg02",
+      "label": "茅台 · 白昼河滩",
+      "file": "assets/scenes/act04-bg02.webp",
+      "width": 1920,
+      "height": 1080,
+      "promptZh": "1935年茅台镇外赤水河滩，白昼。河面开阔明亮，水色浑黄带绿，天光把水面照出一片碎银。河滩是卵石与粗砂，几面褪色的红旗插在石缝里，被风吹得平展。远处有飞机远去后的细小白痕。无人。广角低机位，强调天空的开阔与河滩的空。色调是全集里最亮的一段：米黄#EEE2C9的天空、亮河面、暗红#7D252A的红旗，构成唯一的强对比。写实，通透，短暂的开阔感。",
+      "promptEn": "The Chishui riverbank outside Maotai, 1935, daytime. A wide bright river, muddy yellow-green water scattering the daylight into silver shards. Cobble and coarse sand on the bank, a few faded red flags planted between stones, flattened by wind. A thin white contrail far off where an aircraft has passed. No people. Wide-angle low viewpoint, emphasising the openness of the sky and the emptiness of the bank. The brightest passage in the whole set: cream (#EEE2C9) sky, bright water, dark red (#7D252A) flags as the single strong contrast. Realistic, clear, a brief sense of expanse.",
+      "negative": "人物, 船只, 现代建筑, 游客, 文字, 水印, 阴雨, 高饱和绿色, 卡通, 3D渲染",
+      "notes": "1920×1080；这是全片唯一明亮的场景，但仍要克制，不要变成旅游宣传照；红旗数量控制在3面以内。",
+      "dialogueIds": [
+        "A04-D015",
+        "A04-D016",
+        "A04-D017",
+        "A04-D018",
+        "A04-D019",
+        "A04-D020",
+        "A04-D021",
+        "A04-D022",
+        "A04-D023"
+      ]
+    },
+    {
+      "slot": "A05-BG01",
+      "sceneId": "a05-bg01",
+      "label": "赤水河 · 深夜浮桥",
+      "file": "assets/scenes/act05-bg01.webp",
+      "width": 1920,
+      "height": 1080,
+      "promptZh": "1935年赤水河深夜浮桥，几乎全黑。河面上并列着一排门板与木条搭成的浮桥，木板轮廓只靠水面的一点微光勉强分辨。水在桥板缝隙间流，反出细碎的冷光。对岸没有任何灯火。无人。极暗远景，构图极简，大面积留黑。色调只有墨黑与一点点冷蓝的水光，暗红只作为极限暗部的一点色偏。写实，极高宽容度的暗部层次，颗粒明显，静谧、屏息。",
+      "promptEn": "A pontoon bridge over the Chishui River, deep night, 1935, near total darkness. A row of door planks and timber lashed into a floating walkway, its outline barely legible from a faint glimmer on the water. River slipping through the gaps between planks, catching scattered cold light. No lights on the far bank. No people. Extremely dark wide shot, minimal composition, large areas of pure black. Palette is ink black plus a trace of cold blue water light, dark red only as the faintest tint in the deepest shadows. Realistic, very high dynamic range in the shadows, visible grain, still and breath-held.",
+      "negative": "人物, 灯火, 月亮过大, 现代桥梁, 倒影过亮, 文字, 水印, 明亮, 高饱和, 卡通",
+      "notes": "1920×1080；这是全片最暗一景，暗部必须仍有层次（不要死黑到看不出是桥）；不要放大月亮。",
+      "dialogueIds": [
+        "A05-D001",
+        "A05-D002",
+        "A05-D003",
+        "A05-D004",
+        "A05-D005",
+        "A05-D009a",
+        "A05-D009b",
+        "A05-D009c",
+        "A05-D009d",
+        "A05-D007",
+        "A05-D008",
+        "A05-D009e",
+        "A05-D006"
+      ]
+    },
+    {
+      "slot": "A05-BG02",
+      "sceneId": "a05-bg02",
+      "label": "东岸 · 黎明河岸",
+      "file": "assets/scenes/act05-bg02.webp",
+      "width": 1920,
+      "height": 1080,
+      "promptZh": "1935年赤水河东岸，黎明前最暗转亮的一刻。一线天光压在地平线上，把河对岸照成一排深色的人潮剪影，看不清单个人。河面由黑转灰，浮桥的木板还留在水面上，空着。近岸是踩实的泥地与压伏的草。无人（近景）。远景平视，地平线压低到下方三分之一，天空占大面积。色调由墨黑转向米黄#EEE2C9的极淡天光，暗红只留在剪影边缘的极薄一层。写实，安静，克制的希望感。",
+      "promptEn": "The east bank of the Chishui River, 1935, the moment before dawn when the darkest hour turns. A single band of light pressed against the horizon turns the far bank into a row of dark silhouettes — a crowd, no individual readable. The river shifting from black to grey, the pontoon planks still on the water, empty. Near bank is packed mud and flattened grass. No people in the foreground. Wide shot at eye level, horizon low at the lower third, sky occupying the mass. Palette moving from ink black to the palest cream (#EEE2C9) dawn, dark red surviving only as a thin rim on the silhouettes. Realistic, quiet, restrained hope.",
+      "negative": "清晰人脸, 近景人物, 太阳, 霞光过艳, 现代建筑, 文字, 水印, 高饱和, 卡通, 3D渲染",
+      "notes": "1920×1080；对岸人潮必须成排剪影、个体不可辨；天光只到「将亮未亮」，不要出太阳。",
+      "dialogueIds": [
+        "A05-D009",
+        "A05-D010",
+        "A05-D011",
+        "A05-D012",
+        "A05-D013",
+        "A05-D014",
+        "A05-D015",
+        "A05-D016",
+        "A05-D017",
+        "A05-D018",
+        "A05-D019"
+      ]
+    }
+  ],
+  "voiceDirections": [
+    {
+      "id": "A01-D001",
+      "original": "——；双手把步枪抱在怀里",
+      "pdfDirection": "画外音；声音很轻，像在对自己说。枪带压在肩上的重量，隔着衣服也听得见",
+      "page": 13,
+      "appliedDirection": "画外音；声音很轻，像在对自己说。枪带压在肩上的重量，隔着衣服也听得见"
+    },
+    {
+      "id": "A01-D002",
+      "original": "——；低头看自己脚上的草鞋",
+      "pdfDirection": "画外音；语速很慢，说到「烂」字时停了一下",
+      "page": 13,
+      "appliedDirection": "画外音；语速很慢，说到「烂」字时停了一下"
+    },
+    {
+      "id": "A01-D003",
+      "original": "——；说到\"鞋垫\"时，手下意识按了按胸口",
+      "pdfDirection": "画外音；说到「鞋垫」时声音低下去，尾音收住",
+      "page": 13,
+      "appliedDirection": "画外音；说到「鞋垫」时声音低下去，尾音收住"
+    },
+    {
+      "id": "A01-D004",
+      "original": "——；侧头看了一眼身边打盹的老雷",
+      "pdfDirection": "画外音；说到「老雷」时稍顿，像侧耳听了一下旁边的呼吸声",
+      "page": 13,
+      "appliedDirection": "画外音；说到「老雷」时稍顿，像侧耳听了一下旁边的呼吸声"
+    },
+    {
+      "id": "A01-D005",
+      "original": "——；看小满缩成一团，像只受惊的猫",
+      "pdfDirection": "画外音；说到「猫」时语气软了一点，随即又压回去",
+      "page": 13,
+      "appliedDirection": "画外音；说到「小满」时语气软了一点，随即又压回去",
+      "adaptation": "当前正文没有“猫”，将触发词校正为“小满”。"
+    },
+    {
+      "id": "A01-D006",
+      "original": "——；把脸埋进臂弯，闭了闭眼",
+      "pdfDirection": "画外音；后半句几乎听不清，尾音沉下去",
+      "page": 13,
+      "appliedDirection": "画外音；后半句几乎听不清，尾音沉下去"
+    },
+    {
+      "id": "A01-D013",
+      "original": "——；把子弹袋往腰间又系紧一格",
+      "pdfDirection": "画外音；布条勒紧的摩擦声，短促",
+      "page": 13,
+      "appliedDirection": "画外音；布条勒紧的摩擦声，短促"
+    },
+    {
+      "id": "A01-D014",
+      "original": "——；趴进战壕，脸贴进泥里，手按弹匣",
+      "pdfDirection": "环境声压过画外音；泥浆被身体压下去的闷响",
+      "page": 13,
+      "appliedDirection": "环境声压过画外音；泥浆被身体压下去的闷响"
+    },
+    {
+      "id": "A01-D016",
+      "original": "——；咬牙扶住机枪，肩被后坐力顶得发麻",
+      "pdfDirection": "画外音；说话声被枪声打断，句子中间断了一截",
+      "page": 13,
+      "appliedDirection": "画外音；说话声被枪声打断，句子中间断了一截"
+    },
+    {
+      "id": "A01-D017",
+      "original": "——；眼角瞟见小满的侧脸",
+      "pdfDirection": "画外音；声音压得很低，像不愿被人听见",
+      "page": 13,
+      "appliedDirection": "画外音；声音压得很低，像不愿被人听见"
+    },
+    {
+      "id": "A01-D021",
+      "original": "——；被人潮推着走，回头看见老雷的袖子红了",
+      "pdfDirection": "画外音；声音被人潮挤得断断续续",
+      "page": 13,
+      "appliedDirection": "画外音；声音被人潮挤得断断续续"
+    },
+    {
+      "id": "A01-D024",
+      "original": "——；一手扶枪带，一手抹脸",
+      "pdfDirection": "画外音；雨声盖住一半，句子只剩后半",
+      "page": 13,
+      "appliedDirection": "画外音；雨声盖住一半，句子只剩后半"
+    },
+    {
+      "id": "A01-D025",
+      "original": "——；雨里站定，看那一堆门板",
+      "pdfDirection": "画外音；说到「门板」时停住，只剩雨声",
+      "page": 13,
+      "appliedDirection": "画外音；说到「门板」时停住，只剩雨声"
+    },
+    {
+      "id": "A01-D029",
+      "original": "——；低头，让雨水从后颈流走",
+      "pdfDirection": "画外音；句子说完，静了一会儿才接下一段",
+      "page": 13,
+      "appliedDirection": "画外音；句子说完，静了一会儿才接下一段"
+    },
+    {
+      "id": "A02-D001",
+      "original": "——；把湿透的绑腿解开，晾在火边",
+      "pdfDirection": "画外音；火苗的轻响垫在句子底下",
+      "page": 14,
+      "appliedDirection": "画外音；火苗的轻响垫在句子底下"
+    },
+    {
+      "id": "A02-D004",
+      "original": "——；手指在袋底摸到那块布",
+      "pdfDirection": "画外音；说到「布」时声音发涩",
+      "page": 14,
+      "appliedDirection": "画外音；说到「鞋垫」时声音发涩",
+      "adaptation": "当前正文没有“布”，将触发词校正为“鞋垫”。"
+    },
+    {
+      "id": "A02-D005",
+      "original": "——；把它又塞回袋底，按了按",
+      "pdfDirection": "画外音；句子很短，说完就没了",
+      "page": 14,
+      "appliedDirection": "画外音；句子很短，说完就没了"
+    },
+    {
+      "id": "A02-D009",
+      "original": "——；在火边坐下，把草鞋脱了又穿上",
+      "pdfDirection": "画外音；语气平常，像在数一件小事",
+      "page": 14,
+      "appliedDirection": "画外音；语气平常，像在数一件小事"
+    },
+    {
+      "id": "A02-D010",
+      "original": "——；把鞋垫抚平，收好",
+      "pdfDirection": "画外音；说到一半停住，只剩火声",
+      "page": 14,
+      "appliedDirection": "画外音；说到一半停住，只剩火声"
+    },
+    {
+      "id": "A02-D011",
+      "original": "——；愣住，转了个身",
+      "pdfDirection": "画外音；一个字一个字往外说，中间有停顿",
+      "page": 14,
+      "appliedDirection": "画外音；一个字一个字往外说，中间有停顿"
+    },
+    {
+      "id": "A02-D011a",
+      "original": "刚坐下，又扶着枪站起来",
+      "pdfDirection": null,
+      "page": null,
+      "adaptation": "修订补充稿新增旁白，按同一画外音原则适配。",
+      "appliedDirection": "画外音；短暂歇息的气息还未平复，听到开拔口令后稍顿，后半句收紧"
+    },
+    {
+      "id": "A02-D011c",
+      "original": "随队伍转身",
+      "pdfDirection": null,
+      "page": null,
+      "adaptation": "修订补充稿新增旁白，按同一画外音原则适配。",
+      "appliedDirection": "画外音；前半句迟疑，听见转向口令后稍顿，语气带着未解的疑惑"
+    },
+    {
+      "id": "A02-D014",
+      "original": "——；背好枪，跟上队列",
+      "pdfDirection": "画外音；句子被脚步声切成几段",
+      "page": 14,
+      "appliedDirection": "画外音；句子被脚步声切成几段"
+    },
+    {
+      "id": "A02-D017",
+      "original": "——；深一脚浅一脚",
+      "pdfDirection": "画外音；声音随脚步起伏，气不太够",
+      "page": 14,
+      "appliedDirection": "画外音；声音随脚步起伏，气不太够"
+    },
+    {
+      "id": "A02-D020",
+      "original": "——；一手拉着小满，一手探路",
+      "pdfDirection": "画外音；声音绷着，句子短",
+      "page": 14,
+      "appliedDirection": "画外音；声音绷着，句子短"
+    },
+    {
+      "id": "A02-D024",
+      "original": "——；加快脚步",
+      "pdfDirection": "画外音；三个字，说完就静了",
+      "page": 14,
+      "adaptation": "正文含完整队伍描写，不能按“三个字”截短。",
+      "appliedDirection": "画外音；前半段随脚步铺开，末句收短，说完就静了"
+    },
+    {
+      "id": "A03-D001",
+      "original": "——；仰头看关口",
+      "pdfDirection": "画外音；说到「关口」时抬了抬声音，又落下来",
+      "page": 14,
+      "appliedDirection": "画外音；说到「关口」时抬了抬声音，又落下来"
+    },
+    {
+      "id": "A03-D006",
+      "original": "——；抓着岩缝向上",
+      "pdfDirection": "环境声为主；喘息压过画外音，句子断续",
+      "page": 14,
+      "appliedDirection": "环境声为主；喘息压过画外音，句子断续"
+    },
+    {
+      "id": "A03-D009",
+      "original": "——；手脚并用，抬头看前头",
+      "pdfDirection": "画外音；喘着说，字与字之间有空隙",
+      "page": 14,
+      "appliedDirection": "画外音；喘着说，字与字之间有空隙"
+    },
+    {
+      "id": "A03-D011",
+      "original": "——；看呆了一瞬",
+      "pdfDirection": "画外音；只有一句，说完停住",
+      "page": 14,
+      "appliedDirection": "画外音；只有一句，说完停住"
+    },
+    {
+      "id": "A03-D014",
+      "original": "——；边走边张望，有点不自在",
+      "pdfDirection": "画外音；语气有点不适应，尾音往回收",
+      "page": 14,
+      "appliedDirection": "画外音；语气有点不适应，尾音往回收"
+    },
+    {
+      "id": "A03-D017",
+      "original": "——；对着水缸里的影子站了站",
+      "pdfDirection": "画外音；说到「影子」时声音低下去",
+      "page": 14,
+      "appliedDirection": "画外音；说到「里头那个人」时声音低下去",
+      "adaptation": "当前正文没有“影子”，改用实际句词作为配音定位。"
+    },
+    {
+      "id": "A03-D023",
+      "original": "——；坐在门槛上，看满城灯火",
+      "pdfDirection": "画外音；说得很慢，像舍不得说完",
+      "page": 14,
+      "appliedDirection": "画外音；说得很慢，像舍不得说完"
+    },
+    {
+      "id": "A04-D001",
+      "original": "——；趴在一块石头后，喘粗气",
+      "pdfDirection": "环境声压过画外音；粗重的呼吸一下一下",
+      "page": 14,
+      "appliedDirection": "环境声压过画外音；粗重的呼吸一下一下"
+    },
+    {
+      "id": "A04-D006",
+      "original": "——；伸手在烟里摸索，什么也没摸到",
+      "pdfDirection": "画外音；句子被烟呛得断了两截",
+      "page": 14,
+      "appliedDirection": "画外音；句子被烟呛得断了两截"
+    },
+    {
+      "id": "A04-D009",
+      "original": "——；松了手，怔在原地",
+      "pdfDirection": "画外音；只有半句，后半没说出口",
+      "page": 14,
+      "appliedDirection": "画外音；只有半句，后半没说出口"
+    },
+    {
+      "id": "A04-D015",
+      "original": "——；站在河滩上，眯眼看天",
+      "pdfDirection": "画外音；眯着眼说的，句子拉得长",
+      "page": 14,
+      "adaptation": "将“眯着眼说的”进一步改成可听见的声线提示。",
+      "appliedDirection": "画外音；语气略紧，句子拉得长"
+    },
+    {
+      "id": "A04-D018",
+      "original": "——；不躲，直视天空",
+      "pdfDirection": "画外音；声音不抖，句子很平",
+      "page": 15,
+      "appliedDirection": "画外音；声音不抖，句子很平"
+    },
+    {
+      "id": "A04-D023",
+      "original": "——；站在队伍末尾，望着来路",
+      "pdfDirection": "画外音；说到「来路」时停住，没有接下去",
+      "page": 15,
+      "appliedDirection": "画外音；说到「找」时稍顿，末句说完留白",
+      "adaptation": "当前正文没有“来路”，改用实际句词定位，完整读完末句。"
+    },
+    {
+      "id": "A05-D001",
+      "original": "——；把水壶塞紧，怕晃出响",
+      "pdfDirection": "画外音；压到几乎是气声，怕被听见",
+      "page": 15,
+      "appliedDirection": "画外音；压到几乎是气声，怕被听见"
+    },
+    {
+      "id": "A05-D005",
+      "original": "——；握着枪，跟着前头的人",
+      "pdfDirection": "画外音；只有几个字，剩下的被水声带走",
+      "page": 15,
+      "appliedDirection": "画外音；只有几个字，剩下的被水声带走"
+    },
+    {
+      "id": "A05-D009a",
+      "original": "站在西岸，脚没挪动",
+      "pdfDirection": null,
+      "page": null,
+      "adaptation": "修订补充稿新增旁白，按同一画外音原则适配。",
+      "appliedDirection": "画外音；声音压低，说到再次面对赤水河时停顿，尾音悬住"
+    },
+    {
+      "id": "A05-D009e",
+      "original": "随队伍上桥，回头看一眼西岸",
+      "pdfDirection": null,
+      "page": null,
+      "adaptation": "修订补充稿新增旁白，按同一画外音原则适配。",
+      "appliedDirection": "画外音；声音随脚步轻微起伏，过河方向说清，句尾收进水声"
+    },
+    {
+      "id": "A05-D006",
+      "original": "——；低头盯着脚下",
+      "pdfDirection": "画外音；声音贴着地面，很低",
+      "page": 15,
+      "appliedDirection": "画外音；声音贴着地面，很低"
+    },
+    {
+      "id": "A05-D009",
+      "original": "——；大口喘气，回头",
+      "pdfDirection": "画外音；喘着，句子断成两截",
+      "page": 15,
+      "appliedDirection": "画外音；喘着，句子断成两截"
+    },
+    {
+      "id": "A05-D010",
+      "original": "——；站定，睁大眼睛",
+      "pdfDirection": "画外音；说到一半停住，没有形容词",
+      "page": 15,
+      "appliedDirection": "画外音；说到一半停住，没有形容词"
+    },
+    {
+      "id": "A05-D011",
+      "original": "——；怔住，说不出话",
+      "pdfDirection": "画外音；一个字，之后长时间空白",
+      "page": 15,
+      "adaptation": "正文为多句叙述，不能按“一个字”截短。",
+      "appliedDirection": "画外音；字与字之间留空隙，末句之后留较长静默"
+    },
+    {
+      "id": "A05-D015",
+      "original": "——；转身，走进晨雾",
+      "pdfDirection": "画外音；最后一句，说完便沉进雾里的水声",
+      "page": 15,
+      "appliedDirection": "画外音；最后一句，说完便沉进雾里的水声"
+    },
+    {
+      "id": "A05-D018",
+      "original": "——；起身，跟上队伍",
+      "pdfDirection": "画外音；很短，像给自己下令",
+      "page": 15,
+      "appliedDirection": "画外音；很短，像给自己下令"
+    },
+    {
+      "id": "A05-D019",
+      "original": "——；回头最后望了一眼河",
+      "pdfDirection": "画外音；声音很轻，说完只剩水声",
+      "page": 15,
+      "appliedDirection": "画外音；声音很轻，说完只剩水声"
+    }
+  ]
+}

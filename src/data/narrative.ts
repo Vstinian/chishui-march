@@ -1,5 +1,13 @@
 import type { Character, CharacterId } from '../types';
 
+export const openingArtwork = {
+  newspaper: 'assets/opening/newspaper.webp',
+  ink: 'assets/opening/river-ink.webp',
+  mist: 'assets/opening/river-mist.webp',
+  color: 'assets/opening/river-color.webp',
+  dark: 'assets/opening/river-dark.webp',
+};
+
 // 美术交付后将 null 改为 assets/ 开头的相对路径；未交付时显示剪影。
 export const characters: Record<CharacterId, Character> = {
   qingshan: { name: '邓青山', role: '十七岁 · 江西兴国 · 轻机枪副射手', portrait: null, expressions: { neutral: null, tense: null, tired: null } },
@@ -11,14 +19,32 @@ export const characters: Record<CharacterId, Character> = {
 };
 
 export const scenes: Record<string, string | null> = {
-  'a01-bg01': null, 'a01-bg02': null, 'a01-bg03': null, 'a01-bg04': null,
-  'a02-bg01': null, 'a02-bg02': null, 'a02-bg03': null,
-  'a03-bg01': null, 'a03-bg02': null,
-  'a04-bg01': null, 'a04-bg02': null,
-  'a05-bg01': null, 'a05-bg02': null,
+  opening: openingArtwork.dark,
+  'a01-bg01': 'assets/scenes/act01-bg01.webp',
+  'a01-bg02': 'assets/scenes/act01-bg02.webp',
+  'a01-bg03': 'assets/scenes/act01-bg03.webp',
+  'a01-bg04': 'assets/scenes/act01-bg04.webp',
+  'a02-bg01': 'assets/scenes/act02-bg01.webp',
+  'a02-bg02': 'assets/scenes/act02-bg02.webp',
+  'a02-bg03': 'assets/scenes/act02-bg03.webp',
+  'a03-bg01': 'assets/scenes/act03-bg01.webp',
+  'a03-bg02': 'assets/scenes/act03-bg02.webp',
+  'a04-bg01': 'assets/scenes/act04-bg01.webp',
+  'a04-bg02': 'assets/scenes/act04-bg02.webp',
+  'a05-bg01': 'assets/scenes/act05-bg01.webp',
+  'a05-bg02': 'assets/scenes/act05-bg02.webp',
+};
+
+// 竖屏 cover 裁切时保留偏离中心的关键主体；正文与转场共用。
+export const sceneFraming: Record<string, string> = {
+  'a01-bg04': '65% 50%',
+  'a02-bg01': '65% 50%',
+  'a04-bg02': '22% 50%',
+  'a05-bg01': '60% 50%',
 };
 
 export const opening = {
+  artwork: openingArtwork,
   video: null as string | null,
   bgm: null as string | null,
   duration: 20000,
