@@ -10,6 +10,7 @@ export class Atmosphere {
   private count = 0;
   muted = false;
   private active = false;
+  private externalMusic = false;
   private musicLevel = 1;
   private ambience: HTMLAudioElement | null = null;
   private ambientLayers = new Map<HTMLAudioElement, number>();
@@ -20,7 +21,7 @@ export class Atmosphere {
     try {
       if (opening.bgm) {
         this.track ??= new Audio(opening.bgm);
-        this.track.loop = true; this.track.volume = 0.24 * this.musicLevel; this.track.muted = this.muted;
+        this.track.loop = true; this.track.volume = 0.24 * this.musicLevel; this.track.muted = this.muted || this.externalMusic;
         await this.track.play(); return;
       }
     } catch { this.track = null; }
@@ -70,7 +71,8 @@ export class Atmosphere {
     };
     this.fadeTimer = setInterval(tick, 40); tick();
   }
-  private setVolume(): void { if (this.context && this.gain) this.gain.gain.setTargetAtTime(this.muted || !this.active ? 0 : 0.35 * this.musicLevel, this.context.currentTime, 0.15); }
-  toggle(): void { this.muted = !this.muted; if (this.track) this.track.muted = this.muted; for (const track of this.ambientLayers.keys()) track.muted = this.muted; this.setVolume(); }
+  setExternalMusic(enabled: boolean): void { this.externalMusic = enabled; if (this.track) this.track.muted = this.muted || enabled; this.setVolume(); }
+  private setVolume(): void { if (this.context && this.gain) this.gain.gain.setTargetAtTime(this.muted || !this.active || this.externalMusic ? 0 : 0.35 * this.musicLevel, this.context.currentTime, 0.15); }
+  toggle(): void { this.muted = !this.muted; if (this.track) this.track.muted = this.muted || this.externalMusic; for (const track of this.ambientLayers.keys()) track.muted = this.muted; this.setVolume(); }
   pause(): void { this.active = false; this.track?.pause(); for (const track of this.ambientLayers.keys()) track.pause(); this.setVolume(); if (this.timer) clearInterval(this.timer); this.timer = null; }
 }

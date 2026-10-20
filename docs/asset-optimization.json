@@ -1,0 +1,133 @@
+{
+  "date": "2026-10-20",
+  "images": [
+    {
+      "file": "public/assets/opening/newspaper.webp",
+      "before": 1089466,
+      "after": 319750,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "public/assets/opening/river-color.webp",
+      "before": 1080226,
+      "after": 285822,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "public/assets/opening/river-dark.webp",
+      "before": 582846,
+      "after": 144556,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "public/assets/opening/river-ink.webp",
+      "before": 728800,
+      "after": 178608,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "public/assets/opening/river-mist.webp",
+      "before": 1156470,
+      "after": 311192,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "public/assets/scenes/act01-bg01.webp",
+      "before": 449882,
+      "after": 111654,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "public/assets/scenes/act01-bg02.webp",
+      "before": 566830,
+      "after": 183212,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "public/assets/scenes/act01-bg03.webp",
+      "before": 574346,
+      "after": 190638,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "public/assets/scenes/act01-bg04.webp",
+      "before": 371674,
+      "after": 112578,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "public/assets/scenes/act02-bg01.webp",
+      "before": 520018,
+      "after": 160508,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "public/assets/scenes/act02-bg02.webp",
+      "before": 375976,
+      "after": 100348,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "public/assets/scenes/act02-bg03.webp",
+      "before": 461656,
+      "after": 113264,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "public/assets/scenes/act03-bg01.webp",
+      "before": 980554,
+      "after": 327192,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "public/assets/scenes/act03-bg02.webp",
+      "before": 649958,
+      "after": 218044,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "public/assets/scenes/act04-bg01.webp",
+      "before": 738062,
+      "after": 238816,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "public/assets/scenes/act04-bg02.webp",
+      "before": 683250,
+      "after": 224182,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "public/assets/scenes/act05-bg01.webp",
+      "before": 172624,
+      "after": 48546,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "public/assets/scenes/act05-bg02.webp",
+      "before": 274902,
+      "after": 71714,
+      "width": 1600,
+      "height": 899
+    }
+  ],
+  "before": 11457540,
+  "after": 3340624
+}

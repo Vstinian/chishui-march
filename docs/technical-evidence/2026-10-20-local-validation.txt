@@ -1,0 +1,34 @@
+核查日期：2026-10-20，Asia/Shanghai
+范围：当前本地工作区，未核验线上部署版本；本日志不代表真人体验、微信浏览器或教育效果测试。
+
+
+> chishui-march@0.1.0 smoke
+> node tests/smoke.mjs && node tests/audio.mjs
+
+通过：128 段正文与分框、左右站位、幕间动画与操作锁、点击补全/推进、键盘、目录暂停、五种小游戏、幕末札记与续读、完整通关、复盘与信件、存档和减少动态模式。
+(node:28708) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+通过：关键词到达、去重、暂停恢复、静音、延迟取消、跨段音乐、跨幕渐弱、三轨混音、无效资源与剧本版本校验。
+通过：指定段落范围、非递增 ID、跨段不断音不重播、结束关键词、终点渐弱、跳过终点、延迟取消、循环音量保持、范围配置校验。
+(node:25180) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+> chishui-march@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 30 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/audio-studio.html             0.45 kB │ gzip:  0.34 kB
+dist/index.html                    0.68 kB │ gzip:  0.46 kB
+dist/assets/studio-DXeuWOjY.css   23.71 kB │ gzip:  6.77 kB
+dist/assets/game-BCinF6ox.css     45.95 kB │ gzip: 12.23 kB
+dist/assets/studio-CPem5L9S.js    22.43 kB │ gzip:  8.76 kB
+dist/assets/game-CKl-kyao.js      43.99 kB │ gzip: 17.34 kB
+dist/assets/html-MN4ACUD7.js     126.64 kB │ gzip: 27.78 kB
+
+✓ built in 1.70s
+

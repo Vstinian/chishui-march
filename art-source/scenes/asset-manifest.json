@@ -14,7 +14,10 @@
         255
       ],
       "sha256": "9174914bc43988ddf7bcac1f41b38bd485c07c86480565df36a435dd4f7bde6f",
-      "webBytes": 449882
+      "webBytes": 111654,
+      "webWidth": 1600,
+      "webHeight": 900,
+      "webQuality": 83
     },
     {
       "originalFile": "图片/02山脊战壕-清晨低机位.png",
@@ -28,7 +31,10 @@
         255
       ],
       "sha256": "a70d6744269b0dcce163a819a26ab75b1a03c13ba4c69369eeb8cb12af6a5527",
-      "webBytes": 566830
+      "webBytes": 183212,
+      "webWidth": 1600,
+      "webHeight": 900,
+      "webQuality": 83
     },
     {
       "originalFile": "图片/03雨中山道-草鞋印.png",
@@ -42,7 +48,10 @@
         255
       ],
       "sha256": "6aaf2a5f06d56638b21c922db50191fca797dc19f3d1b2ddcdf52e343d2e9e0c",
-      "webBytes": 574346
+      "webBytes": 190638,
+      "webWidth": 1600,
+      "webHeight": 900,
+      "webQuality": 83
     },
     {
       "originalFile": "图片/04浑溪口夜渡-火把门板.png",
@@ -56,7 +65,10 @@
         255
       ],
       "sha256": "f5a3c283447b9b1adc41cccf3eb8b84fa068561a6f8ba557ee6ff5dd716321d9",
-      "webBytes": 371674
+      "webBytes": 112578,
+      "webWidth": 1600,
+      "webHeight": 900,
+      "webQuality": 83
     },
     {
       "originalFile": "图片/05扎西雨营-篝火.png",
@@ -70,7 +82,10 @@
         255
       ],
       "sha256": "caf570c576cb0bf36c8be069c6892cfdbaf5af3ecec457712d2e40a342b98d33",
-      "webBytes": 520018
+      "webBytes": 160508,
+      "webWidth": 1600,
+      "webHeight": 900,
+      "webQuality": 83
     },
     {
       "originalFile": "图片/06浓雾行军道-队伍剪影.png",
@@ -84,7 +99,10 @@
         255
       ],
       "sha256": "38cc3d9cbd1d6c3e031666af1dc71b9182f1424a704440af37195bf4ff242b3f",
-      "webBytes": 375976
+      "webBytes": 100348,
+      "webWidth": 1600,
+      "webHeight": 900,
+      "webQuality": 83
     },
     {
       "originalFile": "图片/07拂晓散雾-队伍远行.png",
@@ -98,7 +116,10 @@
         255
       ],
       "sha256": "1b1ad25ac4b1125e88385fa5fb28517ed7a6b007e7f7164600a95b096225994f",
-      "webBytes": 461656
+      "webBytes": 113264,
+      "webWidth": 1600,
+      "webHeight": 900,
+      "webQuality": 83
     },
     {
       "originalFile": "图片/08娄山关-仰角岩壁.png",
@@ -112,7 +133,10 @@
         255
       ],
       "sha256": "8069777e0a779bc103e9f08cf4897403566ee33937acee81c07626f7b5f7a212",
-      "webBytes": 980554
+      "webBytes": 327192,
+      "webWidth": 1600,
+      "webHeight": 900,
+      "webQuality": 83
     },
     {
       "originalFile": "图片/09遵义城-白昼街市.png",
@@ -126,7 +150,10 @@
         255
       ],
       "sha256": "4fa3c9e63236fd0b1cb507f02e34b127852e88032eb98b109bc1e99ba121a14c",
-      "webBytes": 649958
+      "webBytes": 218044,
+      "webWidth": 1600,
+      "webHeight": 900,
+      "webQuality": 83
     },
     {
       "originalFile": "图片/10鲁班场-白昼战场.png",
@@ -140,7 +167,10 @@
         255
       ],
       "sha256": "a8d8d3633014615056c92764872ec4e2ec12353732bca79fcd62c26073d39aec",
-      "webBytes": 738062
+      "webBytes": 238816,
+      "webWidth": 1600,
+      "webHeight": 900,
+      "webQuality": 83
     },
     {
       "originalFile": "图片/11茅台镇外-赤水河滩.png",
@@ -154,7 +184,10 @@
         255
       ],
       "sha256": "14854a554e6524a15124b7ba68adc794735a5267520dab08c66472fcfebaddf1",
-      "webBytes": 683250
+      "webBytes": 224182,
+      "webWidth": 1600,
+      "webHeight": 900,
+      "webQuality": 83
     },
     {
       "originalFile": "图片/12深夜浮桥-墨黑水光.png",
@@ -168,7 +201,10 @@
         255
       ],
       "sha256": "88c101802d858ff80088cd888fe7aadc7560cec2319b6b6772470492134df0c4",
-      "webBytes": 172624
+      "webBytes": 48546,
+      "webWidth": 1600,
+      "webHeight": 900,
+      "webQuality": 83
     },
     {
       "originalFile": "图片/13赤水河畔黎明前的场景.png",
@@ -182,7 +218,10 @@
         255
       ],
       "sha256": "6d2bf9e0ee3b3d9cec3e9634d84d39f5ae501245779896f79682c3537b72e771",
-      "webBytes": 274902
+      "webBytes": 71714,
+      "webWidth": 1600,
+      "webHeight": 899,
+      "webQuality": 83
     }
   ]
 }

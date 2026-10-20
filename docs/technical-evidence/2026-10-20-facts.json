@@ -1,0 +1,47 @@
+{
+  "paragraphs": 128,
+  "frames": 249,
+  "spoken": 73,
+  "inner": 5,
+  "narration": 50,
+  "libraryCount": 98,
+  "cues": 46,
+  "enabledByBus": {
+    "sfx": 26,
+    "voice": 19,
+    "music": 1
+  },
+  "uniqueVoiceBoundParagraphs": 19,
+  "voiceNames": [
+    "A01-D008.wav",
+    "A01-D019.wav",
+    "A01-D022.wav",
+    "A01-D026.wav",
+    "A02-D003.wav",
+    "A02-D007.wav",
+    "A02-D006.wav",
+    "A02-D008.wav",
+    "A01-D007.wav",
+    "A01-D010.wav",
+    "A01-D012.wav",
+    "A01-D015.wav",
+    "A01-D028.wav",
+    "A02-D002.wav",
+    "A01-D011.wav",
+    "A01-D018.wav",
+    "A01-D020.wav",
+    "A01-D023.wav",
+    "A01-D027.wav"
+  ],
+  "musicNames": [
+    "阿鲲 - 存亡时刻.mp3"
+  ],
+  "images": {
+    "before": 11457540,
+    "after": 3340624,
+    "count": 18
+  },
+  "snapshotTime": "2026-10-20 17:45 Asia/Shanghai",
+  "voiceAssetIdsMatched": 78,
+  "scope": "local working tree; deployment not verified"
+}
