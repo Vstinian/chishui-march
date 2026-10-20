@@ -1,7 +1,12 @@
 import './style.css';
 import './immersive.css';
 import { acts, sourceCards } from './data/acts';
-import { opening, ending } from './data/narrative';
+import { opening, ending, scenes } from './data/narrative';
+import { script } from './data/script';
+import { CuePlayer } from './sound/engine';
+import { validateSoundConfig, soundFingerprint } from './sound/schema';
+import type { SoundConfig } from './sound/schema';
+import { warmImages } from './sound/preload';
 import { recapSteps } from './data/recap';
 import type { ActId } from './types';
 import type { Screen } from './game';
@@ -20,8 +25,22 @@ import { renderOpeningNewspaper, renderOpeningLandscape } from './components/Ope
 
 const app = document.querySelector<HTMLDivElement>('#app');
 if (!app) throw new Error('Missing #app mount point');
-const state = loadGame();
+const studioMode = typeof window.location !== 'undefined' && ['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname) && new URLSearchParams(window.location.search).has('audioStudioPreview');
+const state = studioMode ? newGame() : loadGame();
 const music = new Atmosphere();
+const soundPlayer = new CuePlayer(script.map(line => line.id));
+let studioPaused = false;
+let studioAudioEnabled = !studioMode;
+function studioMessage(data: object): void { if (studioMode) window.parent.postMessage({ source: 'chishui-preview', ...data }, window.location.origin); }
+soundPlayer.onActivity = items => studioMessage({ type: 'activity', items });
+soundPlayer.onError = message => studioMessage({ type: 'audio-error', message });
+function configureSound(config: SoundConfig): void {
+  if (!config.scriptFingerprint && config.cues?.length === 0) config.scriptFingerprint = soundFingerprint(script);
+  const errors = validateSoundConfig(config, script);
+  if (errors.length) { studioMessage({ type: 'audio-error', message: errors.join('；') }); console.warn('音频配置未加载', errors); return; }
+  soundPlayer.configure(config); music.setExternalMusic(config.cues.some(c => c.enabled && c.bus === 'music'));
+}
+if (typeof fetch !== 'undefined') void fetch('audio/cues.json', { cache: 'no-cache' }).then(r => { if (!r.ok) throw new Error('audio config unavailable'); return r.json(); }).then(configureSound).catch(() => {});
 let menuOpen = false;
 const writer = new Typewriter();
 let transitioning = false;
@@ -65,7 +84,9 @@ function renderEnding(): string {
 function syncDialogue(): void {
   writer.pause();
   const act = currentAct();
-  if (state.screen !== 'act' || transitioning || storyTransition || menuOpen || document.hidden || inGame(state, act) || atActEnd(state, act)) return;
+  if (state.screen !== 'act' || transitioning || storyTransition || inGame(state, act) || atActEnd(state, act)) { soundPlayer.reset(); return; }
+  soundPlayer.setPaused(menuOpen || document.hidden || studioPaused);
+  if (menuOpen || document.hidden || studioPaused) return;
   const line = act.dialogue[state.cursors[act.id] ?? 0];
   const frame = subtitleFrames(line)[state.frames[act.id] ?? 0];
   const visible = app!.querySelector<HTMLElement>('.dialogue-revealed');
@@ -77,7 +98,13 @@ function syncDialogue(): void {
     remaining.textContent = hidden;
     box.dataset.typing = String(hidden.length > 0);
     box.setAttribute('aria-label', hidden ? '显示完整对白' : '下一段对白');
+    if (studioAudioEnabled) soundPlayer.update({ actId: act.id, lineId: line.id, frame: state.frames[act.id] ?? 0, frames: subtitleFrames(line).map(f => f.text), shown });
   }, reducedMotion(), frame.delays);
+  studioMessage({ type: 'position', lineId: line.id, frame: state.frames[act.id] ?? 0 });
+  const nextScene = act.dialogue.slice((state.cursors[act.id] ?? 0) + 1).find(next => next.sceneId !== line.sceneId)?.sceneId;
+  warmImages([scenes[line.sceneId], nextScene ? scenes[nextScene] : null]);
+  const nextLine = act.dialogue[(state.cursors[act.id] ?? 0) + 1];
+  if (nextLine) soundPlayer.preloadVoice(nextLine.id);
 }
 function render(): void {
   writer.pause();
@@ -85,7 +112,7 @@ function render(): void {
   const content = state.screen === 'home' ? renderHome() : state.screen === 'intro' ? renderIntro() : state.screen === 'act' ? atActEnd(state, act) ? renderActEnd(act, act.sourceIds.map(id => sourceCards[id])) : renderAct(act, state) : state.screen === 'recap' ? renderRecap(recapStep) : renderEnding();
   app!.innerHTML = `<div class="page-shell" ${transitioning || storyTransition ? 'inert aria-hidden="true"' : ''}>${state.screen === 'intro' ? '' : renderHeader()}${content}</div>${transitioning ? renderActTransition() : ''}${storyTransition ? renderStoryTransition(storyTransitions[storyTransition.id], storyTransition.ready) : ''}`;
   syncDialogue();
-  saveGame(state);
+  if (!studioMode) saveGame(state);
 }
 function beginStoryTransition(id: string, finish: () => void): void {
   clearTimeout(storyTransitionTimer); writer.pause();
@@ -126,7 +153,7 @@ function navigate(screen: Screen, id?: ActId, showTitle = false): void {
 }
 function advanceDialogue(): void {
   const act = currentAct();
-  if (state.screen !== 'act' || menuOpen || transitioning || storyTransition || inGame(state, act) || atActEnd(state, act)) return;
+  if (state.screen !== 'act' || menuOpen || transitioning || storyTransition || studioPaused || inGame(state, act) || atActEnd(state, act)) return;
   if (writer.reveal()) return;
   const cursor = state.cursors[act.id] ?? 0;
   const frame = state.frames[act.id] ?? 0;
@@ -171,6 +198,7 @@ function revealIntroEnd(): void {
   else introTimer = setTimeout(showContinue, (opening.monologue.length - 1) * opening.lineStagger + opening.lineFade);
 }
 function startIntro(): void {
+  warmImages(Object.values(opening.artwork));
   Object.assign(state, newGame());
   introReady = false;
   introWordsStarted = false;
@@ -192,6 +220,7 @@ app.addEventListener('click', event => {
   if (storyTransition) { if (action === 'transition-continue') finishStoryTransition(); return; }
   if (action === 'sound') {
     music.toggle(); if (!music.muted && state.screen !== 'home') void music.start();
+    soundPlayer.setMuted(music.muted);
     const label = music.muted ? '开启声音' : '关闭声音';
     control.innerHTML = bugleIcon(music.muted);
     control.setAttribute('aria-pressed', String(!music.muted)); control.setAttribute('aria-label', label); control.setAttribute('title', label); return;
@@ -213,7 +242,7 @@ app.addEventListener('click', event => {
     // 目录浮层只改自身可见性，保持当前对白及打字位置。
     const menu = app!.querySelector<HTMLElement>('#chapter-menu'); if (menu) menu.hidden = !menuOpen;
     control.setAttribute('aria-expanded', String(menuOpen));
-    if (menuOpen) writer.pause(); else syncDialogue();
+    if (menuOpen) { writer.pause(); soundPlayer.setPaused(true); } else syncDialogue();
   }
   if (action === 'recap') navigate('recap');
   if (action === 'ending' && state.screen === 'recap') navigate('ending');
@@ -232,7 +261,7 @@ app.addEventListener('click', event => {
   }
 });
 document.addEventListener('visibilitychange', () => {
-  if (document.hidden) { music.pause(); writer.pause(); }
+  if (document.hidden) { music.pause(); writer.pause(); soundPlayer.setPaused(true); }
   else { if (state.screen !== 'home') void music.start(); syncDialogue(); }
 });
 document.addEventListener('keydown', event => {
@@ -247,4 +276,29 @@ document.addEventListener('keydown', event => {
   if (state.screen === 'intro' && introReady) { event.preventDefault(); finishIntro(); }
   else if (state.screen === 'act' && !inGame(state, currentAct()) && !atActEnd(state, currentAct())) { event.preventDefault(); advanceDialogue(); }
 });
+if (studioMode) {
+  window.addEventListener('message', event => {
+    if (event.origin !== window.location.origin || event.source !== window.parent || event.data?.source !== 'chishui-studio') return;
+    const data = event.data;
+    if (data.type === 'config') configureSound(data.config);
+    if (data.type === 'seek') {
+      const act = acts.find(a => a.dialogue.some(line => line.id === data.lineId));
+      if (!act) return;
+      const cursor = act.dialogue.findIndex(line => line.id === data.lineId);
+      const frame = Math.max(0, Math.min(Number(data.frame) || 0, subtitleFrames(act.dialogue[cursor]).length - 1));
+      state.introSeen = true; state.completed = acts.map(a => a.id); state.acknowledged = acts.map(a => a.id);
+      for (const a of acts) state.games[a.id] = { ...freshProgress(), steps: gameTarget(a) };
+      state.cursors[act.id] = cursor; state.frames[act.id] = frame;
+      studioAudioEnabled = data.play !== false;
+      studioPaused = false; soundPlayer.reset(); soundPlayer.setPaused(false);
+      navigate('act', act.id, false);
+    }
+    if (data.type === 'pause') { studioPaused = Boolean(data.paused); if (!studioPaused) studioAudioEnabled = true; syncDialogue(); }
+    if (data.type === 'advance') advanceDialogue();
+    if (data.type === 'stop') { studioPaused = true; writer.pause(); soundPlayer.reset(); }
+  });
+  studioMessage({ type: 'ready' });
+} else if (typeof window.addEventListener === 'function') {
+  window.addEventListener('pointerdown', () => warmImages([opening.artwork.mist, opening.artwork.ink]), { once: true });
+}
 render();

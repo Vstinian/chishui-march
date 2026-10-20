@@ -4,3 +4,4 @@ dist/
 *.local
 .DS_Store
 Thumbs.db
+art-source/audio/cues.previous.json
