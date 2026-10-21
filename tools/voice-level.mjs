@@ -2,6 +2,7 @@ import { readFile, access } from 'node:fs/promises';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { spawn } from 'node:child_process';
+import { audioEncoding, audioEncodingArgs } from './audio-encoding.mjs';
 
 async function jsonOrNull(file) {
   try { return JSON.parse(await readFile(file, 'utf8')); } catch (error) { if (error.code === 'ENOENT') return null; throw error; }
@@ -31,8 +32,7 @@ export async function normalizeVoice(root, source, original, sourceHash, directo
   const profile = await jsonOrNull(path.join(root, 'art-source/audio/voice-levels.json'));
   if (!profile) return null;
   if (profile.version !== 1 || !Number.isFinite(profile.targetLUFS) || profile.targetLUFS < -70 || profile.targetLUFS > -5) throw new Error('人物配音响度配置无效');
-  if (source === profile.referenceSource && sourceHash === profile.referenceHash) return null;
-  const recipe = { version: 2, sourceHash, target: profile.targetLUFS, peak: -1, method: 'gain-limiter-verified' };
+  const recipe = { version: 3, sourceHash, target: profile.targetLUFS, peak: -1, method: 'gain-limiter-verified', encoding: audioEncoding(source) };
   const hash = createHash('sha256').update(JSON.stringify(recipe)).digest('hex').slice(0, 20);
   const fileName = `${hash}.mp3`, output = path.join(directory, fileName);
   if (existing?.path === `assets/audio/${fileName}` && existing.voiceNormalization?.sourceHash === sourceHash) {
@@ -43,7 +43,7 @@ export async function normalizeVoice(root, source, original, sourceHash, directo
   for (let attempt = 0; attempt < 5; attempt++) {
     // 从原始录音处理，保留时间轴；限制瞬态峰值，并按最终 MP3 的实测值校正增益。
     const filter = `volume=${gain}dB,alimiter=limit=0.891250938:level=false:latency=true`;
-    await run(executable, ['-y', '-i', original, '-vn', '-af', filter, '-ar', '44100', '-c:a', 'libmp3lame', '-b:a', '128k', output]);
+    await run(executable, ['-y', '-i', original, '-af', filter, ...audioEncodingArgs(source), output]);
     checked = await measureLoudness(output, executable, profile.targetLUFS);
     const correction = profile.targetLUFS - Number(checked.input_i);
     if (Math.abs(correction) <= .25) break;

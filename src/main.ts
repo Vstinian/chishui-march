@@ -1,5 +1,7 @@
 import './style.css';
 import './immersive.css';
+import './field.css';
+import './portraits.css';
 import { acts, sourceCards } from './data/acts';
 import { opening, ending, scenes } from './data/narrative';
 import { script } from './data/script';
@@ -17,6 +19,9 @@ import { renderMenu } from './components/GameMenu';
 import type { MenuTab } from './components/GameMenu';
 import { escapeHtml } from './utils/html';
 import { renderAct } from './components/ActView';
+import { syncPortraits, portraitPreloads } from './portraits';
+import type { GameMotion } from './components/GameArt';
+import { installFieldGestures } from './fieldGestures';
 import { renderActEnd } from './components/ActEndView';
 import { bugleIcon, menuIcon } from './components/Icons';
 import { Typewriter } from './typewriter';
@@ -44,6 +49,7 @@ function configureSound(config: SoundConfig): void {
   soundPlayer.configure(config); music.setExternalMusic(config.cues.some(c => c.enabled && c.bus === 'music'));
 }
 if (typeof fetch !== 'undefined') void fetch('audio/cues.json', { cache: 'no-cache' }).then(r => { if (!r.ok) throw new Error('audio config unavailable'); return r.json(); }).then(configureSound).catch(() => {});
+let gameMotion: GameMotion | undefined;
 let menuOpen = false;
 let menuTab: MenuTab = 'main';
 let menuMessage = '';
@@ -136,7 +142,9 @@ function syncDialogue(): void {
   const remaining = app!.querySelector<HTMLElement>('.dialogue-pending');
   const box = app!.querySelector<HTMLElement>('.dialogue-box');
   if (!visible || !remaining || !box) return;
+  warmImages(portraitPreloads(act, state.cursors[act.id] ?? 0));
   writer.bind(frame.id, frame.text, (shown, hidden) => {
+    syncPortraits(app!, act, state.cursors[act.id] ?? 0, state.frames[act.id] ?? 0, shown);
     visible.textContent = shown;
     remaining.textContent = hidden;
     box.dataset.typing = String(hidden.length > 0);
@@ -147,16 +155,17 @@ function syncDialogue(): void {
   const nextScene = act.dialogue.slice((state.cursors[act.id] ?? 0) + 1).find(next => next.sceneId !== line.sceneId)?.sceneId;
   warmImages([scenes[line.sceneId], nextScene ? scenes[nextScene] : null]);
   const nextLine = act.dialogue[(state.cursors[act.id] ?? 0) + 1];
-  if (nextLine) soundPlayer.preloadVoice(nextLine.id);
+  if (nextLine) { soundPlayer.preloadVoice(nextLine.id); warmImages(portraitPreloads(act, (state.cursors[act.id] ?? 0) + 1)); }
 }
 function render(): void {
   writer.pause();
   // 开场曲穿过报纸、独白、幕前过渡和标题，正文出现时交给章节配乐。
   if (state.screen !== 'intro' && !(state.screen === 'act' && transitioning)) music.stopOpening();
   const act = currentAct();
-  const content = state.screen === 'home' ? renderHome() : state.screen === 'intro' ? renderIntro() : state.screen === 'act' ? atActEnd(state, act) ? renderActEnd(act, act.sourceIds.map(id => sourceCards[id])) : renderAct(act, state) : state.screen === 'recap' ? renderRecap(state.recapStep) : renderEnding();
+  const content = state.screen === 'home' ? renderHome() : state.screen === 'intro' ? renderIntro() : state.screen === 'act' ? atActEnd(state, act) ? renderActEnd(act, act.sourceIds.map(id => sourceCards[id])) : renderAct(act, state, gameMotion) : state.screen === 'recap' ? renderRecap(state.recapStep) : renderEnding();
   app!.innerHTML = `<div class="page-shell" ${transitioning || storyTransition ? 'inert aria-hidden="true"' : ''}>${state.screen === 'intro' ? '' : renderHeader()}${content}</div><div id="game-menu-layer" class="game-menu-layer" hidden></div>${transitioning ? renderActTransition() : ''}${storyTransition ? renderStoryTransition(storyTransitions[storyTransition.id], storyTransition.ready) : ''}`;
   syncDialogue();
+  gameMotion = undefined;
   if (!studioMode && state.introSeen && state.screen !== 'home' && state.screen !== 'intro') saveWarning = !saveGame(state);
   if (menuOpen) paintMenu();
 }
@@ -263,6 +272,16 @@ function focusAfterRender(action: string, value?: string): void {
   if (button && !button.disabled) button.focus();
   else app!.querySelector<HTMLElement>('[data-action="game-continue"], .game-control:not(:disabled), .dialogue-box')?.focus();
 }
+function applyFieldAction(value: string, plank?: string): void {
+  const act = currentAct();
+  if (state.screen !== 'act' || menuOpen || transitioning || storyTransition || !inGame(state, act)) return;
+  let previous = state.games[act.id] ?? freshProgress();
+  if (plank && previous.selected !== plank) previous = playGame(act, previous, plank);
+  gameMotion = { previous, action: value };
+  state.games[act.id] = playGame(act, previous, value);
+  focusAfterRender('game', value);
+}
+installFieldGestures(app, (value, plank) => applyFieldAction(value, plank), () => !menuOpen && state.screen === 'act');
 app.addEventListener('click', event => {
   const control = (event.target as HTMLElement).closest<HTMLElement>('[data-action]');
   if (!control || control.matches(':disabled') || transitioning) return;
@@ -309,7 +328,7 @@ app.addEventListener('click', event => {
   const act = currentAct();
   if (state.screen === 'act' && !menuOpen) {
     if (action === 'dialogue') advanceDialogue();
-    if (action === 'game' && inGame(state, act)) { state.games[act.id] = playGame(act, state.games[act.id] ?? freshProgress(), control.dataset.value ?? ''); focusAfterRender('game', control.dataset.value); }
+    if (action === 'game' && inGame(state, act)) applyFieldAction(control.dataset.value ?? '');
     if (action === 'game-continue' && inGame(state, act) && (state.games[act.id]?.steps ?? 0) >= gameTarget(act)) { state.acknowledged.push(act.id); focusAfterRender('dialogue'); }
     if (action === 'act-next' && atActEnd(state, act) && state.acknowledged.includes(act.id) && (state.games[act.id]?.steps ?? 0) >= gameTarget(act)) {
       if (!state.completed.includes(act.id)) state.completed.push(act.id);

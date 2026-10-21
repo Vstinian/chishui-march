@@ -60,11 +60,24 @@ try {
     const [normalized] = await scanSounds(levelRoot);
     assert.ok(Math.abs(normalized.voiceNormalization.outputLUFS + 20.5) < .5, '实际解码响度对齐目标');
     assert.ok(normalized.voiceNormalization.truePeak < 0, '归一化后不削波');
+    assert.equal(normalized.webEncoding.bitrateKbps, 64);
+    assert.equal(normalized.webEncoding.channels, 1, '网页人物配音使用单声道');
     assert.deepEqual(await readFile(path.join(levelRoot, levelSource)), sourceBytes, '原始录音不被加工覆盖');
     const modified = (await stat(path.join(levelRoot, 'public', normalized.path))).mtimeMs;
     const [again] = await scanSounds(levelRoot);
     assert.equal(again.path, normalized.path);
     assert.equal((await stat(path.join(levelRoot, 'public', normalized.path))).mtimeMs, modified, '重复扫描复用处理结果，不反复增益或转码');
+    const fullSize = path.join(levelRoot, 'fixture.mp3');
+    assert.equal(spawnSync(executable, ['-y', '-i', path.join(levelRoot, levelSource), '-c:a', 'libmp3lame', '-b:a', '320k', fullSize], { windowsHide: true }).status, 0);
+    const fullBytes = await readFile(fullSize);
+    const compact = await importSound(levelRoot, 'fixture.mp3', fullBytes);
+    assert.equal(compact.webEncoding.bitrateKbps, 96);
+    assert.ok(compact.bytes < fullBytes.length * .4, '导入已有 MP3 也会压缩，不能直接复制大文件');
+    const compactMtime = (await stat(path.join(levelRoot, 'public', compact.path))).mtimeMs;
+    const compactAgain = await importSound(levelRoot, 'fixture.mp3', fullBytes);
+    assert.equal(compactAgain.path, compact.path);
+    assert.equal((await stat(path.join(levelRoot, 'public', compact.path))).mtimeMs, compactMtime, '重复导入不再编码网页 MP3');
+    assert.deepEqual(await readFile(path.join(levelRoot, 'art-source/audio', path.basename(fullSize).replace('fixture', compact.webEncoding.sourceHash))), fullBytes, '上传原始 MP3 完整保留');
     console.log('通过：真实配音响度归一化、峰值检查、原始录音保留、重复扫描缓存与稳定引用。');
   } else console.log('跳过真实响度转换测试：未安装 FFmpeg。');
 } finally {

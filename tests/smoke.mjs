@@ -20,7 +20,7 @@ class MockAudio {
 }
 const app = {
   innerHTML: '',
-  addEventListener(_type, listener) { clickListener = listener; },
+  addEventListener(type, listener) { if (type === 'click') clickListener = listener; },
   querySelector(_selector) {
     return { focus() {}, disabled: false, hidden: false, dataset: {}, textContent: '', setAttribute() {}, classList: { add() {} }, pause() {} };
   },
@@ -34,7 +34,7 @@ const context = {
   clearTimeout(id) { timers.delete(id); },
   setInterval() { return 1; }, clearInterval() {}, console,
 };
-const sources = ['typewriter', 'components/Icons', 'data/script', 'data/narrative', 'data/transitions', 'data/legacyScript', 'subtitles', 'data/acts', 'data/recap', 'game', 'saves', 'components/GameMenu', 'audio', 'sound/schema', 'sound/engine', 'sound/preload', 'utils/html', 'components/Interaction', 'components/ActView', 'components/ActEndView', 'components/TransitionView', 'components/RecapView', 'components/OpeningArt', 'main'];
+const sources = ['typewriter', 'components/Icons', 'data/script', 'data/narrative', 'data/transitions', 'data/legacyScript', 'subtitles', 'data/acts', 'data/recap', 'game', 'saves', 'components/GameMenu', 'audio', 'sound/schema', 'sound/engine', 'sound/preload', 'data/portraitCues', 'portraits', 'utils/html', 'components/GameArt', 'fieldGestures', 'components/Interaction', 'components/ActView', 'components/ActEndView', 'components/TransitionView', 'components/RecapView', 'components/OpeningArt', 'main'];
 runInNewContext(`${sources.map(path => readSource(`../src/${path}.ts`)).join('\n')}\nglobalThis.testState = state; globalThis.testActs = acts; globalThis.testWriter = writer; globalThis.TestTypewriter = Typewriter; globalThis.testGameTarget = gameTarget; globalThis.testLegacyIds = legacyDialogueIds; globalThis.testTransitions = storyTransitions; globalThis.testMusic = music;`, context);
 const state = context.testState;
 const click = (action, dataset = {}) => clickListener({ target: { closest: () => ({ dataset: { action, ...dataset }, matches: () => false, setAttribute() {}, innerHTML: '' }) } });
@@ -72,7 +72,7 @@ assert.equal(state.screen, 'home', '不能从首页绕过序章或章节锁');
 click('start');
 assert.equal(state.screen, 'intro');
 const openingMusic = media.at(-1);
-assert.equal(openingMusic.src, 'assets/audio/c157bb3a3a4f95be8874.mp3');
+assert.equal(openingMusic.src, /bgm: '([^']+)'/.exec(readFileSync(new URL('../src/data/narrative.ts', import.meta.url), 'utf8'))[1]);
 assert.equal(openingMusic.paused, false, '展开报纸即播放觉醒年代主题');
 assert.equal(openingMusic.loop, true, '等待开场文字期间可持续播放');
 context.testMusic.setExternalMusic(true);
@@ -137,7 +137,7 @@ for (const [index, act] of context.testActs.entries()) {
     else {
       assert.match(rendered, /data-character="qingshan" data-side="left"/);
       if (line.speaker !== 'qingshan') assert.ok(rendered.includes(`data-character="${line.speaker}" data-side="right"`));
-      assert.match(rendered, new RegExp(`portrait-${line.speaker} portrait-(left|right) is-speaking`));
+      assert.match(rendered, new RegExp(`portrait-${line.speaker} portrait-(left|right) [^\"]*is-speaking`));
     }
   }
 }

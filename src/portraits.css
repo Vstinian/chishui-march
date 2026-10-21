@@ -1,0 +1,28 @@
+/* 成年角色以头顶对齐；小满缩小并下移，保留少年身高。每个人的各表情保持同一比例。 */
+.story-stage .portrait-stage { max-height: min(61dvh, 550px); margin-bottom: -42px; overflow: hidden; }
+.portrait-stage .portrait.has-art { width: 43%; max-width: 470px; height: 100%; overflow: visible; }
+.portrait-stage .portrait-left.has-art { left: 0; }
+.portrait-stage .portrait-right.has-art { right: 0; }
+.portrait.has-art .portrait-image { display: block; position: absolute; top: 0; left: 50%; width: auto; max-width: none; height: 160%; object-fit: initial; object-position: initial; transform: translateX(-50%); opacity: 0; transition: opacity .18s ease; pointer-events: none; filter: drop-shadow(0 7px 10px #15101577); }
+.portrait.has-art .portrait-image:not([src]) { visibility: hidden; }
+.portrait-xiaoman.has-art .portrait-image { top: 12%; height: 195%; }
+.portrait-ahu.has-art .portrait-image { height: 155%; transform: translateX(-45%); }
+.portrait.has-art.is-listening { filter: brightness(.82) saturate(.88); }
+.portrait.has-art.is-speaking { filter: none; }
+.portrait.has-art .portrait-halo { inset: 10% -20% -10%; background: radial-gradient(ellipse, #e5c99319, transparent 68%); }
+@media (max-width: 700px) {
+  .story-stage .portrait-stage { max-height: 54dvh; margin-bottom: -30px; }
+  .portrait-stage .portrait.has-art { width: 53%; }
+  .portrait-stage .portrait-left.has-art { left: -3%; }
+  .portrait-stage .portrait-right.has-art { right: -3%; }
+  .portrait.has-art .portrait-image { height: 165%; }
+  .portrait-xiaoman.has-art .portrait-image { height: 195%; }
+  .portrait-ahu.has-art .portrait-image { height: 158%; }
+  .portrait.has-art.is-speaking { z-index: 1; }
+}
+@media (max-height: 500px) {
+  .story-stage .portrait-stage { max-height: none; margin-bottom: -20px; }
+  .portrait.has-art .portrait-image { height: 160%; }
+  .portrait-xiaoman.has-art .portrait-image { height: 195%; }
+}
+@media (prefers-reduced-motion: reduce) { .portrait.has-art .portrait-image { transition: none; } }

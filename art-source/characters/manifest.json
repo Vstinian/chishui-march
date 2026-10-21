@@ -1,0 +1,167 @@
+[
+  {
+    "character": "instructor",
+    "expression": "serious",
+    "deliveryName": "指导_严肃.png",
+    "original": "art-source/characters/originals/instructor-serious.png",
+    "web": "public/assets/characters/instructor-serious.webp",
+    "width": 886,
+    "height": 1710,
+    "originalSha256": "d084e6804911047bb5f063664a29a284f56726aaac066950b2ab3919813eab22",
+    "webBytes": 1356836
+  },
+  {
+    "character": "instructor",
+    "expression": "soft",
+    "deliveryName": "指导_宽慰.png",
+    "original": "art-source/characters/originals/instructor-soft.png",
+    "web": "public/assets/characters/instructor-soft.webp",
+    "width": 888,
+    "height": 1712,
+    "originalSha256": "94a59c09253d1ef3a6e5317bfe43ef0b69b0feb7ac585be97f3bacfa71c2067d",
+    "webBytes": 1285732
+  },
+  {
+    "character": "instructor",
+    "expression": "neutral",
+    "deliveryName": "指导_平静.png",
+    "original": "art-source/characters/originals/instructor-neutral.png",
+    "web": "public/assets/characters/instructor-neutral.webp",
+    "width": 851,
+    "height": 1642,
+    "originalSha256": "df021ee2a2ca9406bf7cf3822c6d9c47043e13a2f9a1a709d5c97d30953c86f8",
+    "webBytes": 1363276
+  },
+  {
+    "character": "xiaoman",
+    "expression": "smile",
+    "deliveryName": "满_开心.png",
+    "original": "art-source/characters/originals/xiaoman-smile.png",
+    "web": "public/assets/characters/xiaoman-smile.webp",
+    "width": 590,
+    "height": 1620,
+    "originalSha256": "831722c92321aaaaa0e0fcd5921c39516a4c77e146b6f7f7606f24b81ecc3ef7",
+    "webBytes": 781186
+  },
+  {
+    "character": "xiaoman",
+    "expression": "anxious",
+    "deliveryName": "满_忐忑.png",
+    "original": "art-source/characters/originals/xiaoman-anxious.png",
+    "web": "public/assets/characters/xiaoman-anxious.webp",
+    "width": 590,
+    "height": 1617,
+    "originalSha256": "216927c66f03fa27c070065cdb5041d625988e299895db6ac9e0f5578c357695",
+    "webBytes": 778886
+  },
+  {
+    "character": "xiaoman",
+    "expression": "tired",
+    "deliveryName": "满_疲惫.png",
+    "original": "art-source/characters/originals/xiaoman-tired.png",
+    "web": "public/assets/characters/xiaoman-tired.webp",
+    "width": 590,
+    "height": 1620,
+    "originalSha256": "d90041c20c1e09d39c7806dce5ac5410b67c20afc25f199ca018476c1866d216",
+    "webBytes": 787100
+  },
+  {
+    "character": "ahu",
+    "expression": "focus",
+    "deliveryName": "虎_专注.png",
+    "original": "art-source/characters/originals/ahu-focus.png",
+    "web": "public/assets/characters/ahu-focus.webp",
+    "width": 1290,
+    "height": 1768,
+    "originalSha256": "45eac258f99e8255a2ad7bfdd739897d494eb5087a43f07e06b349f63b9cc001",
+    "webBytes": 1788326
+  },
+  {
+    "character": "ahu",
+    "expression": "tired",
+    "deliveryName": "虎_疲惫.png",
+    "original": "art-source/characters/originals/ahu-tired.png",
+    "web": "public/assets/characters/ahu-tired.webp",
+    "width": 1290,
+    "height": 1771,
+    "originalSha256": "fa72eff28dace32f70396e47505b966b4021b2fd16ee4af279fc037a9aa21cb1",
+    "webBytes": 1804622
+  },
+  {
+    "character": "ahu",
+    "expression": "alert",
+    "deliveryName": "虎_警觉.png",
+    "original": "art-source/characters/originals/ahu-alert.png",
+    "web": "public/assets/characters/ahu-alert.webp",
+    "width": 1290,
+    "height": 1768,
+    "originalSha256": "b160e9acb357d8425dc3bbdac02d4fa4931b2cb5ff6ab1777eb30d671571d9aa",
+    "webBytes": 1765448
+  },
+  {
+    "character": "qingshan",
+    "expression": "neutral",
+    "deliveryName": "邓_平静.png",
+    "original": "art-source/characters/originals/qingshan-neutral.png",
+    "web": "public/assets/characters/qingshan-neutral.webp",
+    "width": 838,
+    "height": 1626,
+    "originalSha256": "ac1c4cbeb16512b08143382b0aa371c93556d7203abe6136ec94dc319fd55665",
+    "webBytes": 1376170
+  },
+  {
+    "character": "qingshan",
+    "expression": "angry",
+    "deliveryName": "邓_愤怒.png",
+    "original": "art-source/characters/originals/qingshan-angry.png",
+    "web": "public/assets/characters/qingshan-angry.webp",
+    "width": 878,
+    "height": 1697,
+    "originalSha256": "56f816821668669faf7d6cb7f85e637f5179d3c9004ec41e12dfb89afbe8fa98",
+    "webBytes": 1341126
+  },
+  {
+    "character": "qingshan",
+    "expression": "tired",
+    "deliveryName": "邓_疲惫.png",
+    "original": "art-source/characters/originals/qingshan-tired.png",
+    "web": "public/assets/characters/qingshan-tired.webp",
+    "width": 880,
+    "height": 1703,
+    "originalSha256": "19363b11e3dd09371a9a69e0093a3e5789d272cd9a6ef156d2f1228b8931f837",
+    "webBytes": 1326974
+  },
+  {
+    "character": "laolei",
+    "expression": "neutral",
+    "deliveryName": "雷_平静.png",
+    "original": "art-source/characters/originals/laolei-neutral.png",
+    "web": "public/assets/characters/laolei-neutral.webp",
+    "width": 1094,
+    "height": 1725,
+    "originalSha256": "8eba37e1bed6a7687ef3e944d0235a3eae15b41506d32e8a2ce9e0d29164b133",
+    "webBytes": 1853512
+  },
+  {
+    "character": "laolei",
+    "expression": "tired",
+    "deliveryName": "雷_疲惫.png",
+    "original": "art-source/characters/originals/laolei-tired.png",
+    "web": "public/assets/characters/laolei-tired.webp",
+    "width": 1148,
+    "height": 1800,
+    "originalSha256": "96f3e5d79d7cd0b4f0e0ef93ce54275c90ed1105e1d7528eab2bdefbbe50ec2d",
+    "webBytes": 1729224
+  },
+  {
+    "character": "laolei",
+    "expression": "alert",
+    "deliveryName": "雷_警觉.png",
+    "original": "art-source/characters/originals/laolei-alert.png",
+    "web": "public/assets/characters/laolei-alert.webp",
+    "width": 1148,
+    "height": 1800,
+    "originalSha256": "07d949e24d2d67accccf5e78f04b4570d12a7806ce9e406dd914aac604e44f79",
+    "webBytes": 1734812
+  }
+]
