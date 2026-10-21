@@ -1,10 +1,101 @@
 [
   {
+    "path": "assets/audio/e666df20c78db437f35e.mp3",
+    "name": "Gargantuan Music - Fearless.mp3",
+    "bytes": 8144636,
+    "source": "audio/music/Gargantuan Music - Fearless.mp3",
+    "sourceBytes": 8144636
+  },
+  {
+    "path": "assets/audio/03b3d7962dbeb31115a7.mp3",
+    "name": "Hans Zimmer - Attack.mp3",
+    "bytes": 21629854,
+    "source": "audio/music/Hans Zimmer - Attack.mp3",
+    "sourceBytes": 21629854
+  },
+  {
+    "path": "assets/audio/9f34971a46dfa7253b9d.mp3",
+    "name": "阿鲲 - 奉献.mp3",
+    "bytes": 6898504,
+    "source": "audio/music/阿鲲 - 奉献.mp3",
+    "sourceBytes": 6898504
+  },
+  {
+    "path": "assets/audio/cabb988cb31c76f03a8c.mp3",
+    "name": "阿鲲 - 存亡时刻.mp3",
+    "bytes": 6854074,
+    "source": "audio/music/阿鲲 - 存亡时刻.mp3",
+    "sourceBytes": 6854074
+  },
+  {
+    "path": "assets/audio/38465b08d6f6683b4b51.mp3",
+    "name": "阿鲲 - 年少.mp3",
+    "bytes": 12149466,
+    "source": "audio/music/阿鲲 - 年少.mp3",
+    "sourceBytes": 12149466
+  },
+  {
+    "path": "assets/audio/c157bb3a3a4f95be8874.mp3",
+    "name": "阿鲲 - 觉醒年代主题.mp3",
+    "bytes": 9368386,
+    "source": "audio/music/阿鲲 - 觉醒年代主题.mp3",
+    "sourceBytes": 9368386
+  },
+  {
+    "path": "assets/audio/741ad1a14e148c6bc558.mp3",
+    "name": "阿鲲 - 轻松片刻.mp3",
+    "bytes": 9688806,
+    "source": "audio/music/阿鲲 - 轻松片刻.mp3",
+    "sourceBytes": 9688806
+  },
+  {
+    "path": "assets/audio/a1f7c0cd2217b0d0e9af.mp3",
+    "name": "阿鲲 - 过眼云烟.mp3",
+    "bytes": 6463960,
+    "source": "audio/music/阿鲲 - 过眼云烟.mp3",
+    "sourceBytes": 6463960
+  },
+  {
+    "path": "assets/audio/f8875bef6b209f529a0a.mp3",
+    "name": "阿鲲 - 运筹.mp3",
+    "bytes": 6290502,
+    "source": "audio/music/阿鲲 - 运筹.mp3",
+    "sourceBytes": 6290502
+  },
+  {
+    "path": "assets/audio/68497ab272eaf765c170.mp3",
+    "name": "阿鲲 - 雪中来访.mp3",
+    "bytes": 6434504,
+    "source": "audio/music/阿鲲 - 雪中来访.mp3",
+    "sourceBytes": 6434504
+  },
+  {
+    "path": "assets/audio/c73fb312abcdb7aca9a4.mp3",
+    "name": "阿鲲 - 黑暗.mp3",
+    "bytes": 7470342,
+    "source": "audio/music/阿鲲 - 黑暗.mp3",
+    "sourceBytes": 7470342
+  },
+  {
     "path": "assets/audio/60f8121597d9f5950be8.mp3",
     "name": "123222__cgeffex__bullet_whiz.wav",
     "bytes": 41838,
     "source": "audio/sfx/123222__cgeffex__bullet_whiz.wav",
     "sourceBytes": 448412
+  },
+  {
+    "path": "assets/audio/f8d17f95692742a9ecfb.mp3",
+    "name": "127888__ibirdfilm__plane-fly-over.mp3",
+    "bytes": 492672,
+    "source": "audio/sfx/127888__ibirdfilm__plane-fly-over.mp3",
+    "sourceBytes": 492672
+  },
+  {
+    "path": "assets/audio/723abbe2c0f16bbd30f4.mp3",
+    "name": "145395__castleofsamples__flowing-river-in-the-woods.wav",
+    "bytes": 1009249,
+    "source": "audio/sfx/145395__castleofsamples__flowing-river-in-the-woods.wav",
+    "sourceBytes": 11110824
   },
   {
     "path": "assets/audio/bd3e57804dc915aa3dc6.mp3",
@@ -35,580 +126,6 @@
     "sourceBytes": 211244
   },
   {
-    "path": "assets/audio/1b1c1b36b86a1db898f3.mp3",
-    "name": "378052__bajko__sfx_rain_heavy_thunder-01.wav",
-    "bytes": 1206691,
-    "source": "audio/sfx/378052__bajko__sfx_rain_heavy_thunder-01.wav",
-    "sourceBytes": 21699230
-  },
-  {
-    "path": "assets/audio/9043852c54579ad868b4.mp3",
-    "name": "482122__qubodup__clean-machine-gun-burst.wav",
-    "bytes": 26824,
-    "source": "audio/sfx/482122__qubodup__clean-machine-gun-burst.wav",
-    "sourceBytes": 315584
-  },
-  {
-    "path": "assets/audio/fa0d89ae48b392aa0f97.mp3",
-    "name": "565794__stomachache__distant-cannon-fire-simulated.wav",
-    "bytes": 62736,
-    "source": "audio/sfx/565794__stomachache__distant-cannon-fire-simulated.wav",
-    "sourceBytes": 339092
-  },
-  {
-    "path": "assets/audio/120e1e121422d9c71480.mp3",
-    "name": "A04-D008.wav",
-    "bytes": 457290,
-    "source": "audio/voice/配音录制/伤员/A04-D008.wav",
-    "sourceBytes": 2736078
-  },
-  {
-    "path": "assets/audio/c28afbd5e91ddcfbbb50.mp3",
-    "name": "A01-D008.wav",
-    "bytes": 226576,
-    "source": "audio/voice/配音录制/小满/A01-D008.wav",
-    "sourceBytes": 1353678
-  },
-  {
-    "path": "assets/audio/82db828080015d8d0b4c.mp3",
-    "name": "A01-D019.wav",
-    "bytes": 160957,
-    "source": "audio/voice/配音录制/小满/A01-D019.wav",
-    "sourceBytes": 960078
-  },
-  {
-    "path": "assets/audio/76622808e916f2df919a.mp3",
-    "name": "A01-D022.wav",
-    "bytes": 401283,
-    "source": "audio/voice/配音录制/小满/A01-D022.wav",
-    "sourceBytes": 2400078
-  },
-  {
-    "path": "assets/audio/50ab4d53f594e0976b48.mp3",
-    "name": "A01-D026.wav",
-    "bytes": 245803,
-    "source": "audio/voice/配音录制/小满/A01-D026.wav",
-    "sourceBytes": 1468878
-  },
-  {
-    "path": "assets/audio/274e40409e7189841e79.mp3",
-    "name": "A02-D003.wav",
-    "bytes": 257087,
-    "source": "audio/voice/配音录制/小满/A02-D003.wav",
-    "sourceBytes": 1536078
-  },
-  {
-    "path": "assets/audio/d382624efb068cc33407.mp3",
-    "name": "A02-D007.wav",
-    "bytes": 234518,
-    "source": "audio/voice/配音录制/小满/A02-D007.wav",
-    "sourceBytes": 1401678
-  },
-  {
-    "path": "assets/audio/282b7311bbd13964c52f.mp3",
-    "name": "A02-D011d.wav",
-    "bytes": 123758,
-    "source": "audio/voice/配音录制/小满/A02-D011d.wav",
-    "sourceBytes": 737358
-  },
-  {
-    "path": "assets/audio/4e2978a8c51f9b636ec3.mp3",
-    "name": "A02-D015.wav",
-    "bytes": 185198,
-    "source": "audio/voice/配音录制/小满/A02-D015.wav",
-    "sourceBytes": 1104078
-  },
-  {
-    "path": "assets/audio/76b46cae85b23e6c01f3.mp3",
-    "name": "A02-D018.wav",
-    "bytes": 241205,
-    "source": "audio/voice/配音录制/小满/A02-D018.wav",
-    "sourceBytes": 1440078
-  },
-  {
-    "path": "assets/audio/2d82c8ab141897793b75.mp3",
-    "name": "A02-D021.wav",
-    "bytes": 260013,
-    "source": "audio/voice/配音录制/小满/A02-D021.wav",
-    "sourceBytes": 1553358
-  },
-  {
-    "path": "assets/audio/e94e352bbe8a282d8be7.mp3",
-    "name": "A03-D010.wav",
-    "bytes": 177257,
-    "source": "audio/voice/配音录制/小满/A03-D010.wav",
-    "sourceBytes": 1056078
-  },
-  {
-    "path": "assets/audio/68af83389631897de758.mp3",
-    "name": "A03-D016.wav",
-    "bytes": 153016,
-    "source": "audio/voice/配音录制/小满/A03-D016.wav",
-    "sourceBytes": 912078
-  },
-  {
-    "path": "assets/audio/281514144c7a6439ca2c.mp3",
-    "name": "A03-D018.wav",
-    "bytes": 189796,
-    "source": "audio/voice/配音录制/小满/A03-D018.wav",
-    "sourceBytes": 1132878
-  },
-  {
-    "path": "assets/audio/0f26239ac63fe7b979ba.mp3",
-    "name": "A04-D011.wav",
-    "bytes": 265029,
-    "source": "audio/voice/配音录制/小满/A04-D011.wav",
-    "sourceBytes": 1584078
-  },
-  {
-    "path": "assets/audio/5a370f6850ca9057f46b.mp3",
-    "name": "A04-D013.wav",
-    "bytes": 233264,
-    "source": "audio/voice/配音录制/小满/A04-D013.wav",
-    "sourceBytes": 1392078
-  },
-  {
-    "path": "assets/audio/afca53dddf9449196ae0.mp3",
-    "name": "A04-D016.wav",
-    "bytes": 201081,
-    "source": "audio/voice/配音录制/小满/A04-D016.wav",
-    "sourceBytes": 1200078
-  },
-  {
-    "path": "assets/audio/345f5d4bb5c9773b63dd.mp3",
-    "name": "A05-D003.wav",
-    "bytes": 252072,
-    "source": "audio/voice/配音录制/小满/A05-D003.wav",
-    "sourceBytes": 1505358
-  },
-  {
-    "path": "assets/audio/488d7ace8a4bca788dcd.mp3",
-    "name": "A05-D007.wav",
-    "bytes": 297212,
-    "source": "audio/voice/配音录制/小满/A05-D007.wav",
-    "sourceBytes": 1776078
-  },
-  {
-    "path": "assets/audio/3a06626b70f853b9c247.mp3",
-    "name": "A05-D009b.wav",
-    "bytes": 224905,
-    "source": "audio/voice/配音录制/小满/A05-D009b.wav",
-    "sourceBytes": 1344078
-  },
-  {
-    "path": "assets/audio/c9e369add109909c2056.mp3",
-    "name": "A05-D012.wav",
-    "bytes": 271298,
-    "source": "audio/voice/配音录制/小满/A05-D012.wav",
-    "sourceBytes": 1620558
-  },
-  {
-    "path": "assets/audio/5e4882c3bdcd6678a16b.mp3",
-    "name": "A05-D016.wav",
-    "bytes": 193140,
-    "source": "audio/voice/配音录制/小满/A05-D016.wav",
-    "sourceBytes": 1152078
-  },
-  {
-    "path": "assets/audio/8930f07dd404690c7af4.mp3",
-    "name": "A02-D006.wav",
-    "bytes": 216963,
-    "source": "audio/voice/配音录制/指导员/A02-D006.wav",
-    "sourceBytes": 1296078
-  },
-  {
-    "path": "assets/audio/03255bbbb207468d9b14.mp3",
-    "name": "A02-D008.wav",
-    "bytes": 219889,
-    "source": "audio/voice/配音录制/指导员/A02-D008.wav",
-    "sourceBytes": 1313358
-  },
-  {
-    "path": "assets/audio/c66ee7322405aac46802.mp3",
-    "name": "A02-D016.wav",
-    "bytes": 224905,
-    "source": "audio/voice/配音录制/指导员/A02-D016.wav",
-    "sourceBytes": 1344078
-  },
-  {
-    "path": "assets/audio/202b1694c3242fc398ff.mp3",
-    "name": "A03-D020.wav",
-    "bytes": 237861,
-    "source": "audio/voice/配音录制/指导员/A03-D020.wav",
-    "sourceBytes": 1420878
-  },
-  {
-    "path": "assets/audio/aa4cf149b0a28f13eb9f.mp3",
-    "name": "A03-D022.wav",
-    "bytes": 261685,
-    "source": "audio/voice/配音录制/指导员/A03-D022.wav",
-    "sourceBytes": 1564878
-  },
-  {
-    "path": "assets/audio/3b7f647522a6c53d3bbf.mp3",
-    "name": "A04-D019.wav",
-    "bytes": 202753,
-    "source": "audio/voice/配音录制/指导员/A04-D019.wav",
-    "sourceBytes": 1209678
-  },
-  {
-    "path": "assets/audio/2f77419929295dd6cde7.mp3",
-    "name": "A01-D007.wav",
-    "bytes": 272970,
-    "source": "audio/voice/配音录制/老雷/A01-D007.wav",
-    "sourceBytes": 1632078
-  },
-  {
-    "path": "assets/audio/ceef985a1a16771d19fd.mp3",
-    "name": "A01-D010.wav",
-    "bytes": 249146,
-    "source": "audio/voice/配音录制/老雷/A01-D010.wav",
-    "sourceBytes": 1488078
-  },
-  {
-    "path": "assets/audio/6d73882fe784fed261ba.mp3",
-    "name": "A01-D012.wav",
-    "bytes": 231174,
-    "source": "audio/voice/配音录制/老雷/A01-D012.wav",
-    "sourceBytes": 1380558
-  },
-  {
-    "path": "assets/audio/63c9d472432715feec1e.mp3",
-    "name": "A01-D015.wav",
-    "bytes": 168898,
-    "source": "audio/voice/配音录制/老雷/A01-D015.wav",
-    "sourceBytes": 1008078
-  },
-  {
-    "path": "assets/audio/b2ab7f1790b4a9441c68.mp3",
-    "name": "A01-D028.wav",
-    "bytes": 260431,
-    "source": "audio/voice/配音录制/老雷/A01-D028.wav",
-    "sourceBytes": 1555178
-  },
-  {
-    "path": "assets/audio/34502089e61bbb9dda80.mp3",
-    "name": "A02-D002.wav",
-    "bytes": 193140,
-    "source": "audio/voice/配音录制/老雷/A02-D002.wav",
-    "sourceBytes": 1152078
-  },
-  {
-    "path": "assets/audio/6ea476f68713f764be80.mp3",
-    "name": "A02-D011e.wav",
-    "bytes": 209022,
-    "source": "audio/voice/配音录制/老雷/A02-D011e.wav",
-    "sourceBytes": 1248078
-  },
-  {
-    "path": "assets/audio/64d6f6a286e86c2967ec.mp3",
-    "name": "A02-D013.wav",
-    "bytes": 270044,
-    "source": "audio/voice/配音录制/老雷/A02-D013.wav",
-    "sourceBytes": 1612878
-  },
-  {
-    "path": "assets/audio/2f93ab482c8006541810.mp3",
-    "name": "A02-D023.wav",
-    "bytes": 153016,
-    "source": "audio/voice/配音录制/老雷/A02-D023.wav",
-    "sourceBytes": 912078
-  },
-  {
-    "path": "assets/audio/c4b2cc87c50dad0b1c02.mp3",
-    "name": "A03-D005.wav",
-    "bytes": 177257,
-    "source": "audio/voice/配音录制/老雷/A03-D005.wav",
-    "sourceBytes": 1056078
-  },
-  {
-    "path": "assets/audio/9fdd66518a1897d964c9.mp3",
-    "name": "A03-D008.wav",
-    "bytes": 171824,
-    "source": "audio/voice/配音录制/老雷/A03-D008.wav",
-    "sourceBytes": 1025358
-  },
-  {
-    "path": "assets/audio/36164a813405724bae72.mp3",
-    "name": "A03-D012.wav",
-    "bytes": 153016,
-    "source": "audio/voice/配音录制/老雷/A03-D012.wav",
-    "sourceBytes": 912078
-  },
-  {
-    "path": "assets/audio/557e90fa2ffeedcd6374.mp3",
-    "name": "A03-D013.wav",
-    "bytes": 229920,
-    "source": "audio/voice/配音录制/老雷/A03-D013.wav",
-    "sourceBytes": 1372878
-  },
-  {
-    "path": "assets/audio/2b57cf8b2458eed1807a.mp3",
-    "name": "A03-D015.wav",
-    "bytes": 193140,
-    "source": "audio/voice/配音录制/老雷/A03-D015.wav",
-    "sourceBytes": 1152078
-  },
-  {
-    "path": "assets/audio/de0154ffe5dd8549ba62.mp3",
-    "name": "A04-D002.wav",
-    "bytes": 165972,
-    "source": "audio/voice/配音录制/老雷/A04-D002.wav",
-    "sourceBytes": 988878
-  },
-  {
-    "path": "assets/audio/c0947336c8ccc02c68bc.mp3",
-    "name": "A04-D010.wav",
-    "bytes": 218635,
-    "source": "audio/voice/配音录制/老雷/A04-D010.wav",
-    "sourceBytes": 1305678
-  },
-  {
-    "path": "assets/audio/43fb5efcf4740c356d6e.mp3",
-    "name": "A04-D012.wav",
-    "bytes": 258759,
-    "source": "audio/voice/配音录制/老雷/A04-D012.wav",
-    "sourceBytes": 1545678
-  },
-  {
-    "path": "assets/audio/6ef24fc70f3ff6dfea3c.mp3",
-    "name": "A04-D017.wav",
-    "bytes": 177257,
-    "source": "audio/voice/配音录制/老雷/A04-D017.wav",
-    "sourceBytes": 1056078
-  },
-  {
-    "path": "assets/audio/20824932d0867ef78059.mp3",
-    "name": "A04-D022.wav",
-    "bytes": 272970,
-    "source": "audio/voice/配音录制/老雷/A04-D022.wav",
-    "sourceBytes": 1632078
-  },
-  {
-    "path": "assets/audio/7291bcfce9094e726c05.mp3",
-    "name": "A05-D002.wav",
-    "bytes": 233264,
-    "source": "audio/voice/配音录制/老雷/A05-D002.wav",
-    "sourceBytes": 1392078
-  },
-  {
-    "path": "assets/audio/c1337da3f2d33f23d1ce.mp3",
-    "name": "A05-D009d.wav",
-    "bytes": 193140,
-    "source": "audio/voice/配音录制/老雷/A05-D009d.wav",
-    "sourceBytes": 1152078
-  },
-  {
-    "path": "assets/audio/b33da6a5a7d78aa71370.mp3",
-    "name": "A05-D014.wav",
-    "bytes": 233264,
-    "source": "audio/voice/配音录制/老雷/A05-D014.wav",
-    "sourceBytes": 1392078
-  },
-  {
-    "path": "assets/audio/438336be2962bd2f3e99.mp3",
-    "name": "A01-D011.wav",
-    "bytes": 201081,
-    "source": "audio/voice/配音录制/邓青山/A01-D011.wav",
-    "sourceBytes": 1200078
-  },
-  {
-    "path": "assets/audio/3ea4208464d8ed57ad73.mp3",
-    "name": "A01-D018.wav",
-    "bytes": 171824,
-    "source": "audio/voice/配音录制/邓青山/A01-D018.wav",
-    "sourceBytes": 1025358
-  },
-  {
-    "path": "assets/audio/4ab056484af442202896.mp3",
-    "name": "A01-D020.wav",
-    "bytes": 168898,
-    "source": "audio/voice/配音录制/邓青山/A01-D020.wav",
-    "sourceBytes": 1008078
-  },
-  {
-    "path": "assets/audio/81bf23482502a28d6cdd.mp3",
-    "name": "A01-D023.wav",
-    "bytes": 185198,
-    "source": "audio/voice/配音录制/邓青山/A01-D023.wav",
-    "sourceBytes": 1104078
-  },
-  {
-    "path": "assets/audio/8f9095efa1c28e3e6550.mp3",
-    "name": "A01-D027.wav",
-    "bytes": 250818,
-    "source": "audio/voice/配音录制/邓青山/A01-D027.wav",
-    "sourceBytes": 1497678
-  },
-  {
-    "path": "assets/audio/469704695e029976bd90.mp3",
-    "name": "A02-D011b.wav",
-    "bytes": 193140,
-    "source": "audio/voice/配音录制/邓青山/A02-D011b.wav",
-    "sourceBytes": 1152078
-  },
-  {
-    "path": "assets/audio/d442603f0a98fda9be9a.mp3",
-    "name": "A02-D011f.wav",
-    "bytes": 193140,
-    "source": "audio/voice/配音录制/邓青山/A02-D011f.wav",
-    "sourceBytes": 1152078
-  },
-  {
-    "path": "assets/audio/3e01d9ad6a60ca0eb9a5.mp3",
-    "name": "A02-D012.wav",
-    "bytes": 193140,
-    "source": "audio/voice/配音录制/邓青山/A02-D012.wav",
-    "sourceBytes": 1152078
-  },
-  {
-    "path": "assets/audio/3772d45932426c520658.mp3",
-    "name": "A02-D019.wav",
-    "bytes": 219889,
-    "source": "audio/voice/配音录制/邓青山/A02-D019.wav",
-    "sourceBytes": 1313358
-  },
-  {
-    "path": "assets/audio/e22a5813d3d8583d72a3.mp3",
-    "name": "A02-D022.wav",
-    "bytes": 221979,
-    "source": "audio/voice/配音录制/邓青山/A02-D022.wav",
-    "sourceBytes": 1324878
-  },
-  {
-    "path": "assets/audio/57ae54b767df34b20447.mp3",
-    "name": "A03-D003.wav",
-    "bytes": 249146,
-    "source": "audio/voice/配音录制/邓青山/A03-D003.wav",
-    "sourceBytes": 1488078
-  },
-  {
-    "path": "assets/audio/f27b07ddff606f80fb47.mp3",
-    "name": "A03-D019.wav",
-    "bytes": 241205,
-    "source": "audio/voice/配音录制/邓青山/A03-D019.wav",
-    "sourceBytes": 1440078
-  },
-  {
-    "path": "assets/audio/f63fc1c7a5f31b00b1e1.mp3",
-    "name": "A03-D021.wav",
-    "bytes": 205678,
-    "source": "audio/voice/配音录制/邓青山/A03-D021.wav",
-    "sourceBytes": 1228878
-  },
-  {
-    "path": "assets/audio/6e5438a845eb56869d00.mp3",
-    "name": "A04-D004.wav",
-    "bytes": 185198,
-    "source": "audio/voice/配音录制/邓青山/A04-D004.wav",
-    "sourceBytes": 1104078
-  },
-  {
-    "path": "assets/audio/57ffae3e470a21104dd6.mp3",
-    "name": "A04-D007.wav",
-    "bytes": 234518,
-    "source": "audio/voice/配音录制/邓青山/A04-D007.wav",
-    "sourceBytes": 1401678
-  },
-  {
-    "path": "assets/audio/20f476e709622df7978d.mp3",
-    "name": "A04-D014.wav",
-    "bytes": 234518,
-    "source": "audio/voice/配音录制/邓青山/A04-D014.wav",
-    "sourceBytes": 1401678
-  },
-  {
-    "path": "assets/audio/bceba86bf9ad3f1159b5.mp3",
-    "name": "A04-D020.wav",
-    "bytes": 216963,
-    "source": "audio/voice/配音录制/邓青山/A04-D020.wav",
-    "sourceBytes": 1296078
-  },
-  {
-    "path": "assets/audio/d63512a41f2d743e2c92.mp3",
-    "name": "A04-D021.wav",
-    "bytes": 218635,
-    "source": "audio/voice/配音录制/邓青山/A04-D021.wav",
-    "sourceBytes": 1305678
-  },
-  {
-    "path": "assets/audio/dbef5cffccaa9a0b4feb.mp3",
-    "name": "A05-D004.wav",
-    "bytes": 266701,
-    "source": "audio/voice/配音录制/邓青山/A05-D004.wav",
-    "sourceBytes": 1593678
-  },
-  {
-    "path": "assets/audio/f9aeff3c25b581176795.mp3",
-    "name": "A05-D008.wav",
-    "bytes": 216963,
-    "source": "audio/voice/配音录制/邓青山/A05-D008.wav",
-    "sourceBytes": 1296078
-  },
-  {
-    "path": "assets/audio/751018cce2877fcd9983.mp3",
-    "name": "A05-D009c.wav",
-    "bytes": 177257,
-    "source": "audio/voice/配音录制/邓青山/A05-D009c.wav",
-    "sourceBytes": 1056078
-  },
-  {
-    "path": "assets/audio/38663d1de883db6fed02.mp3",
-    "name": "A05-D013.wav",
-    "bytes": 272970,
-    "source": "audio/voice/配音录制/邓青山/A05-D013.wav",
-    "sourceBytes": 1632078
-  },
-  {
-    "path": "assets/audio/154d2a84a2884db9bd67.mp3",
-    "name": "A05-D017.wav",
-    "bytes": 193140,
-    "source": "audio/voice/配音录制/邓青山/A05-D017.wav",
-    "sourceBytes": 1152078
-  },
-  {
-    "path": "assets/audio/e22f5647fbb3a6c7b434.mp3",
-    "name": "A03-D002.wav",
-    "bytes": 158031,
-    "source": "audio/voice/配音录制/阿虎/A03-D002.wav",
-    "sourceBytes": 940878
-  },
-  {
-    "path": "assets/audio/94c0762377d6654f89d6.mp3",
-    "name": "A03-D004.wav",
-    "bytes": 189796,
-    "source": "audio/voice/配音录制/阿虎/A03-D004.wav",
-    "sourceBytes": 1132878
-  },
-  {
-    "path": "assets/audio/6808c428f8ccf91f04fb.mp3",
-    "name": "A03-D007.wav",
-    "bytes": 129192,
-    "source": "audio/voice/配音录制/阿虎/A03-D007.wav",
-    "sourceBytes": 768078
-  },
-  {
-    "path": "assets/audio/240a8b626f67e5339dfa.mp3",
-    "name": "A04-D003.wav",
-    "bytes": 160957,
-    "source": "audio/voice/配音录制/阿虎/A04-D003.wav",
-    "sourceBytes": 960078
-  },
-  {
-    "path": "assets/audio/4f9286507f5d30cc252e.mp3",
-    "name": "A04-D005.wav",
-    "bytes": 125848,
-    "source": "audio/voice/配音录制/阿虎/A04-D005.wav",
-    "sourceBytes": 748878
-  },
-  {
-    "path": "assets/audio/723abbe2c0f16bbd30f4.mp3",
-    "name": "145395__castleofsamples__flowing-river-in-the-woods.wav",
-    "bytes": 1009249,
-    "source": "audio/sfx/145395__castleofsamples__flowing-river-in-the-woods.wav",
-    "sourceBytes": 11110824
-  },
-  {
     "path": "assets/audio/ccfb697d853750d9e2ec.mp3",
     "name": "329605__inspectorj__footsteps-light-mud-a.wav",
     "bytes": 502472,
@@ -621,6 +138,27 @@
     "bytes": 116741,
     "source": "audio/sfx/348024__mikala_oidua__rain-on-canvas-01.wav",
     "sourceBytes": 2771028
+  },
+  {
+    "path": "assets/audio/0788340d1f773cdea813.mp3",
+    "name": "363092__thewoodlandnomad__fire-crackle-and-flames-002.wav",
+    "bytes": 337925,
+    "source": "audio/sfx/363092__thewoodlandnomad__fire-crackle-and-flames-002.wav",
+    "sourceBytes": 3742976
+  },
+  {
+    "path": "assets/audio/1b1c1b36b86a1db898f3.mp3",
+    "name": "378052__bajko__sfx_rain_heavy_thunder-01.wav",
+    "bytes": 1206691,
+    "source": "audio/sfx/378052__bajko__sfx_rain_heavy_thunder-01.wav",
+    "sourceBytes": 21699230
+  },
+  {
+    "path": "assets/audio/9043852c54579ad868b4.mp3",
+    "name": "482122__qubodup__clean-machine-gun-burst.wav",
+    "bytes": 26824,
+    "source": "audio/sfx/482122__qubodup__clean-machine-gun-burst.wav",
+    "sourceBytes": 315584
   },
   {
     "path": "assets/audio/da0f299b2f60c14d08d1.mp3",
@@ -637,6 +175,13 @@
     "sourceBytes": 751607
   },
   {
+    "path": "assets/audio/fa0d89ae48b392aa0f97.mp3",
+    "name": "565794__stomachache__distant-cannon-fire-simulated.wav",
+    "bytes": 62736,
+    "source": "audio/sfx/565794__stomachache__distant-cannon-fire-simulated.wav",
+    "sourceBytes": 339092
+  },
+  {
     "path": "assets/audio/e332dbd56309044527f2.mp3",
     "name": "699644__nox_sound__foley_wood_medium_friction_short_sequence_stereo.wav",
     "bytes": 222964,
@@ -651,6 +196,13 @@
     "sourceBytes": 17846552
   },
   {
+    "path": "assets/audio/c48535a3bd83fc3ed14e.mp3",
+    "name": "763506__imagefilmberlin__calm-mumbling-crowd-with-horse-drawn-carriage-hooves-and-bells.wav",
+    "bytes": 1005427,
+    "source": "audio/sfx/763506__imagefilmberlin__calm-mumbling-crowd-with-horse-drawn-carriage-hooves-and-bells.wav",
+    "sourceBytes": 18072970
+  },
+  {
     "path": "assets/audio/4e18ee262e3aa2688f15.mp3",
     "name": "78508__joedeshon__referee_whistle_01.wav",
     "bytes": 20523,
@@ -658,52 +210,1429 @@
     "sourceBytes": 216412
   },
   {
-    "path": "assets/audio/cabb988cb31c76f03a8c.mp3",
-    "name": "阿鲲 - 存亡时刻.mp3",
-    "bytes": 6854074,
-    "source": "audio/music/阿鲲 - 存亡时刻.mp3",
-    "sourceBytes": 6854074
+    "path": "assets/audio/7f5ccead40cbcbf25bbb.mp3",
+    "name": "814453__j0b1z__walking-on-wood-floor.wav",
+    "bytes": 81127,
+    "source": "audio/sfx/814453__j0b1z__walking-on-wood-floor.wav",
+    "sourceBytes": 962638
   },
   {
-    "path": "assets/audio/c157bb3a3a4f95be8874.mp3",
-    "name": "阿鲲 - 觉醒年代主题.mp3",
-    "bytes": 9368386,
-    "source": "audio/music/阿鲲 - 觉醒年代主题.mp3",
-    "sourceBytes": 9368386
+    "path": "assets/audio/9abcfacb0bb2bce5de9f.mp3",
+    "name": "A04-D008.wav",
+    "bytes": 457290,
+    "source": "audio/voice/配音录制/伤员/A04-D008.wav",
+    "sourceBytes": 2736078,
+    "voiceNormalization": {
+      "sourceHash": "120e1e121422d9c71480",
+      "targetLUFS": -20.5,
+      "inputLUFS": -42.96,
+      "outputLUFS": -20.55,
+      "truePeak": -1.31
+    },
+    "previousPaths": [
+      "assets/audio/de236b63124f447b0d91.mp3",
+      "assets/audio/120e1e121422d9c71480.mp3"
+    ]
   },
   {
-    "path": "assets/audio/c73fb312abcdb7aca9a4.mp3",
-    "name": "阿鲲 - 黑暗.mp3",
-    "bytes": 7470342,
-    "source": "audio/music/阿鲲 - 黑暗.mp3",
-    "sourceBytes": 7470342
+    "path": "assets/audio/3cea3b6e36f7cc547a2f.mp3",
+    "name": "A01-D008.wav",
+    "bytes": 226576,
+    "source": "audio/voice/配音录制/小满/A01-D008.wav",
+    "sourceBytes": 1353678,
+    "voiceNormalization": {
+      "sourceHash": "c28afbd5e91ddcfbbb50",
+      "targetLUFS": -20.5,
+      "inputLUFS": -23.46,
+      "outputLUFS": -20.52,
+      "truePeak": -1.42
+    },
+    "previousPaths": [
+      "assets/audio/96cc3f03958ab72e6df0.mp3",
+      "assets/audio/c28afbd5e91ddcfbbb50.mp3"
+    ]
   },
   {
-    "path": "assets/audio/0788340d1f773cdea813.mp3",
-    "name": "363092__thewoodlandnomad__fire-crackle-and-flames-002.wav",
-    "bytes": 337925,
-    "source": "audio/sfx/363092__thewoodlandnomad__fire-crackle-and-flames-002.wav",
-    "sourceBytes": 3742976
+    "path": "assets/audio/772309947f33eb09e8c0.mp3",
+    "name": "A01-D019.wav",
+    "bytes": 160957,
+    "source": "audio/voice/配音录制/小满/A01-D019.wav",
+    "sourceBytes": 960078,
+    "voiceNormalization": {
+      "sourceHash": "82db828080015d8d0b4c",
+      "targetLUFS": -20.5,
+      "inputLUFS": -21.84,
+      "outputLUFS": -20.5,
+      "truePeak": -3.2
+    },
+    "previousPaths": [
+      "assets/audio/f3b813e651a2912e7aa3.mp3",
+      "assets/audio/82db828080015d8d0b4c.mp3"
+    ]
   },
   {
-    "path": "assets/audio/9f34971a46dfa7253b9d.mp3",
-    "name": "阿鲲 - 奉献.mp3",
-    "bytes": 6898504,
-    "source": "audio/music/阿鲲 - 奉献.mp3",
-    "sourceBytes": 6898504
+    "path": "assets/audio/c746c4e308211f266c0d.mp3",
+    "name": "A01-D022.wav",
+    "bytes": 401283,
+    "source": "audio/voice/配音录制/小满/A01-D022.wav",
+    "sourceBytes": 2400078,
+    "voiceNormalization": {
+      "sourceHash": "76622808e916f2df919a",
+      "targetLUFS": -20.5,
+      "inputLUFS": -23.69,
+      "outputLUFS": -20.5,
+      "truePeak": -1.41
+    },
+    "previousPaths": [
+      "assets/audio/12de88c7f496364a3801.mp3",
+      "assets/audio/76622808e916f2df919a.mp3"
+    ]
   },
   {
-    "path": "assets/audio/38465b08d6f6683b4b51.mp3",
-    "name": "阿鲲 - 年少.mp3",
-    "bytes": 12149466,
-    "source": "audio/music/阿鲲 - 年少.mp3",
-    "sourceBytes": 12149466
+    "path": "assets/audio/ceb5572524b93b571268.mp3",
+    "name": "A01-D026.wav",
+    "bytes": 245803,
+    "source": "audio/voice/配音录制/小满/A01-D026.wav",
+    "sourceBytes": 1468878,
+    "voiceNormalization": {
+      "sourceHash": "50ab4d53f594e0976b48",
+      "targetLUFS": -20.5,
+      "inputLUFS": -24.3,
+      "outputLUFS": -20.5,
+      "truePeak": -3.77
+    },
+    "previousPaths": [
+      "assets/audio/6768c9b3d769a9f13575.mp3",
+      "assets/audio/50ab4d53f594e0976b48.mp3"
+    ]
   },
   {
-    "path": "assets/audio/f8875bef6b209f529a0a.mp3",
-    "name": "阿鲲 - 运筹.mp3",
-    "bytes": 6290502,
-    "source": "audio/music/阿鲲 - 运筹.mp3",
-    "sourceBytes": 6290502
+    "path": "assets/audio/00c9c9a6cb44c1afddb8.mp3",
+    "name": "A02-D003.wav",
+    "bytes": 257087,
+    "source": "audio/voice/配音录制/小满/A02-D003.wav",
+    "sourceBytes": 1536078,
+    "voiceNormalization": {
+      "sourceHash": "274e40409e7189841e79",
+      "targetLUFS": -20.5,
+      "inputLUFS": -24.05,
+      "outputLUFS": -20.5,
+      "truePeak": -2.72
+    },
+    "previousPaths": [
+      "assets/audio/0740eab1f8e4bf314c80.mp3",
+      "assets/audio/274e40409e7189841e79.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/4a5e472f93eb7a0fadfd.mp3",
+    "name": "A02-D007.wav",
+    "bytes": 234518,
+    "source": "audio/voice/配音录制/小满/A02-D007.wav",
+    "sourceBytes": 1401678,
+    "voiceNormalization": {
+      "sourceHash": "d382624efb068cc33407",
+      "targetLUFS": -20.5,
+      "inputLUFS": -24.28,
+      "outputLUFS": -20.51,
+      "truePeak": -4.27
+    },
+    "previousPaths": [
+      "assets/audio/fef1087aa8753d558503.mp3",
+      "assets/audio/d382624efb068cc33407.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/2febfc61d97cd37b3f66.mp3",
+    "name": "A02-D011d.wav",
+    "bytes": 123758,
+    "source": "audio/voice/配音录制/小满/A02-D011d.wav",
+    "sourceBytes": 737358,
+    "voiceNormalization": {
+      "sourceHash": "282b7311bbd13964c52f",
+      "targetLUFS": -20.5,
+      "inputLUFS": -24.18,
+      "outputLUFS": -20.48,
+      "truePeak": -2.57
+    },
+    "previousPaths": [
+      "assets/audio/5174a920442de0a65745.mp3",
+      "assets/audio/282b7311bbd13964c52f.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/88b69c1f9f85f446f179.mp3",
+    "name": "A02-D015.wav",
+    "bytes": 185198,
+    "source": "audio/voice/配音录制/小满/A02-D015.wav",
+    "sourceBytes": 1104078,
+    "voiceNormalization": {
+      "sourceHash": "4e2978a8c51f9b636ec3",
+      "targetLUFS": -20.5,
+      "inputLUFS": -20.85,
+      "outputLUFS": -20.49,
+      "truePeak": -2.8
+    },
+    "previousPaths": [
+      "assets/audio/ef0ce7b0d950623c4f14.mp3",
+      "assets/audio/4e2978a8c51f9b636ec3.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/b476068d7fd1e6d3c932.mp3",
+    "name": "A02-D018.wav",
+    "bytes": 241205,
+    "source": "audio/voice/配音录制/小满/A02-D018.wav",
+    "sourceBytes": 1440078,
+    "voiceNormalization": {
+      "sourceHash": "76b46cae85b23e6c01f3",
+      "targetLUFS": -20.5,
+      "inputLUFS": -22.56,
+      "outputLUFS": -20.5,
+      "truePeak": -1.45
+    },
+    "previousPaths": [
+      "assets/audio/e2946c6f2f06cb087cce.mp3",
+      "assets/audio/76b46cae85b23e6c01f3.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/668bcb95740cb1c709e1.mp3",
+    "name": "A02-D021.wav",
+    "bytes": 260013,
+    "source": "audio/voice/配音录制/小满/A02-D021.wav",
+    "sourceBytes": 1553358,
+    "voiceNormalization": {
+      "sourceHash": "2d82c8ab141897793b75",
+      "targetLUFS": -20.5,
+      "inputLUFS": -26.07,
+      "outputLUFS": -20.49,
+      "truePeak": -4.34
+    },
+    "previousPaths": [
+      "assets/audio/dd26efa2f95e7a071f97.mp3",
+      "assets/audio/2d82c8ab141897793b75.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/d54853205be1e0797c8b.mp3",
+    "name": "A03-D010.wav",
+    "bytes": 177257,
+    "source": "audio/voice/配音录制/小满/A03-D010.wav",
+    "sourceBytes": 1056078,
+    "voiceNormalization": {
+      "sourceHash": "e94e352bbe8a282d8be7",
+      "targetLUFS": -20.5,
+      "inputLUFS": -18.17,
+      "outputLUFS": -20.5,
+      "truePeak": -2.93
+    },
+    "previousPaths": [
+      "assets/audio/31facaf8e6b82e7a73e4.mp3",
+      "assets/audio/e94e352bbe8a282d8be7.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/8cc3a7df06705fa716cb.mp3",
+    "name": "A03-D016.wav",
+    "bytes": 153016,
+    "source": "audio/voice/配音录制/小满/A03-D016.wav",
+    "sourceBytes": 912078,
+    "voiceNormalization": {
+      "sourceHash": "68af83389631897de758",
+      "targetLUFS": -20.5,
+      "inputLUFS": -21.92,
+      "outputLUFS": -20.5,
+      "truePeak": -1.43
+    },
+    "previousPaths": [
+      "assets/audio/1ee793dd6fe0b852e612.mp3",
+      "assets/audio/68af83389631897de758.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/808b2a67bc1bbd749ab8.mp3",
+    "name": "A03-D018.wav",
+    "bytes": 189796,
+    "source": "audio/voice/配音录制/小满/A03-D018.wav",
+    "sourceBytes": 1132878,
+    "voiceNormalization": {
+      "sourceHash": "281514144c7a6439ca2c",
+      "targetLUFS": -20.5,
+      "inputLUFS": -22.9,
+      "outputLUFS": -20.5,
+      "truePeak": -3.43
+    },
+    "previousPaths": [
+      "assets/audio/7b9b4f445b513eb85abf.mp3",
+      "assets/audio/281514144c7a6439ca2c.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/d7824137230a70867929.mp3",
+    "name": "A04-D011.wav",
+    "bytes": 265029,
+    "source": "audio/voice/配音录制/小满/A04-D011.wav",
+    "sourceBytes": 1584078,
+    "voiceNormalization": {
+      "sourceHash": "0f26239ac63fe7b979ba",
+      "targetLUFS": -20.5,
+      "inputLUFS": -22.49,
+      "outputLUFS": -20.51,
+      "truePeak": -1.66
+    },
+    "previousPaths": [
+      "assets/audio/0078e170e36d3ab88993.mp3",
+      "assets/audio/0f26239ac63fe7b979ba.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/cb5e3bb3ac07879785e1.mp3",
+    "name": "A04-D013.wav",
+    "bytes": 233264,
+    "source": "audio/voice/配音录制/小满/A04-D013.wav",
+    "sourceBytes": 1392078,
+    "voiceNormalization": {
+      "sourceHash": "5a370f6850ca9057f46b",
+      "targetLUFS": -20.5,
+      "inputLUFS": -25.86,
+      "outputLUFS": -20.52,
+      "truePeak": -2.3
+    },
+    "previousPaths": [
+      "assets/audio/eba60d64e31206649465.mp3",
+      "assets/audio/5a370f6850ca9057f46b.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/5ae21da50d4bfea519af.mp3",
+    "name": "A04-D016.wav",
+    "bytes": 201081,
+    "source": "audio/voice/配音录制/小满/A04-D016.wav",
+    "sourceBytes": 1200078,
+    "voiceNormalization": {
+      "sourceHash": "afca53dddf9449196ae0",
+      "targetLUFS": -20.5,
+      "inputLUFS": -25.4,
+      "outputLUFS": -20.5,
+      "truePeak": -1.5
+    },
+    "previousPaths": [
+      "assets/audio/0af44be868a4299fffa4.mp3",
+      "assets/audio/afca53dddf9449196ae0.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/6f1657c5b5b2a62d8d8f.mp3",
+    "name": "A05-D003.wav",
+    "bytes": 252072,
+    "source": "audio/voice/配音录制/小满/A05-D003.wav",
+    "sourceBytes": 1505358,
+    "voiceNormalization": {
+      "sourceHash": "345f5d4bb5c9773b63dd",
+      "targetLUFS": -20.5,
+      "inputLUFS": -26.77,
+      "outputLUFS": -20.5,
+      "truePeak": -3.54
+    },
+    "previousPaths": [
+      "assets/audio/32f2688ae1f259a1cb36.mp3",
+      "assets/audio/345f5d4bb5c9773b63dd.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/5f57fbd5e939d5561851.mp3",
+    "name": "A05-D007.wav",
+    "bytes": 297212,
+    "source": "audio/voice/配音录制/小满/A05-D007.wav",
+    "sourceBytes": 1776078,
+    "voiceNormalization": {
+      "sourceHash": "488d7ace8a4bca788dcd",
+      "targetLUFS": -20.5,
+      "inputLUFS": -26.09,
+      "outputLUFS": -20.53,
+      "truePeak": -1.37
+    },
+    "previousPaths": [
+      "assets/audio/cebba3ab6c154336a203.mp3",
+      "assets/audio/488d7ace8a4bca788dcd.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/9ce5f4eef11930ffb3e4.mp3",
+    "name": "A05-D009b.wav",
+    "bytes": 224905,
+    "source": "audio/voice/配音录制/小满/A05-D009b.wav",
+    "sourceBytes": 1344078,
+    "voiceNormalization": {
+      "sourceHash": "3a06626b70f853b9c247",
+      "targetLUFS": -20.5,
+      "inputLUFS": -23.51,
+      "outputLUFS": -20.5,
+      "truePeak": -2.32
+    },
+    "previousPaths": [
+      "assets/audio/ddb6552a5c8bc8aa4c8b.mp3",
+      "assets/audio/3a06626b70f853b9c247.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/1643b0b7d9e886181f34.mp3",
+    "name": "A05-D012.wav",
+    "bytes": 271298,
+    "source": "audio/voice/配音录制/小满/A05-D012.wav",
+    "sourceBytes": 1620558,
+    "voiceNormalization": {
+      "sourceHash": "c9e369add109909c2056",
+      "targetLUFS": -20.5,
+      "inputLUFS": -23.93,
+      "outputLUFS": -20.51,
+      "truePeak": -3.39
+    },
+    "previousPaths": [
+      "assets/audio/c3f00c7f810626ca1ba8.mp3",
+      "assets/audio/c9e369add109909c2056.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/44ca83f3a65f1af9efb9.mp3",
+    "name": "A05-D016.wav",
+    "bytes": 193140,
+    "source": "audio/voice/配音录制/小满/A05-D016.wav",
+    "sourceBytes": 1152078,
+    "voiceNormalization": {
+      "sourceHash": "5e4882c3bdcd6678a16b",
+      "targetLUFS": -20.5,
+      "inputLUFS": -23.66,
+      "outputLUFS": -20.53,
+      "truePeak": -3.43
+    },
+    "previousPaths": [
+      "assets/audio/968252f52823cd3a9a5d.mp3",
+      "assets/audio/5e4882c3bdcd6678a16b.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/284a79e193f567d4eb6f.mp3",
+    "name": "A02-D006.wav",
+    "bytes": 216963,
+    "source": "audio/voice/配音录制/指导员/A02-D006.wav",
+    "sourceBytes": 1296078,
+    "voiceNormalization": {
+      "sourceHash": "8930f07dd404690c7af4",
+      "targetLUFS": -20.5,
+      "inputLUFS": -20,
+      "outputLUFS": -20.51,
+      "truePeak": -1.74
+    },
+    "previousPaths": [
+      "assets/audio/64371acad40c7cf61b21.mp3",
+      "assets/audio/8930f07dd404690c7af4.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/0fddafccfdfc9fd7f420.mp3",
+    "name": "A02-D008.wav",
+    "bytes": 219889,
+    "source": "audio/voice/配音录制/指导员/A02-D008.wav",
+    "sourceBytes": 1313358,
+    "voiceNormalization": {
+      "sourceHash": "03255bbbb207468d9b14",
+      "targetLUFS": -20.5,
+      "inputLUFS": -20.69,
+      "outputLUFS": -20.62,
+      "truePeak": -1.41
+    },
+    "previousPaths": [
+      "assets/audio/f69b1abf677f1b3fb4c1.mp3",
+      "assets/audio/03255bbbb207468d9b14.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/7b5719fe47916b8e7d8b.mp3",
+    "name": "A02-D016.wav",
+    "bytes": 224905,
+    "source": "audio/voice/配音录制/指导员/A02-D016.wav",
+    "sourceBytes": 1344078,
+    "voiceNormalization": {
+      "sourceHash": "c66ee7322405aac46802",
+      "targetLUFS": -20.5,
+      "inputLUFS": -22.32,
+      "outputLUFS": -20.57,
+      "truePeak": -1.4
+    },
+    "previousPaths": [
+      "assets/audio/1c47b216d672c1db51ae.mp3",
+      "assets/audio/c66ee7322405aac46802.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/beca48e60bb016ddf5bd.mp3",
+    "name": "A03-D020.wav",
+    "bytes": 237861,
+    "source": "audio/voice/配音录制/指导员/A03-D020.wav",
+    "sourceBytes": 1420878,
+    "voiceNormalization": {
+      "sourceHash": "202b1694c3242fc398ff",
+      "targetLUFS": -20.5,
+      "inputLUFS": -20.85,
+      "outputLUFS": -20.54,
+      "truePeak": -1.43
+    },
+    "previousPaths": [
+      "assets/audio/c349cb494e7d37533744.mp3",
+      "assets/audio/202b1694c3242fc398ff.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/ac2692faa82b72f89fa0.mp3",
+    "name": "A03-D022.wav",
+    "bytes": 261685,
+    "source": "audio/voice/配音录制/指导员/A03-D022.wav",
+    "sourceBytes": 1564878,
+    "voiceNormalization": {
+      "sourceHash": "aa4cf149b0a28f13eb9f",
+      "targetLUFS": -20.5,
+      "inputLUFS": -22.13,
+      "outputLUFS": -20.5,
+      "truePeak": -1.59
+    },
+    "previousPaths": [
+      "assets/audio/9cd6536cb728c3e05006.mp3",
+      "assets/audio/aa4cf149b0a28f13eb9f.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/1c7e1669edd80e6588cd.mp3",
+    "name": "A04-D019.wav",
+    "bytes": 202753,
+    "source": "audio/voice/配音录制/指导员/A04-D019.wav",
+    "sourceBytes": 1209678,
+    "voiceNormalization": {
+      "sourceHash": "3b7f647522a6c53d3bbf",
+      "targetLUFS": -20.5,
+      "inputLUFS": -22.19,
+      "outputLUFS": -20.53,
+      "truePeak": -1.41
+    },
+    "previousPaths": [
+      "assets/audio/f2b3cd6d45c283fc5d9e.mp3",
+      "assets/audio/3b7f647522a6c53d3bbf.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/89f05a9507455a28aa6e.mp3",
+    "name": "A01-D007.wav",
+    "bytes": 235772,
+    "source": "audio/voice/配音录制/老雷/A01-D007.wav",
+    "sourceBytes": 1409358,
+    "previousPaths": [
+      "assets/audio/2f77419929295dd6cde7.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/aaa884ec31ba662a195f.mp3",
+    "name": "A01-D010.wav",
+    "bytes": 266701,
+    "source": "audio/voice/配音录制/老雷/A01-D010.wav",
+    "sourceBytes": 1593678,
+    "voiceNormalization": {
+      "sourceHash": "aad1d6e2af0edc2675a7",
+      "targetLUFS": -20.5,
+      "inputLUFS": -19.42,
+      "outputLUFS": -20.5,
+      "truePeak": -2.06
+    },
+    "previousPaths": [
+      "assets/audio/afcdcb0c1f54af78dce8.mp3",
+      "assets/audio/aad1d6e2af0edc2675a7.mp3",
+      "assets/audio/ceef985a1a16771d19fd.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/387ddc5a7f7365918fe5.mp3",
+    "name": "A01-D012.wav",
+    "bytes": 193140,
+    "source": "audio/voice/配音录制/老雷/A01-D012.wav",
+    "sourceBytes": 1152078,
+    "voiceNormalization": {
+      "sourceHash": "6a1039f8eedcdf2f160e",
+      "targetLUFS": -20.5,
+      "inputLUFS": -20.51,
+      "outputLUFS": -20.56,
+      "truePeak": -1.4
+    },
+    "previousPaths": [
+      "assets/audio/259752c947071891fb48.mp3",
+      "assets/audio/6a1039f8eedcdf2f160e.mp3",
+      "assets/audio/6d73882fe784fed261ba.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/9748cdec9c9c0c4b932b.mp3",
+    "name": "A01-D015.wav",
+    "bytes": 160957,
+    "source": "audio/voice/配音录制/老雷/A01-D015.wav",
+    "sourceBytes": 960078,
+    "voiceNormalization": {
+      "sourceHash": "8b0c9837feabb904c21d",
+      "targetLUFS": -20.5,
+      "inputLUFS": -19.7,
+      "outputLUFS": -20.5,
+      "truePeak": -4.75
+    },
+    "previousPaths": [
+      "assets/audio/38c7ebb137061ad3b77e.mp3",
+      "assets/audio/8b0c9837feabb904c21d.mp3",
+      "assets/audio/63c9d472432715feec1e.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/fff04632673ae545de20.mp3",
+    "name": "A01-D028.wav",
+    "bytes": 287181,
+    "source": "audio/voice/配音录制/老雷/A01-D028.wav",
+    "sourceBytes": 1716558,
+    "voiceNormalization": {
+      "sourceHash": "87ecd4671f914638c376",
+      "targetLUFS": -20.5,
+      "inputLUFS": -19.61,
+      "outputLUFS": -20.5,
+      "truePeak": -1.85
+    },
+    "previousPaths": [
+      "assets/audio/7a64b77aaec0acddfa25.mp3",
+      "assets/audio/87ecd4671f914638c376.mp3",
+      "assets/audio/b2ab7f1790b4a9441c68.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/123227666643218c2656.mp3",
+    "name": "A02-D002.wav",
+    "bytes": 207350,
+    "source": "audio/voice/配音录制/老雷/A02-D002.wav",
+    "sourceBytes": 1236558,
+    "voiceNormalization": {
+      "sourceHash": "734050d587ef166a6f72",
+      "targetLUFS": -20.5,
+      "inputLUFS": -19.83,
+      "outputLUFS": -20.5,
+      "truePeak": -1.48
+    },
+    "previousPaths": [
+      "assets/audio/dfca9d6c412cf4957280.mp3",
+      "assets/audio/734050d587ef166a6f72.mp3",
+      "assets/audio/34502089e61bbb9dda80.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/3b9d27b7118afff0c264.mp3",
+    "name": "A02-D011e.wav",
+    "bytes": 215292,
+    "source": "audio/voice/配音录制/老雷/A02-D011e.wav",
+    "sourceBytes": 1284558,
+    "voiceNormalization": {
+      "sourceHash": "7663db025c571311794a",
+      "targetLUFS": -20.5,
+      "inputLUFS": -20.62,
+      "outputLUFS": -20.57,
+      "truePeak": -1.35
+    },
+    "previousPaths": [
+      "assets/audio/3d21b3b6682ec30a740a.mp3",
+      "assets/audio/7663db025c571311794a.mp3",
+      "assets/audio/6ea476f68713f764be80.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/2bfd3433ac8f8f7ad8dc.mp3",
+    "name": "A02-D013.wav",
+    "bytes": 193140,
+    "source": "audio/voice/配音录制/老雷/A02-D013.wav",
+    "sourceBytes": 1152078,
+    "voiceNormalization": {
+      "sourceHash": "7b9aa5db48889e9e805d",
+      "targetLUFS": -20.5,
+      "inputLUFS": -17.77,
+      "outputLUFS": -20.51,
+      "truePeak": -3.7
+    },
+    "previousPaths": [
+      "assets/audio/bb0711332fc956627df1.mp3",
+      "assets/audio/7b9aa5db48889e9e805d.mp3",
+      "assets/audio/64d6f6a286e86c2967ec.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/429fa86910f27d982899.mp3",
+    "name": "A02-D023.wav",
+    "bytes": 165972,
+    "source": "audio/voice/配音录制/老雷/A02-D023.wav",
+    "sourceBytes": 988878,
+    "voiceNormalization": {
+      "sourceHash": "4f5d1c7d76810622ec7f",
+      "targetLUFS": -20.5,
+      "inputLUFS": -18.41,
+      "outputLUFS": -20.5,
+      "truePeak": -3.1
+    },
+    "previousPaths": [
+      "assets/audio/847b07e34b09f4485b1c.mp3",
+      "assets/audio/4f5d1c7d76810622ec7f.mp3",
+      "assets/audio/2f93ab482c8006541810.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/7d29c3bbc7b14be1f7d4.mp3",
+    "name": "A03-D005.wav",
+    "bytes": 168898,
+    "source": "audio/voice/配音录制/老雷/A03-D005.wav",
+    "sourceBytes": 1008078,
+    "voiceNormalization": {
+      "sourceHash": "f8eeeb547380cf7360c5",
+      "targetLUFS": -20.5,
+      "inputLUFS": -18.06,
+      "outputLUFS": -20.51,
+      "truePeak": -3.44
+    },
+    "previousPaths": [
+      "assets/audio/4e905232b4984f46f0a9.mp3",
+      "assets/audio/f8eeeb547380cf7360c5.mp3",
+      "assets/audio/c4b2cc87c50dad0b1c02.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/5c04e7979ba1e90848b6.mp3",
+    "name": "A03-D008.wav",
+    "bytes": 193140,
+    "source": "audio/voice/配音录制/老雷/A03-D008.wav",
+    "sourceBytes": 1152078,
+    "voiceNormalization": {
+      "sourceHash": "e434068bedd4ff71b45b",
+      "targetLUFS": -20.5,
+      "inputLUFS": -18.47,
+      "outputLUFS": -20.5,
+      "truePeak": -3.02
+    },
+    "previousPaths": [
+      "assets/audio/48d567c85d32473e9be2.mp3",
+      "assets/audio/e434068bedd4ff71b45b.mp3",
+      "assets/audio/9fdd66518a1897d964c9.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/d4b499394823a58bc1e5.mp3",
+    "name": "A03-D012.wav",
+    "bytes": 141731,
+    "source": "audio/voice/配音录制/老雷/A03-D012.wav",
+    "sourceBytes": 844878,
+    "voiceNormalization": {
+      "sourceHash": "6402c4f8ff1c0751d990",
+      "targetLUFS": -20.5,
+      "inputLUFS": -19.08,
+      "outputLUFS": -20.51,
+      "truePeak": -4.03
+    },
+    "previousPaths": [
+      "assets/audio/ba418695edd1f5bb8603.mp3",
+      "assets/audio/6402c4f8ff1c0751d990.mp3",
+      "assets/audio/36164a813405724bae72.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/a5379755d3e99c757fdc.mp3",
+    "name": "A03-D013.wav",
+    "bytes": 224905,
+    "source": "audio/voice/配音录制/老雷/A03-D013.wav",
+    "sourceBytes": 1344078,
+    "voiceNormalization": {
+      "sourceHash": "2f1b23731b8291f363f3",
+      "targetLUFS": -20.5,
+      "inputLUFS": -19.07,
+      "outputLUFS": -20.5,
+      "truePeak": -2.47
+    },
+    "previousPaths": [
+      "assets/audio/2970dee5d2bfdfd3fb74.mp3",
+      "assets/audio/2f1b23731b8291f363f3.mp3",
+      "assets/audio/557e90fa2ffeedcd6374.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/f57f91b7adba7a01d4de.mp3",
+    "name": "A03-D015.wav",
+    "bytes": 241205,
+    "source": "audio/voice/配音录制/老雷/A03-D015.wav",
+    "sourceBytes": 1440078,
+    "voiceNormalization": {
+      "sourceHash": "cb67b6d5bb4f61291319",
+      "targetLUFS": -20.5,
+      "inputLUFS": -20.16,
+      "outputLUFS": -20.45,
+      "truePeak": -1.41
+    },
+    "previousPaths": [
+      "assets/audio/d9de2e2efc2a579789e7.mp3",
+      "assets/audio/cb67b6d5bb4f61291319.mp3",
+      "assets/audio/2b57cf8b2458eed1807a.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/7ea70ff4e37829b9b16d.mp3",
+    "name": "A04-D002.wav",
+    "bytes": 160957,
+    "source": "audio/voice/配音录制/老雷/A04-D002.wav",
+    "sourceBytes": 960078,
+    "voiceNormalization": {
+      "sourceHash": "ea9c8df142788f2185ed",
+      "targetLUFS": -20.5,
+      "inputLUFS": -18.96,
+      "outputLUFS": -20.51,
+      "truePeak": -2.57
+    },
+    "previousPaths": [
+      "assets/audio/e229f3c10e64861bea10.mp3",
+      "assets/audio/ea9c8df142788f2185ed.mp3",
+      "assets/audio/de0154ffe5dd8549ba62.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/851b0ec51da321cce165.mp3",
+    "name": "A04-D010.wav",
+    "bytes": 282583,
+    "source": "audio/voice/配音录制/老雷/A04-D010.wav",
+    "sourceBytes": 1689678,
+    "voiceNormalization": {
+      "sourceHash": "5141fad43391a5d31533",
+      "targetLUFS": -20.5,
+      "inputLUFS": -18.81,
+      "outputLUFS": -20.5,
+      "truePeak": -2.67
+    },
+    "previousPaths": [
+      "assets/audio/9bbf95284c399245efb7.mp3",
+      "assets/audio/5141fad43391a5d31533.mp3",
+      "assets/audio/c0947336c8ccc02c68bc.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/53f395070585a3b5cfab.mp3",
+    "name": "A04-D012.wav",
+    "bytes": 218635,
+    "source": "audio/voice/配音录制/老雷/A04-D012.wav",
+    "sourceBytes": 1305678,
+    "voiceNormalization": {
+      "sourceHash": "8e6a3ac07befe97a0e5f",
+      "targetLUFS": -20.5,
+      "inputLUFS": -20.25,
+      "outputLUFS": -20.52,
+      "truePeak": -1.34
+    },
+    "previousPaths": [
+      "assets/audio/fa35a919dc66845f8141.mp3",
+      "assets/audio/8e6a3ac07befe97a0e5f.mp3",
+      "assets/audio/43fb5efcf4740c356d6e.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/7eb97193ecaf8f95963d.mp3",
+    "name": "A04-D017.wav",
+    "bytes": 216963,
+    "source": "audio/voice/配音录制/老雷/A04-D017.wav",
+    "sourceBytes": 1296078,
+    "voiceNormalization": {
+      "sourceHash": "be5a966a5d497b27db41",
+      "targetLUFS": -20.5,
+      "inputLUFS": -18.27,
+      "outputLUFS": -20.5,
+      "truePeak": -3.18
+    },
+    "previousPaths": [
+      "assets/audio/b0e2ea39c2d8474bbaaf.mp3",
+      "assets/audio/be5a966a5d497b27db41.mp3",
+      "assets/audio/6ef24fc70f3ff6dfea3c.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/daa631329be0a67aeff1.mp3",
+    "name": "A04-D022.wav",
+    "bytes": 266701,
+    "source": "audio/voice/配音录制/老雷/A04-D022.wav",
+    "sourceBytes": 1593678,
+    "voiceNormalization": {
+      "sourceHash": "abd5eee046cd8cb97e90",
+      "targetLUFS": -20.5,
+      "inputLUFS": -20.67,
+      "outputLUFS": -20.54,
+      "truePeak": -1.39
+    },
+    "previousPaths": [
+      "assets/audio/dc1f239682da373cf1a0.mp3",
+      "assets/audio/abd5eee046cd8cb97e90.mp3",
+      "assets/audio/20824932d0867ef78059.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/d362b3bdf86f3a067c77.mp3",
+    "name": "A05-D002.wav",
+    "bytes": 197737,
+    "source": "audio/voice/配音录制/老雷/A05-D002.wav",
+    "sourceBytes": 1180878,
+    "voiceNormalization": {
+      "sourceHash": "df19ac79c8dd372355d8",
+      "targetLUFS": -20.5,
+      "inputLUFS": -18.43,
+      "outputLUFS": -20.49,
+      "truePeak": -2.84
+    },
+    "previousPaths": [
+      "assets/audio/25322b1a2d016a5cfbf6.mp3",
+      "assets/audio/df19ac79c8dd372355d8.mp3",
+      "assets/audio/7291bcfce9094e726c05.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/362fe5752f2a6aebefc8.mp3",
+    "name": "A05-D009d.wav",
+    "bytes": 197737,
+    "source": "audio/voice/配音录制/老雷/A05-D009d.wav",
+    "sourceBytes": 1180878,
+    "voiceNormalization": {
+      "sourceHash": "6bc82beba619daed7950",
+      "targetLUFS": -20.5,
+      "inputLUFS": -18.89,
+      "outputLUFS": -20.48,
+      "truePeak": -2.55
+    },
+    "previousPaths": [
+      "assets/audio/2fc4ec03262019c795d3.mp3",
+      "assets/audio/6bc82beba619daed7950.mp3",
+      "assets/audio/c1337da3f2d33f23d1ce.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/1fdb8bb85c839402f498.mp3",
+    "name": "A05-D014.wav",
+    "bytes": 185198,
+    "source": "audio/voice/配音录制/老雷/A05-D014.wav",
+    "sourceBytes": 1104078,
+    "voiceNormalization": {
+      "sourceHash": "64e0f56f67ea9871bc8a",
+      "targetLUFS": -20.5,
+      "inputLUFS": -17.91,
+      "outputLUFS": -20.5,
+      "truePeak": -3.55
+    },
+    "previousPaths": [
+      "assets/audio/0553c04af8797b4929b0.mp3",
+      "assets/audio/64e0f56f67ea9871bc8a.mp3",
+      "assets/audio/b33da6a5a7d78aa71370.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/9b473b8512acaa1139ec.mp3",
+    "name": "A01-D011.wav",
+    "bytes": 201081,
+    "source": "audio/voice/配音录制/邓青山/A01-D011.wav",
+    "sourceBytes": 1200078,
+    "voiceNormalization": {
+      "sourceHash": "438336be2962bd2f3e99",
+      "targetLUFS": -20.5,
+      "inputLUFS": -24.75,
+      "outputLUFS": -20.55,
+      "truePeak": -1.43
+    },
+    "previousPaths": [
+      "assets/audio/4d97d7f87bf094dec70f.mp3",
+      "assets/audio/438336be2962bd2f3e99.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/b27523b3b9e0bfb90ff3.mp3",
+    "name": "A01-D018.wav",
+    "bytes": 171824,
+    "source": "audio/voice/配音录制/邓青山/A01-D018.wav",
+    "sourceBytes": 1025358,
+    "voiceNormalization": {
+      "sourceHash": "3ea4208464d8ed57ad73",
+      "targetLUFS": -20.5,
+      "inputLUFS": -17.73,
+      "outputLUFS": -20.59,
+      "truePeak": -3.19
+    },
+    "previousPaths": [
+      "assets/audio/b30f9c74694e59858bfe.mp3",
+      "assets/audio/3ea4208464d8ed57ad73.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/07025e2f0bcdf92283ac.mp3",
+    "name": "A01-D020.wav",
+    "bytes": 168898,
+    "source": "audio/voice/配音录制/邓青山/A01-D020.wav",
+    "sourceBytes": 1008078,
+    "voiceNormalization": {
+      "sourceHash": "4ab056484af442202896",
+      "targetLUFS": -20.5,
+      "inputLUFS": -21.3,
+      "outputLUFS": -20.57,
+      "truePeak": -1.4
+    },
+    "previousPaths": [
+      "assets/audio/08c9aa3bbc04e7f049c8.mp3",
+      "assets/audio/4ab056484af442202896.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/2697218d86830241c5be.mp3",
+    "name": "A01-D023.wav",
+    "bytes": 185198,
+    "source": "audio/voice/配音录制/邓青山/A01-D023.wav",
+    "sourceBytes": 1104078,
+    "voiceNormalization": {
+      "sourceHash": "81bf23482502a28d6cdd",
+      "targetLUFS": -20.5,
+      "inputLUFS": -20.92,
+      "outputLUFS": -20.54,
+      "truePeak": -1.44
+    },
+    "previousPaths": [
+      "assets/audio/57d10c47d17add02fc59.mp3",
+      "assets/audio/81bf23482502a28d6cdd.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/d53de1aa76ac466516a2.mp3",
+    "name": "A01-D027.wav",
+    "bytes": 250818,
+    "source": "audio/voice/配音录制/邓青山/A01-D027.wav",
+    "sourceBytes": 1497678,
+    "voiceNormalization": {
+      "sourceHash": "8f9095efa1c28e3e6550",
+      "targetLUFS": -20.5,
+      "inputLUFS": -26.9,
+      "outputLUFS": -20.52,
+      "truePeak": -1.44
+    },
+    "previousPaths": [
+      "assets/audio/ed0779b0cab4b271306b.mp3",
+      "assets/audio/8f9095efa1c28e3e6550.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/f72476e6dddcd6c78519.mp3",
+    "name": "A02-D011b.wav",
+    "bytes": 193140,
+    "source": "audio/voice/配音录制/邓青山/A02-D011b.wav",
+    "sourceBytes": 1152078,
+    "voiceNormalization": {
+      "sourceHash": "469704695e029976bd90",
+      "targetLUFS": -20.5,
+      "inputLUFS": -28.73,
+      "outputLUFS": -20.55,
+      "truePeak": -1.38
+    },
+    "previousPaths": [
+      "assets/audio/fd085746c29301be9194.mp3",
+      "assets/audio/469704695e029976bd90.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/c5007e9f042077f2dd9a.mp3",
+    "name": "A02-D011f.wav",
+    "bytes": 193140,
+    "source": "audio/voice/配音录制/邓青山/A02-D011f.wav",
+    "sourceBytes": 1152078,
+    "voiceNormalization": {
+      "sourceHash": "d442603f0a98fda9be9a",
+      "targetLUFS": -20.5,
+      "inputLUFS": -31.2,
+      "outputLUFS": -20.52,
+      "truePeak": -1.44
+    },
+    "previousPaths": [
+      "assets/audio/3cc0caee6a175e54c612.mp3",
+      "assets/audio/d442603f0a98fda9be9a.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/8e34bfc1de8ee3666e62.mp3",
+    "name": "A02-D012.wav",
+    "bytes": 193140,
+    "source": "audio/voice/配音录制/邓青山/A02-D012.wav",
+    "sourceBytes": 1152078,
+    "voiceNormalization": {
+      "sourceHash": "3e01d9ad6a60ca0eb9a5",
+      "targetLUFS": -20.5,
+      "inputLUFS": -23.6,
+      "outputLUFS": -20.6,
+      "truePeak": -1.39
+    },
+    "previousPaths": [
+      "assets/audio/e11e6b14439dda95c8b0.mp3",
+      "assets/audio/3e01d9ad6a60ca0eb9a5.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/c6025be85d33f91f4b1f.mp3",
+    "name": "A02-D019.wav",
+    "bytes": 219889,
+    "source": "audio/voice/配音录制/邓青山/A02-D019.wav",
+    "sourceBytes": 1313358,
+    "voiceNormalization": {
+      "sourceHash": "3772d45932426c520658",
+      "targetLUFS": -20.5,
+      "inputLUFS": -26.66,
+      "outputLUFS": -20.6,
+      "truePeak": -1.88
+    },
+    "previousPaths": [
+      "assets/audio/8a7c5b8ec2d37e8d6f0a.mp3",
+      "assets/audio/3772d45932426c520658.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/777c7ad06043ce2f5eeb.mp3",
+    "name": "A02-D022.wav",
+    "bytes": 221979,
+    "source": "audio/voice/配音录制/邓青山/A02-D022.wav",
+    "sourceBytes": 1324878,
+    "voiceNormalization": {
+      "sourceHash": "e22a5813d3d8583d72a3",
+      "targetLUFS": -20.5,
+      "inputLUFS": -23.07,
+      "outputLUFS": -20.49,
+      "truePeak": -1.61
+    },
+    "previousPaths": [
+      "assets/audio/43825675da958622944c.mp3",
+      "assets/audio/e22a5813d3d8583d72a3.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/55251ae9b9eccf694618.mp3",
+    "name": "A03-D003.wav",
+    "bytes": 249146,
+    "source": "audio/voice/配音录制/邓青山/A03-D003.wav",
+    "sourceBytes": 1488078,
+    "voiceNormalization": {
+      "sourceHash": "57ae54b767df34b20447",
+      "targetLUFS": -20.5,
+      "inputLUFS": -24.15,
+      "outputLUFS": -20.54,
+      "truePeak": -1.37
+    },
+    "previousPaths": [
+      "assets/audio/252f450522be34f42450.mp3",
+      "assets/audio/57ae54b767df34b20447.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/1a063b9bdec85c020488.mp3",
+    "name": "A03-D019.wav",
+    "bytes": 241205,
+    "source": "audio/voice/配音录制/邓青山/A03-D019.wav",
+    "sourceBytes": 1440078,
+    "voiceNormalization": {
+      "sourceHash": "f27b07ddff606f80fb47",
+      "targetLUFS": -20.5,
+      "inputLUFS": -25.59,
+      "outputLUFS": -20.61,
+      "truePeak": -1.43
+    },
+    "previousPaths": [
+      "assets/audio/748cef94f90209cbcb57.mp3",
+      "assets/audio/f27b07ddff606f80fb47.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/f1f0145c314575c93bcc.mp3",
+    "name": "A03-D021.wav",
+    "bytes": 205678,
+    "source": "audio/voice/配音录制/邓青山/A03-D021.wav",
+    "sourceBytes": 1228878,
+    "voiceNormalization": {
+      "sourceHash": "f63fc1c7a5f31b00b1e1",
+      "targetLUFS": -20.5,
+      "inputLUFS": -23.39,
+      "outputLUFS": -20.61,
+      "truePeak": -1.42
+    },
+    "previousPaths": [
+      "assets/audio/0cdb26837dbbdfb897db.mp3",
+      "assets/audio/f63fc1c7a5f31b00b1e1.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/b5a06558ebee2809674f.mp3",
+    "name": "A04-D004.wav",
+    "bytes": 185198,
+    "source": "audio/voice/配音录制/邓青山/A04-D004.wav",
+    "sourceBytes": 1104078,
+    "voiceNormalization": {
+      "sourceHash": "6e5438a845eb56869d00",
+      "targetLUFS": -20.5,
+      "inputLUFS": -18.97,
+      "outputLUFS": -20.5,
+      "truePeak": -2.38
+    },
+    "previousPaths": [
+      "assets/audio/b748761aca2ba6fd5e30.mp3",
+      "assets/audio/6e5438a845eb56869d00.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/b1747b03171b148000e2.mp3",
+    "name": "A04-D007.wav",
+    "bytes": 234518,
+    "source": "audio/voice/配音录制/邓青山/A04-D007.wav",
+    "sourceBytes": 1401678,
+    "voiceNormalization": {
+      "sourceHash": "57ffae3e470a21104dd6",
+      "targetLUFS": -20.5,
+      "inputLUFS": -25.59,
+      "outputLUFS": -20.62,
+      "truePeak": -1.44
+    },
+    "previousPaths": [
+      "assets/audio/ccb369d86ea92abd4e32.mp3",
+      "assets/audio/57ffae3e470a21104dd6.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/d9982f8e8fe0b8e266ee.mp3",
+    "name": "A04-D014.wav",
+    "bytes": 234518,
+    "source": "audio/voice/配音录制/邓青山/A04-D014.wav",
+    "sourceBytes": 1401678,
+    "voiceNormalization": {
+      "sourceHash": "20f476e709622df7978d",
+      "targetLUFS": -20.5,
+      "inputLUFS": -26,
+      "outputLUFS": -20.61,
+      "truePeak": -1.39
+    },
+    "previousPaths": [
+      "assets/audio/bc4e63177a96795bacbb.mp3",
+      "assets/audio/20f476e709622df7978d.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/8cf4f85fcf503628bc30.mp3",
+    "name": "A04-D020.wav",
+    "bytes": 216963,
+    "source": "audio/voice/配音录制/邓青山/A04-D020.wav",
+    "sourceBytes": 1296078,
+    "voiceNormalization": {
+      "sourceHash": "bceba86bf9ad3f1159b5",
+      "targetLUFS": -20.5,
+      "inputLUFS": -30.33,
+      "outputLUFS": -20.69,
+      "truePeak": -1.09
+    },
+    "previousPaths": [
+      "assets/audio/853c6f1d2d1e8e26c09a.mp3",
+      "assets/audio/bceba86bf9ad3f1159b5.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/9a4394f5c02cdc543e8a.mp3",
+    "name": "A04-D021.wav",
+    "bytes": 218635,
+    "source": "audio/voice/配音录制/邓青山/A04-D021.wav",
+    "sourceBytes": 1305678,
+    "voiceNormalization": {
+      "sourceHash": "d63512a41f2d743e2c92",
+      "targetLUFS": -20.5,
+      "inputLUFS": -26.55,
+      "outputLUFS": -20.5,
+      "truePeak": -2.54
+    },
+    "previousPaths": [
+      "assets/audio/4804ac52b836c6973f32.mp3",
+      "assets/audio/d63512a41f2d743e2c92.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/b68d1889f83e3aa8424e.mp3",
+    "name": "A05-D004.wav",
+    "bytes": 266701,
+    "source": "audio/voice/配音录制/邓青山/A05-D004.wav",
+    "sourceBytes": 1593678,
+    "voiceNormalization": {
+      "sourceHash": "dbef5cffccaa9a0b4feb",
+      "targetLUFS": -20.5,
+      "inputLUFS": -24.12,
+      "outputLUFS": -20.62,
+      "truePeak": -1.39
+    },
+    "previousPaths": [
+      "assets/audio/fdc07fb2aaf530a6620e.mp3",
+      "assets/audio/dbef5cffccaa9a0b4feb.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/6758d143c05667d5e002.mp3",
+    "name": "A05-D008.wav",
+    "bytes": 216963,
+    "source": "audio/voice/配音录制/邓青山/A05-D008.wav",
+    "sourceBytes": 1296078,
+    "voiceNormalization": {
+      "sourceHash": "f9aeff3c25b581176795",
+      "targetLUFS": -20.5,
+      "inputLUFS": -24.52,
+      "outputLUFS": -20.48,
+      "truePeak": -2.41
+    },
+    "previousPaths": [
+      "assets/audio/b8011b63e6732a2fa40a.mp3",
+      "assets/audio/f9aeff3c25b581176795.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/dbac221f70b4af389c7c.mp3",
+    "name": "A05-D009c.wav",
+    "bytes": 177257,
+    "source": "audio/voice/配音录制/邓青山/A05-D009c.wav",
+    "sourceBytes": 1056078,
+    "voiceNormalization": {
+      "sourceHash": "751018cce2877fcd9983",
+      "targetLUFS": -20.5,
+      "inputLUFS": -28.85,
+      "outputLUFS": -20.5,
+      "truePeak": -1.98
+    },
+    "previousPaths": [
+      "assets/audio/09363d1a8942c230b95a.mp3",
+      "assets/audio/751018cce2877fcd9983.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/7770a8d733dae63a1a54.mp3",
+    "name": "A05-D013.wav",
+    "bytes": 272970,
+    "source": "audio/voice/配音录制/邓青山/A05-D013.wav",
+    "sourceBytes": 1632078,
+    "voiceNormalization": {
+      "sourceHash": "38663d1de883db6fed02",
+      "targetLUFS": -20.5,
+      "inputLUFS": -24.54,
+      "outputLUFS": -20.56,
+      "truePeak": -1.4
+    },
+    "previousPaths": [
+      "assets/audio/455e5ba23b5face28259.mp3",
+      "assets/audio/38663d1de883db6fed02.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/da4e03e55f3dab4b1c13.mp3",
+    "name": "A05-D017.wav",
+    "bytes": 193140,
+    "source": "audio/voice/配音录制/邓青山/A05-D017.wav",
+    "sourceBytes": 1152078,
+    "voiceNormalization": {
+      "sourceHash": "154d2a84a2884db9bd67",
+      "targetLUFS": -20.5,
+      "inputLUFS": -22.21,
+      "outputLUFS": -20.57,
+      "truePeak": -1.43
+    },
+    "previousPaths": [
+      "assets/audio/28eda9f7f5e2c658adf5.mp3",
+      "assets/audio/154d2a84a2884db9bd67.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/6f0a3db26be097008f1a.mp3",
+    "name": "A03-D002.wav",
+    "bytes": 289270,
+    "source": "audio/voice/配音录制/阿虎/A03-D002.wav",
+    "sourceBytes": 1728078,
+    "voiceNormalization": {
+      "sourceHash": "8cbf31dad7efdfc6bfd1",
+      "targetLUFS": -20.5,
+      "inputLUFS": -24.12,
+      "outputLUFS": -20.56,
+      "truePeak": -1.37
+    },
+    "previousPaths": [
+      "assets/audio/4bf2b4ff659476b721de.mp3",
+      "assets/audio/0571b876cb56c9e2bab0.mp3",
+      "assets/audio/807c40dddf7f854b9dd5.mp3",
+      "assets/audio/e22f5647fbb3a6c7b434.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/214c7bd9bc93228c4ae1.mp3",
+    "name": "A03-D004.wav",
+    "bytes": 189796,
+    "source": "audio/voice/配音录制/阿虎/A03-D004.wav",
+    "sourceBytes": 1132878,
+    "voiceNormalization": {
+      "sourceHash": "94c0762377d6654f89d6",
+      "targetLUFS": -20.5,
+      "inputLUFS": -23.62,
+      "outputLUFS": -20.57,
+      "truePeak": -1.41
+    },
+    "previousPaths": [
+      "assets/audio/1ee2f03e974c419d7dce.mp3",
+      "assets/audio/94c0762377d6654f89d6.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/f7c64bce20e4f28b5119.mp3",
+    "name": "A03-D007.wav",
+    "bytes": 129192,
+    "source": "audio/voice/配音录制/阿虎/A03-D007.wav",
+    "sourceBytes": 768078,
+    "voiceNormalization": {
+      "sourceHash": "6808c428f8ccf91f04fb",
+      "targetLUFS": -20.5,
+      "inputLUFS": -19.76,
+      "outputLUFS": -20.51,
+      "truePeak": -1.73
+    },
+    "previousPaths": [
+      "assets/audio/c60c7a94d917e02f7544.mp3",
+      "assets/audio/6808c428f8ccf91f04fb.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/f6fad1eaa466f42fbe9c.mp3",
+    "name": "A04-D003.wav",
+    "bytes": 160957,
+    "source": "audio/voice/配音录制/阿虎/A04-D003.wav",
+    "sourceBytes": 960078,
+    "voiceNormalization": {
+      "sourceHash": "240a8b626f67e5339dfa",
+      "targetLUFS": -20.5,
+      "inputLUFS": -22.82,
+      "outputLUFS": -20.52,
+      "truePeak": -1.42
+    },
+    "previousPaths": [
+      "assets/audio/2f24ed5f9483e43dca07.mp3",
+      "assets/audio/240a8b626f67e5339dfa.mp3"
+    ]
+  },
+  {
+    "path": "assets/audio/adda8c776fd5cfbe8d6f.mp3",
+    "name": "A04-D005.wav",
+    "bytes": 125848,
+    "source": "audio/voice/配音录制/阿虎/A04-D005.wav",
+    "sourceBytes": 748878,
+    "voiceNormalization": {
+      "sourceHash": "4f9286507f5d30cc252e",
+      "targetLUFS": -20.5,
+      "inputLUFS": -23.42,
+      "outputLUFS": -20.52,
+      "truePeak": -1.41
+    },
+    "previousPaths": [
+      "assets/audio/bf7b770fbea6df4c32ce.mp3",
+      "assets/audio/4f9286507f5d30cc252e.mp3"
+    ]
   }
 ]

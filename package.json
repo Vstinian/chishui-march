@@ -9,9 +9,10 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 0.0.0.0",
     "typecheck": "tsc --noEmit",
-    "smoke": "node tests/smoke.mjs && node tests/audio.mjs",
+    "smoke": "node tests/smoke.mjs && node tests/audio.mjs && node tests/opening-audio.mjs && node tests/audio-library.mjs",
     "studio": "vite --host 127.0.0.1 --port 5175 --open /audio-studio.html",
-    "audio:prepare": "node tools/prepare-audio.mjs"
+    "audio:prepare": "node tools/prepare-audio.mjs",
+    "audio:voices": "node tools/prepare-voices.mjs"
   },
   "devDependencies": {
     "typescript": "^5.9.0",

@@ -23,12 +23,18 @@ export class CuePlayer {
     for (const path of paths) if (!this.preloaded.has(path)) { const audio = new Audio(); audio.preload = 'auto'; audio.src = path; this.preloaded.set(path, audio); }
   }
   configure(config: SoundConfig): void {
+    const previousMusic = new Set(this.config.cues.filter(c => c.enabled && c.bus === 'music').map(c => `${c.id}:${c.asset}`));
     this.config = config;
     for (const track of [...this.tracks]) {
       const update = config.cues.find(c => c.id === track.cue.id && c.enabled && c.asset === track.cue.asset);
       if (!update) this.stop(track, true); else { track.cue = { ...update }; track.audio.playbackRate = update.rate; }
     }
     this.applyVolumes();
+    // 配置可能晚于首段到达，也可能由编排器在故事中途更新。
+    if (this.position) {
+      if (config.cues.some(c => c.enabled && c.bus === 'music' && !previousMusic.has(`${c.id}:${c.asset}`))) this.restoreMusic(this.position);
+      this.update(this.position);
+    }
   }
   update(position: SoundPosition): void {
     const previous = this.position;
@@ -37,6 +43,9 @@ export class CuePlayer {
       if (track.origin.actId !== position.actId || this.rangeEnded(track.cue, position) || (track.cue.scope === 'line' && track.origin.lineId !== position.lineId) || (track.cue.scope === 'frame' && (track.origin.lineId !== position.lineId || track.origin.frame !== position.frame))) this.stop(track);
     }
     this.position = position;
+    const previousIndex = this.lineOrder.get(previous?.lineId ?? '');
+    const currentIndex = this.lineOrder.get(position.lineId);
+    if (!previous || previous.actId !== position.actId || (previousIndex !== undefined && currentIndex !== undefined && Math.abs(currentIndex - previousIndex) > 1)) this.restoreMusic(position);
     const before = normalizeSoundText(position.frames.slice(0, position.frame).join('')).length;
     const visible = before + normalizeSoundText(position.shown).length;
     for (const cue of this.config.cues) {
@@ -45,6 +54,26 @@ export class CuePlayer {
       const ready = cue.trigger === 'line' ? position.frame === 0 : cue.trigger === 'frame' ? position.frame === cue.frame : end > before && end <= visible;
       if (ready) { this.fired.add(cue.id); this.play(cue, position); }
     }
+  }
+  private restoreMusic(position: SoundPosition): void {
+    const current = this.lineOrder.get(position.lineId);
+    if (current === undefined) return;
+    const visible = normalizeSoundText(position.frames.slice(0, position.frame).join('') + position.shown).length;
+    // 只恢复已触发的最后一条音乐，避免重播配音、枪声，或复活被后续音乐替换的旧曲。
+    const passed = this.config.cues.filter(cue => {
+      const start = this.lineOrder.get(cue.lineId);
+      if (!cue.enabled || cue.bus !== 'music' || cue.lineId.split('-')[0] !== position.lineId.split('-')[0] || start === undefined || start > current) return false;
+      if (start < current) return true;
+      if (cue.trigger === 'line') return true;
+      if (cue.trigger === 'frame') return position.frame >= cue.frame;
+      const end = keywordEnd(position.frames.join(''), cue.keyword, cue.occurrence);
+      return end >= 0 && visible >= end;
+    }).sort((a, b) => this.lineOrder.get(a.lineId)! - this.lineOrder.get(b.lineId)!);
+    const cue = passed.at(-1);
+    if (!cue || (cue.scope !== 'act' && cue.scope !== 'range') || this.rangeEnded(cue, position) || this.fired.has(cue.id)) return;
+    if (this.tracks.some(track => track.cue.bus === 'music' && track.stopping === null && !track.finished)) return;
+    this.fired.add(cue.id);
+    this.play(cue, position);
   }
   private rangeEnded(cue: SoundCue, position: SoundPosition): boolean {
     if (cue.scope !== 'range') return false;
@@ -58,7 +87,7 @@ export class CuePlayer {
   }
   private play(cue: SoundCue, position: SoundPosition): void {
     if (typeof Audio === 'undefined') return;
-    if (cue.bus !== 'sfx') for (const old of [...this.tracks]) if (old.cue.bus === cue.bus) this.stop(old);
+    if (cue.bus !== 'sfx') for (const old of [...this.tracks]) if (old.cue.bus === cue.bus) this.stop(old, cue.bus === 'voice');
     if (this.tracks.length >= 24) this.stop(this.tracks[0], true);
     const audio = new Audio(cue.asset);
     audio.preload = 'metadata'; audio.playbackRate = cue.rate; audio.muted = this.muted; audio.volume = 0;

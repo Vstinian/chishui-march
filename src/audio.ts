@@ -1,7 +1,7 @@
 import { opening } from './data/narrative';
 import { ambientTracks } from './data/transitions';
 
-// 正式音轨在 opening.bgm 接入；缺省为缓慢包络的合成和弦。
+// 报纸开场音乐独立于章节编排；章节未接入配乐时使用合成和弦。
 export class Atmosphere {
   private context: AudioContext | null = null;
   private gain: GainNode | null = null;
@@ -11,20 +11,65 @@ export class Atmosphere {
   muted = false;
   private active = false;
   private externalMusic = false;
+  private openingActive = false;
+  private openingEnvelope = 0;
+  private openingExit: { delay: number; elapsed: number; from: number | null } | null = null;
+  private openingTimer: ReturnType<typeof setInterval> | null = null;
   private musicLevel = 1;
   private ambience: HTMLAudioElement | null = null;
   private ambientLayers = new Map<HTMLAudioElement, number>();
   private fadeTimer: ReturnType<typeof setInterval> | null = null;
+  startOpening(): Promise<void> {
+    if (this.openingTimer) clearInterval(this.openingTimer);
+    this.openingActive = true;
+    this.openingEnvelope = opening.bgmFadeIn > 0 ? 0 : 1;
+    this.openingExit = null;
+    if (this.track) this.track.currentTime = 0;
+    let clock = Date.now();
+    this.openingTimer = setInterval(() => {
+      const now = Date.now(), delta = Math.min(.2, (now - clock) / 1000); clock = now;
+      if (!this.active || !this.track || this.track.paused || this.track.readyState < 3 || this.track.currentTime <= 0) return;
+      const exit = this.openingExit;
+      if (exit && exit.delay <= 0) {
+        exit.from ??= this.openingEnvelope;
+        exit.elapsed += delta;
+        this.openingEnvelope = exit.from * Math.max(0, 1 - exit.elapsed / opening.bgmFadeOut);
+        if (exit.elapsed >= opening.bgmFadeOut) { this.stopOpening(); return; }
+      } else {
+        if (exit) exit.delay = Math.max(0, exit.delay - delta);
+        this.openingEnvelope = opening.bgmFadeIn > 0 ? Math.min(1, this.openingEnvelope + delta / opening.bgmFadeIn) : 1;
+      }
+      this.applyOpeningVolume();
+    }, 40);
+    this.setVolume();
+    return this.start();
+  }
+  fadeOpeningOut(delayMs = 0): void {
+    if (!this.openingActive) return;
+    if (opening.bgmFadeOut <= 0) { this.stopOpening(); return; }
+    this.openingExit = { delay: delayMs / 1000, elapsed: 0, from: null };
+  }
+  private applyOpeningVolume(): void { if (this.track) this.track.volume = opening.bgmVolume * this.musicLevel * this.openingEnvelope; }
+  stopOpening(): void {
+    if (!this.openingActive) return;
+    this.openingActive = false;
+    if (this.openingTimer) clearInterval(this.openingTimer);
+    this.openingTimer = null; this.openingExit = null; this.openingEnvelope = 0;
+    this.applyOpeningVolume();
+    this.track?.pause();
+    if (this.track) this.track.currentTime = 0;
+    this.setVolume();
+  }
   async start(): Promise<void> {
     this.active = true;
     if (this.ambience) { this.ambience.muted = this.muted; void this.ambience.play().catch(() => {}); }
     try {
-      if (opening.bgm) {
+      if (this.openingActive && opening.bgm) {
         this.track ??= new Audio(opening.bgm);
-        this.track.loop = true; this.track.volume = 0.24 * this.musicLevel; this.track.muted = this.muted || this.externalMusic;
+        this.track.loop = true; this.applyOpeningVolume(); this.track.muted = this.muted;
         await this.track.play(); return;
       }
-    } catch { this.track = null; }
+    } catch (error) { console.warn('开场音乐播放失败', error); return; }
     try {
       this.context ??= new AudioContext(); await this.context.resume();
       if (!this.gain) { this.gain = this.context.createGain(); this.gain.connect(this.context.destination); }
@@ -60,7 +105,7 @@ export class Atmosphere {
     const tick = () => {
       const fraction = duration > 0 ? Math.min(1, (Date.now() - start) / duration) : 1;
       this.musicLevel = before + (level - before) * fraction;
-      if (this.track) this.track.volume = .24 * this.musicLevel;
+      this.applyOpeningVolume();
       this.setVolume();
       for (const [track, volume] of initial) {
         track.volume = volume * (1 - fraction); this.ambientLayers.set(track, track.volume);
@@ -71,8 +116,8 @@ export class Atmosphere {
     };
     this.fadeTimer = setInterval(tick, 40); tick();
   }
-  setExternalMusic(enabled: boolean): void { this.externalMusic = enabled; if (this.track) this.track.muted = this.muted || enabled; this.setVolume(); }
-  private setVolume(): void { if (this.context && this.gain) this.gain.gain.setTargetAtTime(this.muted || !this.active || this.externalMusic ? 0 : 0.35 * this.musicLevel, this.context.currentTime, 0.15); }
-  toggle(): void { this.muted = !this.muted; if (this.track) this.track.muted = this.muted || this.externalMusic; for (const track of this.ambientLayers.keys()) track.muted = this.muted; this.setVolume(); }
+  setExternalMusic(enabled: boolean): void { this.externalMusic = enabled; if (this.track) this.track.muted = this.muted || (!this.openingActive && enabled); this.setVolume(); }
+  private setVolume(): void { if (this.context && this.gain) this.gain.gain.setTargetAtTime(this.muted || !this.active || this.externalMusic || (this.openingActive && opening.bgm) ? 0 : 0.35 * this.musicLevel, this.context.currentTime, 0.15); }
+  toggle(): void { this.muted = !this.muted; if (this.track) this.track.muted = this.muted || (!this.openingActive && this.externalMusic); for (const track of this.ambientLayers.keys()) track.muted = this.muted; this.setVolume(); }
   pause(): void { this.active = false; this.track?.pause(); for (const track of this.ambientLayers.keys()) track.pause(); this.setVolume(); if (this.timer) clearInterval(this.timer); this.timer = null; }
 }

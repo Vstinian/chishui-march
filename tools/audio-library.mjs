@@ -2,6 +2,7 @@ import { readFile, writeFile, mkdir, readdir, rename } from 'node:fs/promises';
 import { createHash, randomUUID } from 'node:crypto';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
+import { normalizeVoice } from './voice-level.mjs';
 
 export const digest = bytes => createHash('sha256').update(bytes).digest('hex');
 export async function atomicJson(file, value) {
@@ -33,17 +34,26 @@ export async function importSound(root, name, bytes, source = name) {
   await mkdir(directory, { recursive: true }); await mkdir(originalDir, { recursive: true });
   const original = source.startsWith('audio/') ? path.join(root, source) : path.join(originalDir, hash + ext);
   if (!source.startsWith('audio/')) await writeFile(original, bytes);
+  const libraryFile = path.join(root, 'public/audio/library.json');
+  let library = await readJson(libraryFile, []);
+  const normalized = await normalizeVoice(root, source, original, hash, directory, library.find(a => a.source === source));
   let webExt = ext;
-  if (ext === '.wav') {
+  if (!normalized && ext === '.wav') {
     const localTools = await readJson(path.join(root, 'audio-tools.local'), {});
     try { await transcode(original, path.join(directory, hash + '.mp3'), process.env.FFMPEG_PATH || localTools.ffmpeg || 'ffmpeg'); webExt = '.mp3'; }
     catch (error) { if (error.code !== 'ENOENT') throw error; }
   }
-  if (webExt === ext) await writeFile(path.join(directory, hash + ext), bytes);
-  const web = await readFile(path.join(directory, hash + webExt));
-  const item = { path: `assets/audio/${hash}${webExt}`, name, bytes: web.length, source, sourceBytes: bytes.length };
-  const libraryFile = path.join(root, 'public/audio/library.json');
-  const library = await readJson(libraryFile, []);
+  if (!normalized && webExt === ext) await writeFile(path.join(directory, hash + ext), bytes);
+  const fileName = normalized?.fileName ?? hash + webExt;
+  const web = await readFile(path.join(directory, fileName));
+  const item = { path: `assets/audio/${fileName}`, name, bytes: web.length, source, sourceBytes: bytes.length };
+  if (normalized) item.voiceNormalization = normalized.voiceNormalization;
+  if (source.startsWith('audio/')) {
+    const versions = library.filter(a => a.source === source);
+    const previousPaths = [...new Set(versions.flatMap(a => [a.path, ...(a.previousPaths ?? [])]))].filter(p => p !== item.path);
+    if (previousPaths.length) item.previousPaths = previousPaths;
+    library = library.filter(a => a.source !== source);
+  }
   const previous = library.findIndex(a => a.path === item.path);
   if (previous >= 0) library[previous] = item; else library.push(item);
   await atomicJson(libraryFile, library);

@@ -12,6 +12,12 @@ let stored = null;
 const timers = new Map();
 const delays = new Map();
 let timerId = 0;
+const media = [];
+class MockAudio {
+  constructor(src) { this.src = src; this.paused = true; this.currentTime = 0; media.push(this); }
+  play() { this.paused = false; return Promise.resolve(); }
+  pause() { this.paused = true; }
+}
 const app = {
   innerHTML: '',
   addEventListener(_type, listener) { clickListener = listener; },
@@ -20,6 +26,7 @@ const app = {
   },
 };
 const context = {
+  Audio: MockAudio,
   document: { querySelector: () => app, addEventListener(type, listener) { if (type === 'keydown') keyListener = listener; } },
   window: { scrollTo() {}, matchMedia: () => ({ matches: reducedMotion }) },
   localStorage: { getItem: () => stored, setItem(_key, value) { stored = value; } },
@@ -28,7 +35,7 @@ const context = {
   setInterval() { return 1; }, clearInterval() {}, console,
 };
 const sources = ['typewriter', 'components/Icons', 'data/script', 'data/narrative', 'data/transitions', 'data/legacyScript', 'subtitles', 'data/acts', 'data/recap', 'game', 'audio', 'sound/schema', 'sound/engine', 'sound/preload', 'utils/html', 'components/Interaction', 'components/ActView', 'components/ActEndView', 'components/TransitionView', 'components/RecapView', 'components/OpeningArt', 'main'];
-runInNewContext(`${sources.map(path => readSource(`../src/${path}.ts`)).join('\n')}\nglobalThis.testState = state; globalThis.testActs = acts; globalThis.testWriter = writer; globalThis.TestTypewriter = Typewriter; globalThis.testGameTarget = gameTarget; globalThis.testLegacyIds = legacyDialogueIds; globalThis.testTransitions = storyTransitions;`, context);
+runInNewContext(`${sources.map(path => readSource(`../src/${path}.ts`)).join('\n')}\nglobalThis.testState = state; globalThis.testActs = acts; globalThis.testWriter = writer; globalThis.TestTypewriter = Typewriter; globalThis.testGameTarget = gameTarget; globalThis.testLegacyIds = legacyDialogueIds; globalThis.testTransitions = storyTransitions; globalThis.testMusic = music;`, context);
 const state = context.testState;
 const click = (action, dataset = {}) => clickListener({ target: { closest: () => ({ dataset: { action, ...dataset }, matches: () => false, setAttribute() {}, innerHTML: '' }) } });
 
@@ -64,6 +71,12 @@ click('jump', { act: 'act05' });
 assert.equal(state.screen, 'home', '不能从首页绕过序章或章节锁');
 click('start');
 assert.equal(state.screen, 'intro');
+const openingMusic = media.at(-1);
+assert.equal(openingMusic.src, 'assets/audio/c157bb3a3a4f95be8874.mp3');
+assert.equal(openingMusic.paused, false, '展开报纸即播放觉醒年代主题');
+assert.equal(openingMusic.loop, true, '等待开场文字期间可持续播放');
+context.testMusic.setExternalMusic(true);
+assert.equal(openingMusic.muted, false, '章节有 BGM 配置也不能静音开场曲');
 assert.equal(timers.size, 1);
 assert.equal(delays.get(timerId), 14000);
 assert.match(app.innerHTML, /我不知道為什麼要一次次渡過同一條河。/);
@@ -72,6 +85,7 @@ assert.match(app.innerHTML, /跟著隊伍，一步一步往前走。/);
 finishOpening();
 assert.equal(state.screen, 'intro', '动画结束前不能直接继续');
 click('sound');
+assert.equal(openingMusic.muted, true, '开场曲遵循声音开关');
 assert.equal(timers.size, 1, '切换声音不重启动画计时');
 fireDelay(14000);
 click('intro-continue');
@@ -88,13 +102,17 @@ assert.equal(state.screen, 'intro', '文字和按钮全部浮现后等待点击�
 finishOpening();
 assert.equal(state.screen, 'act');
 assert.match(app.innerHTML, /class="act-transition"/);
+assert.equal(openingMusic.paused, false, '开场曲延续到第一幕标题期间');
 click('dialogue'); click('menu'); click('game-continue');
 assert.equal(state.cursors.act01 ?? 0, 0, '幕间动画期间不能操作正文');
 fireDelay(3800);
+assert.equal(openingMusic.paused, true, '第一幕正文出现时停止开场曲');
+assert.equal(openingMusic.currentTime, 0);
 assert.ok(!app.innerHTML.includes('class="act-transition"'));
 assert.equal(context.testWriter.typing, true);
 fireDelay(36);
 click('sound');
+assert.equal(openingMusic.paused, true, '正文开启声音不能重新播放开场曲');
 assert.equal(state.cursors.act01 ?? 0, 0, '声音按钮不推进正文');
 click('menu'); assert.equal(timers.size, 0, '目录打开时暂停打字');
 click('dialogue'); assert.equal(state.cursors.act01 ?? 0, 0);
@@ -151,8 +169,8 @@ for (const transition of Object.values(context.testTransitions)) {
   assert.ok(transition.duration >= 1200 && transition.duration <= 1800);
 }
 const restoredOriginal = Object.values(context.testLegacyIds).flat().map(id => context.testActs.flatMap(act => act.dialogue).find(line => line.id === id).text.replace('（内心）', '（心里）')).join('\n');
-// 与修订前已发布的 117 条原文比较；仅统一内心标识，重排与分框不能改词。
-assert.equal(createHash('sha256').update(restoredOriginal).digest('hex'), 'c99c8e009406c627bbe604f82a9af2bd5e04d611c89097464d7dea9404a64a80');
+// 117 条原文基线；统一内心标识，并纳入用户确认的 A01-D001 花名册独白修订。
+assert.equal(createHash('sha256').update(restoredOriginal).digest('hex'), '8bd4c068c2f8d5e7f247c1f5a8df279d2c8343512bf31b6bca7dd8a87f065a99');
 assert.ok(!allIds.has('A01-D009'), '保留原稿缺号，不凭空补写');
 keyListener({ key: ' ', repeat: false, target: { closest: () => null }, preventDefault() {} });
 assert.equal(state.cursors.act01, 1, '空格先补全当前句');
@@ -218,10 +236,11 @@ assert.equal(state.cursors.act02, 0, '回看从第一句开始');
 fireDelay(3800);
 click('recap'); click('ending'); reducedMotion = true; click('restart');
 assert.equal(state.screen, 'intro'); assert.equal(state.completed.length, 0);
+assert.equal(openingMusic.paused, false, '重新开始会再次播放开场曲');
 assert.equal(delays.get(timerId), 6000, '减少动态模式停留六秒');
 click('skip-intro'); assert.equal(state.screen, 'intro'); finishOpening(); click('jump', { act: 'act05' });
 assert.equal(state.actId, 'act01', '重开后重新锁定后续章节');
-fireDelay(1200);
+fireDelay(2000);
 assert.equal(context.testWriter.typing, false, '减少动态模式直接显示完整对白');
 context.navigate('home');
 assert.equal(timers.size, 0, '离开正文清理打字和转场计时器');
@@ -260,7 +279,7 @@ click('act-next'); finishStory(); fireDelay(1200);
 assert.equal(state.actId, 'act03'); assert.equal(state.cursors.act03, 0, '进入下一幕清除旧的最后一句位置');
 assert.equal(state.games.act03, undefined, '下一幕重新体验互动');
 readLine(); readLine(); assert.equal(state.cursors.act03, 2);
-click('home'); click('start'); click('skip-intro'); finishOpening(); fireDelay(1200);
+click('home'); click('start'); click('skip-intro'); finishOpening(); fireDelay(2000);
 assert.equal(state.actId, 'act01'); assert.equal(state.cursors.act01 ?? 0, 0);
 assert.equal(state.completed.length, 0, '从头重走清除旧解锁与进度');
 assert.equal(Object.keys(state.games).length, 0);

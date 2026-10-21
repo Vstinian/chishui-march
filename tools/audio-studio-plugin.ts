@@ -51,7 +51,10 @@ export function audioStudioPlugin(): Plugin {
               const asset = await importSound(root, path.basename(name), body);
               return reply(200, { asset });
             }
-            if (endpoint === '/__audio-studio/scan') return reply(200, { assets: await scanSounds(root) });
+            if (endpoint === '/__audio-studio/scan') {
+              const assets = await scanSounds(root);
+              return reply(200, { assets, library: await readJson(path.join(root, 'public/audio/library.json'), []) });
+            }
             reply(404, { error: '未知操作' });
           } finally { saving = false; }
         } catch (error) { reply(400, { error: error instanceof Error ? error.message : '操作失败' }); }

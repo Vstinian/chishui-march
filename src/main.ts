@@ -108,6 +108,8 @@ function syncDialogue(): void {
 }
 function render(): void {
   writer.pause();
+  // 开场曲穿过报纸、独白、幕前过渡和标题，正文出现时交给章节配乐。
+  if (state.screen !== 'intro' && !(state.screen === 'act' && transitioning)) music.stopOpening();
   const act = currentAct();
   const content = state.screen === 'home' ? renderHome() : state.screen === 'intro' ? renderIntro() : state.screen === 'act' ? atActEnd(state, act) ? renderActEnd(act, act.sourceIds.map(id => sourceCards[id])) : renderAct(act, state) : state.screen === 'recap' ? renderRecap(recapStep) : renderEnding();
   app!.innerHTML = `<div class="page-shell" ${transitioning || storyTransition ? 'inert aria-hidden="true"' : ''}>${state.screen === 'intro' ? '' : renderHeader()}${content}</div>${transitioning ? renderActTransition() : ''}${storyTransition ? renderStoryTransition(storyTransitions[storyTransition.id], storyTransition.ready) : ''}`;
@@ -135,6 +137,8 @@ function finishStoryTransition(): void {
 function navigate(screen: Screen, id?: ActId, showTitle = false): void {
   if (screen === 'act' && !canOpen(state, id ?? state.actId)) return;
   if ((screen === 'recap' || screen === 'ending') && !allComplete()) return;
+  // 减少动态模式也保留完整的两秒音乐渐弱。
+  const titleDuration = Math.max(reducedMotion() ? 1200 : 3800, state.screen === 'intro' ? opening.bgmFadeOut * 1000 : 0);
   clearTimeout(introTimer); clearTimeout(transitionTimer); writer.reset();
   clearTimeout(storyTransitionTimer); storyTransition = null;
   state.screen = screen; if (id) state.actId = id;
@@ -146,10 +150,13 @@ function navigate(screen: Screen, id?: ActId, showTitle = false): void {
   render();
   app!.querySelector<HTMLElement>(transitioning ? '#act-transition-title' : '#main-content')?.focus();
   window.scrollTo({ top: 0, behavior: 'auto' });
-  if (transitioning) transitionTimer = setTimeout(() => {
-    transitioning = false;
-    render(); app!.querySelector<HTMLElement>('.dialogue-box, #main-content')?.focus();
-  }, reducedMotion() ? 1200 : 3800);
+  if (transitioning) {
+    music.fadeOpeningOut(Math.max(0, titleDuration - opening.bgmFadeOut * 1000));
+    transitionTimer = setTimeout(() => {
+      transitioning = false;
+      render(); app!.querySelector<HTMLElement>('.dialogue-box, #main-content')?.focus();
+    }, titleDuration);
+  }
 }
 function advanceDialogue(): void {
   const act = currentAct();
@@ -203,7 +210,7 @@ function startIntro(): void {
   introReady = false;
   introWordsStarted = false;
   music.transitionTo('opening', 1, 0);
-  navigate('intro'); void music.start();
+  navigate('intro'); void music.startOpening();
   introTimer = setTimeout(revealIntroEnd, reducedMotion() ? opening.reducedDuration : opening.textStart);
 }
 function focusAfterRender(action: string, value?: string): void {

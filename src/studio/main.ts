@@ -5,6 +5,7 @@ import { characters } from '../data/narrative';
 import { subtitleFrames } from '../subtitles';
 import { escapeHtml } from '../utils/html';
 import { defaultSoundConfig, soundFingerprint, validateSoundConfig } from '../sound/schema';
+import { replaceSoundAssets } from '../sound/assets';
 import type { AudioBus, SoundAsset, SoundConfig, SoundCue } from '../sound/schema';
 
 const root = document.querySelector<HTMLDivElement>('#studio')!;
@@ -147,7 +148,7 @@ function renderLibrary(): void {
   document.querySelector('#library-count')!.textContent = `${library.length} 个文件`;
   document.querySelector('#library-list')!.innerHTML = library.map(a => `<div class="asset-row"><div><b>${esc(friendly(a))}</b><small>${(a.bytes/1024).toFixed(0)} KB · ${a.path.endsWith('.wav')?'WAV，发布前建议压缩':'网页音频'}<br>${esc(a.path)}</small></div><button data-audition="${esc(a.path)}">试听</button></div>`).join('') || '<p class="empty">导入音频，或扫描项目 audio 文件夹。</p>';
 }
-function audition(path: string): void { sourceAudio?.pause(); sourceAudio = new Audio(path); sourceAudio.volume = .6; void sourceAudio.play().catch(()=>status('无法播放该素材，请检查格式或再点击一次试听', 'error')); }
+function audition(path: string): void { sourceAudio?.pause();send({type:'stop'});paused=true;document.querySelector('#pause')!.textContent='继续'; sourceAudio = new Audio(path); sourceAudio.volume = 1; void sourceAudio.play().catch(()=>status('无法播放该素材，请检查格式或再点击一次试听', 'error')); }
 function exportConfig(): void {
   const url = URL.createObjectURL(new Blob([JSON.stringify(config,null,2)],{type:'application/json'}));
   const link = document.createElement('a'); link.href=url; link.download='chishui-audio-cues.json'; link.click(); URL.revokeObjectURL(url);
@@ -179,6 +180,9 @@ document.querySelector('#act-filter')!.addEventListener('change', renderList);
 document.querySelector('#add')!.addEventListener('click', () => {
   const asset = document.querySelector<HTMLSelectElement>('#asset-choice')!.value;
   if (!asset) { status('请先选择音频素材；可在素材库导入', 'error'); return; }
+  if (library.find(a=>a.path===asset)?.source?.startsWith('audio/voice/')) bus='voice';
+  const existing = bus==='voice' ? config.cues.find(c=>c.lineId===selectedLine&&c.bus==='voice'&&c.asset===asset) : undefined;
+  if(existing){selectedCue=existing.id;renderInspector();status('这段已绑定该人物配音，已定位现有绑定；可直接调整参数');return;}
   remember();
   const cue: SoundCue = { id:crypto.randomUUID(),lineId:selectedLine,bus,asset,enabled:true,trigger:'line',frame:0,keyword:'',occurrence:1,delay:0,volume:bus==='voice'?1:.6,fadeIn:bus==='music'?1.5:0,fadeOut:bus==='music'?1:0,trimStart:0,trimEnd:0,rate:1,loop:bus==='music',scope:bus==='music'?'act':'line' };
   config.cues.push(cue);selectedCue=cue.id;changed();renderInspector();
@@ -228,8 +232,22 @@ document.querySelector('#file-input')!.addEventListener('change',async event=>{
   input.value='';
 });
 document.querySelector('#scan')!.addEventListener('click',async()=>{
-  const info=document.querySelector('#import-status')!;info.textContent='正在扫描并整理项目 audio 文件夹…';
-  try{const result=await api('scan','{}');for(const asset of result.assets){library=library.filter(a=>a.path!==asset.path);library.push(asset);}renderLibrary();renderInspector();info.textContent=`已整理 ${result.assets.length} 个音频文件`;}catch(error){info.textContent=String(error);}
+  const info=document.querySelector('#import-status')!,button=document.querySelector<HTMLButtonElement>('#scan')!;
+  if(busy){info.textContent='正在保存项目，请稍后扫描';return;}
+  busy=true;button.disabled=true;clearTimeout(saveTimer);info.textContent='正在扫描并整理项目 audio 文件夹…';
+  try{
+    const result=await api('scan','{}');
+    library=result.library;
+    const before=snapshot(),updated=replaceSoundAssets(config,library);
+    sourceAudio?.pause();send({type:'stop'});
+    if(updated){undoStack.push(before);if(undoStack.length>50)undoStack.shift();redoStack=[];changed();}else setPreview();
+    renderLibrary();renderInspector();
+    info.textContent=`已整理 ${result.assets.length} 个音频文件，更新 ${updated} 条旧版素材绑定${updated?'；请从本段重新试听':''}`;
+  }catch(error){info.textContent=String(error);}
+  finally{
+    busy=false;button.disabled=false;
+    if(queued||(snapshot()!==savedSnapshot&&document.querySelector<HTMLInputElement>('#autosave')!.checked)){queued=false;if(!conflict)void save();}
+  }
 });
 document.querySelector('#import-json')!.addEventListener('click',()=>document.querySelector<HTMLInputElement>('#json-input')!.click());
 document.querySelector('#json-input')!.addEventListener('change',async event=>{
