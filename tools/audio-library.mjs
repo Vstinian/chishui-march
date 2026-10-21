@@ -1,8 +1,9 @@
-import { readFile, writeFile, mkdir, readdir, rename } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, readdir, rename, access, rm } from 'node:fs/promises';
 import { createHash, randomUUID } from 'node:crypto';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
-import { normalizeVoice } from './voice-level.mjs';
+import { normalizeVoice, ffmpegPath } from './voice-level.mjs';
+import { audioEncoding, audioEncodingArgs } from './audio-encoding.mjs';
 
 export const digest = bytes => createHash('sha256').update(bytes).digest('hex');
 export async function atomicJson(file, value) {
@@ -12,9 +13,9 @@ export async function atomicJson(file, value) {
   await rename(temp, file);
 }
 export async function readJson(file, fallback) { try { return JSON.parse(await readFile(file, 'utf8')); } catch (error) { if (error.code === 'ENOENT') return fallback; throw error; } }
-function transcode(input, output, executable) {
+function transcode(input, output, executable, source) {
   return new Promise((resolve, reject) => {
-    const child = spawn(executable, ['-nostdin','-y','-i',input,'-vn','-ar','44100','-c:a','libmp3lame','-b:a','128k',output], { windowsHide: true, timeout: 120000 });
+    const child = spawn(executable, ['-hide_banner','-nostdin','-y','-i',input,...audioEncodingArgs(source),output], { windowsHide: true, timeout: 120000 });
     let detail = '';
     child.stderr.on('data', chunk => { detail = (detail + chunk).slice(-2000); });
     child.on('error', reject);
@@ -37,16 +38,31 @@ export async function importSound(root, name, bytes, source = name) {
   const libraryFile = path.join(root, 'public/audio/library.json');
   let library = await readJson(libraryFile, []);
   const normalized = await normalizeVoice(root, source, original, hash, directory, library.find(a => a.source === source));
-  let webExt = ext;
-  if (!normalized && ext === '.wav') {
-    const localTools = await readJson(path.join(root, 'audio-tools.local'), {});
-    try { await transcode(original, path.join(directory, hash + '.mp3'), process.env.FFMPEG_PATH || localTools.ffmpeg || 'ffmpeg'); webExt = '.mp3'; }
-    catch (error) { if (error.code !== 'ENOENT') throw error; }
+  const encoding = audioEncoding(source);
+  let fileName = normalized?.fileName;
+  let encoded = Boolean(normalized);
+  if (!fileName) {
+    const webHash = digest(JSON.stringify({ sourceHash: hash, encoding })).slice(0, 20);
+    fileName = `${webHash}.mp3`;
+    const output = path.join(directory, fileName), temp = path.join(directory, `.${webHash}.${randomUUID()}.mp3`);
+    try {
+      try { await access(output); }
+      catch (error) {
+        if (error.code !== 'ENOENT') throw error;
+        await transcode(original, temp, await ffmpegPath(root), source);
+        await rename(temp, output);
+      }
+      encoded = true;
+    } catch (error) {
+      // 未安装 FFmpeg 的电脑仍可扫描原格式；正式压缩须在有 FFmpeg 的电脑执行。
+      if (error.code !== 'ENOENT') throw error;
+      fileName = hash + ext;
+      await writeFile(path.join(directory, fileName), bytes);
+    } finally { await rm(temp, { force: true }); }
   }
-  if (!normalized && webExt === ext) await writeFile(path.join(directory, hash + ext), bytes);
-  const fileName = normalized?.fileName ?? hash + webExt;
   const web = await readFile(path.join(directory, fileName));
   const item = { path: `assets/audio/${fileName}`, name, bytes: web.length, source, sourceBytes: bytes.length };
+  if (encoded) item.webEncoding = { ...encoding, sourceHash: hash };
   if (normalized) item.voiceNormalization = normalized.voiceNormalization;
   if (source.startsWith('audio/')) {
     const versions = library.filter(a => a.source === source);

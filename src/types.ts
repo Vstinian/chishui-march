@@ -41,7 +41,12 @@ export interface MiniGame {
   source: string;
   afterLine: number;
 }
-export interface GameProgress { steps: number; selected: string | null; feedback: string; }
+export interface GameProgress {
+  steps: number; selected: string | null; feedback: string;
+  mistakes?: number; moves?: number; hints?: number;
+  rotation?: number; explored?: number[]; scouting?: boolean;
+  recalling?: boolean; balance?: number; observed?: boolean;
+}
 
 export interface SourceCard {
   id: string;

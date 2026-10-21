@@ -8,13 +8,13 @@ export const openingArtwork = {
   dark: 'assets/opening/river-dark.webp',
 };
 
-// 美术交付后将 null 改为 assets/ 开头的相对路径；未交付时显示剪影。
+// 2026-10-21 交付：五位主要人物各三种表情；伤员尚无素材。
 export const characters: Record<CharacterId, Character> = {
-  qingshan: { name: '邓青山', role: '十七岁 · 江西兴国 · 轻机枪副射手', portrait: null, expressions: { neutral: null, tense: null, tired: null } },
-  laolei: { name: '老雷', role: '三十岁 · 四川 · 九连班长', portrait: null, expressions: { neutral: null, alert: null, tired: null } },
-  xiaoman: { name: '小满', role: '十五岁 · 江西兴国 · 同乡战友', portrait: null, expressions: { anxious: null, smile: null, tired: null } },
-  ahu: { name: '阿虎', role: '二十岁 · 川黔交界 · 向导', portrait: null, expressions: { focus: null, alert: null, tired: null } },
-  instructor: { name: '指导员', role: '二十四岁 · 福建 · 连队指导员', portrait: null, expressions: { serious: null, neutral: null, soft: null } },
+  qingshan: { name: '邓青山', role: '十七岁 · 江西兴国 · 轻机枪副射手', portrait: 'assets/characters/qingshan-neutral.webp', expressions: { neutral: 'assets/characters/qingshan-neutral.webp', angry: 'assets/characters/qingshan-angry.webp', tense: 'assets/characters/qingshan-angry.webp', tired: 'assets/characters/qingshan-tired.webp' } },
+  laolei: { name: '老雷', role: '三十岁 · 四川 · 九连班长', portrait: 'assets/characters/laolei-neutral.webp', expressions: { neutral: 'assets/characters/laolei-neutral.webp', alert: 'assets/characters/laolei-alert.webp', tired: 'assets/characters/laolei-tired.webp' } },
+  xiaoman: { name: '小满', role: '十五岁 · 江西兴国 · 同乡战友', portrait: 'assets/characters/xiaoman-anxious.webp', expressions: { anxious: 'assets/characters/xiaoman-anxious.webp', smile: 'assets/characters/xiaoman-smile.webp', tired: 'assets/characters/xiaoman-tired.webp' } },
+  ahu: { name: '阿虎', role: '二十岁 · 川黔交界 · 向导', portrait: 'assets/characters/ahu-focus.webp', expressions: { focus: 'assets/characters/ahu-focus.webp', alert: 'assets/characters/ahu-alert.webp', tired: 'assets/characters/ahu-tired.webp' } },
+  instructor: { name: '指导员', role: '二十四岁 · 福建 · 连队指导员', portrait: 'assets/characters/instructor-neutral.webp', expressions: { serious: 'assets/characters/instructor-serious.webp', neutral: 'assets/characters/instructor-neutral.webp', soft: 'assets/characters/instructor-soft.webp' } },
   wounded: { name: '伤员', role: '战友', portrait: null, expressions: { tired: null } },
 };
 
@@ -45,7 +45,7 @@ export const sceneFraming: Record<string, string> = {
 export const opening = {
   artwork: openingArtwork,
   video: null as string | null,
-  bgm: 'assets/audio/c157bb3a3a4f95be8874.mp3' as string | null, // 阿鲲《觉醒年代主题》
+  bgm: 'assets/audio/3293ba3f5c9fea5ccdac.mp3' as string | null, // 阿鲲《觉醒年代主题》
   bgmVolume: 0.55,
   bgmFadeIn: 2,
   bgmFadeOut: 2,

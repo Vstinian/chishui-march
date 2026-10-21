@@ -20,7 +20,7 @@ class MockAudio {
 }
 const app = {
   innerHTML: '',
-  addEventListener(_type, listener) { clickListener = listener; },
+  addEventListener(type, listener) { if (type === 'click') clickListener = listener; },
   querySelector(_selector) {
     return { focus() {}, disabled: false, hidden: false, dataset: {}, textContent: '', setAttribute() {}, classList: { add() {} }, pause() {} };
   },
@@ -34,7 +34,7 @@ const context = {
   clearTimeout(id) { timers.delete(id); },
   setInterval() { return 1; }, clearInterval() {}, console,
 };
-const sources = ['typewriter', 'components/Icons', 'data/script', 'data/narrative', 'data/transitions', 'data/legacyScript', 'subtitles', 'data/acts', 'data/recap', 'game', 'audio', 'sound/schema', 'sound/engine', 'sound/preload', 'utils/html', 'components/Interaction', 'components/ActView', 'components/ActEndView', 'components/TransitionView', 'components/RecapView', 'components/OpeningArt', 'main'];
+const sources = ['typewriter', 'components/Icons', 'data/script', 'data/narrative', 'data/transitions', 'data/legacyScript', 'subtitles', 'data/acts', 'data/recap', 'game', 'saves', 'components/GameMenu', 'audio', 'sound/schema', 'sound/engine', 'sound/preload', 'data/portraitCues', 'portraits', 'utils/html', 'components/GameArt', 'fieldGestures', 'components/Interaction', 'components/ActView', 'components/ActEndView', 'components/TransitionView', 'components/RecapView', 'components/OpeningArt', 'main'];
 runInNewContext(`${sources.map(path => readSource(`../src/${path}.ts`)).join('\n')}\nglobalThis.testState = state; globalThis.testActs = acts; globalThis.testWriter = writer; globalThis.TestTypewriter = Typewriter; globalThis.testGameTarget = gameTarget; globalThis.testLegacyIds = legacyDialogueIds; globalThis.testTransitions = storyTransitions; globalThis.testMusic = music;`, context);
 const state = context.testState;
 const click = (action, dataset = {}) => clickListener({ target: { closest: () => ({ dataset: { action, ...dataset }, matches: () => false, setAttribute() {}, innerHTML: '' }) } });
@@ -72,7 +72,7 @@ assert.equal(state.screen, 'home', '不能从首页绕过序章或章节锁');
 click('start');
 assert.equal(state.screen, 'intro');
 const openingMusic = media.at(-1);
-assert.equal(openingMusic.src, 'assets/audio/c157bb3a3a4f95be8874.mp3');
+assert.equal(openingMusic.src, /bgm: '([^']+)'/.exec(readFileSync(new URL('../src/data/narrative.ts', import.meta.url), 'utf8'))[1]);
 assert.equal(openingMusic.paused, false, '展开报纸即播放觉醒年代主题');
 assert.equal(openingMusic.loop, true, '等待开场文字期间可持续播放');
 context.testMusic.setExternalMusic(true);
@@ -120,9 +120,8 @@ click('menu'); assert.equal(timers.size, 1, '关闭目录恢复打字');
 click('dialogue');
 assert.equal(state.cursors.act01 ?? 0, 0, '第一次点击只补全当前句');
 assert.equal(context.testWriter.typing, false);
-click('dialogue'); assert.equal(state.frames.act01, 1, '第二次点击进入本段下一框');
-assert.equal(state.cursors.act01 ?? 0, 0, '分框未读完不能跳过段落');
-readLine(); assert.equal(state.cursors.act01, 1);
+click('dialogue'); assert.equal(state.frames.act01, 0, '完整段落无需再拆成多框');
+assert.equal(state.cursors.act01, 1, '第二次点击进入下一段对白');
 
 // 全量核对编号、场景、表情配置与左右站位，包含原稿的伤员对白。
 const expectedCounts = [28, 30, 23, 23, 24];
@@ -138,7 +137,7 @@ for (const [index, act] of context.testActs.entries()) {
     else {
       assert.match(rendered, /data-character="qingshan" data-side="left"/);
       if (line.speaker !== 'qingshan') assert.ok(rendered.includes(`data-character="${line.speaker}" data-side="right"`));
-      assert.match(rendered, new RegExp(`portrait-${line.speaker} portrait-(left|right) is-speaking`));
+      assert.match(rendered, new RegExp(`portrait-${line.speaker} portrait-(left|right) [^\"]*is-speaking`));
     }
   }
 }
@@ -153,7 +152,6 @@ for (const act of context.testActs) {
     assert.equal(frames.map(frame => frame.text.replaceAll('\n', '')).join(''), line.text, `${line.id} 分框不漏字`);
     for (const frame of frames) {
       assert.ok(frame.text.split('\n').length <= 3);
-      assert.ok(frame.text.split('\n').every(row => Array.from(row).length <= 16));
       assert.equal(frame.delays.length, Array.from(frame.text).length);
     }
     if (line.inner) {
@@ -162,7 +160,7 @@ for (const act of context.testActs) {
     }
   }
 }
-assert.equal(totalFrames, 249);
+assert.equal(totalFrames, 135, '121段完整段落，7段保留第二框音频的原分框');
 for (const transition of Object.values(context.testTransitions)) {
   assert.ok(transition.lines.length <= 3);
   assert.ok(transition.lines.every(row => Array.from(row).length <= 16));
@@ -175,17 +173,17 @@ assert.ok(!allIds.has('A01-D009'), '保留原稿缺号，不凭空补写');
 keyListener({ key: ' ', repeat: false, target: { closest: () => null }, preventDefault() {} });
 assert.equal(state.cursors.act01, 1, '空格先补全当前句');
 keyListener({ key: ' ', repeat: false, target: { closest: () => null }, preventDefault() {} });
-assert.equal(state.frames.act01, 1, '完整显示后空格推进一框');
+assert.equal(state.cursors.act01, 2, '完整显示后空格推进下一段');
 keyListener({ key: 'Enter', repeat: false, target: { closest: () => ({}) }, preventDefault() {} });
-assert.equal(state.cursors.act01, 1, '原生按钮键盘事件不重复推进');
+assert.equal(state.cursors.act01, 2, '原生按钮键盘事件不重复推进');
 state.cursors.act01 = 0; state.frames.act01 = 0; context.render();
 
 const solutions = [
-  ['plank', 'slot-0', 'plank', 'slot-1', 'plank', 'slot-2'],
+  ['plank-2', 'slot-0', 'plank-3', 'rotate', 'slot-1', 'plank-1', 'slot-2'],
   ['1', '5', '6', '10', '11', '15'],
-  Array.from({ length: 6 }, () => ['cover', 'climb', 'duck', 'follow']).flat(),
-  ['soldier', 'shelter', 'soldier', 'shelter', 'soldier', 'shelter'],
-  Array(8).fill('step'),
+  Array.from({ length: 6 }, () => ['memorize', 'cover', 'climb', 'duck', 'follow']).flat(),
+  ['observe', 'soldier', 'shelter-1', 'observe', 'soldier', 'shelter-0', 'observe', 'soldier', 'shelter-2'],
+  [2, -3, 2, 3, -2, -3, 2, -2].flatMap(wind => [...Array(Math.abs(wind) - 1).fill(wind > 0 ? 'left' : 'right'), 'step']),
 ];
 for (const [index, act] of context.testActs.entries()) {
   if (index > 0) fireDelay(3800);
@@ -294,8 +292,10 @@ stored = JSON.stringify({ ...legacy, version: 4, cursors: { ...legacy.cursors, a
 assert.equal(context.testActs[4].dialogue[context.loadGame().cursors.act05].id, 'A05-D006', '第五幕重排后按旧 ID 找回原段落');
 stored = JSON.stringify({ ...legacy, version: 5, bookmarks: { act02: 'A02-D011b', act05: '@notes' }, frames: { act02: 1 } });
 assert.equal(context.testActs[1].dialogue[context.loadGame().cursors.act02].id, 'A02-D011b');
-assert.equal(context.loadGame().frames.act02, 1, '新增段落的第二框可恢复');
+assert.equal(context.loadGame().frames.act02, 0, '已合并段落的旧框号回到完整段落，不丢失存档');
 assert.equal(context.loadGame().cursors.act05, context.testActs[4].dialogue.length, '新版幕末书签可恢复');
+stored = JSON.stringify({ ...legacy, version: 5, bookmarks: { act01: 'A01-D008' }, frames: { act01: 1 } });
+assert.equal(context.loadGame().frames.act01, 1, '有第二框音频的段落仍能恢复原框号');
 stored = '{broken'; assert.equal(context.loadGame().introSeen, false);
 stored = JSON.stringify({ introSeen: true, completed: ['act05'], cursors: { act01: 10000 }, games: { act01: { steps: -9 } } });
 const repaired = context.loadGame();
@@ -305,12 +305,12 @@ assert.equal(repaired.games.act01.steps, 0);
 const climb = context.testActs[2];
 assert.equal(context.testGameTarget(climb), 24);
 for (const [steps, wrong, expected] of [[0, 'follow', 0], [2, 'cover', 0], [4, 'duck', 0], [7, 'cover', 0], [8, 'follow', 4], [11, 'cover', 4], [23, 'cover', 16]]) {
-  const result = context.playGame(climb, { steps, selected: null, feedback: '' }, wrong);
+  const result = context.playGame(climb, { steps, selected: null, feedback: '', recalling: true }, wrong);
   assert.equal(result.steps, expected, `第 ${steps} 步点错，回到上一段起点`);
   assert.match(result.feedback, /掩护/);
 }
 assert.equal(context.playGame(climb, { steps: 11, selected: null, feedback: '' }, 'invalid').steps, 11, '无效输入不算听错有效口令');
-assert.match(context.playGame(climb, { steps: 3, selected: null, feedback: '' }, 'follow').feedback, /第 1 道口令走完/);
+assert.match(context.playGame(climb, { steps: 3, selected: null, feedback: '', recalling: true }, 'follow').feedback, /第 1 道口令走完/);
 const climbUI = context.renderInteraction(climb, { steps: 11, selected: null, feedback: '' });
 assert.match(climbUI, /已完成 2 段，共 6 段/);
 assert.match(climbUI, /第 3 段/);
