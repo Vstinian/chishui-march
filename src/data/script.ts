@@ -1670,8 +1670,8 @@ export const script: DialogueLine[] = [
   {
     "id": "A02-D020",
     "shot": "S3-03",
-    "sceneId": "a02-bg03",
-    "scene": "黔北山道·拂晓雾散",
+    "sceneId": "a02-bg02",
+    "scene": "扎西至黔北·雾中行军道",
     "speakerLabel": "旁白·独白",
     "text": "我把小满从泥坑里拽出来。他手上全是泥，抓着我的胳膊，抓得很紧，指甲都掐进肉里去了。",
     "performance": "画外音；声音绷着，句子短",
@@ -1701,8 +1701,8 @@ export const script: DialogueLine[] = [
   {
     "id": "A02-D021",
     "shot": "S3-03",
-    "sceneId": "a02-bg03",
-    "scene": "黔北山道·拂晓雾散",
+    "sceneId": "a02-bg02",
+    "scene": "扎西至黔北·雾中行军道",
     "speakerLabel": "小满·对话",
     "text": "青山哥，我以为我把队伍丢了。掉进坑里那会儿，四周静得很，只有雨声，我喊谁，谁都不应。",
     "performance": "后怕；喘着气，声音还抖",
@@ -1732,8 +1732,8 @@ export const script: DialogueLine[] = [
   {
     "id": "A02-D022",
     "shot": "S3-03",
-    "sceneId": "a02-bg03",
-    "scene": "黔北山道·拂晓雾散",
+    "sceneId": "a02-bg02",
+    "scene": "扎西至黔北·雾中行军道",
     "speakerLabel": "邓青山·对话",
     "text": "丢不了。你听，前头有脚步声，一声接一声，踩得整整齐齐。跟着那声音走就行，队伍没走远，就在前头。",
     "performance": "稳；侧耳听了一瞬",
@@ -1763,8 +1763,8 @@ export const script: DialogueLine[] = [
   {
     "id": "A02-D023",
     "shot": "S3-03",
-    "sceneId": "a02-bg03",
-    "scene": "黔北山道·拂晓雾散",
+    "sceneId": "a02-bg02",
+    "scene": "扎西至黔北·雾中行军道",
     "speakerLabel": "老雷·对话",
     "text": "（在前头）后边的，一个跟一个，别掉队！前面就是大路！都把手搭在前头人肩上，闭着眼也能走！",
     "performance": "回头喊；声音从雾里传来",
