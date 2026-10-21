@@ -12,6 +12,9 @@ import type { ActId } from './types';
 import type { Screen } from './game';
 import { loadGame, saveGame, newGame, canOpen, inGame, atActEnd, gameTarget, freshProgress, playGame, restartAct } from './game';
 import { Atmosphere } from './audio';
+import { readSave, writeSave } from './saves';
+import { renderMenu } from './components/GameMenu';
+import type { MenuTab } from './components/GameMenu';
 import { escapeHtml } from './utils/html';
 import { renderAct } from './components/ActView';
 import { renderActEnd } from './components/ActEndView';
@@ -42,13 +45,17 @@ function configureSound(config: SoundConfig): void {
 }
 if (typeof fetch !== 'undefined') void fetch('audio/cues.json', { cache: 'no-cache' }).then(r => { if (!r.ok) throw new Error('audio config unavailable'); return r.json(); }).then(configureSound).catch(() => {});
 let menuOpen = false;
+let menuTab: MenuTab = 'main';
+let menuMessage = '';
+let saveWarning = false;
+let slotConfirmation: { action: string; slot: number } | null = null;
+let menuFocus: HTMLElement | null = null;
 const writer = new Typewriter();
 let transitioning = false;
 let transitionTimer: ReturnType<typeof setTimeout> | undefined;
 let storyTransition: { id: string; ready: boolean; finish: () => void } | null = null;
 let storyTransitionTimer: ReturnType<typeof setTimeout> | undefined;
 const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-let recapStep = 0;
 let introReady = false;
 let introWordsStarted = false;
 let introTimer: ReturnType<typeof setTimeout> | undefined;
@@ -60,8 +67,44 @@ function renderSoundButton(): string {
   return `<button class="icon-button symbol-button" data-action="sound" aria-pressed="${!music.muted}" aria-label="${label}" title="${label}">${bugleIcon(music.muted)}</button>`;
 }
 function renderHeader(): string {
-  return `<header class="site-header ${state.screen === 'act' ? 'header-immersive' : ''}"><button class="brand" data-action="home" aria-label="返回首页"><span class="brand-mark">赤</span><span>赤水行军图</span></button><div class="header-actions">${renderSoundButton()}<button class="icon-button symbol-button" data-action="menu" aria-label="行军目录" title="行军目录" aria-expanded="${menuOpen}" aria-controls="chapter-menu">${menuIcon}</button></div></header>
-  <nav id="chapter-menu" class="chapter-menu" aria-label="章节解锁进度" ${menuOpen ? '' : 'hidden'}><p>完成本幕故事与互动，开启下一幕</p>${acts.map((act, i) => `<button data-action="jump" data-act="${act.id}" ${canOpen(state, act.id) ? '' : 'disabled'} ${state.screen === 'act' && act.id === state.actId ? 'aria-current="page"' : ''}><span>${String(i + 1).padStart(2, '0')}　${escapeHtml(act.title)}</span><small>${state.completed.includes(act.id) ? '从头重看' : canOpen(state, act.id) ? (act.id === state.actId ? '继续' : '进入') : '未解锁'}</small></button>`).join('')}<button data-action="recap" ${allComplete() ? '' : 'disabled'}>全局复盘与尾声 <small>${allComplete() ? '已解锁' : '未解锁'}</small></button></nav>`;
+  return `<header class="site-header ${state.screen === 'act' ? 'header-immersive' : ''}"><button class="brand" data-action="home" aria-label="返回首页"><span class="brand-mark">赤</span><span>赤水行军图</span></button><div class="header-actions">${renderSoundButton()}<button class="icon-button" data-action="menu-save" aria-label="保存行程">存档</button><button class="icon-button" data-action="menu-load" aria-label="读取行程">读档</button><button class="icon-button symbol-button" data-action="menu" aria-label="游戏菜单" title="游戏菜单" aria-expanded="${menuOpen}" aria-controls="game-menu-layer">${menuIcon}</button></div></header>`;
+}
+function paintMenu(): void {
+  const layer = app!.querySelector<HTMLElement>('#game-menu-layer');
+  if (layer) { layer.hidden = !menuOpen; layer.innerHTML = menuOpen ? renderMenu(state, menuTab, menuMessage, slotConfirmation, studioMode) : ''; }
+  const shell = app!.querySelector<HTMLElement>('.page-shell');
+  if (shell) shell.inert = menuOpen || transitioning || Boolean(storyTransition);
+  app!.querySelector('[data-action="menu"]')?.setAttribute('aria-expanded', String(menuOpen));
+  if (menuOpen) app!.querySelector<HTMLElement>('.game-menu')?.focus();
+}
+function openMenu(tab: MenuTab = 'main'): void {
+  if (state.screen === 'intro' || transitioning || storyTransition) return;
+  if (!menuOpen) menuFocus = typeof HTMLElement !== 'undefined' && document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  menuOpen = true; menuTab = tab; slotConfirmation = null;
+  menuMessage = studioMode ? '编排台预览中不能写入或读取游戏存档。' : saveWarning ? '浏览器未能保存自动进度，请检查存储空间或隐私设置。' : '';
+  writer.pause(); soundPlayer.setPaused(true); music.pause(); paintMenu();
+}
+function closeMenu(): void {
+  menuOpen = false; slotConfirmation = null; paintMenu();
+  if (state.screen !== 'home' && !document.hidden) void music.start();
+  syncDialogue();
+  if (menuFocus?.isConnected) menuFocus.focus();
+  else app!.querySelector<HTMLElement>('[data-action="menu"]')?.focus();
+}
+function useSlot(action: string, slot: number): void {
+  if (studioMode || !Number.isInteger(slot) || slot < 0 || slot > 3) return;
+  if (action === 'save-slot') {
+    menuMessage = writeSave(slot, state) ? `行程已保存至存档 0${slot}。` : '保存失败，请检查浏览器存储空间或隐私设置。';
+    slotConfirmation = null; paintMenu(); return;
+  }
+  const entry = readSave(slot);
+  if (!entry?.state) { menuMessage = '此存档无法读取，当前行程保持原位。'; slotConfirmation = null; paintMenu(); return; }
+  // 明确读档才清空旧轨道；单纯开关菜单使用暂停/继续，避免配音重播。
+  soundPlayer.reset(); soundPlayer.setPaused(false); writer.reset(); music.pause();
+  Object.assign(state, entry.state);
+  const transition = storyTransitions[['TR-00', 'TR-12', 'TR-23', 'TR-34', 'TR-45'][acts.indexOf(currentAct())]];
+  music.transitionTo(transition.to, transition.musicLevel, 0);
+  void music.start(); navigate(state.resumeScreen, state.actId);
 }
 function renderActTransition(): string {
   const act = currentAct();
@@ -111,10 +154,11 @@ function render(): void {
   // 开场曲穿过报纸、独白、幕前过渡和标题，正文出现时交给章节配乐。
   if (state.screen !== 'intro' && !(state.screen === 'act' && transitioning)) music.stopOpening();
   const act = currentAct();
-  const content = state.screen === 'home' ? renderHome() : state.screen === 'intro' ? renderIntro() : state.screen === 'act' ? atActEnd(state, act) ? renderActEnd(act, act.sourceIds.map(id => sourceCards[id])) : renderAct(act, state) : state.screen === 'recap' ? renderRecap(recapStep) : renderEnding();
-  app!.innerHTML = `<div class="page-shell" ${transitioning || storyTransition ? 'inert aria-hidden="true"' : ''}>${state.screen === 'intro' ? '' : renderHeader()}${content}</div>${transitioning ? renderActTransition() : ''}${storyTransition ? renderStoryTransition(storyTransitions[storyTransition.id], storyTransition.ready) : ''}`;
+  const content = state.screen === 'home' ? renderHome() : state.screen === 'intro' ? renderIntro() : state.screen === 'act' ? atActEnd(state, act) ? renderActEnd(act, act.sourceIds.map(id => sourceCards[id])) : renderAct(act, state) : state.screen === 'recap' ? renderRecap(state.recapStep) : renderEnding();
+  app!.innerHTML = `<div class="page-shell" ${transitioning || storyTransition ? 'inert aria-hidden="true"' : ''}>${state.screen === 'intro' ? '' : renderHeader()}${content}</div><div id="game-menu-layer" class="game-menu-layer" hidden></div>${transitioning ? renderActTransition() : ''}${storyTransition ? renderStoryTransition(storyTransitions[storyTransition.id], storyTransition.ready) : ''}`;
   syncDialogue();
-  if (!studioMode) saveGame(state);
+  if (!studioMode && state.introSeen && state.screen !== 'home' && state.screen !== 'intro') saveWarning = !saveGame(state);
+  if (menuOpen) paintMenu();
 }
 function beginStoryTransition(id: string, finish: () => void): void {
   clearTimeout(storyTransitionTimer); writer.pause();
@@ -143,7 +187,6 @@ function navigate(screen: Screen, id?: ActId, showTitle = false): void {
   clearTimeout(storyTransitionTimer); storyTransition = null;
   state.screen = screen; if (id) state.actId = id;
   if (screen === 'act' || screen === 'recap' || screen === 'ending') state.resumeScreen = screen;
-  if (screen === 'recap') recapStep = 0;
   menuOpen = false;
   transitioning = screen === 'act' && showTitle && !atActEnd(state, currentAct());
   if (screen === 'home') music.pause();
@@ -232,6 +275,22 @@ app.addEventListener('click', event => {
     control.innerHTML = bugleIcon(music.muted);
     control.setAttribute('aria-pressed', String(!music.muted)); control.setAttribute('aria-label', label); control.setAttribute('title', label); return;
   }
+  if (action === 'menu-close') { closeMenu(); return; }
+  if (action === 'menu') { if (menuOpen) closeMenu(); else openMenu(); return; }
+  if (action?.startsWith('menu-')) {
+    const tab = action.slice(5);
+    if (['main', 'save', 'load', 'chapters'].includes(tab)) openMenu(tab as MenuTab);
+    return;
+  }
+  if (menuOpen && (action === 'save-slot' || action === 'load-slot')) {
+    const slot = Number(control.dataset.slot);
+    if (studioMode || !Number.isInteger(slot) || slot < (action === 'save-slot' ? 1 : 0) || slot > 3) return;
+    if (action === 'load-slot' || readSave(slot)) { slotConfirmation = { action, slot }; menuMessage = ''; paintMenu(); }
+    else useSlot(action, slot);
+    return;
+  }
+  if (menuOpen && action === 'confirm-slot' && slotConfirmation) { useSlot(slotConfirmation.action, slotConfirmation.slot); return; }
+  if (menuOpen && action === 'cancel-slot') { slotConfirmation = null; paintMenu(); return; }
   if (action === 'home') navigate('home');
   if (action === 'start') startIntro();
   if (action === 'skip-intro') revealIntroEnd();
@@ -244,16 +303,9 @@ app.addEventListener('click', event => {
     if (id !== state.actId || state.completed.includes(id)) restartAct(state, id);
     void music.start(); navigate('act', id, (state.cursors[id] ?? 0) === 0);
   }
-  if (action === 'menu' && state.screen !== 'intro') {
-    menuOpen = !menuOpen;
-    // 目录浮层只改自身可见性，保持当前对白及打字位置。
-    const menu = app!.querySelector<HTMLElement>('#chapter-menu'); if (menu) menu.hidden = !menuOpen;
-    control.setAttribute('aria-expanded', String(menuOpen));
-    if (menuOpen) { writer.pause(); soundPlayer.setPaused(true); } else syncDialogue();
-  }
-  if (action === 'recap') navigate('recap');
+  if (action === 'recap' && allComplete()) { void music.start(); navigate('recap'); }
   if (action === 'ending' && state.screen === 'recap') navigate('ending');
-  if (action === 'recap-step' && state.screen === 'recap') { const step = Number(control.dataset.step); if (Number.isInteger(step) && step >= 0 && step < recapSteps.length) { recapStep = step; render(); } }
+  if (action === 'recap-step' && state.screen === 'recap') { const step = Number(control.dataset.step); if (Number.isInteger(step) && step >= 0 && step < recapSteps.length) { state.recapStep = step; render(); } }
   const act = currentAct();
   if (state.screen === 'act' && !menuOpen) {
     if (action === 'dialogue') advanceDialogue();
@@ -269,13 +321,18 @@ app.addEventListener('click', event => {
 });
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) { music.pause(); writer.pause(); soundPlayer.setPaused(true); }
-  else { if (state.screen !== 'home') void music.start(); syncDialogue(); }
+  else { if (state.screen !== 'home' && !menuOpen) void music.start(); syncDialogue(); }
 });
 document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && menuOpen) {
-    menuOpen = false;
-    const menu = app!.querySelector<HTMLElement>('#chapter-menu'); if (menu) menu.hidden = true;
-    const trigger = app!.querySelector<HTMLElement>('[data-action="menu"]'); trigger?.setAttribute('aria-expanded', 'false'); trigger?.focus(); syncDialogue(); return;
+  if (event.key === 'Escape' && !transitioning && !storyTransition && state.screen !== 'intro') {
+    event.preventDefault(); if (menuOpen) closeMenu(); else openMenu(); return;
+  }
+  if (event.key === 'Tab' && menuOpen) {
+    const nodes = [...app!.querySelectorAll<HTMLElement>('.game-menu button:not(:disabled), .game-menu [href]')];
+    const first = nodes[0], last = nodes.at(-1);
+    if (event.shiftKey && (document.activeElement === first || document.activeElement === app!.querySelector('.game-menu'))) { event.preventDefault(); last?.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+    return;
   }
   if (event.repeat || (event.key !== ' ' && event.key !== 'Enter') || transitioning || menuOpen) return;
   if ((event.target as HTMLElement).closest('button, a, input, textarea, select, [contenteditable="true"]')) return;

@@ -1,0 +1,57 @@
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { stripTypeScriptTypes } from 'node:module';
+import { runInNewContext } from 'node:vm';
+const source = name => stripTypeScriptTypes(readFileSync(new URL(`../src/${name}.ts`, import.meta.url), 'utf8').replace(/^import .*;\s*$/gm, '').replace(/^export /gm, ''), { mode: 'strip' });
+const storage = new Map();
+let unavailable = false;
+const ctx = { console, localStorage: { getItem(key) { if (unavailable) throw Error('denied'); return storage.get(key) ?? null; }, setItem(key, value) { if (unavailable) throw Error('quota'); storage.set(key, value); } } };
+runInNewContext(['data/script', 'data/legacyScript', 'subtitles', 'data/acts', 'game', 'saves'].map(source).join('\n') + '\nglobalThis.actsForTest = acts; globalThis.newGame = newGame; globalThis.freshProgress = freshProgress; globalThis.gameTarget = gameTarget;', ctx);
+const acts = ctx.actsForTest;
+const state = ctx.newGame(); state.introSeen = true; state.screen = 'act'; state.completed = acts.map(a => a.id);
+const play = (index, p, ...values) => values.reduce((v, action) => ctx.playGame(acts[index], v, action), p);
+const fresh = () => ctx.freshProgress();
+let bridge = play(0, fresh(), 'plank-1', 'slot-0');
+assert.equal(bridge.steps, 0); assert.equal(bridge.mistakes, 1);
+bridge = play(0, bridge, 'plank-2', 'slot-0', 'plank-3', 'slot-1');
+assert.equal(bridge.steps, 1, '第二桥位需旋转，不能只选长度');
+bridge = play(0, bridge, 'rotate');
+let fog = play(1, fresh(), 'scout', '4');
+assert.equal(fog.steps, 0); assert.equal(fog.mistakes ?? 0, 0); assert.ok(fog.explored.includes(4));
+fog = play(1, fog, '1', 'scout', '5'); assert.equal(fog.steps, 1); assert.ok(fog.explored.includes(5));
+let climb = play(2, fresh(), 'cover'); assert.equal(climb.steps, 0, '先记令再操作');
+climb = play(2, climb, 'memorize', 'cover', 'climb'); assert.equal(climb.steps, 2);
+const wrong = play(2, { ...climb, steps: 9 }, 'follow'); assert.equal(wrong.steps, 4); assert.equal(wrong.recalling, false);
+let rescue = play(3, fresh(), 'shelter-1'); assert.equal(rescue.steps, 0);
+rescue = play(3, rescue, 'observe', 'soldier', 'shelter-0'); assert.equal(rescue.steps, 0);
+let crossing = play(4, fresh(), 'step'); assert.equal(crossing.steps, 0);
+crossing = play(4, crossing, 'left'); assert.equal(crossing.balance, 1);
+const progresses = [bridge, fog, climb, rescue, crossing];
+for (let i = 0; i < acts.length; i++) {
+  const act = acts[i]; state.actId = act.id; state.cursors[act.id] = act.interaction.afterLine; state.games[act.id] = progresses[i];
+  assert.equal(ctx.writeSave(1, state), true);
+  const saved = ctx.readSave(1).state;
+  assert.equal(saved.cursors[act.id], act.interaction.afterLine);
+  for (const field of ['steps', 'feedback', 'selected', 'rotation', 'scouting', 'recalling', 'observed', 'balance', 'mistakes', 'moves', 'hints']) {
+    if (progresses[i][field] !== undefined) assert.equal(saved.games[act.id][field], progresses[i][field], `${act.id} 保存 ${field}`);
+  }
+  if (progresses[i].explored) assert.deepEqual(Array.from(saved.games[act.id].explored), Array.from(progresses[i].explored));
+  const solution = [['slot-1', 'plank-1', 'slot-2'], ['5', '6', '10', '11', '15'], ['duck', 'follow', ...Array(5).fill(['memorize', 'cover', 'climb', 'duck', 'follow']).flat()], ['shelter-1', 'soldier', 'shelter-0', 'soldier', 'shelter-2'], ['step', ...[-3, 2, 3, -2, -3, 2, -2].flatMap(w => [...Array(Math.abs(w) - 1).fill(w > 0 ? 'left' : 'right'), 'step'])]][i];
+  const done = play(i, saved.games[act.id], ...solution);
+  assert.equal(done.steps, ctx.gameTarget(act), `${act.id} 读取中途存档后可通关`);
+  assert.equal(play(i, done, 'step').steps, done.steps, '完成后不能再操作');
+}
+const original = storage.get('chishui-march-manual-v1-1');
+state.actId = 'act01'; state.games.act01 = { ...fresh(), steps: 3 }; state.acknowledged = ['act01']; state.cursors.act01 = 7; state.frames.act01 = 1;
+ctx.writeSave(2, state); ctx.saveGame(state);
+assert.equal(storage.get('chishui-march-manual-v1-1'), original, '不同槽位与自动存档互不覆盖');
+state.cursors.act01 = 0;
+assert.equal(ctx.readSave(2).state.cursors.act01, 7, '保存的是副本');
+assert.equal(ctx.readSave(2).state.frames.act01, 1, '保留第二字幕框书签');
+storage.set('chishui-march-manual-v1-3', '{broken'); assert.equal(ctx.readSave(3).corrupt, true);
+assert.equal(ctx.writeSave(0, state), false); assert.equal(ctx.writeSave(4, state), false);
+unavailable = true;
+assert.equal(ctx.writeSave(1, state), false); assert.equal(ctx.saveGame(state), false); assert.equal(ctx.loadGame().introSeen, false);
+unavailable = false;
+assert.equal(storage.get('chishui-march-manual-v1-1'), original, '失败写入保留旧存档');
+console.log('通过：五种玩法的错误/恢复路径、中途状态存读、音频第二框书签、独立槽位、损坏/禁用存储和旧自动存档。');

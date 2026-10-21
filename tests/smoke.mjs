@@ -34,7 +34,7 @@ const context = {
   clearTimeout(id) { timers.delete(id); },
   setInterval() { return 1; }, clearInterval() {}, console,
 };
-const sources = ['typewriter', 'components/Icons', 'data/script', 'data/narrative', 'data/transitions', 'data/legacyScript', 'subtitles', 'data/acts', 'data/recap', 'game', 'audio', 'sound/schema', 'sound/engine', 'sound/preload', 'utils/html', 'components/Interaction', 'components/ActView', 'components/ActEndView', 'components/TransitionView', 'components/RecapView', 'components/OpeningArt', 'main'];
+const sources = ['typewriter', 'components/Icons', 'data/script', 'data/narrative', 'data/transitions', 'data/legacyScript', 'subtitles', 'data/acts', 'data/recap', 'game', 'saves', 'components/GameMenu', 'audio', 'sound/schema', 'sound/engine', 'sound/preload', 'utils/html', 'components/Interaction', 'components/ActView', 'components/ActEndView', 'components/TransitionView', 'components/RecapView', 'components/OpeningArt', 'main'];
 runInNewContext(`${sources.map(path => readSource(`../src/${path}.ts`)).join('\n')}\nglobalThis.testState = state; globalThis.testActs = acts; globalThis.testWriter = writer; globalThis.TestTypewriter = Typewriter; globalThis.testGameTarget = gameTarget; globalThis.testLegacyIds = legacyDialogueIds; globalThis.testTransitions = storyTransitions; globalThis.testMusic = music;`, context);
 const state = context.testState;
 const click = (action, dataset = {}) => clickListener({ target: { closest: () => ({ dataset: { action, ...dataset }, matches: () => false, setAttribute() {}, innerHTML: '' }) } });
@@ -179,11 +179,11 @@ assert.equal(state.cursors.act01, 2, '原生按钮键盘事件不重复推进');
 state.cursors.act01 = 0; state.frames.act01 = 0; context.render();
 
 const solutions = [
-  ['plank', 'slot-0', 'plank', 'slot-1', 'plank', 'slot-2'],
+  ['plank-2', 'slot-0', 'plank-3', 'rotate', 'slot-1', 'plank-1', 'slot-2'],
   ['1', '5', '6', '10', '11', '15'],
-  Array.from({ length: 6 }, () => ['cover', 'climb', 'duck', 'follow']).flat(),
-  ['soldier', 'shelter', 'soldier', 'shelter', 'soldier', 'shelter'],
-  Array(8).fill('step'),
+  Array.from({ length: 6 }, () => ['memorize', 'cover', 'climb', 'duck', 'follow']).flat(),
+  ['observe', 'soldier', 'shelter-1', 'observe', 'soldier', 'shelter-0', 'observe', 'soldier', 'shelter-2'],
+  [2, -3, 2, 3, -2, -3, 2, -2].flatMap(wind => [...Array(Math.abs(wind) - 1).fill(wind > 0 ? 'left' : 'right'), 'step']),
 ];
 for (const [index, act] of context.testActs.entries()) {
   if (index > 0) fireDelay(3800);
@@ -305,12 +305,12 @@ assert.equal(repaired.games.act01.steps, 0);
 const climb = context.testActs[2];
 assert.equal(context.testGameTarget(climb), 24);
 for (const [steps, wrong, expected] of [[0, 'follow', 0], [2, 'cover', 0], [4, 'duck', 0], [7, 'cover', 0], [8, 'follow', 4], [11, 'cover', 4], [23, 'cover', 16]]) {
-  const result = context.playGame(climb, { steps, selected: null, feedback: '' }, wrong);
+  const result = context.playGame(climb, { steps, selected: null, feedback: '', recalling: true }, wrong);
   assert.equal(result.steps, expected, `第 ${steps} 步点错，回到上一段起点`);
   assert.match(result.feedback, /掩护/);
 }
 assert.equal(context.playGame(climb, { steps: 11, selected: null, feedback: '' }, 'invalid').steps, 11, '无效输入不算听错有效口令');
-assert.match(context.playGame(climb, { steps: 3, selected: null, feedback: '' }, 'follow').feedback, /第 1 道口令走完/);
+assert.match(context.playGame(climb, { steps: 3, selected: null, feedback: '', recalling: true }, 'follow').feedback, /第 1 道口令走完/);
 const climbUI = context.renderInteraction(climb, { steps: 11, selected: null, feedback: '' });
 assert.match(climbUI, /已完成 2 段，共 6 段/);
 assert.match(climbUI, /第 3 段/);
