@@ -2,7 +2,7 @@
   "version": 1,
   "scriptFingerprint": "fnv1a-2d8ef0d",
   "mix": {
-    "master": 0.88,
+    "master": 1,
     "voice": 1,
     "sfx": 0.54,
     "music": 0.33,
@@ -239,7 +239,11 @@
       "trimEnd": 0,
       "rate": 1,
       "loop": false,
-      "scope": "line"
+      "scope": "range",
+      "endLineId": "A01-D015",
+      "endTrigger": "leave",
+      "endKeyword": "",
+      "endOccurrence": 1
     },
     {
       "id": "69694cd0-30a9-43e5-bcf2-8a1d195e09ae",

@@ -39,7 +39,6 @@ export const scenes: Record<string, string | null> = {
 export const sceneFraming: Record<string, string> = {
   'a01-bg04': '65% 50%',
   'a02-bg01': '65% 50%',
-  'a04-bg02': '22% 50%',
   'a05-bg01': '60% 50%',
 };
 

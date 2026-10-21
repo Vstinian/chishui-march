@@ -173,21 +173,23 @@
       "webQuality": 83
     },
     {
-      "originalFile": "图片/11茅台镇外-赤水河滩.png",
+      "originalFile": "开篇图/11茅台镇外-赤水河滩 .png",
       "source": "art-source/scenes/originals/act04-bg02.png",
       "web": "assets/scenes/act04-bg02.webp",
-      "width": 2730,
-      "height": 1536,
-      "bytes": 5914581,
+      "width": 2848,
+      "height": 1600,
+      "bytes": 6733952,
       "alphaRange": [
         255,
         255
       ],
-      "sha256": "14854a554e6524a15124b7ba68adc794735a5267520dab08c66472fcfebaddf1",
-      "webBytes": 224182,
+      "sha256": "05d63a21041d87b637483cd6a671aecf83ef3413fa6608bb19f526a45788679e",
+      "webBytes": 235676,
       "webWidth": 1600,
-      "webHeight": 900,
-      "webQuality": 83
+      "webHeight": 899,
+      "webQuality": 83,
+      "sourceArchive": "修改图.zip",
+      "received": "2026-10-21"
     },
     {
       "originalFile": "图片/12深夜浮桥-墨黑水光.png",

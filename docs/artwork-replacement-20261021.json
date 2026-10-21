@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-21",
+  "sourceArchive": "修改图.zip",
+  "images": [
+    {
+      "file": "public/assets/scenes/act04-bg02.webp",
+      "before": 224182,
+      "after": 235676,
+      "width": 1600,
+      "height": 899
+    },
+    {
+      "file": "public/assets/opening/river-ink.webp",
+      "before": 178608,
+      "after": 174990,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "public/assets/opening/newspaper.webp",
+      "before": 319750,
+      "after": 304404,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "public/assets/opening/river-dark.webp",
+      "before": 144556,
+      "after": 141398,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "public/assets/opening/river-color.webp",
+      "before": 285822,
+      "after": 276060,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "public/assets/opening/river-mist.webp",
+      "before": 311192,
+      "after": 303528,
+      "width": 1600,
+      "height": 900
+    }
+  ]
+}
