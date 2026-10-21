@@ -45,7 +45,10 @@ export const sceneFraming: Record<string, string> = {
 export const opening = {
   artwork: openingArtwork,
   video: null as string | null,
-  bgm: null as string | null,
+  bgm: 'assets/audio/c157bb3a3a4f95be8874.mp3' as string | null, // 阿鲲《觉醒年代主题》
+  bgmVolume: 0.55,
+  bgmFadeIn: 2,
+  bgmFadeOut: 2,
   duration: 20000,
   reducedDuration: 6000,
   textStart: 14000,

@@ -34,6 +34,9 @@ player.reset();config.cues=[cue({id:'music',bus:'music',trigger:'line',scope:'ac
 player.setMuted(true);assert.equal(bgm.muted,true);assert.equal(voice.muted,true);player.setMuted(false);player.update(position('','A01-D002'));assert.equal(voice.paused,true);assert.equal(bgm.paused,false,'音乐可跨段');
 player.update({...position('','A02-D001'),actId:'act02'});tick(1.2);assert.equal(bgm.paused,true,'跨幕渐弱停止');
 player.reset();assert.equal(timers.size,0);
+const dialoguePlayer=new ctx.Player();const voicesConfig={...ctx.defaults(),cues:[cue({id:'first-voice',bus:'voice',trigger:'line',fadeOut:2}),cue({id:'next-voice',lineId:'A01-D002',bus:'voice',trigger:'line'})]};
+dialoguePlayer.configure(voicesConfig);dialoguePlayer.update(position(''));const firstVoice=audios.at(-1);dialoguePlayer.update(position('下一段','A01-D002'));const nextVoice=audios.at(-1);
+assert.equal(firstVoice.src,'','新配音开始前立即停止旧配音，避免渐弱叠出两道声音');assert.equal(nextVoice.paused,false);dialoguePlayer.reset();
 // 补充稿 ID 不按数值顺序排列；覆盖范围必须遵循实际剧本顺序。
 const lines=[line,{...line,id:'A01-D020'},{...line,id:'A01-D003'},{...line,id:'A01-D004'},{...line,id:'A02-D001'}];
 const rangeCue=cue({trigger:'line',scope:'range',endLineId:'A01-D003',endTrigger:'leave',loop:true,fadeOut:1});
@@ -48,5 +51,30 @@ ranged.reset();rangeConfig.cues=[{...rangeCue,endTrigger:'keyword',endKeyword:'�
 ranged.reset();rangeConfig.cues=[{...rangeCue,delay:4,fadeOut:0}];ranged.configure(rangeConfig);ranged.update(position(''));const pending=audios.at(-1);ranged.update(position('','A01-D004'));tick(5);assert.equal(pending.src,'','到终点前未开始的延迟声音应取消');
 ranged.reset();rangeConfig.cues=[{...rangeCue,fadeIn:1,trimEnd:10}];ranged.configure(rangeConfig);ranged.update(position(''));const looped=audios.at(-1);tick(1.2);const fullVolume=looped.volume;looped.currentTime=10;tick();assert.equal(looped.currentTime,0);assert.equal(looped.volume,fullVolume,'循环接续不再次渐强');
 ranged.reset();assert.equal(timers.size,0);
+// 从存档、中途选段及小游戏返回时补回 BGM；一次性声音仍只在原触发点播放。
+const restored=new ctx.Player(lines.map(l=>l.id));
+const musicConfig={...rangeConfig,cues:[{...rangeCue,id:'background',bus:'music',fadeOut:0},cue({id:'shot',trigger:'line'})]};
+restored.configure(musicConfig);let baseline=audios.length;
+restored.update(position('中途续读','A01-D020'));const resumedMusic=audios.at(-1);
+assert.equal(audios.length,baseline+1,'中途续读只恢复音乐，不重播起始段音效');assert.equal(resumedMusic.paused,false);
+restored.update(position('继续打字','A01-D020'));restored.configure(musicConfig);restored.update(position('下一段','A01-D003'));
+assert.equal(audios.length,baseline+1,'保存配置和连续阅读不重复恢复音乐');
+restored.update(position('范围之后','A01-D004'));assert.equal(resumedMusic.src,'');
+restored.reset();baseline=audios.length;restored.update(position('范围之后','A01-D004'));assert.equal(audios.length,baseline,'不恢复已经结束的音乐');
+restored.reset();baseline=audios.length;restored.update({...position('新一幕','A02-D001'),actId:'act02'});assert.equal(audios.length,baseline,'不恢复上一幕音乐');
+restored.reset();restored.configure({...musicConfig,cues:[]});restored.update(position('配置尚未到达','A01-D020'));baseline=audios.length;restored.configure(musicConfig);
+assert.equal(audios.length,baseline+1,'配置加载较晚时立即补回当前覆盖范围的音乐');
+restored.reset();baseline=audios.length;restored.update({...position('同段后续字幕'),frame:1});assert.equal(audios.length,baseline+1,'从同段后续字幕框续读也能恢复音乐');
+restored.reset();restored.configure({...musicConfig,cues:[...musicConfig.cues,{...rangeCue,id:'later-music',lineId:'A01-D020',endLineId:'A01-D004',bus:'music',fadeOut:0}]});baseline=audios.length;
+restored.update(position('两个范围重叠','A01-D003'));assert.equal(audios.length,baseline+1);const latestMusic=audios.at(-1);
+restored.update(position('旧范围已经结束','A01-D004'));assert.equal(latestMusic.paused,false,'恢复最后一条已触发配乐，不复活较早的配乐');
+restored.reset();restored.configure({...musicConfig,cues:[{...musicConfig.cues[0],endTrigger:'keyword',endKeyword:'枪声',endOccurrence:1}]});baseline=audios.length;
+restored.update(position('风吹来了。枪声','A01-D003'));assert.equal(audios.length,baseline,'不恢复已经越过终点关键词的音乐');
+restored.reset();restored.configure({...musicConfig,cues:[{...musicConfig.cues[0],trigger:'keyword',keyword:'枪声'}]});baseline=audios.length;
+restored.update(position('风吹来了。枪'));assert.equal(audios.length,baseline,'音乐关键词未到达时不提前恢复');restored.update(position('风吹来了。枪声'));assert.equal(audios.length,baseline+1);
+restored.reset();const oneShotMusic={...musicConfig,cues:[{...musicConfig.cues[0],loop:false}]};restored.configure(oneShotMusic);restored.update(position('中途续读','A01-D020'));const endedMusic=audios.at(-1);endedMusic.listeners.ended();baseline=audios.length;
+restored.configure(oneShotMusic);restored.update(position('继续阅读','A01-D020'));assert.equal(audios.length,baseline,'保存配置不能重播已结束的非循环音乐');
+restored.reset();assert.equal(timers.size,0);
 console.log('通过：关键词到达、去重、暂停恢复、静音、延迟取消、跨段音乐、跨幕渐弱、三轨混音、无效资源与剧本版本校验。');
 console.log('通过：指定段落范围、非递增 ID、跨段不断音不重播、结束关键词、终点渐弱、跳过终点、延迟取消、循环音量保持、范围配置校验。');
+console.log('通过：续读与中途选段恢复 BGM、同段字幕续读、配置延迟加载、恢复去重、最后音乐优先、终点及跨幕边界、关键词时机。');

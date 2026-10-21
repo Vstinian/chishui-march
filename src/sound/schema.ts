@@ -11,7 +11,7 @@ export interface SoundConfig {
   mix: { master: number; voice: number; sfx: number; music: number; ducking: number };
   cues: SoundCue[];
 }
-export interface SoundAsset { path: string; name: string; bytes: number; duration?: number; source?: string }
+export interface SoundAsset { path: string; name: string; bytes: number; duration?: number; source?: string; previousPaths?: string[] }
 export const defaultSoundConfig = (): SoundConfig => ({ version: 1, scriptFingerprint: '', mix: { master: .8, voice: 1, sfx: .7, music: .45, ducking: .35 }, cues: [] });
 export const normalizeSoundText = (text: string): string => text.replace(/\s/gu, '');
 export function soundFingerprint(lines: { id: string; text: string; subtitleLines: string[] }[]): string {
