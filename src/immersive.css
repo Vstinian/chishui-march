@@ -279,7 +279,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid #ca9460; outline-offs
 .dialogue-box:focus-visible { outline: 2px solid #d3a377; outline-offset: 5px; }
 .dialogue-text { animation: none; min-height: 70px; margin: 18px 0 0; }
 .dialogue-pending { visibility: hidden; }
-.dialogue-text { white-space: pre; font-size: clamp(15px, 1.65vw, 21px); letter-spacing: 0; line-height: 1.9; }
+.dialogue-text { white-space: pre-wrap; word-break: normal; line-break: strict; overflow-wrap: break-word; font-size: clamp(15px, 1.65vw, 21px); letter-spacing: 0; line-height: 1.9; }
 .subtitle--inner .dialogue-text { opacity: .85; }
 .story-transition { position: fixed; inset: 0; z-index: 110; isolation: isolate; overflow: hidden; background: #20171a; display: grid; place-items: center; }
 .story-transition-layer { position: absolute; inset: -2%; overflow: hidden; background: linear-gradient(#34262b, #786354); z-index: -3; }

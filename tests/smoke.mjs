@@ -120,9 +120,8 @@ click('menu'); assert.equal(timers.size, 1, '关闭目录恢复打字');
 click('dialogue');
 assert.equal(state.cursors.act01 ?? 0, 0, '第一次点击只补全当前句');
 assert.equal(context.testWriter.typing, false);
-click('dialogue'); assert.equal(state.frames.act01, 1, '第二次点击进入本段下一框');
-assert.equal(state.cursors.act01 ?? 0, 0, '分框未读完不能跳过段落');
-readLine(); assert.equal(state.cursors.act01, 1);
+click('dialogue'); assert.equal(state.frames.act01, 0, '完整段落无需再拆成多框');
+assert.equal(state.cursors.act01, 1, '第二次点击进入下一段对白');
 
 // 全量核对编号、场景、表情配置与左右站位，包含原稿的伤员对白。
 const expectedCounts = [28, 30, 23, 23, 24];
@@ -153,7 +152,6 @@ for (const act of context.testActs) {
     assert.equal(frames.map(frame => frame.text.replaceAll('\n', '')).join(''), line.text, `${line.id} 分框不漏字`);
     for (const frame of frames) {
       assert.ok(frame.text.split('\n').length <= 3);
-      assert.ok(frame.text.split('\n').every(row => Array.from(row).length <= 16));
       assert.equal(frame.delays.length, Array.from(frame.text).length);
     }
     if (line.inner) {
@@ -162,7 +160,7 @@ for (const act of context.testActs) {
     }
   }
 }
-assert.equal(totalFrames, 249);
+assert.equal(totalFrames, 135, '121段完整段落，7段保留第二框音频的原分框');
 for (const transition of Object.values(context.testTransitions)) {
   assert.ok(transition.lines.length <= 3);
   assert.ok(transition.lines.every(row => Array.from(row).length <= 16));
@@ -175,9 +173,9 @@ assert.ok(!allIds.has('A01-D009'), '保留原稿缺号，不凭空补写');
 keyListener({ key: ' ', repeat: false, target: { closest: () => null }, preventDefault() {} });
 assert.equal(state.cursors.act01, 1, '空格先补全当前句');
 keyListener({ key: ' ', repeat: false, target: { closest: () => null }, preventDefault() {} });
-assert.equal(state.frames.act01, 1, '完整显示后空格推进一框');
+assert.equal(state.cursors.act01, 2, '完整显示后空格推进下一段');
 keyListener({ key: 'Enter', repeat: false, target: { closest: () => ({}) }, preventDefault() {} });
-assert.equal(state.cursors.act01, 1, '原生按钮键盘事件不重复推进');
+assert.equal(state.cursors.act01, 2, '原生按钮键盘事件不重复推进');
 state.cursors.act01 = 0; state.frames.act01 = 0; context.render();
 
 const solutions = [
@@ -294,8 +292,10 @@ stored = JSON.stringify({ ...legacy, version: 4, cursors: { ...legacy.cursors, a
 assert.equal(context.testActs[4].dialogue[context.loadGame().cursors.act05].id, 'A05-D006', '第五幕重排后按旧 ID 找回原段落');
 stored = JSON.stringify({ ...legacy, version: 5, bookmarks: { act02: 'A02-D011b', act05: '@notes' }, frames: { act02: 1 } });
 assert.equal(context.testActs[1].dialogue[context.loadGame().cursors.act02].id, 'A02-D011b');
-assert.equal(context.loadGame().frames.act02, 1, '新增段落的第二框可恢复');
+assert.equal(context.loadGame().frames.act02, 0, '已合并段落的旧框号回到完整段落，不丢失存档');
 assert.equal(context.loadGame().cursors.act05, context.testActs[4].dialogue.length, '新版幕末书签可恢复');
+stored = JSON.stringify({ ...legacy, version: 5, bookmarks: { act01: 'A01-D008' }, frames: { act01: 1 } });
+assert.equal(context.loadGame().frames.act01, 1, '有第二框音频的段落仍能恢复原框号');
 stored = '{broken'; assert.equal(context.loadGame().introSeen, false);
 stored = JSON.stringify({ introSeen: true, completed: ['act05'], cursors: { act01: 10000 }, games: { act01: { steps: -9 } } });
 const repaired = context.loadGame();
