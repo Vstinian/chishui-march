@@ -4,8 +4,8 @@
   "mix": {
     "master": 1,
     "voice": 1,
-    "sfx": 0.64,
-    "music": 0.52,
+    "sfx": 0.89,
+    "music": 0.95,
     "ducking": 0.67
   },
   "cues": [
