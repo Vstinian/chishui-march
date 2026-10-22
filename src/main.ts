@@ -2,8 +2,9 @@ import './style.css';
 import './immersive.css';
 import './field.css';
 import './portraits.css';
+import './epilogue.css';
 import { acts, sourceCards } from './data/acts';
-import { opening, ending, scenes } from './data/narrative';
+import { opening, scenes } from './data/narrative';
 import { script } from './data/script';
 import { CuePlayer } from './sound/engine';
 import { validateSoundConfig, soundFingerprint } from './sound/schema';
@@ -25,8 +26,9 @@ import { installFieldGestures } from './fieldGestures';
 import { renderActEnd } from './components/ActEndView';
 import { bugleIcon, menuIcon } from './components/Icons';
 import { Typewriter } from './typewriter';
-import { subtitleFrames } from './subtitles';
+import { subtitleFrames, subtitlePresentation, subtitleSourceShown } from './subtitles';
 import { renderRecap } from './components/RecapView';
+import { renderEnding } from './components/EndingView';
 import { storyTransitions } from './data/transitions';
 import { renderStoryTransition } from './components/TransitionView';
 import { renderOpeningNewspaper, renderOpeningLandscape } from './components/OpeningArt';
@@ -127,9 +129,6 @@ function renderHome(): string {
 function renderIntro(): string {
   return `<main id="main-content" class="intro-screen intro-with-art ${introWordsStarted ? 'is-reading' : ''}" lang="zh-Hant" style="--intro-duration: ${opening.duration}ms; --line-fade: ${opening.lineFade}ms; --button-fade: ${opening.buttonFade}ms" tabindex="-1"><div class="intro-paper">${newspaper()}</div>${opening.video ? `<video class="intro-video" autoplay muted playsinline src="${escapeHtml(opening.video)}"></video>` : renderOpeningLandscape()}<div class="intro-darkness"></div><p class="intro-caption intro-caption-first">${escapeHtml(opening.captions[0])}</p><p class="intro-caption intro-caption-second">${escapeHtml(opening.captions[1])}</p><div class="intro-words"><span>一九三五 · 赤水河畔</span><div class="intro-monologue">${renderIntroWords()}</div><button class="primary-button" data-action="intro-continue" ${introReady ? '' : 'hidden disabled'}>點擊繼續 →</button></div><div class="intro-controls">${renderSoundButton()}<button class="icon-button" data-action="skip-intro" ${introWordsStarted ? 'hidden' : ''}>跳過影像 →</button></div></main>`;
 }
-function renderEnding(): string {
-  return `<main id="main-content" class="ending-screen" tabindex="-1"><div class="ending-card paper-panel"><span class="eyebrow">五幕终 · 记忆仍在</span><h1>纸上的线<br>脚下的路</h1>${ending.paragraphs.map(text => `<p>${escapeHtml(text)}</p>`).join('')}<section class="ending-letter" aria-labelledby="letter-title"><h2 id="letter-title">${escapeHtml(ending.letterTitle)}</h2><small>文学虚构 · 非史料原件</small>${ending.letter.map(text => `<p>${escapeHtml(text)}</p>`).join('')}</section><p class="review-note">人物与对白为文学虚构；历史事件与数字待史实组逐项复核。</p><div class="ending-actions"><button class="primary-button" data-action="recap">再看全图</button><button class="secondary-button" data-action="restart">重新开始</button></div></div></main>`;
-}
 function syncDialogue(): void {
   writer.pause();
   const act = currentAct();
@@ -143,14 +142,16 @@ function syncDialogue(): void {
   const box = app!.querySelector<HTMLElement>('.dialogue-box');
   if (!visible || !remaining || !box) return;
   warmImages(portraitPreloads(act, state.cursors[act.id] ?? 0));
-  writer.bind(frame.id, frame.text, (shown, hidden) => {
-    syncPortraits(app!, act, state.cursors[act.id] ?? 0, state.frames[act.id] ?? 0, shown);
+  const presentation = subtitlePresentation(frame);
+  writer.bind(frame.id, presentation.text, (shown, hidden) => {
+    const sourceShown = subtitleSourceShown(frame, presentation.sourceEnds, shown);
+    syncPortraits(app!, act, state.cursors[act.id] ?? 0, state.frames[act.id] ?? 0, sourceShown);
     visible.textContent = shown;
     remaining.textContent = hidden;
     box.dataset.typing = String(hidden.length > 0);
     box.setAttribute('aria-label', hidden ? '显示完整对白' : '下一段对白');
-    if (studioAudioEnabled) soundPlayer.update({ actId: act.id, lineId: line.id, frame: state.frames[act.id] ?? 0, frames: subtitleFrames(line).map(f => f.text), shown });
-  }, reducedMotion(), frame.delays);
+    if (studioAudioEnabled) soundPlayer.update({ actId: act.id, lineId: line.id, frame: state.frames[act.id] ?? 0, frames: subtitleFrames(line).map(f => f.text), shown: sourceShown });
+  }, reducedMotion(), presentation.delays);
   studioMessage({ type: 'position', lineId: line.id, frame: state.frames[act.id] ?? 0 });
   const nextScene = act.dialogue.slice((state.cursors[act.id] ?? 0) + 1).find(next => next.sceneId !== line.sceneId)?.sceneId;
   warmImages([scenes[line.sceneId], nextScene ? scenes[nextScene] : null]);
@@ -324,7 +325,13 @@ app.addEventListener('click', event => {
   }
   if (action === 'recap' && allComplete()) { void music.start(); navigate('recap'); }
   if (action === 'ending' && state.screen === 'recap') navigate('ending');
-  if (action === 'recap-step' && state.screen === 'recap') { const step = Number(control.dataset.step); if (Number.isInteger(step) && step >= 0 && step < recapSteps.length) { state.recapStep = step; render(); } }
+  if (action === 'recap-step' && state.screen === 'recap') {
+    const step = Number(control.dataset.step);
+    if (Number.isInteger(step) && step >= 0 && step < recapSteps.length) {
+      state.recapStep = step; render();
+      app!.querySelector<HTMLButtonElement>(`.recap-step[data-step="${step}"]`)?.focus({ preventScroll: true });
+    }
+  }
   const act = currentAct();
   if (state.screen === 'act' && !menuOpen) {
     if (action === 'dialogue') advanceDialogue();
