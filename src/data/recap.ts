@@ -52,27 +52,25 @@ export const recapSteps: RecapStep[] = [
   }
 ];
 
+// 参考 sidu-red-river-master 的分层山川、箭头与阶段路线呈现；为手机重新排布的示意坐标。
 export const crossingRoutes = [
-  {
-    "number": "一渡",
-    "route": "M 708 72 C 620 71, 528 96, 460 112 S 330 154, 218 160",
-    "markerY": 112
-  },
-  {
-    "number": "二渡",
-    "route": "M 218 160 C 246 188, 358 214, 460 228 S 616 245, 708 266",
-    "markerY": 228
-  },
-  {
-    "number": "三渡",
-    "route": "M 708 266 C 640 295, 548 327, 460 342 S 316 363, 218 376",
-    "markerY": 342
-  },
-  {
-    "number": "四渡",
-    "route": "M 218 376 C 308 405, 377 435, 460 452 S 624 476, 708 480",
-    "markerY": 452
-  }
+  { number: '一渡', label: '西渡 · 入川南', route: 'M 370 190 Q 330 173 295 205 Q 245 227 190 258 Q 120 292 100 375', markerX: 303, markerY: 203, labelX: 250, labelY: 152, step: 0 },
+  { number: '二渡', label: '东返 · 回黔北', route: 'M 100 375 Q 170 352 225 323 Q 288 295 340 292 Q 420 280 490 310', markerX: 340, markerY: 292, labelX: 388, labelY: 249, step: 1 },
+  { number: '三渡', label: '西进 · 调动敌军', route: 'M 395 510 Q 375 465 352 438 Q 310 396 270 360 Q 226 326 190 258', markerX: 352, markerY: 438, labelX: 262, labelY: 490, step: 3 },
+  { number: '四渡', label: '再东渡 · 转向南下', route: 'M 190 258 Q 246 249 295 273 Q 321 288 347 313 Q 402 342 440 401 Q 470 465 475 575', markerX: 347, markerY: 313, labelX: 419, labelY: 359, step: 3 },
+];
+
+export const recapPlaces = [
+  { name: '土城', x: 370, y: 190, dx: 13, dy: -10 },
+  { name: '叙永', x: 145, y: 202, dx: -14, dy: -14 },
+  { name: '古蔺', x: 190, y: 258, dx: -48, dy: -4 },
+  { name: '扎西', x: 100, y: 375, dx: -24, dy: 32 },
+  { name: '太平渡 · 二郎滩', x: 340, y: 292, dx: 55, dy: -75 },
+  { name: '桐梓', x: 490, y: 310, dx: 12, dy: 3 },
+  { name: '娄山关', x: 490, y: 391, dx: 15, dy: -3 },
+  { name: '遵义', x: 510, y: 461, dx: 15, dy: 4 },
+  { name: '茅台', x: 352, y: 438, dx: -56, dy: -8 },
+  { name: '鲁班场', x: 395, y: 510, dx: -68, dy: 28 },
 ];
 
 export const recapSource = {

@@ -1,0 +1,104 @@
+/* 复盘与书信沿用暗红、纸色；独立于剧情音轨和小游戏样式。 */
+@font-face { font-family: 'March Letter'; src: url('/assets/fonts/letter-handwriting.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+.campaign-map { margin: 0; min-width: 0; background: #deccac; color: #513e31; box-shadow: 0 12px 36px #100c1455; }
+.campaign-map-heading { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid #a78b67; }
+.campaign-map-heading > span:first-child { font: 700 21px 'SimSun', serif; letter-spacing: .2em; }
+.campaign-map-heading > span:last-child { font-size: 11px; letter-spacing: .15em; }
+.campaign-map .recap-map-frame { border: 0; box-shadow: none; overflow: hidden; }
+.campaign-map .recap-map { min-width: 0; width: 100%; height: auto; }
+.campaign-contours { fill: none; stroke: #887254; stroke-width: 1.4; opacity: .18; }
+.campaign-ridges { fill: #9e89661c; stroke: #8f7d5d; stroke-width: 1.4; opacity: .38; }
+.campaign-regions { font: 27px 'SimSun', serif; fill: #8d785a; letter-spacing: .25em; opacity: .7; }
+.campaign-rivers { fill: none; stroke: #7b9694; stroke-width: 13; stroke-linecap: round; opacity: .7; }
+.campaign-rivers .campaign-wujiang { stroke-width: 8; }
+.campaign-water-labels { font: 21px 'SimSun', serif; fill: #506e6d; letter-spacing: .2em; }
+.campaign-map .recap-map-route, .campaign-battle-route { fill: none; stroke: #7e5949; stroke-width: 4; stroke-dasharray: .012 .02; stroke-linecap: round; opacity: .28; }
+.campaign-map .recap-map-route.is-past, .campaign-battle-route.is-past { stroke-dasharray: none; opacity: .52; }
+.campaign-map .recap-map-route.is-active, .campaign-battle-route.is-active { stroke: #852d32; stroke-width: 5; opacity: 1; stroke-dasharray: 1; animation: campaign-draw 1.3s ease-out both; }
+.campaign-towns circle { fill: #5d4938; stroke: #f3e5cb; stroke-width: 2; }
+.campaign-towns text { font: 21px 'SimSun', serif; fill: #45382e; paint-order: stroke; stroke: #e9d8b9; stroke-width: 5px; stroke-linejoin: round; }
+.campaign-crossing path { fill: none; stroke: #8a6c50; stroke-width: 1; }
+.campaign-crossing circle { fill: #dbc8a7; stroke: #805c44; stroke-width: 2; }
+.campaign-crossing rect { fill: #e4d2b3; stroke: #927354; stroke-width: 1.4; }
+.campaign-crossing text { fill: #644733; font: 700 20px 'SimSun', serif; }
+.campaign-crossing.is-active rect, .campaign-crossing.is-active circle { fill: #852d32; stroke: #f4e6cc; stroke-width: 2; }
+.campaign-crossing.is-active text { fill: #f4e6cc; }
+.campaign-battle circle { fill: none; stroke: #852d32; stroke-width: 2; stroke-dasharray: 3 3; }
+.campaign-compass { fill: #6c513b; stroke: #6c513b; stroke-width: 1; }
+.campaign-compass text { stroke: none; font: 18px 'SimSun', serif; }
+.campaign-scale-note { fill: #786348; font: 14px 'SimSun', serif; }
+.campaign-legend { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 22px; padding: 14px 8px; border-top: 1px solid #a78b6755; font-size: 11px; }
+.campaign-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.campaign-legend i { display: inline-block; width: 20px; border-top: 2px solid #852d32; }
+.campaign-legend .past { border-color: #93705b; }
+.campaign-legend .future { border-color: #a9957a; border-top-style: dashed; }
+.campaign-crossing-controls { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #a78b67; }
+.campaign-crossing-controls button { color: #584133; background: transparent; border: 0; border-right: 1px solid #a78b6766; padding: 14px 4px; min-height: 64px; }
+.campaign-crossing-controls button:last-child { border-right: 0; }
+.campaign-crossing-controls button[aria-pressed='true'] { color: #f3e3c7; background: #7b3032; }
+.campaign-crossing-controls b { display: block; font: 700 18px 'SimSun', serif; margin-bottom: 7px; }
+.campaign-crossing-controls span { font-size: 10px; }
+.campaign-crossing-controls button:hover { box-shadow: inset 0 0 0 2px #a97b56; }
+.campaign-crossing-controls button:focus-visible { outline: 3px solid #cf9d59; outline-offset: -3px; }
+.recap-actions { flex-wrap: wrap; }
+@keyframes campaign-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+
+.ending-card { width: min(850px, 100%); }
+.ending-correspondence { margin-top: 40px; padding-top: 25px; border-top: 1px solid #a58161; }
+.letter-section-heading { margin-bottom: 32px; }
+.letter-section-heading h2 { font: 400 clamp(18px, 2vw, 23px)/1.7 'SimSun', serif; margin: 12px 0 8px; }
+.letter-section-heading .tiny-label, .letter-section-heading small { color: #89664e; }
+.letter-envelope { perspective: 1400px; }
+.letter-envelope summary { display: block; position: relative; isolation: isolate; height: clamp(190px, 27vw, 270px); cursor: pointer; list-style: none; color: #66452f; -webkit-tap-highlight-color: transparent; }
+.letter-envelope summary::-webkit-details-marker { display: none; }
+.letter-envelope summary:focus-visible { outline: 3px solid #8a3035; outline-offset: 8px; }
+.envelope-back { position: absolute; inset: 0; z-index: -3; background: #bba078; border: 1px solid #9b7c54; box-shadow: 0 10px 25px #53352430; }
+.envelope-fold { position: absolute; inset: 0; z-index: -1; background: linear-gradient(32deg, #cdb28b 49.5%, transparent 50%) left / 50.2% 100% no-repeat, linear-gradient(-32deg, #d5bd97 49.5%, transparent 50%) right / 50.2% 100% no-repeat, linear-gradient(156deg, #e2cba6, #cbb18a); clip-path: polygon(0 0, 50% 57%, 100% 0, 100% 100%, 0 100%); border: 1px solid #a1855f; }
+.envelope-flap { position: absolute; inset: 0 0 42%; z-index: 0; background: linear-gradient(#e1cba6, #cbb18a); clip-path: polygon(0 0, 100% 0, 50% 100%); transform-origin: center top; transition: transform .65s ease, filter .65s; backface-visibility: visible; }
+.envelope-address { position: absolute; bottom: 24%; left: 8%; font: 400 clamp(21px, 3vw, 29px) 'March Letter', 'KaiTi', cursive; letter-spacing: .1em; }
+.envelope-address > span { font-size: .65em; margin-left: 8px; }
+.envelope-seal { position: absolute; top: 43%; left: calc(50% - 23px); display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: #833539; border: 3px double #af7470; color: #e2b395; box-shadow: 1px 3px 5px #51312460; font: 22px 'March Letter', 'KaiTi', cursive; transition: opacity .25s, transform .4s; }
+.envelope-prompt { position: absolute; bottom: 14px; right: 18px; font: 12px 'SimSun', serif; letter-spacing: .1em; }
+.when-open { display: none; }
+.letter-envelope[open] .when-open { display: inline; }
+.letter-envelope[open] .when-closed { display: none; }
+.letter-envelope[open] .envelope-flap { transform: rotateX(180deg); filter: brightness(.85); z-index: -2; }
+.letter-envelope[open] .envelope-seal { opacity: 0; transform: translateY(20px); }
+.letter-envelope[open] summary { margin-top: 180px; }
+.letter-envelope[open] .envelope-prompt { top: 18px; bottom: auto; }
+.letter-paper { position: relative; margin: -35px 10px 0; padding: 35px clamp(20px, 4vw, 45px) 32px; color: #44372f; background: repeating-linear-gradient(0deg, transparent 0 3px, #aa8c590c 3px 4px), #f4e7ca; box-shadow: 0 5px 20px #563b2833; border: 1px solid #cbb38a; transform-origin: top; }
+.letter-paper::after { content: ''; pointer-events: none; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 49.6%, #b7a07d24 50%, transparent 50.5%), linear-gradient(0deg, transparent 49.6%, #b7a07d24 50%, transparent 50.5%); }
+.letter-envelope[open] .letter-paper { animation: letter-unfold .8s .15s ease-out both; }
+.letter-paper-rule { border-top: 3px double #a2504760; margin-bottom: 22px; }
+.letter-paper p { position: relative; z-index: 1; margin: 0 0 1em; font: 400 clamp(21px, 2.3vw, 27px)/1.95 'March Letter', 'KaiTi', 'STKaiti', cursive; letter-spacing: .035em; overflow-wrap: break-word; }
+.letter-paragraph { text-indent: 2em; }
+.letter-salutation { text-indent: 0; }
+.letter-signature { margin-top: 30px; text-align: right; }
+.letter-signature p { margin: 0; text-indent: 0; font-size: clamp(19px, 2vw, 24px); }
+@keyframes letter-unfold { from { opacity: 0; transform: translateY(-25px) rotateX(-12deg); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 700px), (max-height: 500px) and (pointer: coarse) {
+  .stage:not(.is-game) { padding-left: 0; padding-right: 0; padding-bottom: env(safe-area-inset-bottom, 0px); }
+  .story-stage { width: 100%; }
+  .story-stage .dialogue-box { border-left: 0; border-right: 0; padding-left: max(20px, env(safe-area-inset-left)); padding-right: max(20px, env(safe-area-inset-right)); }
+}
+@media (max-width: 700px) {
+  .recap-screen { padding-left: 0; padding-right: 0; }
+  .recap-intro, .recap-notes, .recap-bottom, .recap-source { margin-left: 20px; margin-right: 20px; }
+  .recap-layout { gap: 28px; }
+  .recap-actions { grid-template-columns: 1fr 1fr; }
+  .recap-actions > .primary-button { grid-column: 1 / -1; }
+  .campaign-map-heading { padding: 15px 20px; }
+  .campaign-map-heading > span:first-child { font-size: 19px; }
+  .campaign-crossing-controls span { font-size: 9px; }
+  .ending-screen { padding: 28px 0; }
+  .ending-card { border-left: 0; border-right: 0; padding: 32px 20px; box-shadow: none; }
+  .letter-paper { margin-left: -8px; margin-right: -8px; padding: 27px 22px; }
+  .letter-envelope[open] summary { margin-top: 125px; }
+  .letter-paper p { font-size: 22px; line-height: 1.95; }
+  .letter-signature p { font-size: 19px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .campaign-map .recap-map-route, .campaign-battle-route, .letter-envelope[open] .letter-paper { animation: none; }
+  .envelope-flap, .envelope-seal { transition: none; }
+}

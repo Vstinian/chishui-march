@@ -9,7 +9,7 @@
     "build": "tsc --noEmit && vite build && node tools/publish-audio.mjs",
     "preview": "vite preview --host 0.0.0.0",
     "typecheck": "tsc --noEmit",
-    "smoke": "node tests/smoke.mjs && node tests/portraits.mjs && node tests/minigames-saves.mjs && node tests/audio.mjs && node tests/opening-audio.mjs && node tests/audio-library.mjs && node tests/audio-publishing.mjs",
+    "smoke": "node tests/smoke.mjs && node tests/subtitle-presentation.mjs && node tests/portraits.mjs && node tests/minigames-saves.mjs && node tests/audio.mjs && node tests/opening-audio.mjs && node tests/audio-library.mjs && node tests/audio-publishing.mjs",
     "studio": "vite --host 127.0.0.1 --port 5175 --open /audio-studio.html",
     "audio:prepare": "node tools/prepare-audio.mjs",
     "audio:voices": "node tools/prepare-voices.mjs"
